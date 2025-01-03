@@ -1,0 +1,49 @@
+{
+    "name": "utilify",
+    "version": "1.0.0",
+    "description": "",
+    "keywords": [],
+    "author": "Júlio Pattuzzo pattuzzo@protonmail.com",
+    "homepage": "",
+    "license": "MIT",
+    "type": "module",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "files": [
+      "dist"
+    ],
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/pattuzzoj/utilis.git"
+    },
+    "scripts": {
+      "test": "jest --no-cache",
+      "build": "tsc && rollup -c",
+      "prebuild": "npm run test"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.26.0",
+      "@babel/preset-env": "^7.26.0",
+      "@babel/preset-typescript": "^7.26.0",
+      "@eslint/js": "^9.16.0",
+      "@rollup/plugin-babel": "^6.0.4",
+      "@rollup/plugin-node-resolve": "^15.3.0",
+      "@rollup/plugin-terser": "^0.4.4",
+      "@rollup/plugin-typescript": "^12.1.1",
+      "@types/jest": "^29.5.14",
+      "eslint": "^9.16.0",
+      "eslint-config-prettier": "^9.1.0",
+      "globals": "^15.12.0",
+      "jest": "^29.7.0",
+      "jest-environment-jsdom": "^29.7.0",
+      "jsdom": "^25.0.1",
+      "prettier": "3.4.1",
+      "rollup": "^4.27.4",
+      "rollup-plugin-dts": "^6.1.1",
+      "ts-node": "^10.9.2",
+      "tslib": "^2.8.1",
+      "typescript-eslint": "^8.16.0"
+    }
+  }
+  

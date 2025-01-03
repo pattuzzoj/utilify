@@ -1,0 +1,52 @@
+{
+	"name": "@utilify/array",
+	"version": "1.0.3",
+	"description": "A collection of utility functions for array manipulation and transformation. Simplifies common operations like chunking, flattening, shuffling, finding differences, and more.",
+	"keywords": [
+		"array",
+		"after",
+		"before",
+		"chunk",
+		"difference",
+		"first",
+		"flattenArr",
+		"getRandom",
+		"isIterable",
+		"last",
+		"rotate",
+		"sanitizeArr",
+		"shuffle",
+		"swap",
+		"union",
+		"unique",
+		"utilify",
+		"utilities",
+		"utility functions",
+		"helper functions",
+		"JavaScript",
+		"TypeScript"
+	],
+	"author": "Júlio Pattuzzo pattuzzo@protonmail.com",
+	"homepage": "https://utilify-docs.vercel.app/en/docs/array/",
+	"license": "MIT",
+	"type": "module",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pattuzzoj/utilify.git",
+		"directory": "packages/array"
+	},
+	"scripts": {
+		"test": "jest --no-cache",
+		"build": "tsc && rollup -c",
+		"prebuild": "npm run test"
+	}
+}

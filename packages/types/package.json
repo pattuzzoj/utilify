@@ -1,0 +1,61 @@
+{
+	"name": "@utilify/types",
+	"version": "1.0.0",
+	"description": "A utility library for type checks and type manipulation in JavaScript and TypeScript, providing functions to determine types and verify values like null, undefined, boolean, number, and more.",
+	"keywords": [
+		"crypto",
+		"getInstanceType",
+		"getType",
+		"isEqualType",
+		"isUndefined",
+		"isNull",
+		"isBoolean",
+		"isTruthy",
+		"isFalsy",
+		"isNumber",
+		"isBigint",
+		"isString",
+		"isFunction",
+		"isSymbol",
+		"isPrimitive",
+		"isObject",
+		"isPlainObject",
+		"isArray",
+		"isMap",
+		"isSet",
+		"isPromise",
+		"isJSON",
+		"isAsync",
+		"isDate",
+		"isRegExp",
+		"utilify",
+		"utilities",
+		"utility functions",
+		"helper functions",
+		"JavaScript",
+		"TypeScript"
+	],
+	"author": "Júlio Pattuzzo pattuzzo@protonmail.com",
+	"homepage": "https://utilify-docs.vercel.app/en/docs/types/",
+	"license": "MIT",
+	"type": "module",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pattuzzoj/utilify.git",
+		"directory": "packages/types"
+	},
+	"scripts": {
+		"test": "jest --no-cache",
+		"build": "tsc && rollup -c",
+		"prebuild": "npm run test"
+	}
+}

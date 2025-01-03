@@ -1,0 +1,42 @@
+{
+	"name": "@utilify/browser",
+	"version": "1.0.0",
+	"description": "A collection of utility functions for browser manipulation and transformation. Simplifies common operations like chunking, flattening, shuffling, finding differences, and more.",
+	"keywords": [
+		"browser",
+		"utilify",
+		"utilities",
+		"utility functions",
+		"JavaScript",
+		"TypeScript",
+		"productivity",
+		"helper functions",
+		"programming"
+	],
+	"author": "Júlio Pattuzzo pattuzzo@protonmail.com",
+	"homepage": "https://utilify-docs.vercel.app/en/docs/browser/",
+	"license": "MIT",
+	"type": "module",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pattuzzoj/utilify.git",
+		"directory": "packages/browser"
+	},
+	"scripts": {
+		"test": "jest --no-cache",
+		"build": "tsc && rollup -c",
+		"prebuild": "npm run test"
+	},
+	"dependencies": {
+		"@utilify/environment": "^1.0.0"
+	}
+}
