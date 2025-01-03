@@ -1,141 +1,181 @@
-# Array Utility Functions
+# Type Utilities
 
-Array utility functions provide a variety of methods for manipulating and transforming arrays. These functions help simplify common operations, such as splitting, flattening, shuffling, and finding differences between arrays, among others.
+**Type utility functions** provide methods to check, compare, and manipulate data types. They help identify if a value is of a specific type, such as checking if a value is a number, string, function, or a primitive value, as well as other useful checks.
 
-## Install
+## Installation
 
-To install and use the array utility functions, follow these steps:
+To install the type utility functions, use one of the following commands, depending on your package manager:
 
-```bash
-npm install array-utils
+```bash [npm]
+npm install @utilify/types
 ```
 
-Alternatively, you can use yarn:
-
-```bash
-yarn add array-utils
+```bash [yarn]
+yarn add @utilify/types
 ```
 
-After installation, you can import the functions into your project in two ways:
-
-### Namespace Import
-
-You can import the entire module as a namespace, which will bundle all functions under a single object:
-
-```typescript
-import * as ArrayUtils from 'array-utils';
+```bash [pnpm]
+pnpm add @utilify/types
 ```
 
-Then you can access the functions like this:
+Once installed, you can import the functions into your project, using either ESM or CJS.
 
-```typescript
-ArrayUtils.after(array, 2);
-ArrayUtils.shuffle(array);
-ArrayUtils.union(array1, array2);
+## Usage
+
+This library supports both the ESM and CJS module systems.
+
+```typescript [esm]
+import { isString } from '@utilify/types'; 
 ```
 
-### Named Imports
-
-Alternatively, you can import specific functions by name:
-
-```typescript
-import { after, before, chunk, difference, first, flattenArr, getRandom, isIterable, last, rotate, sanitizeArr, shuffle, swap, union, unique } from 'array-utils';
+```javascript [cjs]
+const { isString } = require('@utilify/types');  
 ```
-
-Both methods work, so you can choose the one that best fits your project structure. The **namespace import** is helpful when you want to avoid name conflicts or prefer grouping all utility functions under one object.
 
 ## Overview
 
-Here is an overview of the available functions in the array utility package:
+Here is an overview of the functions available in the **type utilities** category:
 
-### [after](./after.md)
-```typescript
-function after(array: any[], n: number): any[]
-```
-Returns the elements of the array after index `n`.
+### [getInstanceType](./getInstanceType.md)  
+```typescript  
+function getInstanceType(value: object): string | undefined 
+```  
+Returns the instance type of the value.
 
-### [before](./before.md)
-```typescript
-function before(array: any[], n: number): any[]
-```
-Returns the elements of the array before index `n`.
+### [getType](./getType.md)  
+```typescript  
+function getType(value: any): string 
+```  
+Returns the primitive type or the type of the object (such as `"string"`, `"object"`, `"function"`, etc.).
 
-### [chunk](./chunk.md)
-```typescript
-function chunk(array: any[], size: number): any[][]
-```
-Splits the array into smaller chunks of size `size`.
+### [isAsync](./isAsync.md)  
+```typescript  
+function isAsync(callback: Function): boolean
+```  
+Checks if the function is asynchronous.
 
-### [difference](./difference.md)
-```typescript
-function difference(array: any[], values: any[]): any[]
-```
-Returns the elements of the array that are not present in the second array.
+### [isArray](./isArray.md)  
+```typescript  
+function isArray(value: any): boolean
+```  
+Checks if the value is an array.
 
-### [first](./first.md)
-```typescript
-function first(array: any[], n?: number): any[]
-```
-Returns the first `n` elements of the array.
+### [isBigint](./isBigint.md)  
+```typescript  
+function isBigint(value: any): boolean  
+```  
+Checks if the value is a BigInt.
 
-### [flattenArr](./flattenArr.md)
-```typescript
-function flattenArr(array: any[], depth?: number): any[]
-```
-Flattens the array to the specified depth.
+### [isBoolean](./isBoolean.md)  
+```typescript  
+function isBoolean(value: any): boolean  
+```  
+Checks if the value is a boolean.
 
-### [getRandom](./getRandom.md)
-```typescript
-function getRandom(array: any[]): any
-```
-Returns a random element from the array.
+### [isDate](./isDate.md)  
+```typescript  
+function isDate(value: any): boolean  
+```  
+Checks if the value is an instance of `Date`.
 
-### [isIterable](./isIterable.md)
-```typescript
-function isIterable(obj: any): boolean
-```
-Checks if the object is iterable.
+### [isEqualType](./isEqualType.md)  
+```typescript  
+function isEqualType(value1: any, value2: any): boolean  
+```  
+Compares the types of two values and returns if they are the same.
 
-### [last](./last.md)
-```typescript
-function last(array: any[], n?: number): any[]
-```
-Returns the last `n` elements of the array.
+### [isFalsy](./isFalsy.md)  
+```typescript  
+function isFalsy(value: any): boolean  
+```  
+Checks if the value is "falsy" (such as `false`, `0`, `null`, `undefined`, `NaN`, or an empty string).
 
-### [rotate](./rotate.md)
-```typescript
-function rotate(array: any[], n: number): any[]
-```
-Rotates the elements of the array `n` positions.
+### [isFunction](./isFunction.md)  
+```typescript  
+function isFunction(value: any): boolean  
+```  
+Checks if the value is a function.
 
-### [sanitizeArr](./sanitizeArr.md)
-```typescript
-function sanitizeArr(array: any[], values: any[], replaceValue?: any): any[]
-```
-Removes or replaces the specified values in the array.
+### [isMap](./isMap.md)  
+```typescript  
+function isMap(value: any): boolean  
+```  
+Checks if the value is an instance of `Map`.
 
-### [shuffle](./shuffle.md)
-```typescript
-function shuffle(array: any[]): any[]
-```
-Shuffles the elements of the array.
+### [isNull](./isNull.md)  
+```typescript  
+function isNull(value: any): boolean  
+```  
+Checks if the value is `null`.
 
-### [swap](./swap.md)
-```typescript
-function swap(array: any[], index1: number, index2: number): any[]
-```
-Swaps the elements at positions `index1` and `index2`.
+### [isNumber](./isNumber.md)  
+```typescript  
+function isNumber(value: any): boolean  
+```  
+Checks if the value is a number.
 
-### [union](./union.md)
-```typescript
-function union(...arrays: any[][]): any[]
-```
-Returns the union of multiple arrays.
+### [isObject](./isObject.md)  
+```typescript  
+function isObject(value: any): boolean  
+```  
+Checks if the provided value is a plain object or an object created from a non-native class.
 
-### [unique](./unique.md)
-```typescript
-function unique(array: any[]): any[]
-```
-Returns an array with unique elements.
+### [isPlainObject](./isPlainObject.md)  
+```typescript  
+function isPlainObject(value: any): boolean  
+```  
+Checks if the value is a plain object (not an instance of `Map`, `Set`, or other objects).
 
----
+### [isPromise](./isPromise.md)  
+```typescript  
+function isPromise(value: object): boolean  
+```  
+Checks if the value is a `Promise`.
+
+### [isRegExp](./isRegExp.md)  
+```typescript  
+function isRegExp(value: any): boolean  
+```  
+Checks if the value is a regular expression.
+
+### [isSet](./isSet.md)  
+```typescript  
+function isSet(value: any): boolean  
+```  
+Checks if the value is an instance of `Set`.
+
+### [isString](./isString.md)  
+```typescript  
+function isString(value: any): boolean  
+```  
+Checks if the value is a string.
+
+### [isSymbol](./isSymbol.md)  
+```typescript  
+function isSymbol(value: any): boolean  
+```  
+Checks if the value is a `Symbol`.
+
+### [isTruthy](./isTruthy.md)  
+```typescript  
+function isTruthy(value: any): boolean  
+```  
+Checks if the value is "truthy" (any value that is not `false`, `0`, `null`, `undefined`, `NaN`, or an empty string).
+
+### [isUndefined](./isUndefined.md)  
+```typescript  
+function isUndefined(value: any): boolean  
+```  
+Checks if the value is `undefined`.
+
+### [isJSON](./isJSON.md)  
+```typescript  
+function isJSON(value: any): boolean  
+```  
+Checks if the value is a valid JSON object.
+
+### [isPrimitive](./isPrimitive.md)  
+```typescript  
+function isPrimitive(value: any): boolean  
+```  
+Checks if the value is a primitive type (string, number, bigint, boolean, symbol, undefined, null).

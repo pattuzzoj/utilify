@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "A utility library for type checks and type manipulation in JavaScript and TypeScript, providing functions to determine types and verify values like null, undefined, boolean, number, and more.",
 	"keywords": [
-		"crypto",
+		"types",
 		"getInstanceType",
 		"getType",
 		"isEqualType",
