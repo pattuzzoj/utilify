@@ -1,11 +1,10 @@
-# Utilitários Colors
+# Color Utilities
 
-As **funções utilitárias de cores** fornecem uma variedade de métodos para operações de conversão e validação de cores. Estas funções ajudam a simplificar operações comuns como conversão entre diferentes formatos de cores e validação de strings de cores.
+The **color utility functions** provide a variety of methods for color conversion and validation operations. These functions help simplify common tasks, such as converting between different color formats and validating color strings.
 
-## Instalação
+## Installation
 
-Para instalar as funções utilitárias de cores, use um dos seguintes comandos, dependendo do seu gerenciador de pacotes:
-
+To install the color utility functions, use one of the following commands, depending on your package manager:
 
 ```bash [npm]
 npm install @utilify/colors
@@ -19,13 +18,11 @@ yarn add @utilify/colors
 pnpm add @utilify/colors
 ```
 
+After installation, you can import the functions into your project using either ESM or CJS.
 
-Após a instalação, você pode importar as funções no seu projeto, utilizando ESM ou CJS.
+## Usage
 
-## Uso
-
-Esta biblioteca suporta tanto o sistema de módulos ESM quanto CJS. Use o método de importação que corresponda à configuração do seu projeto.
-
+This library supports both the ESM and CJS module systems.
 
 ```typescript [esm]
 import { rgbToHsl, rgbToHex, isRgb } from '@utilify/colors';
@@ -35,60 +32,60 @@ import { rgbToHsl, rgbToHex, isRgb } from '@utilify/colors';
 const { rgbToHsl, rgbToHex, isRgb } = require('@utilify/colors');
 ```
 
-## Visão Geral
+## Overview
 
-Aqui está uma visão geral das funções disponíveis no pacote de utilitários de cores:
+Here is an overview of the functions available in the color utilities package:
 
 ### [rgbToHsl](./rgbToHsl.md)
 ```typescript
 function rgbToHsl(rgb: string): string | null
 ```
-Converte uma string de cor RGB para sua representação HSL.
+Converts an RGB color string to its HSL representation.
 
 ### [rgbToHex](./rgbToHex.md)
 ```typescript
 function rgbToHex(rgb: string): string | null
 ```
-Converte uma string de cor RGB para sua representação hexadecimal.
+Converts an RGB color string to its hexadecimal representation.
 
 ### [isRgb](./isRgb.md)
 ```typescript
 function isRgb(rgb: string): boolean
 ```
-Verifica se uma string fornecida é uma cor RGB ou RGBA válida.
+Checks if a given string is a valid RGB or RGBA color.
 
 ### [isHsl](./isHsl.md)
 ```typescript
 function isHsl(hsl: string): boolean
 ```
-Verifica se uma string fornecida é uma cor HSL ou HSLA válida.
+Checks if a given string is a valid HSL or HSLA color.
 
 ### [isHex](./isHex.md)
 ```typescript
 function isHex(hex: string): boolean
 ```
-Verifica se uma string fornecida é uma cor hexadecimal válida, incluindo o canal alfa.
+Checks if a given string is a valid hexadecimal color, including the alpha channel.
 
 ### [hslToRgb](./hslToRgb.md)
 ```typescript
 function hslToRgb(hsl: string): string | null
 ```
-Converte uma string de cor HSL para sua representação RGB.
+Converts an HSL color string to its RGB representation.
 
 ### [hslToHex](./hslToHex.md)
 ```typescript
 function hslToHex(hsl: string): string | null
 ```
-Converte uma string de cor HSL para sua representação hexadecimal.
+Converts an HSL color string to its hexadecimal representation.
 
 ### [hexToRgb](./hexToRgb.md)
 ```typescript
 function hexToRgb(hex: string): string | null
 ```
-Converte uma string de cor hexadecimal para sua representação RGB.
+Converts a hexadecimal color string to its RGB representation.
 
 ### [hexToHsl](./hexToHsl.md)
 ```typescript
 function hexToHsl(hex: string): string | null
 ```
-Converte uma string de cor hexadecimal para sua representação HSL.
+Converts a hexadecimal color string to its HSL representation.
