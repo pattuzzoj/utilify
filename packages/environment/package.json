@@ -1,0 +1,51 @@
+{
+	"name": "@utilify/environment",
+	"version": "1.0.0",
+	"description": "A utility library for detecting the runtime environment (Node.js, browser, Deno, etc.) and various environment-specific properties.",
+	"keywords": [
+		"environment",
+		"getOS",
+		"isBrowser",
+		"isBun",
+		"isDeno",
+		"isMobile",
+		"isNode",
+		"isServer",
+		"isWebWorker",
+		"isDedicatedWorker",
+		"isServiceWorker",
+		"isSharedWorker",
+		"utilify",
+		"utilities",
+		"utility functions",
+		"helper functions",
+		"JavaScript",
+		"TypeScript"
+	],
+	"author": "Júlio Pattuzzo pattuzzo@protonmail.com",
+	"homepage": "https://utilify-docs.vercel.app/en/docs/environment",
+	"license": "MIT",
+	"type": "module",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pattuzzoj/utilify.git",
+		"directory": "packages/environment"
+	},
+	"scripts": {
+		"test": "jest --no-cache",
+		"build": "tsc && rollup -c",
+		"prebuild": "npm run test"
+	},
+	"dependencies": {
+		"@utilify/types": "^1.0.0"
+	}
+}
