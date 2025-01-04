@@ -1,12 +1,10 @@
-# Utilitários Browser
+# Browser Utilities
 
-As **funções utilitárias do navegador** fornecem uma variedade de métodos para interagir com o ambiente do navegador. Essas funções ajudam a simplificar operações comuns, como verificar o estado da conexão, detectar dispositivos de toque, entre outras.
+The **browser utility functions** provide a variety of methods for interacting with the browser environment. These functions help simplify common operations, such as checking the connection state, detecting touch devices, and more.
 
-## Instalação
+## Installation
 
-Para instalar as funções utilitárias do navegador, use um dos seguintes comandos, dependendo do seu gerenciador de pacotes:
-
-::: code-group
+To install the browser utility functions, use one of the following commands, depending on your package manager:
 
 ```bash [npm]
 npm install @utilify/browser
@@ -20,15 +18,13 @@ yarn add @utilify/browser
 pnpm add @utilify/browser
 ```
 
-:::
 
-Após a instalação, você pode importar as funções no seu projeto, utilizando ESM ou CJS.
+Once installed, you can import the functions into your project, using either ESM or CJS.
 
-## Uso
+## Usage
 
-Esta biblioteca suporta tanto o sistema de módulos ESM quanto CJS. Use o método de importação que corresponda à configuração do seu projeto.
+This library supports both the ESM and CJS module systems.
 
-::: code-group
 
 ```typescript [esm]
 import { getLanguage, getTheme, isOnline } from '@utilify/browser';
@@ -38,56 +34,54 @@ import { getLanguage, getTheme, isOnline } from '@utilify/browser';
 const { getLanguage, getTheme, isOnline } = require('@utilify/browser');
 ```
 
-:::
+## Overview
 
-## Visão Geral
+Here’s an overview of the functions available in the **browser** utility package:
 
-Aqui está uma visão geral das funções disponíveis no pacote de utilitários do navegador:
+### [getLanguage](./getLanguage.md)  
+```typescript  
+function getLanguage(): string | undefined  
+```  
+Returns the browser’s language code.
 
-### [getLanguage](./getLanguage.md)
-```typescript
-function getLanguage(): string | undefined
-```
-Retorna o código de idioma do navegador.
+### [getTheme](./getTheme.md)  
+```typescript  
+function getTheme(): string | undefined  
+```  
+Returns the current theme preference of the user.
 
-### [getTheme](./getTheme.md)
-```typescript
-function getTheme(): string | undefined
-```
-Retorna a preferência de tema atual do usuário.
+### [isCookieEnabled](./isCookieEnabled.md)  
+```typescript  
+function isCookieEnabled(): boolean | undefined  
+```  
+Checks if cookies are enabled in the browser.
 
-### [isCookieEnabled](./isCookieEnabled.md)
-```typescript
-function isCookieEnabled(): boolean | undefined
-```
-Verifica se os cookies estão habilitados no navegador.
+### [isCryptoAvailable](./isCryptoAvailable.md)  
+```typescript  
+function isCryptoAvailable(): boolean | undefined  
+```  
+Checks if the Web Crypto API is available.
 
-### [isCryptoAvailable](./isCryptoAvailable.md)
-```typescript
-function isCryptoAvailable(): boolean | undefined
-```
-Verifica se a API Web Crypto está disponível.
+### [isFullscreenEnabled](./isFullscreenEnabled.md)  
+```typescript  
+function isFullscreenEnabled(): boolean | undefined  
+```  
+Checks if fullscreen mode is enabled.
 
-### [isFullscreenEnabled](./isFullscreenEnabled.md)
-```typescript
-function isFullscreenEnabled(): boolean | undefined
-```
-Verifica se o modo de tela cheia está habilitado.
+### [isOnline](./isOnline.md)  
+```typescript  
+function isOnline(): boolean | undefined  
+```  
+Checks if the browser is online.
 
-### [isOnline](./isOnline.md)
-```typescript
-function isOnline(): boolean | undefined
-```
-Verifica se o navegador está online.
+### [isTouchDevice](./isTouchDevice.md)  
+```typescript  
+function isTouchDevice(): boolean | undefined  
+```  
+Checks if the device supports touch events.
 
-### [isTouchDevice](./isTouchDevice.md)
-```typescript
-function isTouchDevice(): boolean | undefined
-```
-Verifica se o dispositivo suporta eventos de toque.
-
-### [toggleFullscreen](./toggleFullscreen.md)
-```typescript
-function toggleFullscreen(elem: HTMLElement): void
-```
-Alterna o modo de tela cheia para um elemento dado.
+### [toggleFullscreen](./toggleFullscreen.md)  
+```typescript  
+function toggleFullscreen(elem: HTMLElement): void  
+```  
+Toggles fullscreen mode for the given element.

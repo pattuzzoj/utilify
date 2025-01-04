@@ -1,9 +1,17 @@
 {
 	"name": "@utilify/browser",
 	"version": "1.0.0",
-	"description": "A collection of utility functions for browser manipulation and transformation. Simplifies common operations like chunking, flattening, shuffling, finding differences, and more.",
+	"description": "A collection of utility functions for browser environments, including language detection, theme detection, cookie support, and more.",
 	"keywords": [
 		"browser",
+		"getLanguage",
+		"getTheme",
+		"isCookieEnabled",
+		"isCryptoAvailable",
+		"isFullscreenEnabled",
+		"isOnline",
+		"isTouchDevice",
+		"toggleFullscreen",
 		"utilify",
 		"utilities",
 		"utility functions",

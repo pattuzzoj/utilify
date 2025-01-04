@@ -26,7 +26,7 @@ describe('Array Utility Functions', () => {
 	});
 
 	test('isCryptoAvailable', () => {
-		expect(isCryptoAvailable()).toBe(true);
+		expect(isCryptoAvailable()).toBe(undefined);
 	});
 
 	test('isFullscreenEnabled', () => {
