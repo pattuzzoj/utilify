@@ -1,5 +1,5 @@
-import hash from "./hash";
-import randomUUID from "./randomUUID";
+import hash from "../../browser/src/hash";
+import randomUUID from "../../browser/src/randomUUID";
 
 export {
   hash,

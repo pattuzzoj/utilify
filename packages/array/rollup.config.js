@@ -11,10 +11,12 @@ export default [
       {
         file: 'dist/index.js',
         format: 'es',
+        compact: false
       },
       {
         file: 'dist/index.cjs',
         format: 'cjs',
+        compact: false
       },
     ],
     plugins: [

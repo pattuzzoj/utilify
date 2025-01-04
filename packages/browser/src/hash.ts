@@ -1,4 +1,4 @@
-import { isCryptoAvailable } from '@utilify/browser';
+import { isServer } from '@utilify/environment';
 
 type Algorithm = 'SHA-1' | 'SHA-256' | 'SHA-384' | 'SHA-512';
 type HashOutput = 'hex' | 'base64' | 'buffer';
@@ -7,11 +7,8 @@ export default async function hash(
 	data: string | ArrayBuffer | DataView,
 	algorithm: Algorithm,
 	output: HashOutput = 'buffer'
-): Promise<string | ArrayBuffer | null> {
-	if (!isCryptoAvailable()) {
-		console.error('Crypto API is not Available');
-		return null;
-	}
+): Promise<string | ArrayBuffer | undefined> {
+	if (isServer()) return;
 
 	const buffer: Uint8Array | ArrayBuffer | DataView = typeof data === 'string' ? new TextEncoder().encode(data) : data;
 	const hashBuffer = await crypto.subtle.digest(algorithm, buffer);

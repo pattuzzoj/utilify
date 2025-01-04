@@ -1,6 +1,6 @@
 {
 	"name": "@utilify/colors",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "A collection of utility functions for working with colors, including conversions between RGB, HEX, and HSL formats, as well as checks for color validity and type.",
 	"keywords": [
 		"colors",
@@ -21,7 +21,7 @@
 		"TypeScript"
 	],
 	"author": "Júlio Pattuzzo pattuzzo@protonmail.com",
-	"homepage": "https://utilify-docs.vercel.app/en/docs/colors/",
+	"homepage": "https://utilify-docs.vercel.app/docs/colors/",
 	"license": "MIT",
 	"type": "module",
 	"main": "dist/index.cjs",

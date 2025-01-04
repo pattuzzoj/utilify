@@ -1,6 +1,6 @@
 {
 	"name": "@utilify/array",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "A collection of utility functions for array manipulation and transformation. Simplifies common operations like chunking, flattening, shuffling, finding differences, and more.",
 	"keywords": [
 		"array",
@@ -27,7 +27,7 @@
 		"TypeScript"
 	],
 	"author": "Júlio Pattuzzo pattuzzo@protonmail.com",
-	"homepage": "https://utilify-docs.vercel.app/en/docs/array/",
+	"homepage": "https://utilify-docs.vercel.app/docs/array/",
 	"license": "MIT",
 	"type": "module",
 	"main": "dist/index.cjs",

@@ -1,16 +1,17 @@
 {
 	"name": "@utilify/browser",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "A collection of utility functions for browser environments, including language detection, theme detection, cookie support, and more.",
 	"keywords": [
 		"browser",
 		"getLanguage",
 		"getTheme",
+		"hash",
 		"isCookieEnabled",
-		"isCryptoAvailable",
 		"isFullscreenEnabled",
 		"isOnline",
 		"isTouchDevice",
+		"randomUUID",
 		"toggleFullscreen",
 		"utilify",
 		"utilities",
@@ -22,7 +23,7 @@
 		"programming"
 	],
 	"author": "Júlio Pattuzzo pattuzzo@protonmail.com",
-	"homepage": "https://utilify-docs.vercel.app/en/docs/browser/",
+	"homepage": "https://utilify-docs.vercel.app/docs/browser/",
 	"license": "MIT",
 	"type": "module",
 	"main": "dist/index.cjs",
@@ -46,5 +47,8 @@
 	},
 	"dependencies": {
 		"@utilify/environment": "^1.0.0"
+	},
+	"devDependencies": {
+		"jest-environment-jsdom": "^29.7.0"
 	}
 }

@@ -1,6 +1,6 @@
 {
 	"name": "@utilify/environment",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A utility library for detecting the runtime environment (Node.js, browser, Deno, etc.) and various environment-specific properties.",
 	"keywords": [
 		"environment",
@@ -23,7 +23,7 @@
 		"TypeScript"
 	],
 	"author": "Júlio Pattuzzo pattuzzo@protonmail.com",
-	"homepage": "https://utilify-docs.vercel.app/en/docs/environment",
+	"homepage": "https://utilify-docs.vercel.app/docs/environment",
 	"license": "MIT",
 	"type": "module",
 	"main": "dist/index.cjs",
