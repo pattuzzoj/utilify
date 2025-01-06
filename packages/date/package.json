@@ -1,11 +1,22 @@
 {
-	"name": "@utilify/colors",
+	"name": "@utilify/date",
 	"version": "1.0.0",
-	"description": "A collection of utility functions for colors manipulation and transformation. Simplifies common operations like chunking, flattening, shuffling, finding differences, and more.",
+	"description": "A utility library for date manipulation and formatting.",
 	"keywords": [
-		"crypto",
-		"hash",
-		"randomUUID",
+		"date",
+		"adjustDate",
+		"adjustTimezone",
+		"convertTime",
+		"convertDate",
+		"formatDate",
+		"formatDuration",
+		"formatTime",
+		"isLeapYear",
+		"isValidDate",
+		"isValidDateString",
+		"isWeekday",
+		"isWeekend",
+		"parseDate",
 		"utilify",
 		"utilities",
 		"utility functions",
@@ -14,7 +25,7 @@
 		"TypeScript"
 	],
 	"author": "Júlio Pattuzzo pattuzzo@protonmail.com",
-	"homepage": "https://utilify-docs.vercel.app/en/docs/colors/",
+	"homepage": "https://utilify-docs.vercel.app/docs/date/",
 	"license": "MIT",
 	"type": "module",
 	"main": "dist/index.cjs",
@@ -29,14 +40,11 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/pattuzzoj/utilify.git",
-		"directory": "packages/colors"
+		"directory": "packages/date"
 	},
 	"scripts": {
 		"test": "jest --no-cache",
 		"build": "tsc && rollup -c",
 		"prebuild": "npm run test"
-	},
-	"dependencies": {
-		"@utilify/array": "^1.0.2"
 	}
 }

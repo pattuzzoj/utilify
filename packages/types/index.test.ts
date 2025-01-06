@@ -23,7 +23,7 @@ import {
   isAsync,
   isDate,
   isRegExp
-} from "./src";
+} from "../math/src";
 
 describe("Type Utility Functions", () => {
   beforeAll(() => {

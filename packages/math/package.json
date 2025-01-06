@@ -1,0 +1,51 @@
+{
+	"name": "@utilify/math",
+	"version": "1.0.0",
+	"description": "The Utilify math functions are designed to simplify common and complex mathematical operations, with full type safety and optimized performance.",
+	"keywords": [
+		"math",
+		"average",
+		"clamp",
+		"divisors",
+		"factorial",
+		"fibonacci",
+		"frequency",
+		"isBetween",
+		"isEven",
+		"isOdd",
+		"isPrime",
+		"random",
+		"round",
+		"sum",
+		"sumOfDigits",
+		"utilify",
+		"utilities",
+		"utility functions",
+		"helper functions",
+		"JavaScript",
+		"TypeScript"
+	],
+	"author": "Júlio Pattuzzo pattuzzo@protonmail.com",
+	"homepage": "https://utilify-docs.vercel.app/docs/math/",
+	"license": "MIT",
+	"type": "module",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pattuzzoj/utilify.git",
+		"directory": "packages/math"
+	},
+	"scripts": {
+		"test": "jest --no-cache",
+		"build": "tsc && rollup -c",
+		"prebuild": "npm run test"
+	}
+}

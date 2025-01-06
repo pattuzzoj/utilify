@@ -36,6 +36,6 @@
     "checkJs": true,
     "forceConsistentCasingInFileNames": true,
   },
-  "include": ["src/**/*.ts", "../browser/src/randomUUID.ts", "../browser/src/hash.ts"],
+  "include": ["packages/**/src/**/*.ts"],
   "exclude": ["src/**/tests", "node_modules", "dist"]
 }
