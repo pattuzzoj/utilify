@@ -1,4 +1,4 @@
-import { djb2 } from "@utilify/utils";
+import { djb2 } from "@utilify/crypto";
 
 export default function memo(callback: (...args: any[]) => any, cacheTimeout?: number): (...args: any[]) => any {
   const cache = new Map();

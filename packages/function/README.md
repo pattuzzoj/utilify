@@ -1,123 +1,178 @@
-# **Math Utilities**
+# Function Utilities
 
-The math utility functions provide methods to perform common and complex mathematical operations. These functions can be extremely helpful for number manipulation, such as calculating averages, checking prime numbers, and other mathematical tasks.
+**Function utility functions** provide a variety of methods for managing and enhancing function execution. These utilities help with tasks such as debouncing, throttling, function composition, and managing async behavior, making it easier to handle function flow and optimize performance.
 
-## **Installation**
+## Installation
 
-To install the math utilities package, use one of the following commands, depending on your package manager:
+To install the function utility functions, use one of the following commands, depending on your package manager:
 
 ```bash [npm]
-npm install @utilify/math
+npm install @utilify/function
 ```
 
 ```bash [yarn]
-yarn add @utilify/math
+yarn add @utilify/function
 ```
 
 ```bash [pnpm]
-pnpm add @utilify/math
+pnpm add @utilify/function
 ```
 
-Once installed, you can import the functions into your project, using ESM or CJS.
+Once installed, you can import the functions into your project, using either ESM or CJS.
+
+## Usage
+
+This library supports both the ESM and CJS module systems.
 
 ```typescript [esm]
-import { average, clamp, divisors } from '@utilify/math';
+import { debounce } from '@utilify/function'; 
 ```
 
 ```javascript [cjs]
-const { average, clamp, divisors } = require('@utilify/math');
+const { debounce } = require('@utilify/function');  
 ```
+## Overview
 
-## **Overview**
+### [benchmark](./benchmark.md)
 
-Here is an overview of the available functions in the math utilities package:
-
-### [average](./average.md)
 ```typescript
-function average(values: number[]): number;
+async function benchmark(callback: () => void | Promise<void>, iterations: number = 1): Promise<number>;
 ```
-Returns the arithmetic average of the provided values.
 
-### [clamp](./clamp.md)
-```typescript
-function clamp(value: number, min: number, max: number): number;
-```
-Restricts the provided value to a range between a minimum and maximum value.
+Measures the average execution time (in milliseconds) of a given synchronous or asynchronous function over a specified number of iterations.
 
-### [divisors](./divisors.md)
-```typescript
-function divisors(num: number): number[];
-```
-Returns an array with all divisors of a number.
+### [compose](./compose.md)
 
-### [factorial](./factorial.md)
 ```typescript
-function factorial(value: number): number;
+function compose<T>(...callbacks: ((value: T) => T)[]): (value: T) => T;
 ```
-Calculates the factorial of a number.
 
-### [fibonacci](./fibonacci.md)
-```typescript
-function fibonacci(num: number): number;
-```
-Returns the Fibonacci number at the specified position.
+A utility to compose functions, applying them from right to left to a value.
 
-### [frequency](./frequency.md)
-```typescript
-function frequency<T>(arr: T[]): Record<string, number>;
-```
-Returns an object with the frequency of each value in an array.
+### [debounce](./debounce.md)
 
-### [isBetween](./isBetween.md)
 ```typescript
-function isBetween(value: number, min: number, max: number): boolean;
+function debounce(callback: (...args: any[]) => void, delay: number = 300): (...args: any[]) => void;
 ```
-Checks if a value is within a specific range.
 
-### [isEven](./isEven.md)
-```typescript
-function isEven(value: number): boolean;
-```
-Checks if the provided number is even.
+Delays the execution of a function until a period of inactivity has occurred after the last invocation.
 
-### [isInteger](./isInteger.md)
-```typescript
-function isInteger(value: number): boolean;
-```
-Checks if the provided value is an integer.
+### [defer](./defer.md)
 
-### [isOdd](./isOdd.md)
 ```typescript
-function isOdd(value: number): boolean;
+function defer(callback: () => void): void;
 ```
-Checks if the provided number is odd.
 
-### [isPrime](./isPrime.md)
-```typescript
-function isPrime(num: number): boolean;
-```
-Checks if the provided number is prime.
+Queues the execution of a function to run after the current event loop cycle.
 
-### [random](./random.md)
-```typescript
-function random(min: number = 0, max: number = 10): number;
-```
-Returns a random number between the provided minimum and maximum values.
+### [fallback](./fallback.md)
 
-### [round](./round.md)
 ```typescript
-function round(value: number, precision: number): number;
+function fallback<T>(callback: () => T, fallback: () => T): T;
 ```
-Rounds a number to the specified number of decimal places.
 
-### [sum](./sum.md)
-```typescript
-function sum(values: number[]): number;
-```
-Returns the sum of all values in an array.
+Executes the `callback` function and, in case of an error, executes the `fallback` function.
 
-### [sumOfDigits](./sumOfDigits.md)
+### [guard](./guard.md)
+
 ```typescript
-function sumOfDigits(num: number): number;
+function guard<T, U = T>(validator: (value: T) => boolean, callback: (value: T) => U, fallback: (value: T) => U): (value: T) => U;
 ```
-Returns the sum of the digits of a number.
+
+Executes a callback function if a value passes validation; otherwise, executes a fallback function.
+
+### [identity](./identity.md)
+
+```typescript
+function identity<T>(value: T): T;
+```
+
+Returns the provided value, useful as an identity function.
+
+### [lock](./lock.md)
+
+```typescript
+function lock(callback: (...args: any[]) => Promise<void>): (...args: any[]) => void;
+```
+
+Prevents simultaneous execution of a function, ensuring that one execution completes before allowing another.
+
+### [memo](./memo.md)
+
+```typescript
+function memo(callback: (...args: any[]) => any, cacheTimeout?: number): (...args: any[]) => any;
+```
+
+Caches the results of a function based on its arguments and returns them immediately if the function is called again with the same arguments.
+
+### [noop](./noop.md)
+
+```typescript
+function noop(): void;
+```
+
+A function that does nothing, used as a placeholder.
+
+### [once](./once.md)
+
+```typescript
+function once<T>(callback: (...args: any[]) => T): (...args: any[]) => T;
+```
+
+Ensures that a function is executed only once, regardless of how many times it is called.
+
+### [parallel](./parallel.md)
+
+```typescript
+function parallel(...callbacks: (() => Promise<any>)[]): Promise<any[]>;
+```
+
+Executes multiple asynchronous functions in parallel and waits for all promises to resolve.
+
+### [partialLeft](./partialLeft.md)
+
+```typescript
+function partialLeft<T>(callback: (...args: any[]) => T, ...partial: any[]): (...args: any[]) => T;
+```
+
+Creates a version of the provided function with the initial arguments pre-defined.
+
+### [partialRight](./partialRight.md)
+
+```typescript
+function partialRight<T>(callback: (...args: any[]) => T, ...partial: any[]): (...args: any[]) => T;
+```
+
+Creates a version of the provided function with the final arguments pre-defined.
+
+### [pipe](./pipe.md)
+
+```typescript
+function pipe<T>(...callbacks: ((value: T) => T)[]): (value: T) => T;
+```
+
+A utility to compose functions, applying them from left to right to a value.
+
+### [rate](./rate.md)
+
+```typescript
+function rate(callback: (...args: any[]) => void, limit: number, interval: number): (...args: any[]) => boolean;
+```
+
+Limits the number of times a function can be executed within a time interval.
+
+### [sleep](./sleep.md)
+
+```typescript
+function sleep(timeout: number): Promise<void>;
+```
+
+Pauses the execution of a function for a specified time, useful in asynchronous functions.
+
+### [throttle](./throttle.md)
+
+```typescript
+function throttle(callback: (...args: any[]) => void, wait: number = 300): (...args: any[]) => void;
+```
+
+Limits the frequency at which a function can be invoked, allowing it to run at most once every `wait` milliseconds.

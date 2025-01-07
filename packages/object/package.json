@@ -1,0 +1,59 @@
+{
+	"name": "@utilify/object",
+	"version": "1.0.0",
+	"description": "",
+	"keywords": [
+		"object",
+		"clone",
+		"deepClone",
+		"freeze",
+		"deepFreeze",
+		"merge",
+		"deepMerge",
+		"flattenObj",
+		"unflattenObj",
+		"interpolate",
+		"isEqual",
+		"isDeepEqual",
+		"omit",
+		"pick",
+		"sanitizeObj",
+		"utilify",
+		"utilities",
+		"utility functions",
+		"JavaScript",
+		"TypeScript",
+		"productivity",
+		"helper functions",
+		"programming"
+	],
+	"author": "Júlio Pattuzzo pattuzzo@protonmail.com",
+	"homepage": "https://utilify-docs.vercel.app/docs/object/",
+	"license": "MIT",
+	"type": "module",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pattuzzoj/utilify.git",
+		"directory": "packages/object"
+	},
+	"scripts": {
+		"test": "jest --no-cache",
+		"build": "tsc && rollup -c",
+		"prebuild": "npm run test"
+	},
+	"dependencies": {
+		"@utilify/environment": "^1.0.0"
+	},
+	"devDependencies": {
+		"jest-environment-jsdom": "^29.7.0"
+	}
+}

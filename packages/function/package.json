@@ -1,23 +1,27 @@
 {
-	"name": "@utilify/math",
+	"name": "@utilify/function",
 	"version": "1.0.0",
-	"description": "The Utilify math functions are designed to simplify common and complex mathematical operations, with full type safety and optimized performance.",
+	"description": "These utilities help with tasks such as debouncing, throttling, function composition, and managing async behavior, making it easier to handle function flow and optimize performance.",
 	"keywords": [
-		"math",
-		"average",
-		"clamp",
-		"divisors",
-		"factorial",
-		"fibonacci",
-		"frequency",
-		"isBetween",
-		"isEven",
-		"isOdd",
-		"isPrime",
-		"random",
-		"round",
-		"sum",
-		"sumOfDigits",
+		"function",
+		"benchmark",
+  		"compose",
+		"debounce",
+		"defer",
+		"fallback",
+		"guard",
+		"identity",
+		"lock",
+		"memo",
+		"noop",
+		"once",
+		"parallel",
+		"partialLeft",
+		"partialRight",
+		"pipe",
+		"rate",
+		"sleep",
+		"throttle",
 		"utilify",
 		"utilities",
 		"utility functions",
@@ -26,7 +30,7 @@
 		"TypeScript"
 	],
 	"author": "Júlio Pattuzzo pattuzzo@protonmail.com",
-	"homepage": "https://utilify-docs.vercel.app/docs/math/",
+	"homepage": "https://utilify-docs.vercel.app/docs/function/",
 	"license": "MIT",
 	"type": "module",
 	"main": "dist/index.cjs",
@@ -41,11 +45,15 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/pattuzzoj/utilify.git",
-		"directory": "packages/math"
+		"directory": "packages/function"
 	},
 	"scripts": {
 		"test": "jest --no-cache",
 		"build": "tsc && rollup -c",
 		"prebuild": "npm run test"
+	},
+	"dependencies": {
+		"@utilify/crypto": "^1.0.0",
+		"@utilify/math": "^1.0.0"
 	}
 }
