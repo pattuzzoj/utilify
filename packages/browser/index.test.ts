@@ -9,9 +9,7 @@ import {
 	isFullscreenEnabled,
 	isOnline,
 	isTouchDevice,
-	toggleFullscreen,
-	hash,
-	randomUUID
+	toggleFullscreen
 } from './src';
 import { JSDOM } from 'jsdom';
 
@@ -28,33 +26,51 @@ afterAll(() => {
 	jest.clearAllMocks();
 });
 
-describe('Array Utility Functions', () => {
+describe('Browser Utility Functions', () => {
 	beforeEach(() => {
-		require('@utilify/environment').isServer.mockReturnValue(true);
+		require('@utilify/environment').isServer.mockReturnValue(false);
 	});
 
 	test('isCookieEnabled', () => {
-		expect(isCookieEnabled()).toBeUndefined();
+		// @ts-ignore
+		global.navigator = {
+			cookieEnabled: true
+		};
+		expect(isCookieEnabled()).toBeTruthy();
 	});
 
 	test('isFullscreenEnabled', () => {
-		expect(isFullscreenEnabled()).toBeUndefined();
+		// @ts-ignore
+		global.document = {
+			fullscreenEnabled: true
+		}
+		expect(isFullscreenEnabled()).toBeTruthy();
 	});
 
 	test('isOnline', () => {
-		expect(isOnline()).toBeUndefined();
+		// @ts-ignore
+		global.navigator = {
+			onLine: true
+		};
+		expect(isOnline()).toBeTruthy();
 	});
 
 	test('isTouchDevice', () => {
-		expect(isTouchDevice()).toBeUndefined();
+		expect(isTouchDevice()).toBeFalsy();
 	});
 
 	test('getLanguage', () => {
-		expect(getLanguage()).toBeUndefined();
+		// @ts-ignore
+		global.navigator = {
+			language: "en-US"
+		};
+		expect(getLanguage()).toBe("en");
 	});
 
 	test('getTheme', () => {
-		expect(getTheme()).toBeUndefined();
+		// @ts-ignore
+		global.window.matchMedia = jest.fn(() => true);
+		expect(getTheme()).toBe("light");
 	});
 
 	test('toggleFullscreen', () => {
@@ -62,68 +78,17 @@ describe('Array Utility Functions', () => {
 			value: null,
 		});
 
+		Object.defineProperty(document, 'createElement', {
+			value: () => {
+				return {
+					exitFullscreen: () => true,
+					requestFullscreen: () => true
+				}
+			},
+		});
+
 		const elem = document.createElement('div');
-		document.body.appendChild(elem);
 		toggleFullscreen(elem);
 		expect(document.fullscreenElement).toBe(null);
-	});
-
-	describe('hash function', () => {
-		beforeEach(() => {
-			require('@utilify/environment').isServer.mockReturnValue(false);
-		});
-
-		const data = 'Hello, world!';
-		const arrayBuffer = new TextEncoder().encode(data);
-
-		test('should hash data using SHA-256 and return hex output', async () => {
-			const result = await hash(data, 'SHA-256', 'hex');
-			expect(result).toMatch(/^[a-f0-9]{64}$/);
-		});
-
-		test('should hash data using SHA-256 and return base64 output', async () => {
-			const result = await hash(data, 'SHA-256', 'base64');
-			expect(result).toMatch(/^[A-Za-z0-9+/]+={0,2}$/);
-		});
-
-		test('should hash data using SHA-256 and return buffer output', async () => {
-			const result = await hash(data, 'SHA-256', 'buffer');
-			expect(result).toBeInstanceOf(ArrayBuffer);
-		});
-
-		test('should hash ArrayBuffer data using SHA-256 and return hex output', async () => {
-			const result = await hash(arrayBuffer, 'SHA-256', 'hex');
-			expect(result).toMatch(/^[a-f0-9]{64}$/);
-		});
-
-		test('should hash ArrayBuffer data using SHA-256 and return base64 output', async () => {
-			const result = await hash(arrayBuffer, 'SHA-256', 'base64');
-			expect(result).toMatch(/^[A-Za-z0-9+/]+={0,2}$/);
-		});
-
-		test('should hash ArrayBuffer data using SHA-256 and return buffer output', async () => {
-			const result = await hash(arrayBuffer, 'SHA-256', 'buffer');
-			expect(result).toBeInstanceOf(ArrayBuffer);
-		});
-	});
-
-	describe('randomUUID function', () => {
-		beforeEach(() => {
-			require('@utilify/environment').isServer.mockReturnValue(false);
-		});
-
-		test('should return undefined if Crypto API is not available', () => {
-			const result = randomUUID();
-			expect(result).toMatch(
-				/^[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}$/
-			);
-		});
-
-		test('should generate a valid UUID', () => {
-			const uuid = randomUUID();
-			expect(uuid).toMatch(
-				/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
-			);
-		});
 	});
 });

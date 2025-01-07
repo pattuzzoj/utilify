@@ -1,16 +1,12 @@
 {
-	"name": "@utilify/browser",
-	"version": "3.0.0",
-	"description": "A collection of utility functions for browser environments, including language detection, theme detection, cookie support, and more.",
+	"name": "@utilify/crypto",
+	"version": "1.0.0",
+	"description": "These functions are useful for ensuring data security and integrity in web and back-end applications.",
 	"keywords": [
-		"browser",
-		"getLanguage",
-		"getTheme",
-		"isCookieEnabled",
-		"isFullscreenEnabled",
-		"isOnline",
-		"isTouchDevice",
-		"toggleFullscreen",
+		"crypto",
+		"djb2",
+		"hash",
+		"randomUUID",
 		"utilify",
 		"utilities",
 		"utility functions",
@@ -21,7 +17,7 @@
 		"programming"
 	],
 	"author": "Júlio Pattuzzo pattuzzo@protonmail.com",
-	"homepage": "https://utilify-docs.vercel.app/docs/browser/",
+	"homepage": "https://utilify-docs.vercel.app/docs/crypto/",
 	"license": "MIT",
 	"type": "module",
 	"main": "dist/index.cjs",
@@ -36,7 +32,7 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/pattuzzoj/utilify.git",
-		"directory": "packages/browser"
+		"directory": "packages/crypto"
 	},
 	"scripts": {
 		"test": "jest --no-cache",
