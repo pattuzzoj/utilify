@@ -1,0 +1,47 @@
+{
+	"name": "@utilify/regex",
+	"version": "1.0.0",
+	"description": "The Regex Utilities provide methods for validating common patterns such as email addresses, URLs, UUIDs, and more.",
+	"keywords": [
+		"regex",
+		"isAlpha",
+		"isAlphanumeric",
+		"isBase64",
+		"isCreditCard",
+		"isEmail",
+		"isIPV4",
+		"isIPV6",
+		"isSlug",
+		"isURL",
+		"isUUID",
+		"utilify",
+		"utilities",
+		"utility functions",
+		"helper functions",
+		"JavaScript",
+		"TypeScript"
+	],
+	"author": "Júlio Pattuzzo pattuzzo@protonmail.com",
+	"homepage": "https://utilify-docs.vercel.app/docs/regex/",
+	"license": "MIT",
+	"type": "module",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pattuzzoj/utilify.git",
+		"directory": "packages/regex"
+	},
+	"scripts": {
+		"test": "jest --no-cache",
+		"build": "tsc && rollup -c",
+		"prebuild": "npm run test"
+	}
+}
