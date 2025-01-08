@@ -1,59 +1,154 @@
-# Utilities - Crypto
+# Utilities - Object
 
-The **Crypto** category provides functions that help with generating cryptographic hashes and creating unique identifiers. These functions are useful for ensuring data security and integrity in web and back-end applications.
+The **object utility functions** category includes a variety of practical methods for object manipulation, comparison, and transformation. These functions simplify many common operations in JavaScript/TypeScript development when working with objects and data structures.
 
 ## Installation
 
-To install the **Crypto** package, use one of the following commands:
+To use the functions in this category, install the **`@utilify/object`** package with your preferred package manager:
 
-```bash [npm]
-npm install @utilify/crypto
+### **npm**
+```bash
+npm install @utilify/object
 ```
 
-```bash [yarn]
-yarn add @utilify/crypto
+### **Yarn**
+```bash
+yarn add @utilify/object
 ```
 
-```bash [pnpm]
-pnpm add @utilify/crypto
+### **pnpm**
+```bash
+pnpm add @utilify/object
 ```
 
-Import the functions into your project:
+## Usage
 
-```typescript [esm]
-import { djb2, hash, randomUUID } from '@utilify/crypto';
+You can import specific functions as needed:
+
+### **ESM**
+```typescript
+import { clone, deepClone, deepMerge } from '@utilify/object';
 ```
 
-```javascript [cjs]
-const { djb2, hash, randomUUID } = require('@utilify/crypto');
+### **CommonJS**
+```javascript
+const { clone, deepClone, deepMerge } = require('@utilify/object');
 ```
 
 ## Overview
 
-### [djb2](./djb2.md)
+### [clone](./clone.md)
 
 ```typescript
-function djb2(str: string): string;
+function clone<T extends Record<string, any>>(value: T): T;
+function clone<T extends unknown[]>(value: T): T;
 ```
 
-Calculates the **DJB2 hash** of a string. The DJB2 algorithm is a fast and efficient way to generate a hash from a text input.
+Creates a shallow copy of an object or array by directly copying its properties.
 
-### [hash](./hash.md)
+### [deepClone](./deepClone.md)
 
 ```typescript
-async function hash(
-  data: string | ArrayBuffer | DataView,
-  algorithm: 'SHA-1' | 'SHA-256' | 'SHA-384' | 'SHA-512',
-  output: 'hex' | 'base64' | 'buffer' = 'buffer'
-): Promise<string | ArrayBuffer | undefined>;
+function deepClone<T extends Record<string, any>>(value: T): T;
+function deepClone<T extends unknown[]>(value: T): T;
 ```
 
-Generates a cryptographic hash of the given data using the specified algorithm and output format.
+Creates a deep copy of an object or array, including all nested properties.
 
-### [randomUUID](./randomUUID.md)
+### [deepFreeze](./deepFreeze.md)
 
 ```typescript
-function randomUUID(): string | undefined;
+function deepFreeze(obj: Record<string, any>): Record<string, any>;
 ```
 
-Generates a secure UUID using the browser's Web Crypto API. Returns `undefined` if the API is unavailable.
+Deeply freezes an object, making its properties and nested properties immutable.
+
+### [deepMerge](./deepMerge.md)
+
+```typescript
+function deepMerge(...values: Record<string, any>[]): Record<string, any>;
+```
+
+Performs a deep merge of multiple objects, combining their properties recursively.
+
+### [flattenObj](./flattenObj.md)
+
+```typescript
+function flattenObj(obj: Record<string, any>, separator: string = "."): Record<string, any>;
+```
+
+Flattens a nested object into a single-level object with keys representing property paths.
+
+### [freeze](./freeze.md)
+
+```typescript
+function freeze<T>(obj: T): T;
+```
+
+Freezes an object, making its properties immutable but does not freeze nested properties.
+
+### [interpolate](./interpolate.md)
+
+```typescript
+function interpolate(str: string, values: Record<string, any>): string;
+```
+
+Replaces placeholders in a string with values provided in an object.
+
+### [isDeepEqual](./isDeepEqual.md)
+
+```typescript
+function isDeepEqual(value1: Record<string, any>, value2: Record<string, any>): boolean;
+function isDeepEqual(value1: unknown[], value2: unknown[]): boolean;
+```
+
+Compares two objects or arrays deeply to determine if they are structurally and semantically equal.
+
+### [isEqual](./isEqual.md)
+
+```typescript
+function isEqual(value1: any, value2: any): boolean;
+```
+
+Compares two values or references to determine if they are strictly equal using `Object.is`.
+
+### [merge](./merge.md)
+
+```typescript
+function merge(...values: Record<string, any>[]): Record<string, any>;
+function merge(...values: unknown[][]): unknown[];
+```
+
+Performs a shallow merge of multiple objects or arrays, combining their properties or elements into a new object or array.
+
+### [omit](./omit.md)
+
+```typescript
+function omit<T extends Record<string, any>, K extends keyof T>(obj: T, keys: K[]): Omit<T, K>;
+```
+
+Creates a new object from the given object, excluding the specified keys.
+
+### [pick](./pick.md)
+
+```typescript
+function pick<T extends Record<string, any>, K extends keyof T>(obj: T, keys: K[]): Pick<T, K>;
+```
+
+Creates a new object containing only the selected keys from the original object.
+
+### [sanitizeObj](./sanitizeObj.md)
+
+```typescript
+function sanitizeObj(obj: Record<string, any>, values: any[], replace?: any): Record<string, any>;
+```
+
+Sanitizes an object by replacing specific values with an optional replacement value.
+
+### [unflattenObj](./unflattenObj.md)
+
+```typescript
+function unflattenObj(obj: Record<string, any>, separator: string = "."): Record<string, any>;
+```
+
+Transforms a flattened object back into its original nested structure using a separator to identify hierarchy levels in the keys.

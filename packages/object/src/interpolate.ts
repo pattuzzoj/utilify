@@ -1,10 +1,10 @@
-import { isObject } from "../types";
+import { isPlainObject } from '@utilify/types';
 
 export default function interpolate<T extends Record<string, any>>(obj: T, data: Record<string, any>): T {
   const result: T = {} as T;
 
   for (const key in obj) {
-    if (isObject(obj[key])) {
+    if (isPlainObject(obj[key])) {
       result[key] = interpolate(obj[key], data);
     } else if (typeof obj[key] === "string") {
       result[key] = obj[key].replace(/{{(\w+)}}/g, (_: string, match: string) => 

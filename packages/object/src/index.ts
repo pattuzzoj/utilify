@@ -16,16 +16,16 @@ import sanitizeObj from './sanitizeObj';
 export {
   clone,
   deepClone,
-  freeze,
   deepFreeze,
-  merge,
   deepMerge,
   flattenObj,
-  unflattenObj,
+  freeze,
   interpolate,
-  isEqual,
   isDeepEqual,
+  isEqual,
+  merge,
   omit,
   pick,
-  sanitizeObj
+  sanitizeObj,
+  unflattenObj
 }

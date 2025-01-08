@@ -1,7 +1,5 @@
-import { isEqualType } from "../types";
-
 export default function isDeepEqual(value1: Record<string, any>, value2: Record<string, any>): boolean;
-export default function isDeepEqual(value1: unknown[], value2: unknown[]): boolean;
+export default function isDeepEqual(value1: any[], value2: any[]): boolean;
 export default function isDeepEqual(value1: any, value2: any): boolean {
   const keys1 = Object.keys(value1);
   const keys2 = Object.keys(value2);
@@ -15,7 +13,7 @@ export default function isDeepEqual(value1: any, value2: any): boolean {
       return false;
     }
 
-    if (!isEqualType(value1[key], value2[key])) return false;
+    if (typeof value1[key] !== typeof value2[key]) return false;
 
     if (value1[key] !== null && typeof value1[key] === "object") {
       if(!isDeepEqual(value1[key], value2[key])) {

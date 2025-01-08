@@ -1,23 +1,23 @@
 {
 	"name": "@utilify/object",
 	"version": "1.0.0",
-	"description": "",
+	"description": "These functions simplify many common operations in JavaScript/TypeScript development when working with objects and data structures.",
 	"keywords": [
 		"object",
 		"clone",
 		"deepClone",
-		"freeze",
 		"deepFreeze",
-		"merge",
 		"deepMerge",
 		"flattenObj",
-		"unflattenObj",
+		"freeze",
 		"interpolate",
-		"isEqual",
 		"isDeepEqual",
+		"isEqual",
+		"merge",
 		"omit",
 		"pick",
 		"sanitizeObj",
+		"unflattenObj",
 		"utilify",
 		"utilities",
 		"utility functions",
@@ -51,7 +51,8 @@
 		"prebuild": "npm run test"
 	},
 	"dependencies": {
-		"@utilify/environment": "^1.0.0"
+		"@utilify/environment": "^1.0.0",
+		"@utilify/types": "^1.0.0"
 	},
 	"devDependencies": {
 		"jest-environment-jsdom": "^29.7.0"
