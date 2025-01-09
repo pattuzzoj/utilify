@@ -1,6 +1,6 @@
 import isValidDate from "./isValidDate";
 
-export default function formatTime(date: Date, format: string = "hh:mm:ss"): string | undefined {
+export default function formatTime(date: Date, format: string = "hh:mm"): string | undefined {
   if (!isValidDate(date)) {
     console.error("Invalid date");
     return;

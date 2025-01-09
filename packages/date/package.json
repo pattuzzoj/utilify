@@ -1,13 +1,13 @@
 {
 	"name": "@utilify/date",
 	"version": "1.0.0",
-	"description": "A utility library for date manipulation and formatting.",
+	"description": "The `@utilify/date` package offers essential utilities for working with dates and times in JavaScript and TypeScript. These functions are designed to be intuitive, efficient, and type-safe.",
 	"keywords": [
 		"date",
 		"adjustDate",
 		"adjustTimezone",
-		"convertTime",
-		"convertDate",
+		"convertDateTo",
+		"convertTimeUnit",
 		"formatDate",
 		"formatDuration",
 		"formatTime",

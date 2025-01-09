@@ -1,181 +1,130 @@
-# Type Utilities
+# Date Utilities
 
-**Type utility functions** provide methods to check, compare, and manipulate data types. They help identify if a value is of a specific type, such as checking if a value is a number, string, function, or a primitive value, as well as other useful checks.
+The `@utilify/date` package offers essential utilities for working with dates and times in JavaScript and TypeScript. These functions are designed to be intuitive, efficient, and type-safe.
 
 ## Installation
 
-To install the type utility functions, use one of the following commands, depending on your package manager:
+To install the **Date** package, use one of the following commands:
 
 ```bash [npm]
-npm install @utilify/types
+npm install @utilify/date
 ```
 
 ```bash [yarn]
-yarn add @utilify/types
+yarn add @utilify/date
 ```
 
 ```bash [pnpm]
-pnpm add @utilify/types
+pnpm add @utilify/date
 ```
 
-Once installed, you can import the functions into your project, using either ESM or CJS.
-
-## Usage
-
-This library supports both the ESM and CJS module systems.
+Import the functions into your project:
 
 ```typescript [esm]
-import { isString } from '@utilify/types'; 
+import { formatDate, isLeapYear } from '@utilify/date';
+
+const formatted = formatDate(new Date(), 'YYYY-MM-DD');
+const leapYear = isLeapYear(2024);
+console.log(formatted, leapYear);
 ```
 
 ```javascript [cjs]
-const { isString } = require('@utilify/types');  
+const { formatDate, isLeapYear } = require('@utilify/date');
+
+const formatted = formatDate(new Date(), 'YYYY-MM-DD');
+const leapYear = isLeapYear(2024);
+console.log(formatted, leapYear);
 ```
 
 ## Overview
 
-Here is an overview of the functions available in the **type utilities** category:
+### [adjustDate](./adjustDate.md)
+**Signature**:
+```typescript
+function adjustDate(date: Date, amount: number, unit: TimeUnit): Date
+```
+Adjusts a date by adding or subtracting a time interval.
 
-### [getInstanceType](./getInstanceType.md)  
-```typescript  
-function getInstanceType(value: object): string | undefined 
-```  
-Returns the instance type of the value.
+### [adjustTimezone](./adjustTimezone.md)
+**Signature**:
+```typescript
+function adjustTimezone(date: Date, timezoneOffset: number): Date
+```
+Converts a date to a different timezone.
 
-### [getType](./getType.md)  
-```typescript  
-function getType(value: any): string 
-```  
-Returns the primitive type or the type of the object (such as `"string"`, `"object"`, `"function"`, etc.).
+### [convertTimeUnit](./convertTimeUnit.md)
+**Signature**:
+```typescript
+function convertTimeUnit(time: number, from: TimeUnit, to: TimeUnit): number
+```
+Converts time units, such as milliseconds to minutes.
 
-### [isAsync](./isAsync.md)  
-```typescript  
-function isAsync(callback: Function): boolean
-```  
-Checks if the function is asynchronous.
+### [convertDateTo](./convertDateTo.md)
+**Signature**:
+```typescript
+function convertDateTo(date: Date, format: DateFormat): string | undefined
+```
+Converts a date to another format or representation.
 
-### [isArray](./isArray.md)  
-```typescript  
-function isArray(value: any): boolean
-```  
-Checks if the value is an array.
+### [formatDate](./formatDate.md)
+**Signature**:
+```typescript
+function formatDate(date: Date, format: DateFormat = "DMY", separator: string = "/"): string | undefined
+```
+Formats a date into a user-friendly string.
 
-### [isBigint](./isBigint.md)  
-```typescript  
-function isBigint(value: any): boolean  
-```  
-Checks if the value is a BigInt.
+### [formatDuration](./formatDuration.md)
+**Signature**:
+```typescript
+function formatDuration(ms: number, format: string = "hh:mm:ss", autoHour: boolean = true): string
+```
+Formats a duration of time into a readable string.
 
-### [isBoolean](./isBoolean.md)  
-```typescript  
-function isBoolean(value: any): boolean  
-```  
-Checks if the value is a boolean.
+### [formatTime](./formatTime.md)
+**Signature**:
+```typescript
+function formatTime(date: Date, format: string = "hh:mm:ss"): string | undefined
+```
+Formats the time component of a date.
 
-### [isDate](./isDate.md)  
-```typescript  
-function isDate(value: any): boolean  
-```  
-Checks if the value is an instance of `Date`.
+### [isLeapYear](./isLeapYear.md)
+**Signature**:
+```typescript
+function isLeapYear(year: number): boolean
+```
+Checks if a year is a leap year.
 
-### [isEqualType](./isEqualType.md)  
-```typescript  
-function isEqualType(value1: any, value2: any): boolean  
-```  
-Compares the types of two values and returns if they are the same.
+### [isValidDate](./isValidDate.md)
+**Signature**:
+```typescript
+function isValidDate(date: Date): boolean
+```
+Validates whether an object or string represents a valid date.
 
-### [isFalsy](./isFalsy.md)  
-```typescript  
-function isFalsy(value: any): boolean  
-```  
-Checks if the value is "falsy" (such as `false`, `0`, `null`, `undefined`, `NaN`, or an empty string).
+### [isValidDateString](./isValidDateString.md)
+**Signature**:
+```typescript
+function isValidDateString(date: string): boolean
+```
+Validates whether a string follows a recognized date format.
 
-### [isFunction](./isFunction.md)  
-```typescript  
-function isFunction(value: any): boolean  
-```  
-Checks if the value is a function.
+### [isWeekday](./isWeekday.md)
+**Signature**:
+```typescript
+function isWeekday(date: Date): boolean | undefined
+```
+Checks if a date is a weekday (Monday to Friday).
 
-### [isMap](./isMap.md)  
-```typescript  
-function isMap(value: any): boolean  
-```  
-Checks if the value is an instance of `Map`.
+### [isWeekend](./isWeekend.md)
+**Signature**:
+```typescript
+function isWeekend(date: Date): boolean | undefined
+```
+Checks if a date is a weekend (Saturday or Sunday).
 
-### [isNull](./isNull.md)  
-```typescript  
-function isNull(value: any): boolean  
-```  
-Checks if the value is `null`.
-
-### [isNumber](./isNumber.md)  
-```typescript  
-function isNumber(value: any): boolean  
-```  
-Checks if the value is a number.
-
-### [isObject](./isObject.md)  
-```typescript  
-function isObject(value: any): boolean  
-```  
-Checks if the provided value is a plain object or an object created from a non-native class.
-
-### [isPlainObject](./isPlainObject.md)  
-```typescript  
-function isPlainObject(value: any): boolean  
-```  
-Checks if the value is a plain object (not an instance of `Map`, `Set`, or other objects).
-
-### [isPromise](./isPromise.md)  
-```typescript  
-function isPromise(value: object): boolean  
-```  
-Checks if the value is a `Promise`.
-
-### [isRegExp](./isRegExp.md)  
-```typescript  
-function isRegExp(value: any): boolean  
-```  
-Checks if the value is a regular expression.
-
-### [isSet](./isSet.md)  
-```typescript  
-function isSet(value: any): boolean  
-```  
-Checks if the value is an instance of `Set`.
-
-### [isString](./isString.md)  
-```typescript  
-function isString(value: any): boolean  
-```  
-Checks if the value is a string.
-
-### [isSymbol](./isSymbol.md)  
-```typescript  
-function isSymbol(value: any): boolean  
-```  
-Checks if the value is a `Symbol`.
-
-### [isTruthy](./isTruthy.md)  
-```typescript  
-function isTruthy(value: any): boolean  
-```  
-Checks if the value is "truthy" (any value that is not `false`, `0`, `null`, `undefined`, `NaN`, or an empty string).
-
-### [isUndefined](./isUndefined.md)  
-```typescript  
-function isUndefined(value: any): boolean  
-```  
-Checks if the value is `undefined`.
-
-### [isJSON](./isJSON.md)  
-```typescript  
-function isJSON(value: any): boolean  
-```  
-Checks if the value is a valid JSON object.
-
-### [isPrimitive](./isPrimitive.md)  
-```typescript  
-function isPrimitive(value: any): boolean  
-```  
-Checks if the value is a primitive type (string, number, bigint, boolean, symbol, undefined, null).
+### [parseDate](./parseDate.md)
+**Signature**:
+```typescript
+function parseDate(date: string): Date | undefined
+```
+Converts a string or number to a `Date` object.

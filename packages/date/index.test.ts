@@ -65,7 +65,7 @@ describe('Date Utility Functions', () => {
 		expect(convertTimeUnit(1, 'hours', 'minutes')).toBe(60);
 	});
 
-	test('convertDate', () => {
+	test('convertDateTo', () => {
 		const date = new Date('2023-01-01T00:00:00Z');
 		expect(convertDateTo(date, 'utc')).toBe('Sun, 01 Jan 2023 00:00:00 GMT');
 		expect(convertDateTo(date, 'iso')).toBe('2023-01-01T00:00:00.000Z');
@@ -82,8 +82,9 @@ describe('Date Utility Functions', () => {
 		expect(formatDuration(3661000)).toBe('1:01:01');
 		expect(formatDuration(3661000, "hh:mm:ss.ms")).toBe('1:01:01.000');
 		expect(formatDuration(3661000, "mm:ss")).toBe('01:01');
-		expect(formatDuration(0)).toBe('0:00:00');
-		expect(formatDuration(36000000)).toBe('10:00:00');
+		expect(formatDuration(0, "hh:mm:ss", false)).toBe('0:00:00');
+		expect(formatDuration(3600000, "hh:mm:ss", false)).toBe('1:00:00');
+		expect(formatDuration(3500000, "hh:mm:ss")).toBe('58:20');
 	});
 
 	test('formatTime', () => {
