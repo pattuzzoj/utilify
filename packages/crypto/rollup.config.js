@@ -22,9 +22,7 @@ export default [
       terser(),
       typescript({
         tsconfig: './tsconfig.json',
-        declaration: true,
-        declarationDir: 'dist',
-        noEmit: false,
+        declaration: false,
       }),
       babel({ babelHelpers: 'bundled', extensions: ['.js', '.ts'] }),
     ],

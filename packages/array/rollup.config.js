@@ -10,13 +10,11 @@ export default [
     output: [
       {
         file: 'dist/index.js',
-        format: 'es',
-        compact: false
+        format: 'esm',
       },
       {
         file: 'dist/index.cjs',
         format: 'cjs',
-        compact: false
       },
     ],
     plugins: [
@@ -24,9 +22,7 @@ export default [
       terser(),
       typescript({
         tsconfig: './tsconfig.json',
-        declaration: true,
-        declarationDir: 'dist',
-        noEmit: false,
+        declaration: false,
       }),
       babel({ babelHelpers: 'bundled', extensions: ['.js', '.ts'] }),
     ],

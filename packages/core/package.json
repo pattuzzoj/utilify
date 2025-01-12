@@ -47,16 +47,16 @@
 		"prebuild": "npm install"
 	},
 	"dependencies": {
-		"@utilify/browser": "^3.0.0",
-		"@utilify/colors": "^1.0.1",
-		"@utilify/crypto": "^1.0.0",
-		"@utilify/date": "^1.0.0",
-		"@utilify/environment": "^1.0.0",
-		"@utilify/function": "^1.0.0",
-		"@utilify/math": "^1.0.0",
-		"@utilify/object": "^1.0.0",
-		"@utilify/regex": "^1.0.0",
-		"@utilify/string": "^1.0.0",
-		"@utilify/types": "^1.0.0"
+		"@utilify/browser": "*3.0.0",
+		"@utilify/colors": "*1.0.1",
+		"@utilify/crypto": "*1.0.0",
+		"@utilify/date": "*1.0.0",
+		"@utilify/environment": "*1.0.0",
+		"@utilify/function": "*1.0.0",
+		"@utilify/math": "*1.0.0",
+		"@utilify/object": "*1.0.0",
+		"@utilify/regex": "*1.0.0",
+		"@utilify/string": "*1.0.0",
+		"@utilify/types": "*1.0.0"
 	}
 }

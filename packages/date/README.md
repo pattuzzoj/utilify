@@ -39,91 +39,91 @@ console.log(formatted, leapYear);
 ## Overview
 
 ### [adjustDate](./adjustDate.md)
-**Signature**:
+
 ```typescript
 function adjustDate(date: Date, amount: number, unit: TimeUnit): Date
 ```
 Adjusts a date by adding or subtracting a time interval.
 
 ### [adjustTimezone](./adjustTimezone.md)
-**Signature**:
+
 ```typescript
 function adjustTimezone(date: Date, timezoneOffset: number): Date
 ```
 Converts a date to a different timezone.
 
 ### [convertTimeUnit](./convertTimeUnit.md)
-**Signature**:
+
 ```typescript
 function convertTimeUnit(time: number, from: TimeUnit, to: TimeUnit): number
 ```
 Converts time units, such as milliseconds to minutes.
 
 ### [convertDateTo](./convertDateTo.md)
-**Signature**:
+
 ```typescript
 function convertDateTo(date: Date, format: DateFormat): string | undefined
 ```
 Converts a date to another format or representation.
 
 ### [formatDate](./formatDate.md)
-**Signature**:
+
 ```typescript
 function formatDate(date: Date, format: DateFormat = "DMY", separator: string = "/"): string | undefined
 ```
 Formats a date into a user-friendly string.
 
 ### [formatDuration](./formatDuration.md)
-**Signature**:
+
 ```typescript
 function formatDuration(ms: number, format: string = "hh:mm:ss", autoHour: boolean = true): string
 ```
 Formats a duration of time into a readable string.
 
 ### [formatTime](./formatTime.md)
-**Signature**:
+
 ```typescript
 function formatTime(date: Date, format: string = "hh:mm:ss"): string | undefined
 ```
 Formats the time component of a date.
 
 ### [isLeapYear](./isLeapYear.md)
-**Signature**:
+
 ```typescript
 function isLeapYear(year: number): boolean
 ```
 Checks if a year is a leap year.
 
 ### [isValidDate](./isValidDate.md)
-**Signature**:
+
 ```typescript
 function isValidDate(date: Date): boolean
 ```
 Validates whether an object or string represents a valid date.
 
 ### [isValidDateString](./isValidDateString.md)
-**Signature**:
+
 ```typescript
 function isValidDateString(date: string): boolean
 ```
 Validates whether a string follows a recognized date format.
 
 ### [isWeekday](./isWeekday.md)
-**Signature**:
+
 ```typescript
 function isWeekday(date: Date): boolean | undefined
 ```
 Checks if a date is a weekday (Monday to Friday).
 
 ### [isWeekend](./isWeekend.md)
-**Signature**:
+
 ```typescript
 function isWeekend(date: Date): boolean | undefined
 ```
 Checks if a date is a weekend (Saturday or Sunday).
 
 ### [parseDate](./parseDate.md)
-**Signature**:
+
 ```typescript
 function parseDate(date: string): Date | undefined
 ```

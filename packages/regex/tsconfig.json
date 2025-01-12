@@ -12,7 +12,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
-    "noEmit": false,
+    "noEmit": true,
     "esModuleInterop": true,
     "isolatedModules": true,
     "allowUnreachableCode": false,
