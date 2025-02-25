@@ -20,7 +20,7 @@
       { "text": "difference", "link": "/pt/docs/array/difference" },
       { "text": "first", "link": "/pt/docs/array/first" },
       { "text": "flattenArr", "link": "/pt/docs/array/flattenArr" },
-      { "text": "getRandom", "link": "/pt/docs/array/getRandom" },
+      { "text": "sample", "link": "/pt/docs/array/sample" },
       { "text": "isIterable", "link": "/pt/docs/array/isIterable" },
       { "text": "last", "link": "/pt/docs/array/last" },
       { "text": "rotate", "link": "/pt/docs/array/rotate" },

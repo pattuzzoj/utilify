@@ -13,7 +13,7 @@ import first from "./first";
 import last from './last';
 import union from './union';
 import sanitizeArr from './sanitizeArr';
-import getRandom from './getRandom';
+import sample from './sample';
 
 export {
   after,
@@ -23,7 +23,7 @@ export {
   difference,
   first,
   flattenArr,
-  getRandom,
+  sample,
   isIterable,
   last,
   rotate,

@@ -104,11 +104,11 @@ function flattenArr<T>(arr: T[], depth?: number): FlatArray<T[], number>[];
 
 Achata o array até a profundidade especificada.
 
-### [getRandom](./getRandom)
+### [sample](./sample)
 
 ```typescript
-function getRandom(str: string): string;
-function getRandom<T>(arr: T[]): T;
+function sample(str: string): string;
+function sample<T>(arr: T[]): T;
 ```
 
 Retorna um elemento aleatório do array ou string.

@@ -6,7 +6,7 @@ import {
   difference,
   first,
   flattenArr,
-  getRandom,
+  sample,
   isIterable,
   last,
   rotate,
@@ -53,10 +53,10 @@ describe("Array Utility Functions", () => {
     expect(flattenArr([1, [2, [3, [4]]]])).toEqual([1, 2, 3, 4]);
   });
 
-  test("getRandom", () => {
+  test("sample", () => {
     const arr = [1, 2, 3, 4];
-    expect(arr).toContain(getRandom(arr));
-    expect("abcdef").toContain(getRandom("abcdef"));
+    expect(arr).toContain(sample(arr));
+    expect("abcdef").toContain(sample("abcdef"));
   });
 
   test("isIterable", () => {

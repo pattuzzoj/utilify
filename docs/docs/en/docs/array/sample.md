@@ -1,12 +1,12 @@
-# getRandom
+# sample
 
-The `getRandom` function returns a random element from an array or character from a string.
+The `sample` function returns a random element from an array or character from a string.
 
 ## Syntax
 
 ```typescript
-function getRandom(str: string): string;
-function getRandom<T>(arr: T[]): T;
+function sample(str: string): string;
+function sample<T>(arr: T[]): T;
 ```
 
 ### Parameters
@@ -26,8 +26,8 @@ function getRandom<T>(arr: T[]): T;
 ## Examples
 
 ```typescript
-console.log(getRandom([1, 2, 3, 4, 5])); // Can return any element from the array
-console.log(getRandom("hello"));         // Can return 'h', 'e', 'l', or 'o'
+console.log(sample([1, 2, 3, 4, 5])); // Can return any element from the array
+console.log(sample("hello"));         // Can return 'h', 'e', 'l', or 'o'
 ```
 
 ## Notes
@@ -39,15 +39,15 @@ console.log(getRandom("hello"));         // Can return 'h', 'e', 'l', or 'o'
 
 ::: code-group
 ```typescript
-function getRandom(str: string): string;
-function getRandom<T>(arr: T[]): T;
-function getRandom(arr: any): any {
+function sample(str: string): string;
+function sample<T>(arr: T[]): T;
+function sample(arr: any): any {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 ```
 
 ```javascript
-function getRandom(arr) {
+function sample(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 ```
@@ -56,4 +56,4 @@ function getRandom(arr) {
 ## References
 
 - [Math.random() - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
-- [Math.floor() - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor)
+- [Math.floor() - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) 

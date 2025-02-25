@@ -1,6 +1,6 @@
 {
 	"name": "@utilify/array",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "A collection of utility functions for array manipulation and transformation. Simplifies common operations like chunking, flattening, shuffling, finding differences, and more.",
 	"keywords": [
 		"array",
@@ -11,10 +11,10 @@
 		"difference",
 		"first",
 		"flattenArr",
-		"getRandom",
 		"isIterable",
 		"last",
 		"rotate",
+		"sample",
 		"sanitizeArr",
 		"shuffle",
 		"swap",
