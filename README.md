@@ -1,4 +1,3 @@
-```markdown
 # @utilify
 
 **Your go-to utility library for JavaScript and TypeScript.**
@@ -92,4 +91,3 @@ See [LICENSE](https://github.com/utilify/LICENSE) for details.
 [Documentation](https://utilify-docs.vercel.app/) | 
 [Report Issue](https://github.com/utilify/issues) | 
 [View on npm](https://www.npmjs.com/org/utilify)
-```
