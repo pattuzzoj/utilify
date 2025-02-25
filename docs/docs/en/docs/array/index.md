@@ -104,15 +104,6 @@ function flattenArr<T>(arr: T[], depth?: number): FlatArray<T[], number>[];
 
 Flattens the array up to the specified depth.
 
-### [sample](./sample)
-
-```typescript
-function sample(str: string): string;
-function sample<T>(arr: T[]): T;
-```
-
-Returns a random element from the array or string.
-
 ### [isIterable](./isIterable)
 
 ```typescript
@@ -137,6 +128,15 @@ function rotate<T>(arr: T[], offset: number): T[];
 ```
 
 Rotates the elements of the array `offset` positions.
+
+### [sample](./sample)
+
+```typescript
+function sample(str: string): string;
+function sample<T>(arr: T[]): T;
+```
+
+Returns a random element from the array or string.
 
 ### [sanitizeArr](./sanitizeArr)
 
