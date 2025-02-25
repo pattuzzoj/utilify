@@ -1,0 +1,62 @@
+{
+	"name": "@utilify/core",
+	"version": "1.0.0",
+	"description": "The complete library, bundling all utilities into a single package.",
+	"keywords": [
+		"core",
+		"array",
+		"browser",
+		"colors",
+		"date",
+		"environment",
+		"function",
+		"math",
+		"object",
+		"regex",
+		"string",
+		"types",
+		"utilify",
+		"utilities",
+		"utility functions",
+		"JavaScript",
+		"TypeScript",
+		"productivity",
+		"helper functions",
+		"programming"
+	],
+	"author": "Júlio Pattuzzo pattuzzo@protonmail.com",
+	"homepage": "https://utilify-docs.vercel.app/introduction/",
+	"license": "MIT",
+	"type": "module",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pattuzzoj/utilify.git",
+		"directory": "packages/core"
+	},
+	"scripts": {
+		"build": "tsc && rollup -c",
+		"prebuild": "npm install"
+	},
+	"dependencies": {
+		"@utilify/browser": "*3.0.0",
+		"@utilify/colors": "*1.0.1",
+		"@utilify/crypto": "*1.0.0",
+		"@utilify/date": "*1.0.0",
+		"@utilify/environment": "*1.0.0",
+		"@utilify/function": "*1.0.0",
+		"@utilify/math": "*1.0.0",
+		"@utilify/object": "*1.0.0",
+		"@utilify/regex": "*1.0.0",
+		"@utilify/string": "*1.0.0",
+		"@utilify/types": "*1.0.0"
+	}
+}

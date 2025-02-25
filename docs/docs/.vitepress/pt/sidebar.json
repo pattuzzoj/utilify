@@ -1,0 +1,250 @@
+[
+  {
+    "text": "Introdução",
+    "link": "/pt/introduction",
+    "collapsed": false,
+    "items": [
+      { "text": "Por que Utilify?", "link": "/pt/introduction/why-utilify" },
+      { "text": "Instalação", "link": "/pt/introduction/installation" },
+      { "text": "Visão Geral", "link": "/pt/introduction/overview" }
+    ]
+  },
+  {
+    "text": "Array",
+    "link": "/pt/docs/array",
+    "collapsed": true,
+    "items": [
+      { "text": "after", "link": "/pt/docs/array/after" },
+      { "text": "before", "link": "/pt/docs/array/before" },
+      { "text": "chunk", "link": "/pt/docs/array/chunk" },
+      { "text": "difference", "link": "/pt/docs/array/difference" },
+      { "text": "first", "link": "/pt/docs/array/first" },
+      { "text": "flattenArr", "link": "/pt/docs/array/flattenArr" },
+      { "text": "getRandom", "link": "/pt/docs/array/getRandom" },
+      { "text": "isIterable", "link": "/pt/docs/array/isIterable" },
+      { "text": "last", "link": "/pt/docs/array/last" },
+      { "text": "rotate", "link": "/pt/docs/array/rotate" },
+      { "text": "sanitizeArr", "link": "/pt/docs/array/sanitizeArr" },
+      { "text": "shuffle", "link": "/pt/docs/array/shuffle" },
+      { "text": "swap", "link": "/pt/docs/array/swap" },
+      { "text": "union", "link": "/pt/docs/array/union" },
+      { "text": "unique", "link": "/pt/docs/array/unique" }
+    ]
+  },
+  {
+    "text": "Browser",
+    "link": "/pt/docs/browser",
+    "collapsed": true,
+    "items": [
+      { "text": "getLanguage", "link": "/pt/docs/browser/getLanguage" },
+      { "text": "getTheme", "link": "/pt/docs/browser/getTheme" },
+      { "text": "hash", "link": "/pt/docs/browser/hash" },
+      { "text": "isCookieEnabled", "link": "/pt/docs/browser/isCookieEnabled" },
+      { "text": "isFullscreenEnabled", "link": "/pt/docs/browser/isFullscreenEnabled" },
+      { "text": "isOnline", "link": "/pt/docs/browser/isOnline" },
+      { "text": "isTouchDevice", "link": "/pt/docs/browser/isTouchDevice" },
+      { "text": "randomUUID", "link": "/pt/docs/browser/randomUUID" },
+      { "text": "toggleFullscreen", "link": "/pt/docs/browser/toggleFullscreen" }
+    ]
+  },
+  {
+    "text": "Colors",
+    "link": "/pt/docs/colors",
+    "collapsed": true,
+    "items": [
+      { "text": "hexToHsl", "link": "/pt/docs/colors/hexToHsl" },
+      { "text": "hexToRgb", "link": "/pt/docs/colors/hexToRgb" },
+      { "text": "hslToHex", "link": "/pt/docs/colors/hslToHex" },
+      { "text": "hslToRgb", "link": "/pt/docs/colors/hslToRgb" },
+      { "text": "isHex", "link": "/pt/docs/colors/isHex" },
+      { "text": "isHsl", "link": "/pt/docs/colors/isHsl" },
+      { "text": "isRgb", "link": "/pt/docs/colors/isRgb" },
+      { "text": "rgbToHex", "link": "/pt/docs/colors/rgbToHex" },
+      { "text": "rgbToHsl", "link": "/pt/docs/colors/rgbToHsl" }
+    ]
+  },
+  {
+    "text": "Crypto",
+    "link": "/pt/docs/crypto",
+    "collapsed": true,
+    "items": [
+      { "text": "hash", "link": "/pt/docs/crypto/hash" },
+      { "text": "randomUUID", "link": "/pt/docs/crypto/randomUUID" },
+      { "text": "djb2", "link": "/pt/docs/crypto/djb2" }
+    ]
+  },
+  {
+    "text": "Date",
+    "link": "/pt/docs/date",
+    "collapsed": true,
+    "items": [
+      { "text": "adjustDate", "link": "/pt/docs/date/adjustDate" },
+      { "text": "adjustTimezone", "link": "/pt/docs/date/adjustTimezone" },
+      { "text": "convertTimeUnit", "link": "/pt/docs/date/convertTimeUnit" },
+      { "text": "convertDateTo", "link": "/pt/docs/date/convertDateTo" },
+      { "text": "formatDate", "link": "/pt/docs/date/formatDate" },
+      { "text": "formatDuration", "link": "/pt/docs/date/formatDuration" },
+      { "text": "formatTime", "link": "/pt/docs/date/formatTime" },
+      { "text": "isLeapYear", "link": "/pt/docs/date/isLeapYear" },
+      { "text": "isValidDate", "link": "/pt/docs/date/isValidDate" },
+      { "text": "isValidDateString", "link": "/pt/docs/date/isValidDateString" },
+      { "text": "isWeekday", "link": "/pt/docs/date/isWeekday" },
+      { "text": "isWeekend", "link": "/pt/docs/date/isWeekend" },
+      { "text": "parseDate", "link": "/pt/docs/date/parseDate" }
+    ]
+  },
+  {
+    "text": "Environment",
+    "link": "/pt/docs/environment",
+    "collapsed": true,
+    "items": [
+      { "text": "getOS", "link": "/pt/docs/environment/getOS" },
+      { "text": "isBrowser", "link": "/pt/docs/environment/isBrowser" },
+      { "text": "isBun", "link": "/pt/docs/environment/isBun" },
+      { "text": "isDedicatedWorker", "link": "/pt/docs/environment/isDedicatedWorker" },
+      { "text": "isDeno", "link": "/pt/docs/environment/isDeno" },
+      { "text": "isMobile", "link": "/pt/docs/environment/isMobile" },
+      { "text": "isNode", "link": "/pt/docs/environment/isNode" },
+      { "text": "isServer", "link": "/pt/docs/environment/isServer" },
+      { "text": "isServiceWorker", "link": "/pt/docs/environment/isServiceWorker" },
+      { "text": "isSharedWorker", "link": "/pt/docs/environment/isSharedWorker" },
+      { "text": "isWebWorker", "link": "/pt/docs/environment/isWebWorker" }
+    ]
+  },
+  {
+    "text": "Function",
+    "link": "/pt/docs/function",
+    "collapsed": true,
+    "items": [
+      { "text": "benchmark", "link": "/pt/docs/function/benchmark" },
+      { "text": "compose", "link": "/pt/docs/function/compose" },
+      { "text": "debounce", "link": "/pt/docs/function/debounce" },
+      { "text": "defer", "link": "/pt/docs/function/defer" },
+      { "text": "fallback", "link": "/pt/docs/function/fallback" },
+      { "text": "guard", "link": "/pt/docs/function/guard" },
+      { "text": "identity", "link": "/pt/docs/function/identity" },
+      { "text": "lock", "link": "/pt/docs/function/lock" },
+      { "text": "memo", "link": "/pt/docs/function/memo" },
+      { "text": "noop", "link": "/pt/docs/function/noop" },
+      { "text": "once", "link": "/pt/docs/function/once" },
+      { "text": "parallel", "link": "/pt/docs/function/parallel" },
+      { "text": "partialLeft", "link": "/pt/docs/function/partialLeft" },
+      { "text": "partialRight", "link": "/pt/docs/function/partialRight" },
+      { "text": "pipe", "link": "/pt/docs/function/pipe" },
+      { "text": "rate", "link": "/pt/docs/function/rate" },
+      { "text": "sleep", "link": "/pt/docs/function/sleep" },
+      { "text": "throttle", "link": "/pt/docs/function/throttle" }
+    ]
+  },
+  {
+    "text": "Math",
+    "link": "/pt/docs/math",
+    "collapsed": true,
+    "items": [
+      { "text": "average", "link": "/pt/docs/math/average" },
+      { "text": "clamp", "link": "/pt/docs/math/clamp" },
+      { "text": "divisors", "link": "/pt/docs/math/divisors" },
+      { "text": "factorial", "link": "/pt/docs/math/factorial" },
+      { "text": "fibonacci", "link": "/pt/docs/math/fibonacci" },
+      { "text": "frequency", "link": "/pt/docs/math/frequency" },
+      { "text": "isBetween", "link": "/pt/docs/math/isBetween" },
+      { "text": "isEven", "link": "/pt/docs/math/isEven" },
+      { "text": "isInteger", "link": "/pt/docs/math/isInteger" },
+      { "text": "isOdd", "link": "/pt/docs/math/isOdd" },
+      { "text": "isPrime", "link": "/pt/docs/math/isPrime" },
+      { "text": "random", "link": "/pt/docs/math/random" },
+      { "text": "round", "link": "/pt/docs/math/round" },
+      { "text": "sum", "link": "/pt/docs/math/sum" },
+      { "text": "sumOfDigits", "link": "/pt/docs/math/sumOfDigits" }
+    ]
+  },
+  {
+    "text": "Object",
+    "link": "/pt/docs/object",
+    "collapsed": true,
+    "items": [
+      { "text": "clone", "link": "/pt/docs/object/clone" },
+      { "text": "deepClone", "link": "/pt/docs/object/deepClone" },
+      { "text": "deepFreeze", "link": "/pt/docs/object/deepFreeze" },
+      { "text": "deepMerge", "link": "/pt/docs/object/deepMerge" },
+      { "text": "flattenObj", "link": "/pt/docs/object/flattenObj" },
+      { "text": "freeze", "link": "/pt/docs/object/freeze" },
+      { "text": "interpolate", "link": "/pt/docs/object/interpolate" },
+      { "text": "isDeepEqual", "link": "/pt/docs/object/isDeepEqual" },
+      { "text": "isEqual", "link": "/pt/docs/object/isEqual" },
+      { "text": "merge", "link": "/pt/docs/object/merge" },
+      { "text": "omit", "link": "/pt/docs/object/omit" },
+      { "text": "pick", "link": "/pt/docs/object/pick" },
+      { "text": "sanitizeObj", "link": "/pt/docs/object/sanitizeObj" },
+      { "text": "unflattenObj", "link": "/pt/docs/object/unflattenObj" }
+    ]
+  },
+  {
+    "text": "Regex",
+    "link": "/pt/docs/regex",
+    "collapsed": true,
+    "items": [
+      { "text": "isAlpha", "link": "/pt/docs/regex/isAlpha" },
+      { "text": "isAlphanumeric", "link": "/pt/docs/regex/isAlphanumeric" },
+      { "text": "isBase64", "link": "/pt/docs/regex/isBase64" },
+      { "text": "isCreditCard", "link": "/pt/docs/regex/isCreditCard" },
+      { "text": "isEmail", "link": "/pt/docs/regex/isEmail" },
+      { "text": "isIPV4", "link": "/pt/docs/regex/isIPV4" },
+      { "text": "isIPV6", "link": "/pt/docs/regex/isIPV6" },
+      { "text": "isSlug", "link": "/pt/docs/regex/isSlug" },
+      { "text": "isURL", "link": "/pt/docs/regex/isURL" },
+      { "text": "isUUID", "link": "/pt/docs/regex/isUUID" }
+    ]
+  },
+  {
+    "text": "String",
+    "link": "/pt/docs/string",
+    "collapsed": true,
+    "items": [
+      { "text": "capitalize", "link": "/pt/docs/string/capitalize" },
+      { "text": "invertCase", "link": "/pt/docs/string/invertCase" },
+      { "text": "isLowerCase", "link": "/pt/docs/string/isLowerCase" },
+      { "text": "isUpperCase", "link": "/pt/docs/string/isUpperCase" },
+      { "text": "maskString", "link": "/pt/docs/string/maskString" },
+      { "text": "removeAccents", "link": "/pt/docs/string/removeAccents" },
+      { "text": "slugify", "link": "/pt/docs/string/slugify" },
+      { "text": "toCamelCase", "link": "/pt/docs/string/toCamelCase" },
+      { "text": "toKebabCase", "link": "/pt/docs/string/toKebabCase" },
+      { "text": "toPascalCase", "link": "/pt/docs/string/toPascalCase" },
+      { "text": "toSnakeCase", "link": "/pt/docs/string/toSnakeCase" },
+      { "text": "truncate", "link": "/pt/docs/string/truncate" },
+      { "text": "wordCount", "link": "/pt/docs/string/wordCount" }
+    ]
+  },
+  {
+    "text": "Types",
+    "link": "/pt/docs/types",
+    "collapsed": true,
+    "items": [
+      { "text": "getInstanceType", "link": "/pt/docs/types/getInstanceType" },
+      { "text": "getType", "link": "/pt/docs/types/getType" },
+      { "text": "isArray", "link": "/pt/docs/types/isArray" },
+      { "text": "isAsync", "link": "/pt/docs/types/isAsync" },
+      { "text": "isBigint", "link": "/pt/docs/types/isBigint" },
+      { "text": "isBoolean", "link": "/pt/docs/types/isBoolean" },
+      { "text": "isDate", "link": "/pt/docs/types/isDate" },
+      { "text": "isEqualType", "link": "/pt/docs/types/isEqualType" },
+      { "text": "isFalsy", "link": "/pt/docs/types/isFalsy" },
+      { "text": "isFunction", "link": "/pt/docs/types/isFunction" },
+      { "text": "isJSON", "link": "/pt/docs/types/isJSON" },
+      { "text": "isMap", "link": "/pt/docs/types/isMap" },
+      { "text": "isNull", "link": "/pt/docs/types/isNull" },
+      { "text": "isNumber", "link": "/pt/docs/types/isNumber" },
+      { "text": "isObject", "link": "/pt/docs/types/isObject" },
+      { "text": "isPlainObject", "link": "/pt/docs/types/isPlainObject" },
+      { "text": "isPrimitive", "link": "/pt/docs/types/isPrimitive" },
+      { "text": "isPromise", "link": "/pt/docs/types/isPromise" },
+      { "text": "isRegExp", "link": "/pt/docs/types/isRegExp" },
+      { "text": "isSet", "link": "/pt/docs/types/isSet" },
+      { "text": "isString", "link": "/pt/docs/types/isString" },
+      { "text": "isSymbol", "link": "/pt/docs/types/isSymbol" },
+      { "text": "isTruthy", "link": "/pt/docs/types/isTruthy" },
+      { "text": "isUndefined", "link": "/pt/docs/types/isUndefined" }
+    ]
+  }
+]

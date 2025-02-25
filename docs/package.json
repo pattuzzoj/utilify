@@ -1,0 +1,14 @@
+{
+  "name": "utilify",
+  "devDependencies": {
+    "vitepress": "^1.5.0"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2"
+  }
+}
