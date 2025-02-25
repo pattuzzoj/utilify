@@ -95,11 +95,11 @@ function flattenArr<T>(arr: T[], depth?: number): FlatArray<T[], number>[];
 
 Flattens the array up to the specified depth.
 
-### [getRandom](https://utilify-docs.vercel.app/docs/array/getRandom)
+### [sample](https://utilify-docs.vercel.app/docs/array/sample)
 
 ```typescript
-function getRandom(str: string): string;
-function getRandom<T>(arr: T[]): T;
+function sample(str: string): string;
+function sample<T>(arr: T[]): T;
 ```
 
 Returns a random element from the array or string.
