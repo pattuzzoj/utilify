@@ -83,7 +83,7 @@ Explore the full documentation at:
 
 ## License
 
-MIT © [Your Name / Organization]  
+MIT © [Júlio Pattuzzo]  
 See [LICENSE](https://github.com/utilify/LICENSE) for details.
 
 ---
