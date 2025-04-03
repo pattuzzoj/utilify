@@ -83,7 +83,6 @@ Explore the full documentation at:
 
 ## License
 
-MIT © [Júlio Pattuzzo]  
 See [LICENSE](https://github.com/utilify/LICENSE) for details.
 
 ---
