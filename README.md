@@ -105,3 +105,4 @@ See [LICENSE](https://utilify-docs.vercel.app/license) for details.
 [Documentation](https://utilify-docs.vercel.app/) | 
 [Report Issue](https://github.com/pattuzzoj/utilify/issues) | 
 [View on npm](https://www.npmjs.com/package/@utilify/core)
+[View on jsr](https://jsr.io/@utilify/core)
