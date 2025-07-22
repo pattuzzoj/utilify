@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /en/introduction
+      link: /introduction
     - theme: alt
       text: Install
-      link: /en/introduction/installation
+      link: /introduction/installation
 
 features:
   - icon: 🔒
