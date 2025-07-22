@@ -1,62 +1,43 @@
-# isURL
+## isURL
 
-The `isURL` function validates whether a given string is a valid URL.
+The `isURL` function checks if a string matches the format of a valid URL (http or https).
 
-## Syntax
+### Syntax
 
-```typescript
-function isURL(value: string): boolean
+```javascript
+isURL(value)
 ```
 
 ### Parameters
 
-| Name | Type     | Description                           |
-|------|----------|---------------------------------------|
-| value  | `string` | The string to be validated as a URL.  |
+| Parameter | Type     | Description                                 |
+| :-------- | :------- | :------------------------------------------ |
+| `value`   | `string` | URL to be checked.                          |
 
-### Returns
+### Return
 
-| Type      | Description                                     |
-|-----------|-------------------------------------------------|
-| `boolean` | Returns `true` if the string is a valid URL, otherwise `false`. |
+| Type      | Description                                 |
+| :-------- | :------------------------------------------ |
+| `boolean` | Returns `true` if the string matches the format of a valid URL, otherwise returns `false`. |
 
-## Examples
-
-```typescript
-console.log(isURL("https://example.com")); // Output: true
-console.log(isURL("http://example.com:8080/path")); // Output: true
-console.log(isURL("www.example.com")); // Output: true
-console.log(isURL("example")); // Output: false
-console.log(isURL("ftp://example.com")); // Output: false
-```
-
-## Notes
-
-- The function uses a regular expression to validate common URL valueuctures, including:
-  - Optional protocols (`http://`, `https://`).
-  - Optional `www.` prefix.
-  - A domain with a top-level domain (e.g., `.com`, `.org`).
-  - Optional ports (e.g., `:8080`).
-  - Optional paths and query strings.
-- The function does not validate uncommon protocols like `ftp` or custom schemes.
-
-## Source Code
-
-::: code-group
-```typescript
-function isURL(value: string): boolean { 
-  return /^(https?:\/\/)?(www\.)?([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})(:[0-9]{1,5})?(\/[a-zA-Z0-9._~:/?#[\]@!$&'()*+,;=-]*)?$/.test(value);
-}
-```
+### Examples
 
 ```javascript
-function isURL(value) { 
-  return /^(https?:\/\/)?(www\.)?([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})(:[0-9]{1,5})?(\/[a-zA-Z0-9._~:/?#[\]@!$&'()*+,;=-]*)?$/.test(value);
-}
+isURL('https://www.example.com');      // true
+isURL('http://example.com/path');      // true
+isURL('ftp://example.com');            // false
+isURL('www.example.com');              // false
+isURL('https://example');              // false
+isURL('https://example.com:8080');     // true
+isURL('https://example.com/path?q=1'); // true
+isURL('');                            // false
 ```
-::: 
 
-## References
+### Notes
 
-- [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
-- [string.prototype.test()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test)
+- Throws a `TypeError` if the provided value is not a string.
+- Only validates URLs with http or https protocol.
+
+### References
+
+- [MDN: String.prototype.test()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test)

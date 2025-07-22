@@ -1,57 +1,31 @@
-# isBoolean  
-Checks if the provided value is of type `boolean`. The function returns `true` if the value is a `boolean`, and `false` otherwise.
+# isBoolean
+
+The `isBoolean` function checks if the provided value is of boolean type.
 
 ## Syntax
 ```typescript
-function isBoolean(value: any): boolean
+isBoolean(value: any): value is boolean;
 ```
 
-### Parameters
+## Parameters
+| Parameter | Type   | Description           |
+| :-------- | :----- | :--------------------|
+| `value`   | `any`  | Value to be checked   |
 
-| Parameter | Type      | Description                               |
-|-----------|-----------|-------------------------------------------|
-| `value`   | `any`     | The value to be checked. Can be any type. |
-
-### Return
-
-| Type     | Description                                  |
-|----------|----------------------------------------------|
-| `boolean`| Returns `true` if the value is a `boolean`, otherwise returns `false`. |
+## Returns
+| Type      | Description                                 |
+| :-------- | :------------------------------------------ |
+| `boolean` | True if it is a boolean                     |
 
 ## Examples
-
-### Example 1: Checking boolean values
 ```typescript
-isBoolean(true); // true
-isBoolean(false); // true
-```
-
-### Example 2: Checking other value types
-```typescript
-isBoolean(42); // false
-isBoolean("Hello"); // false
-isBoolean([]); // false
-isBoolean({}); // false
+isBoolean(true); // => true
+isBoolean(false); // => true
+isBoolean(0); // => false
 ```
 
 ## Notes
-- The function uses the `typeof` operator, which is the simplest and most effective way to check if the type of a value is `boolean`.
-
-## Source Code
-::: code-group
-
-```typescript
-function isBoolean(value: any): boolean {
-  return typeof value === "boolean";
-}
-```
-
-```javascript
-function isBoolean(value) {
-  return typeof value === "boolean";
-}
-```
-:::
+* Useful for type validation before logical operations.
 
 ## References
-- [MDN: `typeof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean

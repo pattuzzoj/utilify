@@ -1,131 +1,116 @@
-# **Utilitários Math** <Badge type="tip" text="1.0.2" />
+# Math
 
-As funções utilitárias de matemática fornecem métodos para realizar operações comuns e complexas de matemática. Essas funções podem ser extremamente úteis para operações de números, como cálculos de médias, verificação de números primos, e outras manipulações matemáticas.
+O módulo Math fornece um conjunto abrangente de funções matemáticas e estatísticas para manipulação e análise de números. Desde operações básicas como adição e multiplicação até cálculos mais complexos como desvio padrão e sequência de Fibonacci, este módulo oferece ferramentas essenciais para processamento numérico.
 
-## **Instalação**
+As funções são projetadas para serem intuitivas e fáceis de usar, mantendo alta performance mesmo com grandes conjuntos de dados. Todas implementam verificações de erro apropriadas e seguem as melhores práticas de programação.
 
-Para instalar o pacote de utilitários matemáticos, use um dos seguintes comandos, dependendo do seu gerenciador de pacotes:
+## Visão Geral
 
-::: code-group
-
-```bash [npm]
-npm install @utilify/math
-```
-
-```bash [yarn]
-yarn add @utilify/math
-```
-
-```bash [pnpm]
-pnpm add @utilify/math
-```
-
-:::
-
-Após a instalação, você pode importar as funções no seu projeto, utilizando ESM ou CJS.
-
-::: code-group
-
-```typescript [esm]
-import { average, clamp, divisors } from '@utilify/math';
-```
-
-```javascript [cjs]
-const { average, clamp, divisors } = require('@utilify/math');
-```
-
-:::
-
-## **Visão Geral**
-
-Aqui está uma visão geral das funções disponíveis no pacote de utilitários matemáticos:
-
-### [average](./average.md)
+[add](./add.md)
 ```typescript
-function average(values: number[]): number;
+add(...values: number[]): number
 ```
-Retorna a média aritmética dos valores fornecidos.
+Soma todos os valores numéricos fornecidos como argumentos.
 
-### [clamp](./clamp.md)
+[clamp](./clamp.md)
 ```typescript
-function clamp(value: number, min: number, max: number): number;
+clamp(value: number, min: number, max: number): number
 ```
-Restringe o valor fornecido ao intervalo entre um valor mínimo e máximo.
+Restringe um valor a um intervalo definido por limites mínimo e máximo.
 
-### [divisors](./divisors.md)
+[divide](./divide.md)
 ```typescript
-function divisors(num: number): number[];
+divide(dividend: number, divisor: number): number
 ```
-Retorna um array com todos os divisores de um número.
+Divide um número (dividendo) por outro (divisor).
 
-### [factorial](./factorial.md)
+[factorial](./factorial.md)
 ```typescript
-function factorial(value: number): number;
+factorial(value: number): number
 ```
-Calcula o fatorial de um número.
+Calcula o fatorial de um número inteiro não negativo.
 
-### [fibonacci](./fibonacci.md)
+[fibonacci](./fibonacci.md)
 ```typescript
-function fibonacci(num: number): number;
+fibonacci(num: number): number
 ```
-Retorna o número de Fibonacci na posição fornecida.
+Calcula o n-ésimo número da sequência de Fibonacci.
 
-### [frequency](./frequency.md)
+[frequency](./frequency.md)
 ```typescript
-function frequency<T>(arr: T[]): Record<string, number>;
+frequency(arr: any[]): Record<PropertyKey, number>
 ```
-Retorna um objeto com a frequência de cada valor em um array.
+Conta a frequência de cada elemento em um array, retornando um objeto com as ocorrências.
 
-### [isBetween](./isBetween.md)
+[lerp](./lerp.md)
 ```typescript
-function isBetween(value: number, min: number, max: number): boolean;
+lerp(start: number, end: number, amount: number): number
 ```
-Verifica se um valor está dentro de um intervalo específico.
+Realiza a interpolação linear entre dois valores numéricos.
 
-### [isEven](./isEven.md)
+[mean](./mean.md)
 ```typescript
-function isEven(value: number): boolean;
+mean(values: number[]): number
 ```
-Verifica se o número fornecido é par.
+Calcula a média aritmética de um array de números.
 
-### [isInteger](./isInteger.md)
+[median](./median.md)
 ```typescript
-function isInteger(value: number): boolean;
+median(arr: number[]): number
 ```
-Verifica se o valor fornecido é um número inteiro.
+Calcula a mediana de um array de números.
 
-### [isOdd](./isOdd.md)
+[mod](./mod.md)
 ```typescript
-function isOdd(value: number): boolean;
+mod(dividend: number, divisor: number): number
 ```
-Verifica se o número fornecido é ímpar.
+Calcula o módulo (resto) da divisão entre dois números, sempre retornando um valor não negativo.
 
-### [isPrime](./isPrime.md)
+[mode](./mode.md)
 ```typescript
-function isPrime(num: number): boolean;
+mode(numbers: number[]): number[]
 ```
-Verifica se o número fornecido é primo.
+Calcula o(s) valor(es) que mais aparecem em um array de números.
 
-### [random](./random.md)
+[multiply](./multiply.md)
 ```typescript
-function random(min: number = 0, max: number = 10): number;
+multiply(...values: number[]): number
 ```
-Retorna um número aleatório entre o valor mínimo e máximo fornecido.
+Multiplica dois ou mais valores numéricos.
 
-### [round](./round.md)
+[pow](./pow.md)
 ```typescript
-function round(value: number, precision: number): number;
+pow(base: number, exponent: number): number
 ```
-Arredonda um número para o número de casas decimais especificado.
+Calcula a potência de um número elevado a outro.
 
-### [sum](./sum.md)
+[random](./random.md)
 ```typescript
-function sum(values: number[]): number;
+random(min?: number, max?: number): number
 ```
-Retorna a soma de todos os valores de um array.
+Gera um número aleatório dentro de um intervalo especificado.
 
-### [sumOfDigits](./sumOfDigits.md)
+[roundTo](./roundTo.md)
 ```typescript
-function sumOfDigits(num: number): number;
+roundTo(value: number, decimals: number): number
 ```
-Retorna a soma dos dígitos de um número.
+Arredonda um número para uma quantidade específica de casas decimais.
+
+[std](./std.md)
+```typescript
+std(numbers: number[]): number
+```
+Calcula o desvio padrão de um array de números.
+
+[subtract](./subtract.md)
+```typescript
+subtract(...values: number[]): number
+```
+Subtrai dois ou mais valores numéricos sequencialmente.
+
+[variance](./variance.md)
+```typescript
+variance(numbers: number[]): number
+```
+Calcula a variância amostral de um array de números.
+

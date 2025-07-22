@@ -1,72 +1,37 @@
 # hexToHsl
 
-A função `hexToHsl` converte uma string de cor hexadecimal para sua representação HSL.
+A função `hexToHsl` converte uma cor em formato hexadecimal para o formato HSL.
 
-## Assinatura
+## Sintaxe
 
 ```typescript
-function hexToHsl(hex: string): string | null;
+hexToHsl(hex: string): string;
 ```
 
 ### Parâmetros
 
-| Nome | Tipo   | Descrição                                               |
-|------|--------|---------------------------------------------------------|
-| `hex` | `string` | A string de cor hexadecimal a ser convertida.          |
+| Nome    | Tipo      | Descrição                 |
+|---------|-----------|---------------------------|
+| `hex`   | `string`  | Cor em formato hexadecimal |
 
 ### Retorno
 
-| Tipo   | Descrição                                               |
-|--------|---------------------------------------------------------|
-| `string` | A string de cor HSL representando a cor, caso a entrada seja válida. |
-| `null`  | Retornado se a entrada não for uma cor hexadecimal válida. |
+| Tipo      | Descrição                        |
+|---------- |----------------------------------|
+| `string`  | Cor convertida para o formato HSL |
 
 ## Exemplos
 
 ```typescript
-console.log(hexToHsl("ff0000")); // "0, 100%, 50%"
-console.log(hexToHsl("00ff007f")); // "120, 100%, 50%, 0.5"
-console.log(hexToHsl("invalid")); // null
+hexToHsl("#ff0000");
+// => "hsl(0, 100%, 50%)"
 ```
 
 ## Notas
 
-- A função suporta strings hexadecimais com ou sem canal alfa.
-- Os valores HSL são arredondados para duas casas decimais.
-- A conversão para RGB é necessária porque a representação hexadecimal é baseada no modelo de cores RGB.
-
-## Dependências
-
-- [`hexToRgb`](./hexToRgb.md): A função `hexToRgb` é usada para converter o valor hexadecimal em uma representação RGB, necessária para calcular os valores HSL correspondentes.
-
-## Código Fonte
-
-::: code-group
-```typescript
-import hexToRgb from "./hexToRgb";
-
-function hexToHsl(hex: string): string | null {
-  const rgb = hexToRgb(hex);
-
-  if (!rgb) return null;
-
-  return rgbToHsl(rgb);
-}
-```
-
-```javascript
-import hexToRgb from "./hexToRgb";
-
-function hexToHsl(hex) {
-  const rgb = hexToRgb(hex);
-
-  if (!rgb) return null;
-
-  return rgbToHsl(rgb);
-}
-```
-:::
+* Lança um erro se o valor não for um hexadecimal válido.
+* Útil para conversão entre modelos de cor.
 
 ## Referências
 
-- [HSL e HSV - Wikipedia](https://pt.wikipedia.org/wiki/HSL_e_HSV)
+* https://developer.mozilla.org/pt-BR/docs/Web/CSS/color_value/hsl

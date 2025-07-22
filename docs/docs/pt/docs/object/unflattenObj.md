@@ -1,120 +1,34 @@
-# unflattenObj
-A função `unflattenObj` converte um objeto plano com chaves separadas por pontos em um objeto aninhado com base no separador.
+## unflattenObj
 
-## Sintaxe
+A função `unflattenObj` reconstrói objetos aninhados a partir de um objeto com chaves planas (flattened).
+
+### Sintaxe
 
 ```typescript
-unflattenObj(obj: Record<string, any>, separator: string = "."): Record<string, any>;
+unflattenObj(obj): object
 ```
 
 ### Parâmetros
 
-| Parâmetro | Tipo                          | Descrição                                                   |
-|-----------|-------------------------------|-------------------------------------------------------------|
-| `obj`     | `Record<string, any>`          | O objeto plano com chaves separadas por pontos a ser convertido em uma estrutura aninhada. |
-| `separator` | `string`                     | O separador usado para dividir as chaves em caminhos aninhados (o padrão é `.`). |
+| Parâmetro | Tipo     | Descrição                                 |
+| :-------- | :------- | :-----------------------------------------|
+| `obj`     | `object` | Objeto com chaves planas a ser reconstruído. |
 
 ### Retorno
 
-| Tipo                          | Descrição                                                   |
-|-------------------------------|-------------------------------------------------------------|
-| `Record<string, any>`          | O objeto aninhado gerado a partir do objeto plano.          |
+Retorna um novo objeto com a estrutura aninhada restaurada.
 
-## Exemplos
-
-### Exemplo 1: Desfazer o "Flattening" Básico
-```typescript
-const obj = { "user.name": "Alice", "user.age": 30 };
-const result = unflattenObj(obj);
-
-console.log(result);
-// { user: { name: "Alice", age: 30 } }
-```
-
-### Exemplo 2: Separador Personalizado
-```typescript
-const obj = { "user|name": "Alice", "user|age": 30 };
-const result = unflattenObj(obj, "|");
-
-console.log(result);
-// { user: { name: "Alice", age: 30 } }
-```
-
-### Exemplo 3: Desfazendo o "Flattening" de um Objeto Já Aninhado
-```typescript
-const obj = { "user.name": "Alice", "address.city": "Wonderland", "address.zip": 12345 };
-const result = unflattenObj(obj);
-
-console.log(result);
-// { user: { name: "Alice" }, address: { city: "Wonderland", zip: 12345 } }
-```
-
-## Notas
-- A função utiliza uma expressão regular para verificar chaves que contêm o separador e as divide em múltiplos níveis no objeto aninhado.
-- Se uma chave não contiver o separador, ela permanece como está no objeto resultante.
-
-## Dependências
-Sem dependências externas.
-
-## Código Fonte
-::: code-group
+### Exemplos
 
 ```typescript
-function unflattenObj(obj: Record<string, any>, separator: string = "."): Record<string, any> {
-  let unflatObj = {} as any;
-  const regex = new RegExp(`${separator}`);
-
-  for (const key in obj) {
-    if (regex.test(key)) {
-      const paths = key.split(separator);
-      let reference = unflatObj;
-
-      paths.slice(0, -1).forEach((path) => {
-        if (!(path in reference)) {
-          reference[path] = {};
-        }
-        
-        reference = reference[path];
-      });
-
-      reference[paths[paths.length - 1]] = obj[key];
-    } else {
-      unflatObj[key] = obj[key];
-    }
-  }
-
-  return unflatObj;
-}
+unflattenObj({ 'a.b.c': 1, 'a.b.d': 2 }); // { a: { b: { c: 1, d: 2 } } }
+unflattenObj({ 'arr[0]': 10, 'arr[1]': 20 }); // { arr: [10, 20] }
 ```
 
-```javascript
-function unflattenObj(obj, separator = ".") {
-  let unflatObj = {};
-  const regex = new RegExp(`${separator}`);
+### Notas
 
-  for (const key in obj) {
-    if (regex.test(key)) {
-      const paths = key.split(separator);
-      let reference = unflatObj;
+- Suporta caminhos com notação de ponto e de array (ex: 'arr[0].prop').
+- Útil para converter dados serializados ou vindos de formulários em objetos aninhados.
 
-      paths.slice(0, -1).forEach((path) => {
-        if (!(path in reference)) {
-          reference[path] = {};
-        }
-        
-        reference = reference[path];
-      });
-
-      reference[paths[paths.length - 1]] = obj[key];
-    } else {
-      unflatObj[key] = obj[key];
-    }
-  }
-
-  return unflatObj;
-}
-```
-:::
-
-## Referências
-Sem referências externas.
+### Referências
+- [MDN: Object](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object)

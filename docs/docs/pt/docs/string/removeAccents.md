@@ -1,59 +1,35 @@
 # removeAccents
 
-A função `removeAccents` remove os acentos de uma string, retornando uma versão da string sem os sinais diacríticos.
+Remove acentos e sinais diacríticos de uma string.
 
 ## Sintaxe
-
 ```typescript
-function removeAccents(str: string): string
+removeAccents(str: string): string
 ```
 
-### Parâmetros
+## Parâmetros
 
-| Nome  | Tipo     | Descrição                                          |
-|-------|----------|----------------------------------------------------|
-| str   | `string` | A string da qual os acentos serão removidos.      |
+| Nome   | Tipo     | Descrição                      |
+|--------|----------|--------------------------------|
+| `str`  | `string` | A string de entrada.           |
 
-### Retorno
+## Retorno
 
-| Tipo    | Descrição                                      |
-|---------|------------------------------------------------|
-| `string` | A string sem os acentos.                      |
+| Tipo     | Descrição                                 |
+|----------|-------------------------------------------|
+| `string` | A string sem acentos ou sinais diacríticos. |
 
-## Exemplos
-
+## Exemplo
 ```typescript
-console.log(removeAccents("Título com acentuação!")); // Saída: "Titulo com acentuacao!"
-console.log(removeAccents("Café com leite"));         // Saída: "Cafe com leite"
-console.log(removeAccents("Mário e João"));           // Saída: "Mario e Joao"
+removeAccents("ação"); // "acao"
+removeAccents("café"); // "cafe"
+removeAccents("Olá, mundo!"); // "Ola, mundo!"
 ```
 
 ## Notas
-
-- A função utiliza `normalize('NFD')` para decompor os caracteres em seus caracteres base e marcas diacríticas.
-- Em seguida, utiliza `replace(/[\u0300-\u036f]/g, '')` para remover as marcas diacríticas, deixando apenas os caracteres base.
-
-## Código Fonte
-
-::: code-group
-```typescript
-function removeAccents(str: string): string {
-  return str
-  .normalize('NFD')
-  .replace(/[\u0300-\u036f]/g, '');
-}
-```
-
-```javascript
-function removeAccents(str) {
-  return str
-  .normalize('NFD')
-  .replace(/[\u0300-\u036f]/g, '');
-}
-```
-::: 
+- Lança `TypeError` se o argumento não for uma string.
+- Utiliza normalização Unicode (NFD) para separar caracteres e remove diacríticos com expressão regular.
 
 ## Referências
-
-- [String.prototype.normalize()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/normalize)
-- [String.prototype.replace()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
+- [MDN: String.prototype.normalize()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/normalize)
+- [MDN: String.prototype.replace()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/replace)

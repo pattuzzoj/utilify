@@ -1,61 +1,36 @@
-# isPromise  
-Verifica se o valor fornecido é uma instância de `Promise`. A função retorna `true` se o valor for uma instância de `Promise`, e `false` caso contrário.
+# isPromise
+
+A função `isPromise` verifica se o valor fornecido é uma Promise.
 
 ## Sintaxe
+
 ```typescript
-function isPromise(value: object): boolean
+isPromise<T = any>(value: any): value is Promise<T>;
 ```
 
 ### Parâmetros
 
-| Parâmetro | Tipo      | Descrição                               |
-|-----------|-----------|-----------------------------------------|
-| `value`   | `object`  | O valor a ser verificado. Deve ser um objeto, geralmente uma instância de `Promise`. |
+| Nome    | Tipo    | Descrição                |
+|---------|---------|--------------------------|
+| `value` | `any`   | Valor a ser verificado   |
 
 ### Retorno
 
-| Tipo     | Descrição                                  |
-|----------|--------------------------------------------|
-| `boolean`| Retorna `true` se o valor for uma instância de `Promise`, caso contrário, retorna `false`. |
+| Tipo      | Descrição                                 |
+|-----------|-------------------------------------------|
+| `boolean` | Verdadeiro se for uma Promise              |
 
 ## Exemplos
 
-### Exemplo 1: Verificando `Promise`
 ```typescript
-const promise = new Promise((resolve) => resolve("Success"));
-isPromise(promise); // true
-```
-
-### Exemplo 2: Verificando outros tipos de valor
-```typescript
-isPromise(undefined); // false
-isPromise(null); // false
-isPromise(42); // false
-isPromise("Hello"); // false
-isPromise({}); // false
+isPromise(Promise.resolve(123)); // => true
+isPromise(123); // => false
 ```
 
 ## Notas
-- A função utiliza o operador `instanceof`, que verifica se o valor é uma instância da classe `Promise`.
 
-## Dependências
-Nenhuma.
-
-## Código Fonte
-::: code-group
-
-```typescript
-function isPromise(value: object): boolean {
-  return value instanceof Promise;
-}
-```
-
-```javascript
-function isPromise(value) {
-  return value instanceof Promise;
-}
-```
-:::
+* Útil para validação antes de usar then/catch/finally.
 
 ## Referências
-- [MDN: `instanceof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof)
+
+* https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise

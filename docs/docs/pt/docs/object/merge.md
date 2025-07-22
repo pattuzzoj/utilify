@@ -1,93 +1,37 @@
-# merge
-A função `merge` combina múltiplos objetos ou arrays em um único. Ela pode mesclar objetos em um único objeto ou arrays em um único array.
+## merge
 
-## Sintaxe
+A função `merge` combina dois ou mais objetos em um novo objeto, realizando a mesclagem profunda (deep merge) das propriedades.
+
+### Sintaxe
 
 ```typescript
-merge(...values: Record<string, any>[]): Record<string, any>;
-merge(...values: any[][]): any[];
-merge(...values: any[]): any;
+merge(target, ...sources): object
 ```
 
 ### Parâmetros
 
-| Parâmetro | Tipo                          | Descrição                                                   |
-|-----------|-------------------------------|-------------------------------------------------------------|
-| `values`  | `Record<string, any>[]`         | Um array de objetos a serem mesclados em um único objeto.    |
-| `values`  | `any[][]`                      | Um array de arrays a serem mesclados em um único array.      |
-| `values`  | `any[]`                        | Vários objetos ou arrays a serem mesclados, o primeiro determina o tipo de retorno. |
+| Parâmetro   | Tipo     | Descrição                                 |
+| :-----------| :--------| :-----------------------------------------|
+| `target`    | `object` | Objeto de destino que receberá as propriedades. |
+| `sources`   | `object` | Um ou mais objetos de origem a serem mesclados. |
 
 ### Retorno
 
-| Tipo                       | Descrição                                              |
-|----------------------------|----------------------------------------------------------|
-| `Record<string, any>`       | Se o primeiro argumento for um objeto, retorna um objeto mesclado. |
-| `any[]`                     | Se o primeiro argumento for um array, retorna um array mesclado. |
-| `any`                       | O resultado mesclado, o tipo depende da entrada.         |
+Retorna um novo objeto resultante da mesclagem profunda dos objetos fornecidos.
 
-## Exemplos
-
-### Exemplo 1: Mesclando Objetos
-```typescript
-const obj1 = { a: 1, b: 2 };
-const obj2 = { c: 3, d: 4 };
-const objMesclado = merge(obj1, obj2);
-console.log(objMesclado); // { a: 1, b: 2, c: 3, d: 4 }
-```
-
-### Exemplo 2: Mesclando Arrays
-```typescript
-const arr1 = [1, 2];
-const arr2 = [3, 4];
-const arrMesclado = merge(arr1, arr2);
-console.log(arrMesclado); // [1, 2, 3, 4]
-```
-
-### Exemplo 3: Mesclando Tipos Mistos
-```typescript
-const obj = { a: 1 };
-const arr = [2, 3];
-const misturado = merge(obj, arr);
-console.log(misturado); // { a: 1, 0: 2, 1: 3 }
-```
-
-## Notas
-- A função lida de maneira diferente com a mesclagem de objetos e arrays. Ao mesclar objetos, ela combina as propriedades, e ao mesclar arrays, ela as concatena.
-- Se o tipo de entrada for misto (ex.: um array e um objeto), o tipo resultante será um objeto que combina ambos.
-
-## Dependências
-Nenhuma.
-
-## Código Fonte
-::: code-group
+### Exemplos
 
 ```typescript
-function merge(...values: Record<string, any>[]): Record<string, any>;
-function merge(...values: any[][]): any[];
-function merge(...values: any[]): any {
-  return values.reduce((merged, obj) => {
-    for (const key in obj) {
-      merged[key] = obj[key];
-    }
-
-    return merged;
-  }, Array.isArray(values[0]) ? [] : {});
-}
+merge({ a: 1 }, { b: 2 }); // { a: 1, b: 2 }
+merge({ a: { x: 1 } }, { a: { y: 2 } }); // { a: { x: 1, y: 2 } }
+merge({ a: 1 }, { a: 2, b: 3 }); // { a: 2, b: 3 }
 ```
 
-```javascript
-function merge(...values) {
-  return values.reduce((merged, obj) => {
-    for (const key in obj) {
-      merged[key] = obj[key];
-    }
+### Notas
 
-    return merged;
-  }, Array.isArray(values[0]) ? [] : {});
-}
-```
-:::
+- Realiza mesclagem profunda, copiando propriedades aninhadas.
+- Propriedades de mesmo nome em objetos posteriores sobrescrevem as anteriores.
+- Não modifica os objetos de origem nem o objeto de destino original.
 
-## Referências
-- [Array.prototype.reduce()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
-- [Object.keys()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
+### Referências
+- [MDN: Object.assign()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)

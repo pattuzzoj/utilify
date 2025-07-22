@@ -1,0 +1,77 @@
+{
+  "compilerOptions": {
+    // Type Checking
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+    "noImplicitAny": false,
+
+    // Modules
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "allowArbitraryExtensions": true,
+    "allowImportingTsExtensions": false,
+    "noUncheckedSideEffectImports": false,
+    "resolveJsonModule": true,
+    "rootDir": "./",
+    "paths": {
+      "@/*": ["src/*"],
+    },
+
+    // Emit
+    "declaration": true,
+    "declarationDir": "./dist",
+    "declarationMap": true,
+    "downlevelIteration": false,
+    "emitBOM": false,
+    "emitDeclarationOnly": false,
+    "noEmit": true,
+    "noEmitOnError": false,
+    "outDir": "./dist",
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "sourceMap": false,
+    
+    // Language and Environment
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    // "jsx": "preserve",
+    // "jsxImportSource": "solid-js",
+    "lib": ["DOM", "ESNext"],
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    
+    // JavaScript Support
+    "allowJs": true,
+    "checkJs": true,
+
+    // Interop Constraints
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+
+    // Diagnostics
+    "explainFiles": false,
+    "traceResolution": false,
+    
+    // Projects
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+    
+    // Completeness
+    "skipLibCheck": true,
+  },
+  "include": [
+    "./src/**/*.ts"
+, "src/index.ts", "tests/array.test.ts", "tests/browser.test.ts", "tests/colors.test.ts", "tests/types.test.ts", "tests/string.test.ts", "tests/regex.test.ts", "tests/object.test.ts", "tests/math.test.ts", "tests/function.test.ts", "tests/env.test.ts", "tests/date.test.ts", "tests/crypto.test.ts", "src/function/when.ts", "draw/isFileExtension.ts"  ],
+  "exclude": ["src/**/tests", "node_modules", "dist"]
+}

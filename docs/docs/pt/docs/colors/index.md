@@ -1,99 +1,78 @@
-# Utilitários Colors <Badge type="tip" text="1.0.0" />
+# Colors
 
-As **funções utilitárias de cores** fornecem uma variedade de métodos para operações de conversão e validação de cores. Estas funções ajudam a simplificar operações comuns como conversão entre diferentes formatos de cores e validação de strings de cores.
+O módulo de cores fornece um conjunto abrangente de funções para manipulação e conversão de cores em diferentes formatos (HEX, RGB/RGBA, HSL/HSLA). Com estas funções, você pode facilmente:
 
-## Instalação
+- Analisar strings de cores para extrair seus componentes
+- Converter entre diferentes formatos de cores (HEX ↔ RGB ↔ HSL)
+- Validar strings de cores em diferentes formatos
+- Gerar cores aleatórias
 
-Para instalar as funções utilitárias de cores, use um dos seguintes comandos, dependendo do seu gerenciador de pacotes:
-
-::: code-group
-
-```bash [npm]
-npm install @utilify/colors
-```
-
-```bash [yarn]
-yarn add @utilify/colors
-```
-
-```bash [pnpm]
-pnpm add @utilify/colors
-```
-
-:::
-
-Após a instalação, você pode importar as funções no seu projeto, utilizando ESM ou CJS.
-
-## Uso
-
-Esta biblioteca suporta tanto o sistema de módulos ESM quanto CJS.
-
-::: code-group
-
-```typescript [esm]
-import { rgbToHsl, rgbToHex, isRgb } from '@utilify/colors';
-```
-
-```javascript [cjs]
-const { rgbToHsl, rgbToHex, isRgb } = require('@utilify/colors');
-```
-
-:::
+Todas as funções são projetadas para serem simples de usar e retornam resultados consistentes, lidando adequadamente com valores alfa (transparência) quando aplicável.
 
 ## Visão Geral
 
-Aqui está uma visão geral das funções disponíveis no pacote de utilitários de cores:
-
-### [rgbToHsl](./rgbToHsl.md)
+[parseColor](./parseColor.md)
 ```typescript
-function rgbToHsl(rgb: string): string | null
+parseColor(color: string): ParsedColor
 ```
-Converte uma string de cor RGB para sua representação HSL.
+Analisa uma string de cor e retorna um objeto com modelo, valores e alfa, ou null.
 
-### [rgbToHex](./rgbToHex.md)
+[hexToHsl](./hexToHsl.md)
 ```typescript
-function rgbToHex(rgb: string): string | null
+hexToHsl(hex: string): string
 ```
-Converte uma string de cor RGB para sua representação hexadecimal.
+Converte uma cor hexadecimal para o formato HSL.
 
-### [isRgb](./isRgb.md)
+[hexToRgb](./hexToRgb.md)
 ```typescript
-function isRgb(rgb: string): boolean
+hexToRgb(hex: string): string
 ```
-Verifica se uma string fornecida é uma cor RGB ou RGBA válida.
+Converte uma cor hexadecimal para o formato RGB ou RGBA.
 
-### [isHsl](./isHsl.md)
+[hslToHex](./hslToHex.md)
 ```typescript
-function isHsl(hsl: string): boolean
+hslToHex(hsl: string): string
 ```
-Verifica se uma string fornecida é uma cor HSL ou HSLA válida.
+Converte uma cor HSL/HSLA para hexadecimal.
 
-### [isHex](./isHex.md)
+[hslToRgb](./hslToRgb.md)
 ```typescript
-function isHex(hex: string): boolean
+hslToRgb(hsl: string): string
 ```
-Verifica se uma string fornecida é uma cor hexadecimal válida, incluindo o canal alfa.
+Converte uma cor HSL/HSLA para RGB/RGBA.
 
-### [hslToRgb](./hslToRgb.md)
+[isHexColor](./isHexColor.md)
 ```typescript
-function hslToRgb(hsl: string): string | null
+isHexColor(hex: string): boolean
 ```
-Converte uma string de cor HSL para sua representação RGB.
+Verifica se uma string representa uma cor hexadecimal válida.
 
-### [hslToHex](./hslToHex.md)
+[isHslColor](./isHslColor.md)
 ```typescript
-function hslToHex(hsl: string): string | null
+isHslColor(hsl: string): boolean
 ```
-Converte uma string de cor HSL para sua representação hexadecimal.
+Verifica se uma string representa uma cor HSL/HSLA válida.
 
-### [hexToRgb](./hexToRgb.md)
+[isRgbColor](./isRgbColor.md)
 ```typescript
-function hexToRgb(hex: string): string | null
+isRgbColor(rgb: string): boolean
 ```
-Converte uma string de cor hexadecimal para sua representação RGB.
+Verifica se uma string representa uma cor RGB/RGBA válida.
 
-### [hexToHsl](./hexToHsl.md)
+[rgbToHex](./rgbToHex.md)
 ```typescript
-function hexToHsl(hex: string): string | null
+rgbToHex(rgb: string): string
 ```
-Converte uma string de cor hexadecimal para sua representação HSL.
+Converte uma cor RGB/RGBA para hexadecimal.
+
+[rgbToHsl](./rgbToHsl.md)
+```typescript
+rgbToHsl(rgb: string): string
+```
+Converte uma cor RGB/RGBA para HSL/HSLA.
+
+[randomColor](./randomColor.md)
+```typescript
+randomColor(format?: "hex" | "rgb" | "hsl", alpha?: boolean): string
+```
+Gera uma cor aleatória no formato especificado, com opção de canal alfa.

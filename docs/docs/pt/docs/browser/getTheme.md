@@ -1,60 +1,35 @@
 # getTheme
 
-A função `getTheme` retorna a preferência de tema atual do usuário.
+A função `getTheme` retorna o tema preferido do usuário, como "light" ou "dark", com base nas configurações do sistema ou navegador.
 
 ## Sintaxe
 
 ```typescript
-function getTheme(): string | undefined;
+getTheme(): "light" | "dark";
 ```
+
+### Parâmetros
+
+Esta função não recebe parâmetros.
 
 ### Retorno
 
-| Tipo              | Descrição                                                       |
-|-------------------|---------------------------------------------------------------|
-| `string`          | A preferência de tema do usuário: `'dark'` ou `'light'`.         |
-| `undefined`       | Se a função for executada no servidor, retornará `undefined`.    |
+| Tipo                  | Descrição                   |
+| --------------------- | --------------------------- |
+| `"light"` \| `"dark"` | Tema preferido do usuário   |
 
 ## Exemplos
 
 ```typescript
-console.log(getTheme()); // 'dark' ou 'light' dependendo da preferência do usuário
+getTheme();
+// => "dark"
 ```
 
 ## Notas
 
-- Se executado no servidor, a função retornará `undefined`.
-
-## Dependências
-
-- [`isServer`](../environment/isServer.md): A função `isServer` é usada para verificar se o código está sendo executado no servidor.
-
-## Código Fonte
-
-::: code-group
-```typescript
-import { isServer } from '@utilify/environment';
-
-function getTheme(): string | undefined {
-  if (isServer()) return undefined;
-
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
-}
-```
-
-```javascript
-function getTheme() {
-  if (isServer()) return undefined;
-
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
-}
-```
-:::
+* Útil para adaptar a interface ao tema do usuário.
+* Baseia-se em media queries do CSS.
 
 ## Referências
 
-- [Window.matchMedia() - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia)
+* https://developer.mozilla.org/pt-BR/docs/Web/CSS/@media/prefers-color-scheme

@@ -1,64 +1,34 @@
 # wordCount
 
-A função `wordCount` conta o número de palavras em uma string. Ela ignora os espaços extras no início, no final e entre as palavras.
+Conta o número de palavras em uma string.
 
 ## Sintaxe
-
 ```typescript
-function wordCount(str: string): number
+wordCount(str: string): number
 ```
 
-### Parâmetros
+## Parâmetros
 
-| Nome  | Tipo     | Descrição                                          |
-|-------|----------|----------------------------------------------------|
-| str   | `string` | A string que será analisada.                       |
+| Nome   | Tipo     | Descrição                      |
+|--------|----------|--------------------------------|
+| `str`  | `string` | A string de entrada.           |
 
-### Retorno
+## Retorno
 
-| Tipo    | Descrição                                      |
-|---------|------------------------------------------------|
-| `number` | O número de palavras presentes na string.     |
+| Tipo     | Descrição                          |
+|----------|------------------------------------|
+| `number` | O número de palavras na string.     |
 
-## Exemplos
-
+## Exemplo
 ```typescript
-console.log(wordCount("Hello World"));           // Saída: 2
-console.log(wordCount("  JavaScript  is awesome  "));  // Saída: 3
-console.log(wordCount("  singleword "));         // Saída: 1
-console.log(wordCount(""));                      // Saída: 0
+wordCount("Olá mundo"); // 2
+wordCount("  Exemplo   de   contagem "); // 3
+wordCount(""); // 0
 ```
 
 ## Notas
-
-- A função usa `trim()` para remover espaços no início e no final da string.
-- Em seguida, `replace(/\s+/g, " ")` substitui múltiplos espaços por um único espaço.
-- Por fim, a string é dividida usando `split(" ")` e a quantidade de palavras é obtida pelo comprimento do array resultante.
-
-## Código Fonte
-
-::: code-group
-```typescript
-function wordCount(str: string): number {
-  return str
-  .trim()
-  .replace(/\s+/g, " ")
-  .split(" ").length;
-}
-```
-
-```javascript
-function wordCount(str) {
-  return str
-  .trim()
-  .replace(/\s+/g, " ")
-  .split(" ").length;
-}
-```
-::: 
+- Lança `TypeError` se o argumento não for uma string.
+- Palavras são separadas por espaços em branco.
 
 ## Referências
-
-- [String.prototype.trim()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/trim)
-- [String.prototype.replace()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
-- [String.prototype.split()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/split)
+- [MDN: String.prototype.split()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/split)

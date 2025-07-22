@@ -1,59 +1,36 @@
-# isNumber  
-Verifica se o valor fornecido é do tipo `number`. A função retorna `true` se o valor for um número, e `false` caso contrário.
+# isNumber
+
+A função `isNumber` verifica se o valor fornecido é do tipo number.
 
 ## Sintaxe
+
 ```typescript
-function isNumber(value: any): boolean
+isNumber(value: any): value is number;
 ```
 
 ### Parâmetros
 
-| Parâmetro | Tipo      | Descrição                               |
-|-----------|-----------|-----------------------------------------|
-| `value`   | `any`     | O valor a ser verificado. Pode ser de qualquer tipo. |
+| Nome    | Tipo    | Descrição                |
+|---------|---------|--------------------------|
+| `value` | `any`   | Valor a ser verificado   |
 
 ### Retorno
 
-| Tipo     | Descrição                                  |
-|----------|--------------------------------------------|
-| `boolean`| Retorna `true` se o valor for um número, caso contrário, retorna `false`. |
+| Tipo      | Descrição                                 |
+|-----------|-------------------------------------------|
+| `boolean` | Verdadeiro se for um número               |
 
 ## Exemplos
 
-### Exemplo 1: Verificando números
 ```typescript
-isNumber(42); // true
-isNumber(3.14); // true
-```
-
-### Exemplo 2: Verificando outros tipos de valor
-```typescript
-isNumber("Hello"); // false
-isNumber([]); // false
-isNumber({}); // false
-isNumber(null); // false
-isNumber(undefined); // false
+isNumber(123); // => true
+isNumber("123"); // => false
 ```
 
 ## Notas
-- A função utiliza o operador `typeof`, que é a forma padrão e confiável de verificar se o valor é do tipo `number` em JavaScript.
-- `NaN` (Not-a-Number) também é considerado do tipo `number` em JavaScript, mas pode ser tratado separadamente, se necessário.
 
-## Código Fonte
-::: code-group
-
-```typescript
-function isNumber(value: any): boolean {
-  return typeof value === "number";
-}
-```
-
-```javascript
-function isNumber(value) {
-  return typeof value === "number";
-}
-```
-:::
+* Útil para validação de valores numéricos antes de operações matemáticas.
 
 ## Referências
-- [MDN: `typeof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
+
+* https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Number

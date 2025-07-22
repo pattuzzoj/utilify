@@ -1,0 +1,10 @@
+export { default as customError } from './customError';
+export { default as isAggregateError } from './isAggregateError';
+export { default as isDOMException } from './isDOMException';
+export { default as isError } from './isError';
+export { default as isEvalError } from './isEvalError';
+export { default as isRangeError } from './isRangeError';
+export { default as isReferenceError } from './isReferenceError';
+export { default as isSyntaxError } from './isSyntaxError';
+export { default as isTypeError } from './isTypeError';
+export { default as isURIError } from './isURIError';

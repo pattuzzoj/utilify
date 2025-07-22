@@ -1,64 +1,33 @@
 # toSnakeCase
 
-The `toSnakeCase` function converts a string into snake_case format, where spaces are replaced with underscores and all letters are transformed to lowercase.
+Converts a string to snake_case format (lowercase and words separated by underscores).
 
 ## Syntax
-
 ```typescript
-function toSnakeCase(str: string): string
+toSnakeCase(str: string): string
 ```
 
-### Parameters
+## Parameters
+| Parameter | Type     | Description                                 |
+| :-------- | :------- | :------------------------------------------ |
+| `str`     | `string` | The input string.                           |
 
-| Name  | Type     | Description                                          |
-|-------|----------|----------------------------------------------------|
-| str   | `string` | The string to be converted into snake_case.        |
+## Returns
+| Type      | Description                                 |
+| :-------- | :------------------------------------------ |
+| `string`  | The string converted to snake_case.          |
 
-### Returns
-
-| Type    | Description                                      |
-|---------|------------------------------------------------|
-| `string` | The string converted to snake_case.             |
-
-## Examples
-
+## Example
 ```typescript
-console.log(toSnakeCase("Hello World"));         // Output: "hello_world"
-console.log(toSnakeCase("JavaScript is fun"));   // Output: "javascript_is_fun"
-console.log(toSnakeCase("Singleword"));          // Output: "singleword"
-console.log(toSnakeCase("  Extra spaces here ")); // Output: "extra_spaces_here"
+toSnakeCase("Exemplo de String"); // "exemplo_de_string"
+toSnakeCase("  Teste Snake Case  "); // "teste_snake_case"
+toSnakeCase(""); // ""
 ```
 
 ## Notes
-
-- The function uses `trim()` to remove any spaces from the beginning and end of the string.
-- It then transforms the entire string to lowercase with `toLowerCase()`.
-- Finally, it replaces all spaces with underscores using `replace(/\s+/g, "_")`.
-
-## Source Code
-
-::: code-group
-```typescript
-function toSnakeCase(str: string): string {
-  return str
-  .trim()
-  .toLowerCase()
-  .replace(/\s+/g, "_");
-}
-```
-
-```javascript
-function toSnakeCase(str) {
-  return str
-  .trim()
-  .toLowerCase()
-  .replace(/\s+/g, "_");
-}
-```
-::: 
+- Throws `TypeError` if the argument is not a string.
+- Extra spaces are removed before conversion.
 
 ## References
-
-- [String.prototype.trim()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim)
-- [String.prototype.toLowerCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase)
-- [String.prototype.replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
+- [MDN: String.prototype.toLowerCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase)
+- [MDN: String.prototype.replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)

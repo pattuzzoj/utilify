@@ -1,64 +1,39 @@
 # first
 
-The `first` function returns the first `count` elements from an array or string. If `count` is not provided, it returns the first element.
+The `first` function returns the first element of an array or the first character of a string.
 
 ## Syntax
 
 ```typescript
-function first(str: string, count?: number): string;
-function first<T>(arr: T[], count?: number): T[];
+first<T>(array: T[]): T | undefined;
+first(string: string): string | undefined;
 ```
 
 ### Parameters
 
-| Name    | Type                  | Description                                                                 |
-|---------|----------------------|-----------------------------------------------------------------------------|
-| `str`   | `string`            | The input string.                                                           |
-| `arr`   | `T[]`               | The input array.                                                            |
-| `count` | `number` (optional) | The number of elements to return from the beginning. Default is 1.          |
+| Name     | Type               | Description                    |
+|----------|--------------------|--------------------------------|
+| `array`  | `T[]` \| `string`   | Source array or string         |
 
-### Return
+### Returns
 
-| Type          | Description                                                                         |
-|---------------|-------------------------------------------------------------------------------------|
-| `string`      | For strings: The first `count` characters.                                          |
-| `T[]`         | For arrays: A new array with the first `count` elements.                           |
+| Type                        | Description                                               |
+|-----------------------------|-----------------------------------------------------------|
+| `T` \| `string` \| `undefined` | First element or character, or undefined if empty         |
 
 ## Examples
 
 ```typescript
-// Array examples
-console.log(first([1, 2, 3, 4], 2)); // [1, 2]
-console.log(first([1, 2, 3, 4]));    // [1]
-
-// String examples
-console.log(first("hello", 2));      // "he"
-console.log(first("hello"));         // "h"
+first([1, 2, 3]); // => 1
+first("abc"); // => "a"
+first([]); // => undefined
 ```
 
 ## Notes
 
-- If `count` is greater than the length of the input, the entire input will be returned.
-- If `count` is not provided, the function returns just the first element.
-
-## Source Code
-
-::: code-group
-```typescript
-function first(str: string, count?: number): string;
-function first<T>(arr: T[], count?: number): T[];
-function first(arr: any, count: number = 1): any {
-  return arr.slice(0, count);
-}
-```
-
-```javascript
-function first(arr, count = 1) {
-  return arr.slice(0, count);
-}
-```
-:::
+* Returns undefined if the array or string is empty.
+* Useful for quickly accessing the first item.
 
 ## References
 
-- [Array.prototype.slice() - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
+* https://lodash.com/docs/4.17.15#head

@@ -1,56 +1,37 @@
 # getLanguage
 
-The `getLanguage` function returns the browser's language code.
+The `getLanguage` function returns the user's preferred browser language.
 
 ## Syntax
 
 ```typescript
-function getLanguage(): string | undefined;
+getLanguage(): string;
 ```
 
-### Return
+### Parameters
 
-| Type              | Description                                                     |
-|-------------------|---------------------------------------------------------------|
-| `string`          | The browser's language code (the first two letters, for example, `'en'` for English, `'pt'` for Portuguese). |
-| `undefined`       | If the function is executed on the server, it will return `undefined`. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+|  –   | –    | This function does not take any parameters |
+
+### Returns
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+|  –   | `string` | Preferred language code (e.g., "en-US") |
 
 ## Examples
 
 ```typescript
-console.log(getLanguage()); // 'en' (if the browser's language is English)
+getLanguage();
+// => "en-US"
 ```
 
 ## Notes
 
-- If executed on the server, the function will return `undefined`.
-
-## Dependencies
-
-- [`isServer`](../environment/isServer.md): The `isServer` function is used to check if the code is running on the server.
-
-## Source Code
-
-::: code-group
-```typescript
-import { isServer } from '@utilify/environment';
-
-function getLanguage(): string | undefined {
-  if (isServer()) return undefined;
-
-  return navigator.language.slice(0, 2);
-}
-```
-
-```javascript
-function getLanguage() {
-  if (isServer()) return undefined;
-
-  return navigator.language.slice(0, 2);
-}
-```
-:::
+* Useful for internationalization and content adaptation.
+* May return only the primary language code (e.g., "en").
 
 ## References
 
-- [Navigator.language - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language)
+* https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language

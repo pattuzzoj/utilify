@@ -1,70 +1,39 @@
 # maskString
 
-A função `maskString` aplica uma máscara a uma parte específica de uma string, deixando o início e o final da string inalterados.
+Mascara parte de uma string substituindo caracteres por um caractere de máscara.
 
 ## Sintaxe
-
 ```typescript
-function maskString(str: string, mask: string, maskStart: number, maskLength: number): string
+maskString(str: string, mask: string, maskStart: number, maskLength: number): string
 ```
 
-### Parâmetros
+## Parâmetros
 
-| Nome       | Tipo     | Descrição                                                        |
-|------------|----------|------------------------------------------------------------------|
-| str        | `string` | A string na qual a máscara será aplicada.                       |
-| mask       | `string` | O caractere ou conjunto de caracteres usados para aplicar a máscara. |
-| maskStart  | `number` | O índice de início da parte da string que será mascarada.       |
-| maskLength | `number` | O comprimento da parte da string que será mascarada.            |
+| Nome         | Tipo      | Descrição                                                    |
+|--------------|-----------|--------------------------------------------------------------|
+| `str`        | `string`  | A string original.                                           |
+| `mask`       | `string`  | O caractere ou string de máscara.                            |
+| `maskStart`  | `number`  | Índice inicial para aplicar a máscara (>= 0).                |
+| `maskLength` | `number`  | Quantidade de caracteres a serem mascarados (>= 0).          |
 
-### Retorno
+## Retorno
 
-| Tipo    | Descrição                                         |
-|---------|---------------------------------------------------|
-| `string` | A string com a parte mascarada.                   |
+| Tipo     | Descrição                                                        |
+|----------|------------------------------------------------------------------|
+| `string` | A string resultante com a parte mascarada.                       |
 
-## Exemplos
-
+## Exemplo
 ```typescript
-console.log(maskString("123456789", "*", 3, 4)); // Saída: "1234****89"
-console.log(maskString("Hello World", "#", 6, 5)); // Saída: "Hello #####"
-console.log(maskString("abcdef", "X", 1, 2)); // Saída: "aXXdef"
+maskString("123456789", "*", 2, 4); // "12****789"
+maskString("abcdef", "#", 0, 3); // "###def"
+maskString("openai", "X", 4, 10); // "openXX"
 ```
 
 ## Notas
-
-- A função usa `Math.min(maskLength, str.length - maskStart)` para garantir que o comprimento da máscara não ultrapasse o final da string.
-- A string é dividida em três partes: o início (`start`), a parte a ser mascarada (`masked`), e o final (`end`), e então as partes são concatenadas novamente.
-
-## Código Fonte
-
-::: code-group
-```typescript
-function maskString(str: string, mask: string, maskStart: number, maskLength: number) {
-  maskLength = Math.min(maskLength, str.length - maskStart);
-
-  const start = str.slice(0, maskStart);
-  const end = str.slice(maskStart + maskLength);
-  const masked = mask.repeat(maskLength);
-
-  return start + masked + end;
-}
-```
-
-```javascript
-function maskString(str, mask, maskStart, maskLength) {
-  maskLength = Math.min(maskLength, str.length - maskStart);
-
-  const start = str.slice(0, maskStart);
-  const end = str.slice(maskStart + maskLength);
-  const masked = mask.repeat(maskLength);
-
-  return start + masked + end;
-}
-```
-::: 
+- Lança `TypeError` se os argumentos não forem do tipo esperado.
+- Lança `RangeError` se `maskStart` ou `maskLength` forem negativos, ou se `maskStart` for maior que o comprimento da string.
+- Se `maskLength` exceder o comprimento restante da string, mascara até o final.
 
 ## Referências
-
-- [String.prototype.slice()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/slice)
-- [String.prototype.repeat()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/repeat)
+- [MDN: String.prototype.slice()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/slice)
+- [MDN: String.prototype.repeat()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/repeat)

@@ -1,60 +1,42 @@
-# isValidDate  
-Verifica se o valor fornecido é um objeto `Date` válido. A função verifica se o valor é uma instância da classe `Date` e se a data não é `NaN`.
+# isValidDate
+
+A função `isValidDate` verifica se um valor é uma data válida do JavaScript.
 
 ## Sintaxe
+
 ```typescript
-isValidDate(date: Date): boolean
+isValidDate(value: any): boolean;
 ```
 
 ### Parâmetros
 
-| Parâmetro | Tipo     | Descrição                                            |
-|-----------|----------|------------------------------------------------------|
-| `date`    | `Date`   | O valor a ser verificado para determinar se é um objeto `Date` válido. |
+| Nome     | Tipo     | Descrição                        |
+| -------- | -------- | -------------------------------- |
+| `value`  | `any`    | Valor a ser verificado           |
 
 ### Retorno
 
-| Tipo      | Descrição                                            |
-|-----------|------------------------------------------------------|
-| `boolean` | Retorna `true` se o valor for um objeto `Date` válido, caso contrário, retorna `false`. |
+| Tipo       | Descrição                                 |
+| ---------- | ----------------------------------------- |
+| `boolean`  | Verdadeiro se o valor for uma data válida  |
 
 ## Exemplos
 
-### Exemplo 1: Objeto `Date` válido
 ```typescript
-isValidDate(new Date()); // true
-```
+isValidDate(new Date());
+// => true
 
-### Exemplo 2: Objeto `Date` inválido (Data `NaN`)
-```typescript
-isValidDate(new Date("invalid date")); // false
-```
+isValidDate("2024-06-10");
+// => true
 
-### Exemplo 3: Valor não `Date`
-```typescript
-isValidDate("2025-01-05"); // false
+isValidDate("data inválida");
+// => false
 ```
 
 ## Notas
-- A função primeiro verifica se o valor é uma instância da classe `Date` usando `instanceof Date`.
-- Em seguida, verifica se a data é válida, garantindo que o método `getTime()` não retorne `NaN`. O método `getTime()` retorna `NaN` para datas inválidas.
 
-## Código Fonte
-::: code-group
-
-```typescript
-function isValidDate(date: Date): boolean {
-  return date instanceof Date && !isNaN(date.getTime());
-}
-```
-
-```javascript
-function isValidDate(date) {
-  return date instanceof Date && !isNaN(date.getTime());
-}
-```
-:::
+* Útil para validação de entradas antes de operações com datas.
 
 ## Referências
-- [MDN: `Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-- [MDN: `Date.prototype.getTime`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime)
+
+* https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Date

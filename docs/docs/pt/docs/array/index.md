@@ -1,179 +1,196 @@
-# Array <Badge type="tip" text="2.0.0" />
+# Array
 
-As **funções utilitárias de array** fornecem uma variedade de métodos para manipular e transformar arrays e strings. Elas ajudam a simplificar operações comuns como dividir, achatar, embaralhar e encontrar diferenças entre arrays, entre outras.
+O módulo Array fornece uma coleção abrangente de funções utilitárias para manipulação de arrays em TypeScript/JavaScript. Estas funções permitem realizar operações comuns como transformação, filtragem, agrupamento e reorganização de elementos de forma eficiente e segura.
 
-## Instalação
+Todas as funções são projetadas para serem imutáveis, ou seja, elas não modificam o array original, mas retornam uma nova cópia com as alterações aplicadas. Isso ajuda a manter a previsibilidade do código e evita efeitos colaterais indesejados.
 
-Para instalar as funções utilitárias de array, use um dos seguintes comandos dependendo do seu gerenciador de pacotes:
+As funções deste módulo podem ser usadas tanto com arrays simples quanto com arrays de objetos complexos, oferecendo flexibilidade para diferentes casos de uso. Muitas das funções também incluem suporte para trabalhar com strings, tratando-as como arrays de caracteres quando apropriado.
 
-::: code-group
-
-```bash
-npm install @utilify/array
-```
-
-```bash
-yarn add @utilify/array
-```
-
-```bash
-pnpm add @utilify/array
-```
-
-:::
-
-Após a instalação, você pode importar as funções para seu projeto usando ESM ou CJS.
-
-## Uso
-
-Esta biblioteca suporta tanto o sistema de módulos ESM quanto CJS.
-
-::: code-group
-
-```typescript
-import { shuffle } from '@utilify/array';
-```
-
-```javascript
-const { shuffle } = require('@utilify/array');
-``` 
-
-:::
+Principais características:
+- Funções imutáveis que preservam o array original
+- Tipagem forte com TypeScript
+- Suporte para arrays e strings
+- Operações de transformação, filtragem e agregação
+- Funções utilitárias para manipulação de elementos
 
 ## Visão Geral
 
-Aqui está uma visão geral das funções disponíveis no pacote de utilitários de array e string:
-
-### [after](./after)
-
+[adjust](./adjust.md)
 ```typescript
-function after(str: string, index: number): string;
-function after<T>(arr: T[], index: number): T[];
+adjust<T>(array: T[], index: number, fn: (value: T) => T): T[]
 ```
+Aplica uma função a um elemento em um índice específico de um array, retornando um novo array com o valor ajustado.
 
-Retorna elementos após o índice especificado.
-
-### [before](./before)
-
+[after](./after.md)
 ```typescript
-function before(str: string, index: number): string;
-function before<T>(arr: T[], index: number): T[];
+after<T>(array: T[] | string, index: number): T[] | string
 ```
+Retorna todos os elementos de um array ou caracteres de uma string após o índice especificado.
 
-Retorna os elementos do array ou string antes do índice `index`.
-
-### [chunk](./chunk)
-
+[aperture](./aperture.md)
 ```typescript
-function chunk(str: string, size: number): string[];
-function chunk<T>(arr: T[], size: number): T[][];
+aperture<T>(array: T[], size: number = 1): T[][]
 ```
+Retorna uma lista de subconjuntos consecutivos de tamanho fixo extraídos de um array.
 
-Divide o array ou string em pedaços menores de tamanho `size`.
-
-### [compact](./compact)
-
+[append](./append.md)
 ```typescript
-function compact<T>(arr: T[]): T[];
+append<T>(array: T[], value: T): T[]
 ```
+Adiciona um valor ao final de um array, retornando um novo array.
 
-Remove valores "falsy" (`false`, `null`, `0`, `""`, `undefined`, `NaN`) do array.
-
-### [difference](./difference)
-
+[arrayToObject](./arrayToObject.md)
 ```typescript
-function difference<T>(arr1: T[], arr2: T[]): T[];
+arrayToObject<T, K extends PropertyKey>(array: T[], keyFn?: (item: T, index: number, array: T[]) => K, valueFn?: (item: T, index: number, array: T[]) => any): Record<K, any>
 ```
+Converte um array em um objeto, usando funções para determinar as chaves e valores.
 
-Retorna os elementos do primeiro array que não estão presentes no segundo array.
-
-### [first](./first)
-
+[before](./before.md)
 ```typescript
-function first(str: string, count?: number): string;
-function first<T>(arr: T[], count?: number): T[];
+before<T>(array: T[] | string, index: number): T[] | string
 ```
+Retorna todos os elementos de um array ou caracteres de uma string antes do índice especificado.
 
-Retorna os primeiros `count` elementos do array ou string.
-
-### [flattenArr](./flattenArr)
-
+[chunk](./chunk.md)
 ```typescript
-function flattenArr<T>(arr: T[], depth?: number): FlatArray<T[], number>[];
+chunk<T>(array: T[], size: number): T[][]
+chunk(string: string, size: number): string
 ```
+Divide um array ou string em partes menores de tamanho fixo.
 
-Achata o array até a profundidade especificada.
-
-### [isIterable](./isIterable)
-
+[collectBy](./collectBy.md)
 ```typescript
-function isIterable(value: any): boolean;
+collectBy<T, K extends PropertyKey>(array: T[], keySelector: (value: T, index: number) => K): T[][]
 ```
+Agrupa elementos de um array em subarrays com base em uma função seletora de chave.
 
-Verifica se o valor é iterável.
-
-### [last](./last)
-
+[compact](./compact.md)
 ```typescript
-function last(str: string, count?: number): string;
-function last<T>(arr: T[], count?: number): T[];
+compact<T>(array: T[]): T[]
 ```
+Remove valores falsy de um array.
 
-Retorna os últimos `count` elementos do array ou string.
-
-### [rotate](./rotate)
-
+[count](./count.md)
 ```typescript
-function rotate<T>(arr: T[], offset: number): T[];
+count(array: any[] | string): number
 ```
+Retorna o número de elementos em um array ou caracteres em uma string.
 
-Rotaciona os elementos do array em `offset` posições.
-
-### [sample](./sample)
-
+[cycle](./cycle.md)
 ```typescript
-function sample(str: string): string;
-function sample<T>(arr: T[]): T;
+cycle<T>(array: T[], times: number): T[]
+cycle(string: string, times: number): string
 ```
+Repete os elementos de um array ou caracteres de uma string um número especificado de vezes.
 
-Retorna um elemento aleatório do array ou string.
-
-### [sanitizeArr](./sanitizeArr)
-
+[difference](./difference.md)
 ```typescript
-function sanitizeArr<T>(arr: T[], values: T[], replace?: T): T[];
+difference<T>(array: T[], ...values: T[][]): T[]
 ```
+Retorna um novo array com os elementos do primeiro array que não estão presentes nos demais arrays fornecidos.
 
-Remove ou substitui os valores especificados no array.
-
-### [shuffle](./shuffle)
-
+[first](./first.md)
 ```typescript
-function shuffle<T>(arr: T[]): T[];
+first<T>(array: T[]): T | undefined
+first(string: string): string | undefined
 ```
+Retorna o primeiro elemento de um array ou o primeiro caractere de uma string.
 
-Embaralha os elementos do array.
-
-### [swap](./swap)
-
+[flat](./flat.md)
 ```typescript
-function swap<T>(arr: T[], fromIndex: number, toIndex: number): T[];
+flat<T>(array: any[], depth?: number): T[]
 ```
+"Achata" um array de arrays em um único array até a profundidade especificada.
 
-Troca os elementos nas posições `fromIndex` e `toIndex`.
-
-### [union](./union)
-
+[flatMap](./flatMap.md)
 ```typescript
-function union<T>(...arrs: T[][]): T[];
+flatMap<T, U>(array: T[], fn: (value: T, index: number, array: T[]) => U | U[]): U[]
 ```
+Aplica uma função a cada elemento de um array e "achata" o resultado em um novo array.
 
-Retorna a união de múltiplos arrays.
-
-### [unique](./unique)
-
+[groupBy](./groupBy.md)
 ```typescript
-function unique<T>(arr: T[]): T[];
+groupBy<T, K extends PropertyKey>(array: T[], keySelector: (value: T, index: number) => K): Record<K, T[]>
 ```
+Agrupa os elementos de um array de acordo com o valor retornado por uma função seletora de chave.
 
-Retorna um array com elementos únicos.
+[includes](./includes.md)
+```typescript
+includes<T>(array: T[] | string, value: T | string, fromIndex?: number): boolean
+```
+Verifica se um array ou string contém um determinado valor.
+
+[isIterable](./isIterable.md)
+```typescript
+isIterable(value: any): value is Iterable<any>
+```
+Verifica se um valor é iterável (possui o método `Symbol.iterator`).
+
+[last](./last.md)
+```typescript
+last<T>(array: T[], count?: number): T[]
+last(string: string, count?: number): string
+```
+Retorna o(s) último(s) elemento(s) de um array ou caractere(s) de uma string.
+
+[reject](./reject.md)
+```typescript
+reject<T>(array: T[], fn: (value: T, index?: number, array?: T[]) => boolean): T[]
+```
+Retorna um novo array com os elementos que não satisfazem a função de teste fornecida.
+
+[repeat](./repeat.md)
+```typescript
+repeat<T>(value: T, count: number): T[]
+repeat(value: string, count: number): string
+```
+Cria um novo array ou string repetindo o valor informado um número específico de vezes.
+
+[rotate](./rotate.md)
+```typescript
+rotate<T>(array: T[], offset: number): T[]
+```
+Desloca os elementos de um array para a esquerda ou direita, conforme o offset informado.
+
+[sample](./sample.md)
+```typescript
+sample<T>(array: T[]): T | undefined
+```
+Retorna um elemento aleatório de um array.
+
+[shuffle](./shuffle.md)
+```typescript
+shuffle<T>(array: T[]): T[]
+```
+Embaralha os elementos de um array de forma aleatória.
+
+[swap](./swap.md)
+```typescript
+swap<T>(array: T[], indexA: number, indexB: number): T[]
+```
+Troca os elementos de duas posições em um array.
+
+[union](./union.md)
+```typescript
+union<T>(...arrays: T[][]): T[]
+```
+Retorna um novo array contendo todos os elementos únicos de dois ou mais arrays.
+
+[unique](./unique.md)
+```typescript
+unique<T>(array: T[]): T[]
+```
+Retorna um novo array contendo apenas os elementos únicos do array original.
+
+[unzip](./unzip.md)
+```typescript
+unzip<T>(array: T[][]): T[][]
+```
+Transforma um array de arrays agrupados em arrays de elementos correspondentes.
+
+[zip](./zip.md)
+```typescript
+zip<T>(...arrays: T[][]): T[][]
+```
+Agrupa elementos de dois ou mais arrays em arrays de pares correspondentes.
+

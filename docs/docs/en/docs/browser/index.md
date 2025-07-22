@@ -1,87 +1,107 @@
-# Browser <Badge type="tip" text="2.0.1" />
+# Browser
 
-The **browser utility functions** provide a variety of methods for interacting with the browser environment. These functions help simplify common operations, such as checking the connection state, detecting touch devices, generating secure hashes, and more.
-
-## Installation
-
-To install the browser utility functions, use one of the following commands, depending on your package manager:
-
-::: code-group
-
-```bash [npm]
-npm install @utilify/browser
-```
-
-```bash [yarn]
-yarn add @utilify/browser
-```
-
-```bash [pnpm]
-pnpm add @utilify/browser
-```
-
-:::
-
-Once installed, you can import the functions into your project, using either ESM or CJS.
-
-## Usage
-
-This library supports both the ESM and CJS module systems.
-
-::: code-group
-
-```typescript [esm]
-import { getLanguage, getTheme, isOnline } from '@utilify/browser';
-```
-
-```javascript [cjs]
-const { getLanguage, getTheme, isOnline } = require('@utilify/browser');
-```
-
-:::
+The Browser module provides a collection of utilities for interacting with web browser APIs. It includes functions for managing fullscreen mode, detecting connection status, handling DOM events, controlling page scrolling, and accessing native features like sharing. It also offers methods to check user preferences and device capabilities.
 
 ## Overview
 
-Here’s an overview of the functions available in the **browser** utility package:
+[exitFullscreen](./exitFullscreen.md)
+```typescript
+exitFullscreen(): void
+```
+Exits fullscreen mode, if supported by the browser.
 
-### [getLanguage](./getLanguage.md)  
-```typescript  
-function getLanguage(): string | undefined  
-```  
-Returns the browser’s language code.
+[getLanguage](./getLanguage.md)
+```typescript
+getLanguage(): string
+```
+Returns the user's preferred browser language.
 
-### [getTheme](./getTheme.md)  
-```typescript  
-function getTheme(): string | undefined  
-```  
-Returns the current theme preference of the user.
+[getTheme](./getTheme.md)
+```typescript
+getTheme(): "light" | "dark"
+```
+Gets the user's preferred theme (light or dark).
 
-### [isCookieEnabled](./isCookieEnabled.md)  
-```typescript  
-function isCookieEnabled(): boolean | undefined  
-```  
+[isCookieEnabled](./isCookieEnabled.md)
+```typescript
+isCookieEnabled(): boolean
+```
 Checks if cookies are enabled in the browser.
 
-### [isFullscreenEnabled](./isFullscreenEnabled.md)  
-```typescript  
-function isFullscreenEnabled(): boolean | undefined  
-```  
-Checks if fullscreen mode is enabled.
+[isFullscreenEnabled](./isFullscreenEnabled.md)
+```typescript
+isFullscreenEnabled(): boolean
+```
+Checks if the fullscreen API is available.
 
-### [isOnline](./isOnline.md)  
-```typescript  
-function isOnline(): boolean | undefined  
-```  
-Checks if the browser is online.
+[isOnline](./isOnline.md)
+```typescript
+isOnline(): boolean
+```
+Checks if the browser is connected to the internet.
 
-### [isTouchDevice](./isTouchDevice.md)  
-```typescript  
-function isTouchDevice(): boolean | undefined  
-```  
+[isShareable](./isShareable.md)
+```typescript
+isShareable(): boolean
+```
+Checks if the native sharing API is available.
+
+[isTabActive](./isTabActive.md)
+```typescript
+isTabActive(): boolean
+```
+Checks if the browser tab is active (visible).
+
+[isTouchDevice](./isTouchDevice.md)
+```typescript
+isTouchDevice(): boolean
+```
 Checks if the device supports touch events.
 
-### [toggleFullscreen](./toggleFullscreen.md)  
-```typescript  
-function toggleFullscreen(elem: HTMLElement): void  
-```  
-Toggles fullscreen mode for the given element.
+[on](./on.md)
+```typescript
+on<K extends keyof HTMLElementEventMap>(target: HTMLElement | Document | Window, type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void
+```
+Adds an event listener to a DOM element.
+
+[onOffline](./onOffline.md)
+```typescript
+onOffline(listener: () => void): void
+```
+Adds a listener for the offline event.
+
+[onOnline](./onOnline.md)
+```typescript
+onOnline(listener: () => void): void
+```
+Adds a listener for the online event.
+
+[onVisibilityChange](./onVisibilityChange.md)
+```typescript
+onVisibilityChange(listener: () => void): void
+```
+Adds a listener for tab visibility changes.
+
+[requestFullscreen](./requestFullscreen.md)
+```typescript
+requestFullscreen(element?: HTMLElement): void
+```
+Requests an element to enter fullscreen mode.
+
+[scrollToElement](./scrollToElement.md)
+```typescript
+scrollToElement(target: string | HTMLElement, options?: ScrollIntoViewOptions): void
+```
+Smoothly scrolls to a target element on the page.
+
+[scrollToTop](./scrollToTop.md)
+```typescript
+scrollToTop(options?: ScrollToOptions): void
+```
+Smoothly scrolls to the top of the page.
+
+[share](./share.md)
+```typescript
+share(data: ShareData): Promise<void>
+```
+Uses the native API to share data such as title, text, URL, or files.

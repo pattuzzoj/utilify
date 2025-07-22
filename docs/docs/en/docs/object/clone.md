@@ -1,91 +1,38 @@
-# clone
-The `clone` function creates a shallow copy of an object or array. It returns a new instance with the same values as the original.
+## clone
 
-## Syntax
+The `clone` function performs a deep clone of any value, including objects, arrays, and primitive types.
+
+### Syntax
 
 ```typescript
-clone<T extends Record<string, any>>(value: T): T;
-clone<T extends any[]>(value: T): T;
-clone<T>(value: T): T;
+clone<T>(value: T): T
 ```
 
 ### Parameters
 
-| Parameter | Type                          | Description                                                   |
-|-----------|-------------------------------|---------------------------------------------------------------|
-| `value`   | `T extends Record<string, any>` | An object to be cloned.                                       |
-| `value`   | `T extends any[]`              | An array to be cloned.                                        |
-| `value`   | `T`                            | Any type to be cloned (object or array).                      |
+| Name    | Type | Description |
+| :------ | :--- | :---------- |
+| `value` | `T`  | Value to be cloned. Can be an object, array, or primitive value. |
 
 ### Return
 
-| Type       | Description                                                   |
-|------------|-------------------------------------------------------------|
-| `T`        | A shallow copy of the provided value. The copy will have the same type as the original value. |
+| Type | Description |
+| :--- | :---------- |
+| `T`  | Returns a deep copy of the provided value. |
 
-## Examples
-
-### Example 1: Cloning an Object
-```typescript
-const user = { id: 1, name: "Alice" };
-const clonedUser = clone(user);
-console.log(clonedUser); // { id: 1, name: "Alice" }
-```
-
-### Example 2: Cloning an Array
-```typescript
-const numbers = [1, 2, 3];
-const clonedNumbers = clone(numbers);
-console.log(clonedNumbers); // [1, 2, 3]
-```
-
-### Example 3: Modifying the Clone
-```typescript
-const person = { name: "Bob", age: 30 };
-const clonedPerson = clone(person);
-clonedPerson.age = 31;
-
-console.log(person.age); // 30
-console.log(clonedPerson.age); // 31
-```
-
-## Notes
-- This function creates a shallow copy, which means nested objects or arrays are still referenced.
-- To create a deep copy, a different approach is needed, such as recursion or specialized methods like `JSON.parse(JSON.stringify(value))`.
-
-## Dependencies
-None.
-
-## Source Code
-::: code-group
+### Examples
 
 ```typescript
-function clone<T extends Record<string, any>>(value: T): T;
-function clone<T extends any[]>(value: T): T;
-function clone<T>(value: T): T {
-	const clonedValue = Array.isArray(value) ? ([] as T) : ({} as T);
-
-	for (const key in value) {
-		clonedValue[key] = value[key];
-	}
-
-	return clonedValue;
-}
+const original = { a: 1, b: { c: 2 } };
+const copy = clone(original);
+copy.b.c = 3;
+console.log(original.b.c); // 2
 ```
 
-```javascript
-function clone(value) {
-	const clonedValue = Array.isArray(value) ? [] : {};
+### Notes
 
-	for (const key in value) {
-		clonedValue[key] = value[key];
-	}
+- Internally uses `structuredClone`, ensuring support for complex types.
+- May throw an error if the value contains types not clonable by `structuredClone` (e.g., functions).
 
-	return clonedValue;
-}
-```
-:::
-
-## References
-- [Array.isArray()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
-- [for...in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
+### References
+- [MDN: structuredClone](https://developer.mozilla.org/en-US/docs/Web/API/structuredClone)

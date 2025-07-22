@@ -1,131 +1,115 @@
-# Math <Badge type="tip" text="1.0.2" />
+# Math
 
-The math utility functions provide methods to perform common and complex mathematical operations. These functions can be extremely helpful for number manipulation, such as calculating averages, checking prime numbers, and other mathematical tasks.
+The Math module provides a comprehensive set of mathematical and statistical functions for manipulating and analyzing numbers. From basic operations like addition and multiplication to more complex calculations such as standard deviation and Fibonacci sequence, this module offers essential tools for numerical processing.
 
-## **Installation**
+The functions are designed to be intuitive and easy to use, maintaining high performance even with large data sets. All implement appropriate error checks and follow best programming practices.
 
-To install the math utilities package, use one of the following commands, depending on your package manager:
+## Overview
 
-::: code-group
-
-```bash [npm]
-npm install @utilify/math
-```
-
-```bash [yarn]
-yarn add @utilify/math
-```
-
-```bash [pnpm]
-pnpm add @utilify/math
-```
-
-:::
-
-Once installed, you can import the functions into your project, using ESM or CJS.
-
-::: code-group
-
-```typescript [esm]
-import { average, clamp, divisors } from '@utilify/math';
-```
-
-```javascript [cjs]
-const { average, clamp, divisors } = require('@utilify/math');
-```
-
-:::
-
-## **Overview**
-
-Here is an overview of the available functions in the math utilities package:
-
-### [average](./average.md)
+### [add](./add.md)
 ```typescript
-function average(values: number[]): number;
+add(...values: number[]): number
 ```
-Returns the arithmetic average of the provided values.
+Sums all numeric values provided as arguments.
 
 ### [clamp](./clamp.md)
 ```typescript
-function clamp(value: number, min: number, max: number): number;
+clamp(value: number, min: number, max: number): number
 ```
-Restricts the provided value to a range between a minimum and maximum value.
+Restricts a value to a range defined by minimum and maximum limits.
 
-### [divisors](./divisors.md)
+### [divide](./divide.md)
 ```typescript
-function divisors(num: number): number[];
+divide(dividend: number, divisor: number): number
 ```
-Returns an array with all divisors of a number.
+Divides one number (dividend) by another (divisor).
 
 ### [factorial](./factorial.md)
 ```typescript
-function factorial(value: number): number;
+factorial(value: number): number
 ```
-Calculates the factorial of a number.
+Calculates the factorial of a non-negative integer.
 
 ### [fibonacci](./fibonacci.md)
 ```typescript
-function fibonacci(num: number): number;
+fibonacci(num: number): number
 ```
-Returns the Fibonacci number at the specified position.
+Calculates the nth number in the Fibonacci sequence.
 
 ### [frequency](./frequency.md)
 ```typescript
-function frequency<T>(arr: T[]): Record<string, number>;
+frequency(arr: any[]): Record<PropertyKey, number>
 ```
-Returns an object with the frequency of each value in an array.
+Counts the frequency of each element in an array, returning an object with the occurrences.
 
-### [isBetween](./isBetween.md)
+### [lerp](./lerp.md)
 ```typescript
-function isBetween(value: number, min: number, max: number): boolean;
+lerp(start: number, end: number, amount: number): number
 ```
-Checks if a value is within a specific range.
+Performs linear interpolation between two numeric values.
 
-### [isEven](./isEven.md)
+### [mean](./mean.md)
 ```typescript
-function isEven(value: number): boolean;
+mean(values: number[]): number
 ```
-Checks if the provided number is even.
+Calculates the arithmetic mean of an array of numbers.
 
-### [isInteger](./isInteger.md)
+### [median](./median.md)
 ```typescript
-function isInteger(value: number): boolean;
+median(arr: number[]): number
 ```
-Checks if the provided value is an integer.
+Calculates the median of an array of numbers.
 
-### [isOdd](./isOdd.md)
+### [mod](./mod.md)
 ```typescript
-function isOdd(value: number): boolean;
+mod(dividend: number, divisor: number): number
 ```
-Checks if the provided number is odd.
+Calculates the modulus (remainder) of the division between two numbers, always returning a non-negative value.
 
-### [isPrime](./isPrime.md)
+### [mode](./mode.md)
 ```typescript
-function isPrime(num: number): boolean;
+mode(numbers: number[]): number[]
 ```
-Checks if the provided number is prime.
+Calculates the value(s) that appear most frequently in an array of numbers.
+
+### [multiply](./multiply.md)
+```typescript
+multiply(...values: number[]): number
+```
+Multiplies two or more numeric values.
+
+### [pow](./pow.md)
+```typescript
+pow(base: number, exponent: number): number
+```
+Calculates the power of a number raised to another.
 
 ### [random](./random.md)
 ```typescript
-function random(min: number = 0, max: number = 10): number;
+random(min?: number, max?: number): number
 ```
-Returns a random number between the provided minimum and maximum values.
+Generates a random number within a specified range.
 
-### [round](./round.md)
+### [roundTo](./roundTo.md)
 ```typescript
-function round(value: number, precision: number): number;
+roundTo(value: number, decimals: number): number
 ```
-Rounds a number to the specified number of decimal places.
+Rounds a number to a specific number of decimal places.
 
-### [sum](./sum.md)
+### [std](./std.md)
 ```typescript
-function sum(values: number[]): number;
+std(numbers: number[]): number
 ```
-Returns the sum of all values in an array.
+Calculates the standard deviation of an array of numbers.
 
-### [sumOfDigits](./sumOfDigits.md)
+### [subtract](./subtract.md)
 ```typescript
-function sumOfDigits(num: number): number;
+subtract(...values: number[]): number
 ```
-Returns the sum of the digits of a number.
+Subtracts two or more numeric values sequentially.
+
+### [variance](./variance.md)
+```typescript
+variance(numbers: number[]): number
+```
+Calculates the sample variance of an array of numbers.

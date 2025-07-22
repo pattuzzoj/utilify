@@ -1,62 +1,38 @@
 # difference
 
-A função `difference` retorna um novo array contendo elementos que estão presentes no primeiro array mas não no segundo array.
+A função `difference` retorna um novo array com os elementos do primeiro array que não estão presentes nos demais arrays fornecidos.
 
 ## Sintaxe
 
 ```typescript
-function difference<T>(arr1: T[], arr2: T[]): T[];
+difference<T>(array: T[], ...values: T[][]): T[];
 ```
 
 ### Parâmetros
 
-| Nome   | Tipo         | Descrição                                                        |
-|--------|--------------|--------------------------------------------------------------------|
-| `arr1` | `T[]`        | O array original.                                                   |
-| `arr2` | `T[]`        | O array de valores a serem excluídos do array original.            |
+| Nome      | Tipo      | Descrição                              |
+|-----------|-----------|----------------------------------------|
+| `array`   | `T[]`     | Array de origem                        |
+| `values`  | `T[][]`   | Arrays com valores a serem excluídos   |
 
 ### Retorno
 
-| Tipo   | Descrição                                                                 |
-|--------|-----------------------------------------------------------------------------|
-| `T[]`  | Um novo array contendo elementos que estão presentes no primeiro array mas não no segundo. |
+| Tipo    | Descrição                                         |
+|---------|---------------------------------------------------|
+| `T[]`   | Novo array com elementos exclusivos do primeiro array |
 
 ## Exemplos
 
 ```typescript
-const data1 = [1, 2, 3];
-const data2 = [2, 3, 4];
-
-// Elementos no primeiro array mas não no segundo
-console.log(difference(data1, data2)); // [1]
-
-const data3 = [1, 2, 3];
-
-// Arrays idênticos, nenhum elemento restante
-console.log(difference(data3, data3)); // []
+difference([1, 2, 3, 4], [2, 4]); // => [1, 3]
+difference(["a", "b", "c"], ["b"]); // => ["a", "c"]
 ```
 
-## Observações
+## Notas
 
-- A função usa `Array.prototype.filter` e `Array.prototype.includes` para determinar a diferença.
-
-## Código Fonte
-
-::: code-group
-```typescript
-function difference<T>(arr1: T[], arr2: T[]): T[] {
-  return arr1.filter((value: T) => !arr2.includes(value));
-}
-```
-
-```javascript
-function difference(arr1, arr2) {
-  return arr1.filter((value) => !arr2.includes(value));
-}
-```
-:::
+* Útil para comparar listas e remover duplicatas.
+* Não modifica o array original.
 
 ## Referências
 
-- [Array.prototype.filter() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
-- [Array.prototype.includes() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
+* https://lodash.com/docs/4.17.15#difference

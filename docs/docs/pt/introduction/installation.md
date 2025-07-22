@@ -1,53 +1,76 @@
 # Instalação
 
-O **Utilify** pode ser facilmente instalado com os seguintes gerenciadores de pacotes:
+**Utilify** pode ser instalado com facilidade por meio dos principais gerenciadores de pacotes, incluindo suporte completo ao [JSR](https://jsr.io/) — o registro oficial de módulos do Deno, compatível também com Node.js e outros runtimes modernos.
 
-- **npm**
-- **yarn**
-- **pnpm**
+* **npm**
+* **yarn**
+* **pnpm**
+* **JSR (Deno)**
 
-Escolha o gerenciador que você utiliza no seu projeto e siga uma das duas opções de instalação abaixo.
+Escolha o gerenciador de pacotes que você utiliza em seu projeto e siga uma das opções abaixo para instalar o pacote principal:
 
-## 1. Pacote Completo
+## Instalação do Pacote Principal
 
-Se você deseja acessar todas as funcionalidades do **Utilify** de uma vez, basta instalar o pacote **@utilify/core**. Isso inclui todos os utilitários, sem a necessidade de escolher pacotes específicos.
+Se você deseja acessar todas as funcionalidades do **Utilify** de uma só vez, basta instalar o pacote **@utilify/core**. O **Utilify** é distribuído como um pacote único, contendo toda a coleção de utilitários. Essa abordagem simplifica a instalação, evita dependências fragmentadas e melhora a manutenção do seu projeto.
 
 ::: code-group
+
 ```bash [npm]
 npm install @utilify/core
 ```
+
 ```bash [yarn]
 yarn add @utilify/core
 ```
+
 ```bash [pnpm]
 pnpm add @utilify/core
 ```
+
+```bash [JSR (Deno)]
+deno add jsr:@utilify/core
+```
+
 :::
 
-## 2. Pacotes Individuais
+### Sobre o JSR
 
-Se você preferir importar apenas as funcionalidades necessárias para o seu projeto, pode instalar pacotes específicos. Isso ajuda a manter o tamanho do seu projeto leve e otimizado.
+O [JSR](https://jsr.io/) é o registro oficial de módulos do Deno. Ele permite instalar pacotes modernos com um único comando, mesmo em ambientes como Node.js, Bun ou compatíveis com npm.
 
-Para saber mais sobre cada pacote, consulte a [Visão Geral dos Pacotes](./overview).
-
-Exemplo de instalação de pacotes individuais:
+#### Exemplos de uso do JSR:
 
 ::: code-group
+
+```bash [Deno]
+deno add jsr:@utilify/core
+```
+
 ```bash [npm]
-npm install @utilify/array
-npm install @utilify/browser
-# E outros pacotes conforme necessário
+npx jsr add @utilify/core
 ```
-```bash [yarn]
-yarn add @utilify/array
-yarn add @utilify/browser
-# E outros pacotes conforme necessário
+
+```bash [bun]
+bunx jsr add @utilify/core
 ```
+
 ```bash [pnpm]
-pnpm add @utilify/array
-pnpm add @utilify/browser
-# E outros pacotes conforme necessário
+pnpm add jsr:@utilify/core
 ```
+
+```bash [yarn]
+yarn add jsr:@utilify/core
+```
+
 :::
 
-Agora, escolha a opção de instalação que melhor se adapta ao seu projeto e comece a utilizar o **Utilify**!
+---
+
+✅ Após a instalação, você pode importar qualquer função diretamente:
+
+```ts
+import { after, isString } from "@utilify/core";
+```
+
+O pacote é compatível com módulos ES (ESM) e pode ser usado tanto em projetos TypeScript quanto JavaScript.
+
+---

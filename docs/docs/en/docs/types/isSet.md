@@ -1,58 +1,30 @@
-# isSet  
-Checks if the provided value is an instance of `Set`. The function returns `true` if the value is a `Set`, and `false` otherwise.
+# isSet
+
+The `isSet` function checks if the provided value is an instance of Set.
 
 ## Syntax
 ```typescript
-function isSet(value: any): boolean
+isSet(value: any): value is Set<any>;
 ```
 
-### Parameters
+## Parameters
+| Parameter | Type   | Description           |
+| :-------- | :----- | :--------------------|
+| `value`   | `any`  | Value to be checked   |
 
-| Parameter | Type      | Description                               |
-|-----------|-----------|-------------------------------------------|
-| `value`   | `any`     | The value to be checked. Can be of any type. |
-
-### Return
-
-| Type     | Description                                  |
-|----------|--------------------------------------------|
-| `boolean`| Returns `true` if the value is a `Set`, otherwise returns `false`. |
+## Returns
+| Type      | Description                                 |
+| :-------- | :------------------------------------------ |
+| `boolean` | True if it is an instance of Set            |
 
 ## Examples
-
-### Example 1: Checking `Set`
 ```typescript
-const mySet = new Set([1, 2, 3]);
-isSet(mySet); // true
-```
-
-### Example 2: Checking other types of values
-```typescript
-isSet(undefined); // false
-isSet(null); // false
-isSet(42); // false
-isSet("Hello"); // false
-isSet({}); // false
+isSet(new Set()); // => true
+isSet([]); // => false
 ```
 
 ## Notes
-- The function uses the `instanceof` operator, which is used to check if an object is an instance of a class, in this case, the `Set` class.
-
-## Source Code
-::: code-group
-
-```typescript
-function isSet(value: any): boolean {
-  return value instanceof Set;
-}
-```
-
-```javascript
-function isSet(value) {
-  return value instanceof Set;
-}
-```
-:::
+* Useful for validating collections before performing Set-specific operations.
 
 ## References
-- [MDN: `instanceof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof)
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set

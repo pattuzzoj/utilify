@@ -1,120 +1,36 @@
-# unflattenObj
-The `unflattenObj` function converts a flat object with dotted keys into a nested object based on the separator.
+## unflattenObj
 
-## Syntax
+The `unflattenObj` function reconstructs nested objects from an object with flat (flattened) keys.
+
+### Syntax
 
 ```typescript
-unflattenObj(obj: Record<string, any>, separator: string = "."): Record<string, any>;
+unflattenObj(obj): object
 ```
 
 ### Parameters
 
-| Parameter | Type                          | Description                                                   |
-|-----------|-------------------------------|-------------------------------------------------------------|
-| `obj`     | `Record<string, any>`          | The flat object with dotted keys to be converted into a nested structure. |
-| `separator` | `string`                     | The separator used to split the keys into nested paths (default is `.`). |
+| Name    | Type     | Description                              |
+| :------ | :------- | :--------------------------------------- |
+| `obj`   | `object` | Object with flat keys to be reconstructed. |
 
 ### Return
 
-| Type                          | Description                                                   |
-|-------------------------------|-------------------------------------------------------------|
-| `Record<string, any>`          | The nested object created from the flat object.              |
+| Type     | Description                                               |
+| :------- | :-------------------------------------------------------- |
+| `object` | Returns a new object with the nested structure restored.  |
 
-## Examples
-
-### Example 1: Basic Unflattening
-```typescript
-const obj = { "user.name": "Alice", "user.age": 30 };
-const result = unflattenObj(obj);
-
-console.log(result);
-// { user: { name: "Alice", age: 30 } }
-```
-
-### Example 2: Custom Separator
-```typescript
-const obj = { "user|name": "Alice", "user|age": 30 };
-const result = unflattenObj(obj, "|");
-
-console.log(result);
-// { user: { name: "Alice", age: 30 } }
-```
-
-### Example 3: Unflattening an Already Nested Object
-```typescript
-const obj = { "user.name": "Alice", "address.city": "Wonderland", "address.zip": 12345 };
-const result = unflattenObj(obj);
-
-console.log(result);
-// { user: { name: "Alice" }, address: { city: "Wonderland", zip: 12345 } }
-```
-
-## Notes
-- The function uses a regular expression to check for keys that contain the separator and splits them into multiple levels in a nested object.
-- If a key doesn't contain the separator, it remains as it is in the resulting object.
-
-## Dependencies
-No external dependencies.
-
-## Code Source
-::: code-group
+### Examples
 
 ```typescript
-function unflattenObj(obj: Record<string, any>, separator: string = "."): Record<string, any> {
-  let unflatObj = {} as any;
-  const regex = new RegExp(`${separator}`);
-
-  for (const key in obj) {
-    if (regex.test(key)) {
-      const paths = key.split(separator);
-      let reference = unflatObj;
-
-      paths.slice(0, -1).forEach((path) => {
-        if (!(path in reference)) {
-          reference[path] = {};
-        }
-        
-        reference = reference[path];
-      });
-
-      reference[paths[paths.length - 1]] = obj[key];
-    } else {
-      unflatObj[key] = obj[key];
-    }
-  }
-
-  return unflatObj;
-}
+unflattenObj({ 'a.b.c': 1, 'a.b.d': 2 }); // { a: { b: { c: 1, d: 2 } } }
+unflattenObj({ 'arr[0]': 10, 'arr[1]': 20 }); // { arr: [10, 20] }
 ```
 
-```javascript
-function unflattenObj(obj, separator = ".") {
-  let unflatObj = {};
-  const regex = new RegExp(`${separator}`);
+### Notes
 
-  for (const key in obj) {
-    if (regex.test(key)) {
-      const paths = key.split(separator);
-      let reference = unflatObj;
+- Supports paths with dot and array notation (e.g., 'arr[0].prop').
+- Useful for converting serialized data or form inputs into nested objects.
 
-      paths.slice(0, -1).forEach((path) => {
-        if (!(path in reference)) {
-          reference[path] = {};
-        }
-        
-        reference = reference[path];
-      });
-
-      reference[paths[paths.length - 1]] = obj[key];
-    } else {
-      unflatObj[key] = obj[key];
-    }
-  }
-
-  return unflatObj;
-}
-```
-:::
-
-## References
-No external references.
+### References
+- [MDN: Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)

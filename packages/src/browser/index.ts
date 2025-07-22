@@ -1,0 +1,17 @@
+export { default as exitFullscreen } from './exitFullscreen';
+export { default as getLanguage } from './getLanguage';
+export { default as getTheme } from './getTheme';
+export { default as isCookieEnabled } from './isCookieEnabled';
+export { default as isFullscreenEnabled } from './isFullscreenEnabled';
+export { default as isOnline } from './isOnline';
+export { default as isShareable } from './isShareable';
+export { default as isTabActive } from './isTabActive';
+export { default as isTouchDevice } from './isTouchDevice';
+export { default as on } from './on';
+export { default as onOffline } from './onOffline';
+export { default as onOnline } from './onOnline';
+export { default as onVisibilityChange } from './onVisibilityChange';
+export { default as requestFullscreen } from './requestFullscreen';
+export { default as scrollToElement } from './scrollToElement';
+export { default as scrollToTop } from './scrollToTop';
+export { default as share } from './share';

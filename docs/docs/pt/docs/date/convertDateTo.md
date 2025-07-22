@@ -1,97 +1,44 @@
-# convertDateTo  
-Converte um objeto `Date` fornecido em um formato de string especificado.
+# convertDateTo
+
+A função `convertDateTo` converte uma data para um tipo de saída específico: string, número ou objeto Date.
 
 ## Sintaxe
+
 ```typescript
-convertDateTo(date: Date, format: DateFormat): string | undefined
+convertDateTo<T extends 'string' | 'number' | 'date'>(date: Date, type: T): string | number | Date;
 ```
 
 ### Parâmetros
 
-| Parâmetro | Tipo                           | Descrição                                         |
-|-----------|--------------------------------|-----------------------------------------------------|
-| `date`    | `Date`                         | O objeto `Date` a ser convertido.                  |
-| `format`  | `"string" \| "utc" \| "iso"`   | O formato desejado para a data. Os valores possíveis são `"string"`, `"utc"` ou `"iso"`. |
+| Nome    | Tipo      | Descrição                                         |
+| ------- | --------- | --------------------------------------------------- |
+| `date`  | `Date`    | A data a ser convertida                             |
+| `type`  | `string`  | O tipo de saída desejado: 'string', 'number' ou 'date' |
 
 ### Retorno
 
-| Tipo     | Descrição                                    |
-|----------|------------------------------------------------|
-| `string` | A data formatada como uma string.              |
-| `undefined` | Retorna `undefined` se a data for inválida. |
+| Tipo                       | Descrição                                 |
+| -------------------------- | ----------------------------------------- |
+| `string` \| `number` \| `Date` | Valor convertido conforme o tipo solicitado |
 
 ## Exemplos
 
-### Exemplo 1: Converter data para string UTC
 ```typescript
-const date = new Date();
-convertDateTo(date, "utc");
-// Saída: "Sat, 05 Jan 2025 10:30:00 GMT" (por exemplo)
-```
+convertDateTo(new Date("2024-06-10T12:00:00Z"), 'string');
+// => "2024-06-10T12:00:00.000Z"
 
-### Exemplo 2: Converter data para string ISO
-```typescript
-const date = new Date();
-convertDateTo(date, "iso");
-// Saída: "2025-01-05T10:30:00.000Z"
-```
+convertDateTo(new Date("2024-06-10T12:00:00Z"), 'number');
+// => 1718020800000
 
-### Exemplo 3: Converter data para formato string
-```typescript
-const date = new Date();
-convertDateTo(date, "string");
-// Saída: "Sat Jan 05 2025 10:30:00 GMT+0000 (Coordinated Universal Time)"
+convertDateTo(new Date("2024-06-10T12:00:00Z"), 'date');
+// => Date Mon Jun 10 2024 12:00:00 GMT+0000
 ```
 
 ## Notas
-- A função verifica se a `date` fornecida é válida usando a função `isValidDate`.
-- O formato `utc` retorna a data no formato de string UTC (`Date.prototype.toUTCString`).
-- O formato `iso` retorna a data no formato ISO (`Date.prototype.toISOString`).
-- Se nenhum formato válido for fornecido, a função usa `Date.prototype.toString()` por padrão.
 
-## Código Fonte
-::: code-group
-
-```typescript
-import isValidDate from "./isValidDate";
-
-type DateFormat = "string" | "utc" | "iso";
-
-function convertDateTo(date: Date, format: DateFormat): string | undefined {
-  if (!isValidDate(date)) {
-    console.error("Invalid date");
-    return;
-  };
-
-  if (format === "utc") {
-    return date.toUTCString();
-  } else if (format === "iso") {
-    return date.toISOString();
-  }
-
-  return date.toString();
-}
-```
-
-```javascript
-function convertDateTo(date, format) {
-  if (isNaN(date.getTime())) {
-    console.error("Invalid date");
-    return;
-  }
-
-  if (format === "utc") {
-    return date.toUTCString();
-  } else if (format === "iso") {
-    return date.toISOString();
-  }
-
-  return date.toString();
-}
-```
-:::
+* Lança um erro se a data não for válida ou se o tipo for inválido.
+* Útil para padronizar a saída de datas em diferentes contextos.
 
 ## Referências
-- [MDN: `Date.prototype.toUTCString`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString)
-- [MDN: `Date.prototype.toISOString`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
-- [MDN: `Date.prototype.toString`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toString)
+
+* https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Date

@@ -1,56 +1,33 @@
 # isLowerCase
 
-The `isLowerCase` function checks if all alphabetic characters in a string are lowercase, ignoring whitespace.
+Checks if a string contains at least one lowercase letter and no uppercase letters.
 
 ## Syntax
-
 ```typescript
-function isLowerCase(str: string): boolean
+isLowerCase(str: string): boolean
 ```
 
-### Parameters
+## Parameters
+| Parameter | Type     | Description                                 |
+| :-------- | :------- | :------------------------------------------ |
+| `str`     | `string` | The string to be checked.                   |
 
-| Name  | Type     | Description                                      |
-|-------|----------|--------------------------------------------------|
-| str   | `string` | The string to be checked.                        |
+## Returns
+| Type      | Description                                 |
+| :-------- | :------------------------------------------ |
+| `boolean` | `true` if the string contains at least one lowercase letter and no uppercase letters, otherwise `false`. |
 
-### Returns
-
-| Type    | Description                                      |
-|---------|--------------------------------------------------|
-| `boolean` | Returns `true` if all alphabetic characters are lowercase, otherwise returns `false`. |
-
-## Examples
-
+## Example
 ```typescript
-console.log(isLowerCase("hello"));        // Output: true
-console.log(isLowerCase("Hello World"));  // Output: false
-console.log(isLowerCase("javaScript"));   // Output: false
-console.log(isLowerCase("lower case"));   // Output: true
+isLowerCase("abc"); // true
+isLowerCase("Abc"); // false
+isLowerCase("123"); // false
+isLowerCase(""); // false
 ```
 
 ## Notes
-
-- The function uses a regular expression to check that the string does not contain any uppercase letters, after removing whitespace with `replace(/\s+/g, "")`.
-- The regular expression `/^(?!.*[A-Z]).*[a-z].*$/` ensures that the string contains at least one lowercase letter and no uppercase letters.
-
-## Source Code
-
-::: code-group
-```typescript
-function isLowerCase(str: string): boolean {
-  return /^(?!.*[A-Z]).*[a-z].*$/.test(str.replace(/\s+/g, ""));
-}
-```
-
-```javascript
-function isLowerCase(str) {
-  return /^(?!.*[A-Z]).*[a-z].*$/.test(str.replace(/\s+/g, ""));
-}
-```
-::: 
+- Throws `TypeError` if the argument is not a string.
+- Spaces are ignored in the check.
 
 ## References
-
-- [RegExp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
-- [String.prototype.replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
+- [MDN: Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)

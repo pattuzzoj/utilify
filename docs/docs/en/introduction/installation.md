@@ -1,53 +1,76 @@
 # Installation
 
-**Utilify** can be easily installed with the following package managers:
+**Utilify** can be easily installed using the main package managers, with full support for [JSR](https://jsr.io/) — the official Deno module registry, also compatible with Node.js and other modern runtimes.
 
-- **npm**
-- **yarn**
-- **pnpm**
+* **npm**
+* **yarn**
+* **pnpm**
+* **JSR (Deno)**
 
-Choose the package manager you use in your project and follow one of the two installation options below.
+Choose the package manager you use in your project and follow one of the options below to install the main package:
 
-## 1. Full Package
+## Main Package Installation
 
-If you want access to all the functionalities of **Utilify** at once, simply install the **@utilify/core** package. This includes all the utilities, so you don’t need to select individual packages.
+If you want access to all **Utilify** features at once, simply install the **@utilify/core** package. **Utilify** is distributed as a single package containing the entire utility collection. This approach simplifies installation, avoids fragmented dependencies, and improves your project's maintainability.
 
 ::: code-group
+
 ```bash [npm]
 npm install @utilify/core
 ```
+
 ```bash [yarn]
 yarn add @utilify/core
 ```
+
 ```bash [pnpm]
 pnpm add @utilify/core
 ```
+
+```bash [JSR (Deno)]
+deno add jsr:@utilify/core
+```
+
 :::
 
-## 2. Individual Packages
+### About JSR
 
-If you prefer to import only the necessary functionalities for your project, you can install individual packages. This helps keep your project lightweight and optimized.
+[JSR](https://jsr.io/) is the official Deno module registry. It allows you to install modern packages with a single command, even in environments like Node.js, Bun, or npm-compatible runtimes.
 
-To learn more about each package, check the [Package Overview](./overview).
-
-Example of installing individual packages:
+#### JSR Usage Examples:
 
 ::: code-group
+
+```bash [Deno]
+deno add jsr:@utilify/core
+```
+
 ```bash [npm]
-npm install @utilify/array
-npm install @utilify/browser
-# And other packages as needed
+npx jsr add @utilify/core
 ```
-```bash [yarn]
-yarn add @utilify/array
-yarn add @utilify/browser
-# And other packages as needed
+
+```bash [bun]
+bunx jsr add @utilify/core
 ```
+
 ```bash [pnpm]
-pnpm add @utilify/array
-pnpm add @utilify/browser
-# And other packages as needed
+pnpm add jsr:@utilify/core
 ```
+
+```bash [yarn]
+yarn add jsr:@utilify/core
+```
+
 :::
 
-Now, choose the installation option that best fits your project and start using **Utilify**!
+---
+
+✅ After installation, you can import any function directly:
+
+```ts
+import { after, isString } from "@utilify/core";
+```
+
+The package is compatible with ES modules (ESM) and can be used in both TypeScript and JavaScript projects.
+
+---

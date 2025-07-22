@@ -1,59 +1,33 @@
 # removeAccents
 
-The `removeAccents` function removes accents from a given string, returning a version of the string without any diacritical marks.
+Removes accents and diacritical marks from a string.
 
 ## Syntax
-
 ```typescript
-function removeAccents(str: string): string
+removeAccents(str: string): string
 ```
 
-### Parameters
+## Parameters
+| Parameter | Type     | Description                                 |
+| :-------- | :------- | :------------------------------------------ |
+| `str`     | `string` | The input string.                           |
 
-| Name  | Type     | Description                                          |
-|-------|----------|----------------------------------------------------|
-| str   | `string` | The string from which accents will be removed.     |
+## Returns
+| Type      | Description                                 |
+| :-------- | :------------------------------------------ |
+| `string`  | The string without accents or diacritical marks. |
 
-### Returns
-
-| Type    | Description                                      |
-|---------|------------------------------------------------|
-| `string` | The string without accents.                    |
-
-## Examples
-
+## Example
 ```typescript
-console.log(removeAccents("Título com acentuação!")); // Output: "Titulo com acentuacao!"
-console.log(removeAccents("Café com leite"));         // Output: "Cafe com leite"
-console.log(removeAccents("Mário e João"));           // Output: "Mario e Joao"
+removeAccents("ação"); // "acao"
+removeAccents("café"); // "cafe"
+removeAccents("Olá, mundo!"); // "Ola, mundo!"
 ```
 
 ## Notes
-
-- The function uses `normalize('NFD')` to decompose characters into their base characters and diacritical marks.
-- It then uses `replace(/[\u0300-\u036f]/g, '')` to remove the diacritical marks, leaving only the base characters.
-
-## Source Code
-
-::: code-group
-```typescript
-function removeAccents(str: string): string {
-  return str
-  .normalize('NFD')
-  .replace(/[\u0300-\u036f]/g, '');
-}
-```
-
-```javascript
-function removeAccents(str) {
-  return str
-  .normalize('NFD')
-  .replace(/[\u0300-\u036f]/g, '');
-}
-```
-::: 
+- Throws `TypeError` if the argument is not a string.
+- Uses Unicode normalization (NFD) to separate characters and removes diacritics with a regular expression.
 
 ## References
-
-- [String.prototype.normalize()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize)
-- [String.prototype.replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
+- [MDN: String.prototype.normalize()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize)
+- [MDN: String.prototype.replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)

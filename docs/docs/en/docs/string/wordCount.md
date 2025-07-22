@@ -1,64 +1,32 @@
 # wordCount
 
-The `wordCount` function counts the number of words in a string, ignoring extra spaces at the beginning, end, and between words.
+Counts the number of words in a string.
 
 ## Syntax
-
 ```typescript
-function wordCount(str: string): number
+wordCount(str: string): number
 ```
 
-### Parameters
+## Parameters
+| Parameter | Type     | Description                                 |
+| :-------- | :------- | :------------------------------------------ |
+| `str`     | `string` | The input string.                           |
 
-| Name  | Type     | Description                                          |
-|-------|----------|----------------------------------------------------|
-| str   | `string` | The string to be analyzed.                        |
+## Returns
+| Type      | Description                                 |
+| :-------- | :------------------------------------------ |
+| `number`  | The number of words in the string.           |
 
-### Returns
-
-| Type    | Description                                      |
-|---------|------------------------------------------------|
-| `number` | The number of words in the string.     |
-
-## Examples
-
+## Example
 ```typescript
-console.log(wordCount("Hello World"));           // Output: 2
-console.log(wordCount("  JavaScript  is awesome  "));  // Output: 3
-console.log(wordCount("  singleword "));         // Output: 1
-console.log(wordCount(""));                      // Output: 0
+wordCount("Exemplo de string"); // 3
+wordCount("  Teste   word count  "); // 3
+wordCount(""); // 0
 ```
 
 ## Notes
-
-- The function uses `trim()` to remove spaces at the beginning and end of the string.
-- It then uses `replace(/\s+/g, " ")` to replace multiple spaces with a single space.
-- Finally, the string is split using `split(" ")`, and the number of words is obtained by the length of the resulting array.
-
-## Source Code
-
-::: code-group
-```typescript
-function wordCount(str: string): number {
-  return str
-  .trim()
-  .replace(/\s+/g, " ")
-  .split(" ").length;
-}
-```
-
-```javascript
-function wordCount(str) {
-  return str
-  .trim()
-  .replace(/\s+/g, " ")
-  .split(" ").length;
-}
-```
-::: 
+- Throws `TypeError` if the argument is not a string.
+- Words are separated by whitespace.
 
 ## References
-
-- [String.prototype.trim()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim)
-- [String.prototype.replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
-- [String.prototype.split()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split)
+- [MDN: String.prototype.split()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split)

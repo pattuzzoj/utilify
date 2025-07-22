@@ -1,60 +1,37 @@
 # getTheme
 
-The `getTheme` function returns the user's current theme preference.
+The `getTheme` function returns the user's preferred theme, such as "light" or "dark", based on system or browser settings.
 
 ## Syntax
 
 ```typescript
-function getTheme(): string | undefined;
+getTheme(): "light" | "dark";
 ```
 
-### Return
+### Parameters
 
-| Type              | Description                                                     |
-|-------------------|---------------------------------------------------------------|
-| `string`          | The user's theme preference: `'dark'` or `'light'`.            |
-| `undefined`       | If the function is executed on the server, it will return `undefined`. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+|  –   | –    | This function does not take any parameters |
+
+### Returns
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+|  –   | `"light" \| "dark"` | User's preferred theme |
 
 ## Examples
 
 ```typescript
-console.log(getTheme()); // 'dark' or 'light' depending on the user's preference
+getTheme();
+// => "dark"
 ```
 
 ## Notes
 
-- If executed on the server, the function will return `undefined`.
-
-## Dependencies
-
-- [`isServer`](../environment/isServer.md): The `isServer` function is used to check if the code is running on the server.
-
-## Source Code
-
-::: code-group
-```typescript
-import { isServer } from '@utilify/environment';
-
-function getTheme(): string | undefined {
-  if (isServer()) return undefined;
-
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
-}
-```
-
-```javascript
-function getTheme() {
-  if (isServer()) return undefined;
-
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
-}
-```
-:::
+* Useful for adapting the interface to the user's theme.
+* Based on CSS media queries.
 
 ## References
 
-- [Window.matchMedia() - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia)
+* https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme

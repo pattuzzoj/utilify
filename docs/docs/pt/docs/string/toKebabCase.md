@@ -1,64 +1,35 @@
 # toKebabCase
 
-A função `toKebabCase` converte uma string para o formato kebab-case, onde os espaços são substituídos por hífens e todas as letras são transformadas em minúsculas.
+Converte uma string para o formato kebab-case (minúsculas e palavras separadas por hífens).
 
 ## Sintaxe
-
 ```typescript
-function toKebabCase(str: string): string
+toKebabCase(str: string): string
 ```
 
-### Parâmetros
+## Parâmetros
 
-| Nome  | Tipo     | Descrição                                          |
-|-------|----------|----------------------------------------------------|
-| str   | `string` | A string a ser convertida para o formato kebab-case. |
+| Nome   | Tipo     | Descrição                      |
+|--------|----------|--------------------------------|
+| `str`  | `string` | A string a ser convertida.     |
 
-### Retorno
+## Retorno
 
-| Tipo    | Descrição                                      |
-|---------|------------------------------------------------|
-| `string` | A string convertida para o formato kebab-case.  |
+| Tipo     | Descrição                                 |
+|----------|-------------------------------------------|
+| `string` | A string convertida para kebab-case.       |
 
-## Exemplos
-
+## Exemplo
 ```typescript
-console.log(toKebabCase("Hello World"));         // Saída: "hello-world"
-console.log(toKebabCase("JavaScript is fun"));   // Saída: "javascript-is-fun"
-console.log(toKebabCase("Singleword"));          // Saída: "singleword"
-console.log(toKebabCase("  Extra spaces here ")); // Saída: "extra-spaces-here"
+toKebabCase("Exemplo de String"); // "exemplo-de-string"
+toKebabCase("  Teste Kebab Case  "); // "teste-kebab-case"
+toKebabCase(""); // ""
 ```
 
 ## Notas
-
-- A função utiliza `trim()` para remover quaisquer espaços do início e final da string.
-- Em seguida, transforma toda a string para minúsculas com `toLowerCase()`.
-- Por fim, substitui todos os espaços por hífens usando `replace(/\s+/g, "-")`.
-
-## Código Fonte
-
-::: code-group
-```typescript
-function toKebabCase(str: string): string {
-  return str
-  .trim()
-  .toLowerCase()
-  .replace(/\s+/g, "-");
-}
-```
-
-```javascript
-function toKebabCase(str) {
-  return str
-  .trim()
-  .toLowerCase()
-  .replace(/\s+/g, "-");
-}
-```
-::: 
+- Lança `TypeError` se o argumento não for uma string.
+- Espaços extras são removidos antes da conversão.
 
 ## Referências
-
-- [String.prototype.trim()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/trim)
-- [String.prototype.toLowerCase()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase)
-- [String.prototype.replace()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
+- [MDN: String.prototype.toLowerCase()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase)
+- [MDN: String.prototype.replace()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/replace)

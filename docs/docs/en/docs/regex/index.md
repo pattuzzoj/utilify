@@ -1,99 +1,73 @@
-# Regex <Badge type="tip" text="1.0.2" />
+# Regex
 
-The **Regex Utilities** provide methods for validating common patterns such as email addresses, URLs, UUIDs, and more.
+The Regex module provides a set of functions for validating strings using regular expressions. These functions return a boolean value (true/false) indicating whether the string matches the specified pattern.
 
-## **Installation**
+All functions are optimized for performance and follow best validation practices for each specific case.
 
-To install the regex utilities package, use the appropriate command:
-
-::: code-group
-
-```bash [npm]
-npm install @utilify/regex
-```
-
-```bash [yarn]
-yarn add @utilify/regex
-```
-
-```bash [pnpm]
-pnpm add @utilify/regex
-```
-
-:::
-
-Import the functions into your project:
-
-::: code-group
-
-```typescript [esm]
-import { isAlpha, isAlphanumeric, isEmail, isURL } from '@utilify/regex';
-```
-
-```javascript [cjs]
-const { isAlpha, isAlphanumeric, isEmail, isURL } = require('@utilify/regex');
-```
-
-:::
-
-## **Available Functions**
+## Overview
 
 ### [isAlpha](./isAlpha.md)
 ```typescript
-function isAlpha(value: string): boolean;
+isAlpha(value: string): boolean;
 ```
-Checks if the string contains only letters (a-z and A-Z).
+Checks if the string contains only alphabetic characters (letters), including accents.
 
 ### [isAlphanumeric](./isAlphanumeric.md)
 ```typescript
-function isAlphanumeric(value: string): boolean;
+isAlphanumeric(value: string): boolean;
 ```
-Checks if the string contains only letters and numbers (a-z, A-Z, 0-9).
-
-### [isBase64](./isBase64.md)
-```typescript
-function isBase64(value: string): boolean;
-```
-Checks if the string is encoded in Base64 format.
-
-### [isCreditCard](./isCreditCard.md)
-```typescript
-function isCreditCard(value: string): boolean;
-```
-Checks if the string follows the pattern of a valid credit card number.
+Checks if the string contains only letters and numbers, without symbols or spaces.
 
 ### [isEmail](./isEmail.md)
 ```typescript
-function isEmail(value: string): boolean;
+isEmail(value: string): boolean;
 ```
-Checks if the string is a valid email address.
-
-### [isIPV4](./isIPV4.md)
-```typescript
-function isIPV4(value: string): boolean;
-```
-Checks if the string is an IPv4 address.
-
-### [isIPV6](./isIPV6.md)
-```typescript
-function isIPV6(value: string): boolean;
-```
-Checks if the string is an IPv6 address.
-
-### [isSlug](./isSlug.md)
-```typescript
-function isSlug(value: string): boolean;
-```
-Checks if the string is in a URL-friendly slug format.
+Checks if the string matches the format of a valid email.
 
 ### [isURL](./isURL.md)
 ```typescript
-function isURL(value: string): boolean;
+isURL(value: string): boolean;
 ```
-Checks if the string is a valid URL.
+Checks if the string matches the format of a valid URL (http/https).
 
-### [isUUID](./isUUID.md)
+### [isCreditCard](./isCreditCard.md)
 ```typescript
-function isUUID(value: string): boolean;
+isCreditCard(value: string): boolean;
 ```
-Checks if the string follows the format of a valid UUID.
+Checks if the string matches the format of a valid credit card number.
+
+### [isSlug](./isSlug.md)
+```typescript
+isSlug(value: string): boolean;
+```
+Checks if the string is in slug format (lowercase letters, numbers, and hyphens).
+
+### [isIPV4](./isIPV4.md)
+```typescript
+isIPV4(value: string): boolean;
+```
+Checks if the string matches the format of a valid IPv4 address, with or without port.
+
+### [isIPV6](./isIPV6.md)
+```typescript
+isIPV6(value: string): boolean;
+```
+Checks if the string matches the format of a valid IPv6 address, with or without port.
+
+### [isBase64URL](./isBase64URL.md)
+```typescript
+isBase64URL(value: string): boolean;
+```
+Checks if the string is in Base64URL format.
+
+### [isJWT](./isJWT.md)
+```typescript
+isJWT(value: string): boolean;
+```
+Checks if the string matches the format of a JSON Web Token (JWT).
+
+### [isFileExtension](./isFileExtension.md)
+```typescript
+isFileExtension(value: string): boolean;
+```
+Checks if the string matches the format of a file extension.

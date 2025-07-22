@@ -1,60 +1,37 @@
-# isFunction  
-Verifica se o valor fornecido é uma função. A função retorna `true` se o valor for uma função, e `false` caso contrário.
+# isFunction
+
+A função `isFunction` verifica se o valor fornecido é uma função.
 
 ## Sintaxe
+
 ```typescript
-function isFunction(value: any): boolean
+isFunction(value: any): value is Function;
 ```
 
 ### Parâmetros
 
-| Parâmetro | Tipo      | Descrição                               |
-|-----------|-----------|-----------------------------------------|
-| `value`   | `any`     | O valor a ser verificado. Pode ser de qualquer tipo. |
+| Nome    | Tipo    | Descrição                |
+|---------|---------|--------------------------|
+| `value` | `any`   | Valor a ser verificado   |
 
 ### Retorno
 
-| Tipo     | Descrição                                  |
-|----------|--------------------------------------------|
-| `boolean`| Retorna `true` se o valor for uma função, caso contrário, retorna `false`. |
+| Tipo      | Descrição                                 |
+|-----------|-------------------------------------------|
+| `boolean` | Verdadeiro se for uma função              |
 
 ## Exemplos
 
-### Exemplo 1: Verificando funções
 ```typescript
-function myFunction() {}
-isFunction(myFunction); // true
-
-const arrowFunction = () => {};
-isFunction(arrowFunction); // true
-```
-
-### Exemplo 2: Verificando outros tipos de valor
-```typescript
-isFunction(42); // false
-isFunction("Hello"); // false
-isFunction([]); // false
-isFunction({}); // false
+isFunction(function() {}); // => true
+isFunction(() => {}); // => true
+isFunction(123); // => false
 ```
 
 ## Notas
-- A função utiliza o operador `typeof`, que é a maneira mais direta e confiável de verificar se um valor é do tipo `function`.
 
-## Código Fonte
-::: code-group
-
-```typescript
-function isFunction(value: any): boolean {
-  return typeof value === "function";
-}
-```
-
-```javascript
-function isFunction(value) {
-  return typeof value === "function";
-}
-```
-:::
+* Útil para validação antes de executar ou aplicar funções.
 
 ## Referências
-- [MDN: `typeof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
+
+* https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Function

@@ -1,56 +1,36 @@
 # isFullscreenEnabled
 
-The `isFullscreenEnabled` function checks if fullscreen mode is enabled.
+The `isFullscreenEnabled` function checks if the fullscreen API is available in the user's browser.
 
 ## Syntax
 
 ```typescript
-function isFullscreenEnabled(): boolean | undefined;
+isFullscreenEnabled(): boolean;
 ```
 
-### Return
+### Parameters
 
-| Type              | Description                                                       |
-|-------------------|---------------------------------------------------------------|
-| `boolean`         | `true` if fullscreen mode is enabled, `false` otherwise.         |
-| `undefined`       | If executed on the server, the function will return `undefined`. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+|  –   | –    | This function does not take any parameters |
+
+### Returns
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+|  –   | `boolean` | `true` if the fullscreen API is available |
 
 ## Examples
 
 ```typescript
-console.log(isFullscreenEnabled()); // true or false
+isFullscreenEnabled();
+// => true
 ```
 
 ## Notes
 
-- If executed on the server, the function will return `undefined`.
-
-## Dependencies
-
-- [`isServer`](../environment/isServer.md): The `isServer` function is used to check if the code is running on the server.
-
-## Source Code
-
-::: code-group
-```typescript
-import { isServer } from '@utilify/environment';
-
-function isFullscreenEnabled(): boolean | undefined {
-  if (isServer()) return;
-
-  return document.fullscreenEnabled;
-}
-```
-
-```javascript
-function isFullscreenEnabled() {
-  if (isServer()) return;
-
-  return document.fullscreenEnabled;
-}
-```
-:::
+* Useful for checking if it is possible to switch to fullscreen mode.
 
 ## References
 
-- [Document.fullscreenEnabled - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/fullscreenEnabled)
+* https://developer.mozilla.org/en-US/docs/Web/API/Document/fullscreenEnabled

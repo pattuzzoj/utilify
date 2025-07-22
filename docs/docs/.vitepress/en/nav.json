@@ -1,6 +1,5 @@
 [
   { "text": "Introduction", "link": "/introduction/" },
-  { "text": "Overview", "link": "/introduction/overview" },
   {
     "text": "Docs",
     "items": [
@@ -9,10 +8,13 @@
       { "text": "Colors", "link": "/docs/colors/" },
       { "text": "Crypto", "link": "/docs/crypto/" },
       { "text": "Date", "link": "/docs/date/" },
-      { "text": "Environment", "link": "/docs/environment/" },
+      { "text": "Env", "link": "/docs/env/" },
+      { "text": "Error", "link": "/docs/error/" },
       { "text": "Function", "link": "/docs/function/" },
       { "text": "Math", "link": "/docs/math/" },
+      { "text": "Number", "link": "/docs/number/" },
       { "text": "Object", "link": "/docs/object/" },
+      { "text": "Promise", "link": "/docs/promise/" },
       { "text": "Regex", "link": "/docs/regex/" },
       { "text": "String", "link": "/docs/string/" },
       { "text": "Types", "link": "/docs/types/" }

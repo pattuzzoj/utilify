@@ -1,56 +1,36 @@
 # capitalize
 
-A função `capitalize` transforma a primeira letra de uma string em maiúscula e mantém as demais em minúscula.
+Converte o primeiro caractere de uma string para maiúsculo e o restante para minúsculo.
 
 ## Sintaxe
-
 ```typescript
-function capitalize(str: string): string
+capitalize(str: string): string
 ```
 
-### Parâmetros
+## Parâmetros
 
-| Nome  | Tipo     | Descrição                                      |
-|-------|----------|------------------------------------------------|
-| str   | `string` | A string que terá sua primeira letra capitalizada. |
+| Nome   | Tipo     | Descrição                      |
+|--------|----------|--------------------------------|
+| `str`  | `string` | A string a ser capitalizada.   |
 
-### Retorno
+## Retorno
 
-| Tipo    | Descrição                                      |
-|---------|------------------------------------------------|
-| `string` | A string com a primeira letra em maiúscula e as demais inalteradas. |
+| Tipo     | Descrição                                                        |
+|----------|------------------------------------------------------------------|
+| `string` | A string resultante com o primeiro caractere em maiúsculo e o restante em minúsculo. |
 
-## Exemplos
-
+## Exemplo
 ```typescript
-console.log(capitalize("hello"));  // Saída: "Hello"
-console.log(capitalize("world"));  // Saída: "World"
-console.log(capitalize("javaScript")); // Saída: "JavaScript"
+capitalize("exemplo"); // "Exemplo"
+capitalize("eXEMPLO"); // "Exemplo"
+capitalize(""); // ""
 ```
 
 ## Notas
-
-- A função utiliza o método `charAt(0)` para acessar o primeiro caractere da string e `toUpperCase()` para transformá-lo em maiúsculo.
-- Em seguida, usa `concat()` para juntar a letra maiúscula com o restante da string, obtido por `slice(1)`.
-
-## Código Fonte
-
-::: code-group
-```typescript
-function capitalize(str: string): string {
-  return str.charAt(0).toUpperCase().concat(str.slice(1));
-}
-```
-
-```javascript
-function capitalize(str) {
-  return str.charAt(0).toUpperCase().concat(str.slice(1));
-}
-```
-::: 
+- Lança `TypeError` se o argumento não for uma string.
+- Retorna string vazia se a entrada for vazia.
 
 ## Referências
-
-- [String.prototype.charAt()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/charAt)
-- [String.prototype.toUpperCase()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase)
-- [String.prototype.slice()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/slice)
+- [MDN: String.prototype.charAt()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/charAt)
+- [MDN: String.prototype.toUpperCase()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase)
+- [MDN: String.prototype.toLowerCase()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase)

@@ -1,59 +1,39 @@
 # isIterable
 
-The `isIterable` function checks if a value implements the iterable protocol.
+The `isIterable` function checks if a value is iterable (has the `Symbol.iterator` method).
 
 ## Syntax
 
 ```typescript
-function isIterable(value: any): boolean;
+isIterable(value: any): value is Iterable<any>;
 ```
 
 ### Parameters
 
-| Name    | Type    | Description                                      |
-|---------|---------|--------------------------------------------------|
-| `value` | `any`   | The value to be checked for iterability.         |
+| Name     | Type    | Description              |
+|----------|---------|--------------------------|
+| `value`  | `any`   | Value to be checked      |
 
-### Return
+### Returns
 
-| Type      | Description                                                       |
-|-----------|-------------------------------------------------------------------|
-| `boolean` | `true` if the value is iterable (has Symbol.iterator), otherwise `false`. |
+| Type      | Description                              |
+|-----------|------------------------------------------|
+| `boolean` | Returns true if the value is iterable     |
 
 ## Examples
 
 ```typescript
-console.log(isIterable([1, 2, 3]));     // true
-console.log(isIterable("hello"));        // true
-console.log(isIterable(new Set([1,2]))); // true
-console.log(isIterable(123));            // false
-console.log(isIterable(null));           // false
-console.log(isIterable(undefined));      // false
+isIterable([1, 2, 3]); // => true
+isIterable('abc'); // => true
+isIterable(123); // => false
+isIterable({}); // => false
 ```
 
 ## Notes
 
-- The function checks if the value is not null/undefined and has a Symbol.iterator method
-- Arrays, strings, Sets, Maps, and other built-in iterables will return true
-- Plain objects and primitives (except strings) will return false
-
-## Source Code
-
-::: code-group
-```typescript
-function isIterable(value: any): boolean {
-  return value != null && typeof value?.[Symbol.iterator] === 'function';
-}
-```
-
-```javascript
-function isIterable(value) {
-  return value != null && typeof value?.[Symbol.iterator] === 'function';
-}
-```
-:::
+* Iterables include arrays, strings, Maps, Sets, etc.
+* Useful for validation before using `for...of` loops.
 
 ## References
 
-- [Symbol.iterator - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator)
-- [Iteration protocols - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols

@@ -1,98 +1,40 @@
-Aqui está a documentação da função `rgbToHex`:
-
----
-
 # rgbToHex
 
-A função `rgbToHex` converte uma string de cor RGB para sua representação hexadecimal.
+A função `rgbToHex` converte uma cor no formato RGB ou RGBA para o formato hexadecimal.
 
-## Assinatura
+## Sintaxe
 
 ```typescript
-function rgbToHex(rgb: string): string | null;
+rgbToHex(rgb: string): string;
 ```
 
 ### Parâmetros
 
-| Nome  | Tipo    | Descrição                                          |
-|-------|---------|----------------------------------------------------|
-| `rgb` | `string`| A string de cor RGB a ser convertida.              |
+| Nome    | Tipo      | Descrição                 |
+|---------|-----------|---------------------------|
+| `rgb`   | `string`  | Cor em formato RGB ou RGBA |
 
 ### Retorno
 
-| Tipo   | Descrição                                                   |
-|--------|-------------------------------------------------------------|
-| `string` | Retorna a string de cor hexadecimal se a entrada for válida, caso contrário `null`. |
+| Tipo      | Descrição                                 |
+|---------- |-------------------------------------------|
+| `string`  | Cor convertida para o formato hexadecimal  |
 
 ## Exemplos
 
 ```typescript
-console.log(rgbToHex("255,0,0")); // "ff0000"
-console.log(rgbToHex("0,255,0,0.5")); // "00ff007f"
-console.log(rgbToHex("invalid")); // null
+rgbToHex("rgb(255, 0, 0)");
+// => "#ff0000"
+
+rgbToHex("rgba(255, 0, 0, 0.5)");
+// => "#ff000080"
 ```
 
 ## Notas
 
-- A função suporta strings RGB com ou sem canal alfa.
-- O canal alfa, se presente, é convertido para um valor hexadecimal de dois dígitos.
-
-## Dependências
-
-- [`isRgb`](./isRgb.md): A função `isRgb` é usada para validar a entrada RGB antes de realizar a conversão.
-
-## Código Fonte
-
-::: code-group
-```typescript
-import isRgb from "./isRgb";
-
-function rgbToHex(rgb: string): string | null {
-  if (!isRgb(rgb)) {
-    console.error("Invalid RGB color", rgb);
-    return null;
-  }
-
-  const channels = rgb.split(",");
-  const hex = channels
-    .slice(0, 3)
-    .map((channel) => Number(channel).toString(16).padStart(2, "0"));
-
-  if (channels.length === 4) {
-    hex.push(Math.ceil(Number.parseFloat(channels[3]) * 255).toString(16));
-  }
-
-  return hex.join("");
-}
-```
-
-```javascript
-import isRgb from "./isRgb";
-
-function rgbToHex(rgb) {
-  if (!isRgb(rgb)) {
-    console.error("Invalid RGB color", rgb);
-    return null;
-  }
-
-  const channels = rgb.split(",");
-  const hex = channels
-    .slice(0, 3)
-    .map((channel) => Number(channel).toString(16).padStart(2, "0"));
-
-  if (channels.length === 4) {
-    hex.push(Math.ceil(Number.parseFloat(channels[3]) * 255).toString(16));
-  }
-
-  return hex.join("");
-}
-```
-:::
+* O canal alfa é convertido para dois dígitos hexadecimais, se presente.
+* Útil para normalizar cores para uso em CSS.
 
 ## Referências
 
-- [Modelo de cor RGB - Wikipedia](https://pt.wikipedia.org/wiki/RGB)
-
----
-
-Esta documentação segue o formato que você especificou, incluindo exemplos, notas e a dependência necessária para a validação da entrada.
+* https://developer.mozilla.org/pt-BR/docs/Web/CSS/color_value/hex

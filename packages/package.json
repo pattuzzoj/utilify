@@ -1,0 +1,80 @@
+{
+	"name": "@utilify/core",
+	"version": "2.0.0",
+	"description": "Modern, strongly typed, and safe utility function library for JavaScript and TypeScript. Includes type checking, manipulation of arrays, objects, strings, dates, colors, numbers, regular expressions, and more. Compatible with Browser, Node.js, Deno, and Bun.",
+	"keywords": [
+		"utilify",
+		"utility",
+		"utilities",
+		"utility functions",
+		"helper functions",
+		"toolkit",
+		"JavaScript",
+		"TypeScript",
+		"cross-platform",
+		"type-checking",
+		"array",
+		"object",
+		"string",
+		"date",
+		"color",
+		"colors",
+		"regex",
+		"validation",
+		"math",
+		"number",
+		"browser",
+		"crypto",
+		"env",
+		"error",
+		"promise",
+		"functional",
+		"modular utilities"
+	],
+	"author": "Júlio Pattuzzo <pattuzzo@protonmail.com>",
+	"homepage": "https://utilify-docs.vercel.app",
+	"license": "MIT",
+	"type": "module",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pattuzzoj/utilify.git",
+		"directory": "packages"
+	},
+	"scripts": {
+		"test": "vitest watch && vitest run --coverage",
+		"build": "tsc && rollup -c"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.26.0",
+		"@babel/preset-env": "^7.26.0",
+		"@babel/preset-typescript": "^7.26.0",
+		"@eslint/js": "^9.16.0",
+		"@rollup/plugin-babel": "^6.0.4",
+		"@rollup/plugin-node-resolve": "^16.0.0",
+		"@rollup/plugin-terser": "^0.4.4",
+		"@rollup/plugin-typescript": "^12.1.2",
+		"@types/eslint-config-prettier": "^6.11.3",
+		"@types/jsdom": "^21.1.7",
+		"@vitest/coverage-v8": "^3.1.3",
+		"eslint": "^9.16.0",
+		"eslint-config-prettier": "^9.1.0",
+		"globals": "^15.12.0",
+		"jsdom": "^26.1.0",
+		"prettier": "3.4.1",
+		"rollup": "^4.27.4",
+		"rollup-plugin-dts": "^6.1.1",
+		"ts-node": "^10.9.2",
+		"tslib": "^2.8.1",
+		"typescript-eslint": "^8.16.0",
+		"vitest": "^3.1.3"
+	}
+}

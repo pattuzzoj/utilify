@@ -1,58 +1,42 @@
-# isAlpha
+## isAlpha
 
-The `isAlpha` function checks if a string contains only alphabetic characters (uppercase and lowercase letters).
+The `isAlpha` function checks if a string contains only alphabetic characters (letters), without numbers or symbols.
 
-## Syntax
+### Syntax
 
-```typescript
-function isAlpha(value: string): boolean
+```javascript
+isAlpha(value)
 ```
 
 ### Parameters
 
-| Name | Type     | Description                              |
-|------|----------|------------------------------------------|
-| value  | `string` | The string to be validated as alphabetic. |
+| Parameter | Type     | Description                                 |
+| :-------- | :------- | :------------------------------------------ |
+| `value`   | `string` | The string to be checked.                   |
 
 ### Return
 
-| Type     | Description                                  |
-|----------|----------------------------------------------|
+| Type      | Description                                 |
+| :-------- | :------------------------------------------ |
 | `boolean` | Returns `true` if the string contains only letters, otherwise returns `false`. |
 
-## Examples
-
-```typescript
-console.log(isAlpha("abcABC"));      // Output: true
-console.log(isAlpha("abc"));         // Output: true
-console.log(isAlpha("ABC"));         // Output: true
-console.log(isAlpha("abc123"));      // Output: false
-console.log(isAlpha("123"));         // Output: false
-console.log(isAlpha("hello world")); // Output: false
-```
-
-## Notes
-
-- The function checks if the string contains only characters from the English alphabet (uppercase or lowercase).
-- Special characters, numbers, or spaces will result in `false`.
-
-## Code
-
-::: code-group
-```typescript
-function isAlpha(value: string): boolean {
-  return /^[a-zA-Z]+$/.test(value);
-}
-```
+### Examples
 
 ```javascript
-function isAlpha(value) {
-  return /^[a-zA-Z]+$/.test(value);
-}
+isAlpha('abc');      // true
+isAlpha('ABC');      // true
+isAlpha('abc123');   // false
+isAlpha('abc!');     // false
+isAlpha('áéíóú');    // true
+isAlpha('');         // false
 ```
-:::
 
-## References
+### Notes
 
-- [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
-- [string.prototype.test()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test)
+- Throws a `TypeError` if the provided value is not a string.
+- Supports Unicode characters (accents, letters from other alphabets).
+
+### References
+
+- [MDN: Unicode Property Escapes in Regular Expressions](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions/Unicode_Property_Escapes)
+- [MDN: String.prototype.test()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test)

@@ -1,153 +1,114 @@
-# Object <Badge type="tip" text="1.0.2" />
+# Object
 
-The **object utility functions** category includes a variety of practical methods for object manipulation, comparison, and transformation. These functions simplify many common operations in JavaScript/TypeScript development when working with objects and data structures.
+The `object` module provides a comprehensive set of utility functions for manipulating objects in JavaScript/TypeScript. These functions facilitate common operations such as deep cloning, accessing nested properties, merging objects, structure transformations, and state checks.
 
-## Installation
-
-To use the functions in this category, install the **`@utilify/object`** package with your preferred package manager:
-
-::: code-group
-```bash [npm]
-npm install @utilify/object
-```
-
-```bash [yarn]
-yarn add @utilify/object
-```
-
-```bash [pnpm]
-pnpm add @utilify/object
-```
-:::
-
-## Usage
-
-You can import specific functions as needed:
-
-::: code-group
-```typescript [esm]
-import { clone, deepClone, deepMerge } from '@utilify/object';
-```
-
-```javascript [cjs]
-const { clone, deepClone, deepMerge } = require('@utilify/object');
-```
-:::
+Key features:
+- Safe manipulation of nested objects
+- Structure transformations (flatten/unflatten)
+- Immutability operations (freeze/seal)
+- Verification and comparison utilities
+- Property selection and omission functions
 
 ## Overview
 
 ### [clone](./clone.md)
-
 ```typescript
-function clone<T extends Record<string, any>>(value: T): T;
-function clone<T extends unknown[]>(value: T): T;
+clone<T>(value: T): T
 ```
-
-Creates a shallow copy of an object or array by directly copying its properties.
-
-### [deepClone](./deepClone.md)
-
-```typescript
-function deepClone<T extends Record<string, any>>(value: T): T;
-function deepClone<T extends unknown[]>(value: T): T;
-```
-
-Creates a deep copy of an object or array, including all nested properties.
-
-### [deepFreeze](./deepFreeze.md)
-
-```typescript
-function deepFreeze(obj: Record<string, any>): Record<string, any>;
-```
-
-Deeply freezes an object, making its properties and nested properties immutable.
-
-### [deepMerge](./deepMerge.md)
-
-```typescript
-function deepMerge(...values: Record<string, any>[]): Record<string, any>;
-```
-
-Performs a deep merge of multiple objects, combining their properties recursively.
+Performs a deep copy of any value, including objects, arrays, and primitive types.
 
 ### [flattenObj](./flattenObj.md)
-
 ```typescript
-function flattenObj(obj: Record<string, any>, separator: string = "."): Record<string, any>;
+flattenObj(obj): Record<string, any>
 ```
-
-Flattens a nested object into a single-level object with keys representing property paths.
+Transforms a nested object into a flat object, with full paths as keys.
 
 ### [freeze](./freeze.md)
-
 ```typescript
-function freeze<T>(obj: T): T;
+freeze(obj: Record<PropertyKey, any>): Record<PropertyKey, any>
 ```
+Recursively freezes an object and all its internal objects, making them immutable.
 
-Freezes an object, making its properties immutable but does not freeze nested properties.
-
-### [interpolate](./interpolate.md)
-
+### [get](./get.md)
 ```typescript
-function interpolate(str: string, values: Record<string, any>): string;
+get<T>(obj: T, path: string | string[], defaultValue?: any): any
 ```
+Accesses the value of a nested property in an object, with support for a default value.
 
-Replaces placeholders in a string with values provided in an object.
-
-### [isDeepEqual](./isDeepEqual.md)
-
+### [has](./has.md)
 ```typescript
-function isDeepEqual(value1: Record<string, any>, value2: Record<string, any>): boolean;
-function isDeepEqual(value1: unknown[], value2: unknown[]): boolean;
+has<T>(obj: T, path: string | string[]): boolean
 ```
+Checks if an object has a (nested) property specified by a path.
 
-Compares two objects or arrays deeply to determine if they are structurally and semantically equal.
+### [isEmpty](./isEmpty.md)
+```typescript
+isEmpty(value): boolean
+```
+Checks if a value (object, array, string, Map, or Set) is empty.
 
 ### [isEqual](./isEqual.md)
-
 ```typescript
-function isEqual(value1: any, value2: any): boolean;
+isEqual(value1, value2): boolean
 ```
+Compares two values to determine if they are equivalent in structure and content.
 
-Compares two values or references to determine if they are strictly equal using `Object.is`.
+### [isFrozen](./isFrozen.md)
+```typescript
+isFrozen(obj): boolean
+```
+Checks if an object is frozen (immutable).
+
+### [isNotNullObject](./isNotNullObject.md)
+```typescript
+isNotNullObject(value): boolean
+```
+Checks if a value is a non-null object.
+
+### [isPlainObject](./isPlainObject.md)
+```typescript
+isPlainObject(value): boolean
+```
+Checks if a value is a plain object, created by literal or by Object.
+
+### [isSealed](./isSealed.md)
+```typescript
+isSealed(obj): boolean
+```
+Checks if an object is sealed (cannot add/remove properties).
 
 ### [merge](./merge.md)
-
 ```typescript
-function merge(...values: Record<string, any>[]): Record<string, any>;
-function merge(...values: unknown[][]): unknown[];
+merge(target, ...sources): object
 ```
-
-Performs a shallow merge of multiple objects or arrays, combining their properties or elements into a new object or array.
+Combines two or more objects into a new object, performing a deep merge.
 
 ### [omit](./omit.md)
-
 ```typescript
-function omit<T extends Record<string, any>, K extends keyof T>(obj: T, keys: K[]): Omit<T, K>;
+omit(obj, keys): object
 ```
-
-Creates a new object from the given object, excluding the specified keys.
+Creates a copy of an object, excluding the specified properties.
 
 ### [pick](./pick.md)
-
 ```typescript
-function pick<T extends Record<string, any>, K extends keyof T>(obj: T, keys: K[]): Pick<T, K>;
+pick(obj, keys): object
 ```
+Creates a new object containing only the specified properties from the original.
 
-Creates a new object containing only the selected keys from the original object.
-
-### [sanitizeObj](./sanitizeObj.md)
-
+### [seal](./seal.md)
 ```typescript
-function sanitizeObj(obj: Record<string, any>, values: any[], replace?: any): Record<string, any>;
+seal(obj): object
 ```
+Recursively seals an object, preventing addition or removal of properties.
 
-Sanitizes an object by replacing specific values with an optional replacement value.
+### [set](./set.md)
+```typescript
+set(obj, path, value): object
+```
+Sets the value of a property in an object, supporting nested paths.
 
 ### [unflattenObj](./unflattenObj.md)
-
 ```typescript
-function unflattenObj(obj: Record<string, any>, separator: string = "."): Record<string, any>;
+unflattenObj(obj): object
 ```
-
-Transforms a flattened object back into its original nested structure using a separator to identify hierarchy levels in the keys.
+Reconstructs nested objects from a flat object with path keys.

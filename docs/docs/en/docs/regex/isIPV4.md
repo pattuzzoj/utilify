@@ -1,57 +1,43 @@
-# isIPV4
+## isIPV4
 
-The `isIPV4` function checks whether a string is a valid IPv4 address.
+The `isIPV4` function checks if a string matches the format of a valid IPv4 address, with or without a port.
 
-## Syntax
+### Syntax
 
-```typescript
-function isIPV4(value: string): boolean
+```javascript
+isIPV4(value)
 ```
 
 ### Parameters
 
-| Name | Type     | Description                                  |
-|------|----------|----------------------------------------------|
-| value  | `string` | The string to be validated as an IPv4 address. |
+| Parameter | Type     | Description                                 |
+| :-------- | :------- | :------------------------------------------ |
+| `value`   | `string` | Address to be checked.                      |
 
 ### Return
 
-| Type     | Description                                    |
-|----------|------------------------------------------------|
-| `boolean` | Returns `true` if the string is a valid IPv4 address, otherwise returns `false`. |
+| Type      | Description                                 |
+| :-------- | :------------------------------------------ |
+| `boolean` | Returns `true` if the string matches the format of a valid IPv4, otherwise returns `false`. |
 
-## Examples
-
-```typescript
-console.log(isIPV4("192.168.1.1"));             // Output: true
-console.log(isIPV4("255.255.255.255"));         // Output: true
-console.log(isIPV4("192.168.1.999"));           // Output: false
-console.log(isIPV4("::1"));                     // Output: false
-console.log(isIPV4("192.168.1.1:8080"));       // Output: true
-```
-
-## Notes
-
-- The function uses a regular expression to check the valid format of an IPv4 address.
-- It also validates the possibility of a port number being included after the IPv4 address (e.g., `192.168.1.1:8080`).
-
-## Source Code
-
-::: code-group
-```typescript
-function isIPV4(value: string): boolean {
-  return /^((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])(?::(?:[0-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))?$/.test(value);
-}
-```
+### Examples
 
 ```javascript
-function isIPV4(value) {
-  return /^((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])(?::(?:[0-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))?$/.test(value);
-}
+isIPV4('192.168.0.1');        // true
+isIPV4('255.255.255.255');    // true
+isIPV4('10.0.0.1:8080');      // true
+isIPV4('256.0.0.1');          // false
+isIPV4('192.168.0');          // false
+isIPV4('abc.def.ghi.jkl');    // false
+isIPV4('192.168.0.1:99999');  // false
 ```
-::: 
 
-## References
+### Notes
 
-- [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
-- [string.prototype.test()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test)
+- Throws a `TypeError` if the provided value is not a string.
+- Supports addresses with or without port (e.g., `192.168.0.1:8080`).
+
+### References
+
+- [MDN: String.prototype.test()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test)
+- [Wikipedia: Endereço IPv4](https://pt.wikipedia.org/wiki/Endere%C3%A7o_IPv4)

@@ -1,56 +1,33 @@
 # isUpperCase
 
-The `isUpperCase` function checks if all alphabetic characters in a string are uppercase, ignoring whitespace.
+Checks if a string contains at least one uppercase letter and no lowercase letters.
 
 ## Syntax
-
 ```typescript
-function isUpperCase(str: string): boolean
+isUpperCase(str: string): boolean
 ```
 
-### Parameters
+## Parameters
+| Parameter | Type     | Description                                 |
+| :-------- | :------- | :------------------------------------------ |
+| `str`     | `string` | The string to be checked.                   |
 
-| Name  | Type     | Description                                      |
-|-------|----------|--------------------------------------------------|
-| str   | `string` | The string to be checked.                        |
+## Returns
+| Type      | Description                                 |
+| :-------- | :------------------------------------------ |
+| `boolean` | `true` if the string contains at least one uppercase letter and no lowercase letters, otherwise `false`. |
 
-### Returns
-
-| Type    | Description                                      |
-|---------|--------------------------------------------------|
-| `boolean` | Returns `true` if all alphabetic characters are uppercase, otherwise returns `false`. |
-
-## Examples
-
+## Example
 ```typescript
-console.log(isUpperCase("HELLO"));        // Output: true
-console.log(isUpperCase("Hello World"));  // Output: false
-console.log(isUpperCase("JAVA"));         // Output: true
-console.log(isUpperCase("lower case"));   // Output: false
+isUpperCase("ABC"); // true
+isUpperCase("aBC"); // false
+isUpperCase("123"); // false
+isUpperCase(""); // false
 ```
 
 ## Notes
-
-- The function uses a regular expression to check that the string does not contain any lowercase letters, after removing whitespace with `replace(/\s+/g, "")`.
-- The regular expression `/^(?!.*[a-z]).*[A-Z].*$/` ensures that the string contains at least one uppercase letter and no lowercase letters.
-
-## Source Code
-
-::: code-group
-```typescript
-function isUpperCase(str: string): boolean {
-  return /^(?!.*[a-z]).*[A-Z].*$/.test(str.replace(/\s+/g, ""));
-}
-```
-
-```javascript
-function isUpperCase(str) {
-  return /^(?!.*[a-z]).*[A-Z].*$/.test(str.replace(/\s+/g, ""));
-}
-```
-::: 
+- Throws `TypeError` if the argument is not a string.
+- Spaces are ignored in the check.
 
 ## References
-
-- [RegExp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
-- [String.prototype.replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
+- [MDN: Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)

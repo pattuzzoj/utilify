@@ -1,63 +1,33 @@
 # frequency
 
-A função `frequency` calcula a frequência de cada valor em um array, retornando um objeto onde as chaves são os valores do array (convertidos para strings) e os valores são as quantidades de vezes que cada valor aparece.
+Conta a frequência de cada elemento em um array, retornando um objeto com as ocorrências.
 
 ## Sintaxe
-
 ```typescript
-function frequency<T>(arr: T[]): Record<string, number>
+frequency(arr: any[]): Record<PropertyKey, number>
 ```
 
-### Parâmetros
+## Parâmetros
 
-| Nome  | Tipo          | Descrição                                           |
-|-------|---------------|-----------------------------------------------------|
-| arr   | `T[]`         | O array cujos valores terão suas frequências contadas. |
+| Nome   | Tipo      | Descrição            |
+|--------|-----------|----------------------|
+| `arr`  | `any[]`   | Array de elementos a serem contados.  |
 
-### Retorno
+## Retorno
 
-| Tipo                           | Descrição                                                     |
-|---------------------------------|---------------------------------------------------------------|
-| `Record<string, number>`        | Um objeto onde as chaves são os valores do array (convertidos para string) e os valores são as quantidades de ocorrências desses valores no array. |
+| Tipo                    | Descrição                              |
+|-------------------------|----------------------------------------|
+| `Record<PropertyKey, number>`| Objeto onde as chaves são os elementos do array (convertidos em string) e os valores são as contagens. |
 
-## Exemplos
-
+## Exemplo
 ```typescript
-console.log(frequency([1, 2, 2, 3, 3, 3, 4])); 
-// Saída: { '1': 1, '2': 2, '3': 3, '4': 1 }
-
-console.log(frequency(['apple', 'banana', 'apple', 'orange', 'banana'])); 
-// Saída: { 'apple': 2, 'banana': 2, 'orange': 1 }
+frequency(['a', 'b', 'a', 'c', 'b', 'a']); // { a: 3, b: 2, c: 1 }
+frequency([1, 2, 2, 3]); // { '1': 1, '2': 2, '3': 1 }
 ```
 
 ## Notas
-
-- A função usa o método `reduce` para iterar sobre o array e construir o objeto de frequências.
-- A chave de cada valor no objeto final é uma string, pois a função converte os itens para string com `String(item)`.
-
-## Código Fonte
-
-::: code-group
-```typescript
-function frequency<T>(arr: T[]): Record<string, number> {
-  return arr.reduce((acc, item) => {
-    acc[String(item)] = (acc[String(item)] || 0) + 1;
-    return acc;
-  }, {} as Record<string, number>);
-}
-```
-
-```javascript
-function frequency(arr) {
-  return arr.reduce((acc, item) => {
-    acc[String(item)] = (acc[String(item)] || 0) + 1;
-    return acc;
-  }, {});
-}
-```
-::: 
+- Lança `TypeError` se o argumento não for array.
+- Útil para análise de dados e estatísticas simples.
 
 ## Referências
-
-- [Array.prototype.reduce()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)  
-- [Record Type](https://www.typescriptlang.org/docs/handbook/2/objects.html#record)  
+- [MDN: Array.prototype.reduce()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)

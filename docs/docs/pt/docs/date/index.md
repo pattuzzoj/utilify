@@ -1,130 +1,101 @@
-# Date <Badge type="tip" text="1.0.1" />
+# Date
 
-O pacote `@utilify/date` oferece utilitários essenciais para manipulação de datas e tempos em JavaScript e TypeScript. Essas funções foram projetadas para serem intuitivas, eficientes e seguras por tipo.
+O módulo de datas oferece funções utilitárias para manipulação, formatação e cálculo de datas e horários. Com estas funções, é possível:
 
-## Installation
-
-To install the **Date** package, use one of the following commands:
-
-::: code-group
-
-```bash [npm]
-npm install @utilify/date
-```
-
-```bash [yarn]
-yarn add @utilify/date
-```
-
-```bash [pnpm]
-pnpm add @utilify/date
-```
-
-:::
-
-Import the functions into your project:
-
-::: code-group
-
-```typescript [esm]
-import { formatDate, isLeapYear } from '@utilify/date';
-```
-
-```javascript [cjs]
-const { formatDate, isLeapYear } = require('@utilify/date');
-```
-
-:::
+- Obter a data e hora atual em diferentes formatos
+- Adicionar ou subtrair dias, meses ou anos
+- Calcular diferenças entre datas
+- Validar e analisar strings de data
+- Converter entre fusos horários
 
 ## Visão Geral
 
-### [adjustDate](./adjustDate.md)
-
+[addDays](./addDays.md)
 ```typescript
-function adjustDate(date: Date, amount: number, unit: TimeUnit): Date
+addDays(date: Date | string, days: number): Date
 ```
-Ajusta uma data adicionando ou subtraindo um intervalo de tempo.
+Adiciona um número de dias a uma data.
 
-### [adjustTimezone](./adjustTimezone.md)
-
+[addMonths](./addMonths.md)
 ```typescript
-function adjustTimezone(date: Date, timezoneOffset: number): Date
+addMonths(date: Date | string, months: number): Date
 ```
-Converte uma data para um fuso horário diferente.
+Adiciona um número de meses a uma data.
 
-### [convertTimeUnit](./convertTimeUnit.md)
-
+[addYears](./addYears.md)
 ```typescript
-function convertTimeUnit(time: number, from: TimeUnit, to: TimeUnit): number
+addYears(date: Date | string, years: number): Date
 ```
-Converte unidades de tempo, como milissegundos para minutos.
+Adiciona um número de anos a uma data.
 
-### [convertDateTo](./convertDateTo.md)
-
+[dateDiff](./dateDiff.md)
 ```typescript
-function convertDateTo(date: Date, format: DateFormat): string | undefined
+dateDiff(date1: Date | string, date2: Date | string, unit?: "days" | "months" | "years"): number
 ```
-Converte uma data para outro formato ou representação.
+Calcula a diferença entre duas datas na unidade especificada.
 
-### [formatDate](./formatDate.md)
-
+[formatDate](./formatDate.md)
 ```typescript
-function formatDate(date: Date, format: DateFormat = "DMY", separator: string = "/"): string | undefined
+formatDate(date: Date | string, format?: string): string
 ```
-Formata uma data em uma string amigável ao usuário.
+Formata uma data de acordo com o padrão especificado.
 
-### [formatDuration](./formatDuration.md)
-
+[getDay](./getDay.md)
 ```typescript
-function formatDuration(ms: number, format: string = "hh:mm:ss", autoHour: boolean = true): string
+getDay(date: Date | string): number
 ```
-Formata uma duração de tempo em uma string legível.
+Obtém o dia do mês de uma data.
 
-### [formatTime](./formatTime.md)
-
+[getMonth](./getMonth.md)
 ```typescript
-function formatTime(date: Date, format: string = "hh:mm:ss"): string | undefined
+getMonth(date: Date | string): number
 ```
-Formata o componente de tempo de uma data.
+Obtém o mês de uma data (0-11).
 
-### [isLeapYear](./isLeapYear.md)
-
+[getYear](./getYear.md)
 ```typescript
-function isLeapYear(year: number): boolean
+getYear(date: Date | string): number
+```
+Obtém o ano de uma data.
+
+[isLeapYear](./isLeapYear.md)
+```typescript
+isLeapYear(year: number): boolean
 ```
 Verifica se um ano é bissexto.
 
-### [isValidDate](./isValidDate.md)
-
+[isValidDate](./isValidDate.md)
 ```typescript
-function isValidDate(date: Date): boolean
+isValidDate(date: any): boolean
 ```
-Valida se um objeto ou string representa uma data válida.
+Verifica se um valor é uma data válida.
 
-### [isValidDateString](./isValidDateString.md)
-
+[now](./now.md)
 ```typescript
-function isValidDateString(date: string): boolean
+now(): Date
 ```
-Valida se uma string segue um formato de data reconhecido.
+Retorna a data e hora atual.
 
-### [isWeekday](./isWeekday.md)
-
+[parseDate](./parseDate.md)
 ```typescript
-function isWeekday(date: Date): boolean | undefined
+parseDate(dateStr: string, format?: string): Date | null
 ```
-Verifica se uma data é um dia útil (segunda a sexta-feira).
+Analisa uma string de data e retorna um objeto Date ou null.
 
-### [isWeekend](./isWeekend.md)
-
+[subtractDays](./subtractDays.md)
 ```typescript
-function isWeekend(date: Date): boolean | undefined
+subtractDays(date: Date | string, days: number): Date
 ```
-Verifica se uma data é um fim de semana (sábado ou domingo).
+Subtrai um número de dias de uma data.
 
-### [parseDate](./parseDate.md)
-
+[subtractMonths](./subtractMonths.md)
 ```typescript
-function parseDate(date: string): Date | undefined
+subtractMonths(date: Date | string, months: number): Date
 ```
-Converte uma string ou número para um objeto `Date`.
+Subtrai um número de meses de uma data.
+
+[subtractYears](./subtractYears.md)
+```typescript
+subtractYears(date: Date | string, years: number): Date
+```
+Subtrai um número de anos de uma data.

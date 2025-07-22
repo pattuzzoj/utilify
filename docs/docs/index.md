@@ -5,47 +5,46 @@ layout: home
 hero:
   name: "Utilify"
   text: "Essential Utilities"
-  tagline: "Boost your development with reliable, type-safe, and efficient utility functions for JavaScript and TypeScript"
+  tagline: "Typed, safe, and lightweight functions to accelerate your JavaScript and TypeScript development."
   actions:
     - theme: brand
       text: Get Started
-      link: /introduction
+      link: /en/introduction
     - theme: alt
       text: Install
-      link: /introduction/installation
+      link: /en/introduction/installation
 
 features:
   - icon: 🔒
-    title: Type-Safe by Default
-    details: Every function is written in TypeScript, offering complete type safety and autocompletion to ensure reliability during development.
+    title: Static Typing
+    details: Written in modern TypeScript with robust inference and development-time safety.
 
-  - icon: 🎯
-    title: Minimal by Design
-    details: Utility functions crafted to solve everyday problems clearly, efficiently, and without unnecessary complexity.
+  - icon: 🛡️
+    title: Safe Usage
+    details: Internal checks prevent silent failures even when used purely with JavaScript.
 
-  - icon: 🌲
-    title: Tree-Shaking Friendly
-    details: The code is optimized for tree-shaking, ensuring that only the functions you import are included in the final bundle, keeping it small and efficient.
-
-  - icon: ⚡
-    title: Modular and Lightweight
-    details: Import only what you need, keeping your project fast and lightweight, with no unnecessary dependencies.
-
-  - icon: 🛠️
-    title: Fully Tested and Reliable
-    details: Each function undergoes rigorous automated testing to ensure stability, edge case handling, and real-world reliability.
-
-  - icon: 📦
-    title: Easy to Install
-    details: Quickly add Utilis to your project with npm, yarn or pnpm and start using it right away.
+  - icon: ⚙️
+    title: Intuitive API
+    details: Predictable behavior, no overloads, and consistent, descriptive names.
 
   - icon: 📚
-    title: Well-Documented
-    details: Comprehensive documentation with examples for each function to help you get started quickly.
+    title: Clear Documentation
+    details: Direct examples, objective language, and well-defined scopes for each utility.
+
+  - icon: 🧪
+    title: Comprehensive Tests
+    details: Every function is covered by automated tests that ensure robustness in real use.
 
   - icon: 🌐
-    title: Cross-Platform Support
-    details: Functions designed to work seamlessly in Node.js, browser, and other JavaScript environments.
+    title: Full Support
+    details: Compatible with Node.js, Deno (via JSR), Bun, and modern browsers without adjustments.
+
+  - icon: 📦
+    title: Simple Installation
+    details: Can be added with npm, yarn, pnpm, or JSR without extra dependencies.
+
+  - icon: 🌲
+    title: Native Tree-Shaking
+    details: Only imported functions are included in the bundle, keeping your project lean.
 
 ---
-

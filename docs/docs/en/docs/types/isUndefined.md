@@ -1,56 +1,31 @@
-# isUndefined  
-Checks if the provided value is `undefined`. The function returns `true` if the value is of type `undefined`, and `false` otherwise.
+# isUndefined
+
+The `isUndefined` function checks if the provided value is undefined.
 
 ## Syntax
 ```typescript
-function isUndefined(value: any): boolean
+isUndefined(value: any): value is undefined;
 ```
 
-### Parameters
+## Parameters
+| Parameter | Type   | Description           |
+| :-------- | :----- | :--------------------|
+| `value`   | `any`  | Value to be checked   |
 
-| Parameter | Type      | Description                               |
-|-----------|-----------|-----------------------------------------|
-| `value`   | `any`     | The value to be checked. Can be of any type. |
-
-### Return
-
-| Type     | Description                                  |
-|----------|--------------------------------------------|
-| `boolean`| Returns `true` if the value is `undefined`, otherwise returns `false`. |
+## Returns
+| Type      | Description                                 |
+| :-------- | :------------------------------------------ |
+| `boolean` | True if it is undefined                     |
 
 ## Examples
-
-### Example 1: Checking for `undefined`
 ```typescript
-isUndefined(undefined); // true
-```
-
-### Example 2: Checking other types of values
-```typescript
-isUndefined(null); // false
-isUndefined(42); // false
-isUndefined("Hello"); // false
-isUndefined({}); // false
+isUndefined(undefined); // => true
+isUndefined(null); // => false
+isUndefined(0); // => false
 ```
 
 ## Notes
-- The function uses the `typeof` operator, which is a safe way to check the type of a variable in JavaScript, ensuring the value is strictly `undefined`.
-
-## Source Code
-::: code-group
-
-```typescript
-function isUndefined(value: any): boolean {
-  return typeof value === "undefined";
-}
-```
-
-```javascript
-function isUndefined(value) {
-  return typeof value === "undefined";
-}
-```
-:::
+* Useful for validating uninitialized variables.
 
 ## References
-- [MDN: `typeof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
+* https://developer.mozilla.org/en-US/docs/Glossary/undefined

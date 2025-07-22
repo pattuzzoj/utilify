@@ -1,62 +1,39 @@
 # rotate
 
-A função `rotate` rotaciona os elementos de um array por um deslocamento especificado. Deslocamento positivo rotaciona para a direita, deslocamento negativo rotaciona para a esquerda.
+A função `rotate` desloca os elementos de um array para a esquerda ou direita, conforme o offset informado.
 
 ## Sintaxe
 
 ```typescript
-function rotate<T>(arr: T[], offset: number): T[];
+rotate<T>(array: T[], offset: number): T[];
 ```
 
 ### Parâmetros
 
-| Nome     | Tipo     | Descrição                                               |
-|----------|----------|---------------------------------------------------------|
-| `arr`    | `T[]`    | O array a ser rotacionado.                              |
-| `offset` | `number` | O número de posições para rotacionar. Positivo rotaciona para a direita, negativo para a esquerda. |
+| Nome      | Tipo      | Descrição                          |
+|-----------|-----------|------------------------------------|
+| `array`   | `T[]`     | Array de origem                    |
+| `offset`  | `number`  | Número de posições para rotacionar |
 
 ### Retorno
 
-| Tipo   | Descrição                                                  |
-|--------|------------------------------------------------------------|
-| `T[]`  | Um novo array com elementos rotacionados pelo deslocamento especificado. |
+| Tipo    | Descrição              |
+|---------|------------------------|
+| `T[]`   | Novo array rotacionado |
 
 ## Exemplos
 
 ```typescript
-console.log(rotate([1, 2, 3, 4], 1));  // [4, 1, 2, 3]
-console.log(rotate([1, 2, 3, 4], -1)); // [2, 3, 4, 1]
-console.log(rotate([1, 2, 3, 4], 2));  // [3, 4, 1, 2]
+rotate([1, 2, 3, 4], 1); // => [2, 3, 4, 1]
+rotate([1, 2, 3, 4], -1); // => [4, 1, 2, 3]
+rotate([1, 2, 3, 4], 2); // => [3, 4, 1, 2]
 ```
 
-## Observações
+## Notas
 
-- A função lida com deslocamentos positivos e negativos
-- O deslocamento é normalizado para estar dentro dos limites do array usando módulo
-- Retorna um novo array; não modifica o array original
-- Se o array estiver vazio ou tiver um elemento, retorna uma cópia do array
-
-## Código Fonte
-
-::: code-group
-```typescript
-function rotate<T>(arr: T[], offset: number): T[] {
-  const arrLength = arr.length;
-  offset = ((offset % arrLength) + arrLength) % arrLength;
-  return arr.slice(offset).concat(arr.slice(0, offset));
-}
-```
-
-```javascript
-function rotate(arr, offset) {
-  const arrLength = arr.length;
-  offset = ((offset % arrLength) + arrLength) % arrLength;
-  return arr.slice(offset).concat(arr.slice(0, offset));
-}
-```
-:::
+* O offset pode ser positivo (direita) ou negativo (esquerda).
+* Não modifica o array original.
 
 ## Referências
 
-- [Array.prototype.slice() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
-- [Array.prototype.concat() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
+* https://lodash.com/docs/4.17.15#rotate

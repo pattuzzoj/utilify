@@ -1,79 +1,33 @@
 # invertCase
 
-The `invertCase` function inverts the case of each character in a string. It converts lowercase letters to uppercase and uppercase letters to lowercase, while leaving non-alphabetical characters unchanged.
+Inverts the case of each character in a string: uppercase becomes lowercase and vice versa.
 
 ## Syntax
-
 ```typescript
-function invertCase(str: string): string
+invertCase(str: string): string
 ```
 
-### Parameters
+## Parameters
+| Parameter | Type     | Description                                 |
+| :-------- | :------- | :------------------------------------------ |
+| `str`     | `string` | The string to be processed.                 |
 
-| Name  | Type     | Description                                      |
-|-------|----------|--------------------------------------------------|
-| str   | `string` | The string whose case will be inverted.          |
+## Returns
+| Type      | Description                                 |
+| :-------- | :------------------------------------------ |
+| `string`  | A new string with the case of each character inverted. |
 
-### Returns
-
-| Type    | Description                                      |
-|---------|--------------------------------------------------|
-| `string` | The string with each character's case inverted.  |
-
-## Examples
-
+## Example
 ```typescript
-console.log(invertCase("Hello World"));  // Output: "hELLO wORLD"
-console.log(invertCase("JavaScript"));   // Output: "jAVAsCRIPT"
-console.log(invertCase("12345"));        // Output: "12345" (no change)
+invertCase("AbC"); // "aBc"
+invertCase("Olá MUNDO!"); // "oLÁ mundo!"
+invertCase(""); // ""
 ```
 
 ## Notes
-
-- The function uses `split("")` to break the string into an array of characters.
-- It then maps each character, using `isLowerCase` and `isUpperCase` to determine if it should be converted to uppercase or lowercase, respectively.
-- The result is then joined back into a string using `join("")`.
-
-## Source Code
-
-::: code-group
-```typescript
-import isLowerCase from "./isLowerCase";
-import isUpperCase from "./isUpperCase";
-
-function invertCase(str: string): string {
-  return str.split("").map((str) => {
-    if (isLowerCase(str)) {
-      return str.toUpperCase();
-    } else if (isUpperCase(str)) {
-      return str.toLowerCase();
-    }
-
-    return str;
-  }).join("");
-}
-```
-
-```javascript
-import isLowerCase from "./isLowerCase";
-import isUpperCase from "./isUpperCase";
-
-function invertCase(str) {
-  return str.split("").map((str) => {
-    if (isLowerCase(str)) {
-      return str.toUpperCase();
-    } else if (isUpperCase(str)) {
-      return str.toLowerCase();
-    }
-
-    return str;
-  }).join("");
-}
-```
-::: 
+- Throws `TypeError` if the argument is not a string.
+- Non-alphabetic characters remain unchanged.
 
 ## References
-
-- [String.prototype.split()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split)
-- [String.prototype.toUpperCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase)
-- [String.prototype.toLowerCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase)
+- [MDN: String.prototype.toUpperCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase)
+- [MDN: String.prototype.toLowerCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase)

@@ -1,184 +1,88 @@
-# Funções Utilitárias para Funções <Badge type="tip" text="1.0.1" />
+# Function
 
-**Funções utilitárias para funções** oferecem uma variedade de métodos para gerenciar e aprimorar a execução de funções. Essas utilidades auxiliam em tarefas como debouncing, throttling, composição de funções e gerenciamento de comportamento assíncrono, facilitando o controle do fluxo de funções e otimizando o desempenho.
+O módulo `function` fornece um conjunto de utilitários para manipulação e composição de funções. Estas utilidades ajudam a criar funções mais flexíveis e reutilizáveis, facilitando operações comuns como memoização, composição funcional e aplicação parcial de argumentos.
 
-## Instalação
+Principais recursos:
+- Composição de funções (`compose`, `pipe`)
+- Memoização de resultados (`memo`) 
+- Aplicação parcial de argumentos (`partialLeft`, `partialRight`)
+- Funções utilitárias (`identity`, `noop`, `not`, `once`)
+- Execução condicional (`when`)
+- Execução repetida (`times`)
 
-Para instalar as funções utilitárias para funções, use um dos seguintes comandos, dependendo do seu gerenciador de pacotes:
+## Visão Geral
 
-::: code-group
-```bash [npm]
-npm install @utilify/function
-```
-
-```bash [yarn]
-yarn add @utilify/function
-```
-
-```bash [pnpm]
-pnpm add @utilify/function
-```
-:::
-
-Após a instalação, você pode importar as funções no seu projeto, usando ESM ou CJS.
-
-## Uso
-
-Esta biblioteca oferece suporte tanto para os sistemas de módulos ESM quanto CJS.
-
-::: code-group
-
-```typescript [esm]
-import { debounce } from '@utilify/function'; 
-```
-
-```javascript [cjs]
-const { debounce } = require('@utilify/function');  
-```
-:::
-
-## Overview
-
-### [benchmark](./benchmark.md)
-
+[compose](./compose.md)
 ```typescript
-async function benchmark(callback: () => void | Promise<void>, iterations: number = 1): Promise<number>;
+compose<T>(...callbacks: ((value: T) => T)[]): (value: T) => T
 ```
+Cria uma função composta que executa uma sequência de funções da direita para a esquerda.
 
-Mede o tempo médio de execução (em milissegundos) de uma determinada função síncrona ou assíncrona em um número especificado de iterações.
-
-### [compose](./compose.md)
-
+[identity](./identity.md)
 ```typescript
-function compose<T>(...callbacks: ((value: T) => T)[]): (value: T) => T;
+identity<T>(value: T): T
 ```
+Retorna o valor recebido sem modificações.
 
-Componente para compor funções, aplicando-as da direita para a esquerda em um valor.
-
-### [debounce](./debounce.md)
-
+[memo](./memo.md)
 ```typescript
-function debounce(callback: (...args: any[]) => void, delay: number = 300): (...args: any[]) => void;
+memo<T extends (...args: any[]) => any>(callback: T, options?: { cacheTimeout?: number, serializer?: (args: Parameters<T>) => string }): (...args: Parameters<T>) => ReturnType<T>
 ```
+Cria uma função memoizada que armazena em cache os resultados de chamadas anteriores.
 
-Adia a execução de uma função até que um período de inatividade tenha ocorrido após a última invocação.
-
-### [defer](./defer.md)
-
+[noop](./noop.md)
 ```typescript
-function defer(callback: () => void): void;
+noop(): void
 ```
+Função que não faz nada (no operation).
 
-Enfileira a execução de uma função para ser executada após o ciclo de eventos atual.
-
-### [fallback](./fallback.md)
-
+[not](./not.md)
 ```typescript
-function fallback<T>(callback: () => T, fallback: () => T): T;
+not<T extends (...args: any[]) => boolean>(callback: T): (...args: Parameters<T>) => boolean
 ```
+Cria uma função que retorna o valor booleano invertido do resultado da função fornecida.
 
-Executa a função `callback` e, em caso de erro, executa a função `fallback`.
-
-### [guard](./guard.md)
-
+[once](./once.md)
 ```typescript
-function guard<T, U = T>(validator: (value: T) => boolean, callback: (value: T) => U, fallback: (value: T) => U): (value: T) => U;
+once<T extends (...args: any[]) => any>(callback: T): (...args: Parameters<T>) => ReturnType<T>
 ```
+Cria uma função que só pode ser executada uma vez; chamadas subsequentes retornam o resultado da primeira execução.
 
-Executa uma função de callback se um valor passar por uma validação, caso contrário, executa uma função de fallback.
-
-### [identity](./identity.md)
-
+[partialLeft](./partialLeft.md)
 ```typescript
-function identity<T>(value: T): T;
+partialLeft<Args extends any[], R, P extends Partial<Args>>(
+  callback: (...args: Args) => R,
+  ...partial: P
+): (...args: DropFirst<Args> extends P ? [] : DropFirst<Args>) => R
 ```
+Cria uma nova função com argumentos pré-preenchidos à esquerda.
 
-Retorna o valor fornecido, útil como função de identidade.
-
-### [lock](./lock.md)
-
+[partialRight](./partialRight.md)
 ```typescript
-function lock(callback: (...args: any[]) => Promise<void>): (...args: any[]) => void;
+partialRight<Args extends any[], R, P extends Partial<Args>>(
+  callback: (...args: Args) => R | Promise<R>,
+  ...partial: P
+): (...args: DropLast<Args, P>) => R | Promise<R>
 ```
+Cria uma nova função com argumentos pré-preenchidos à direita.
 
-Impedir a execução simultânea de uma função, garantindo que uma execução termine antes de permitir outra.
-
-### [memo](./memo.md)
-
+[pipe](./pipe.md)
 ```typescript
-function memo(callback: (...args: any[]) => any, cacheTimeout?: number): (...args: any[]) => any;
+pipe<T>(...callbacks: ((value: T) => T)[]): (value: T) => T
 ```
+Cria uma função composta que executa uma sequência de funções da esquerda para a direita.
 
-Armazena em cache os resultados de uma função com base em seus argumentos e os retorna imediatamente se a função for chamada novamente com os mesmos argumentos.
-
-### [noop](./noop.md)
-
+[times](./times.md)
 ```typescript
-function noop(): void;
+times<T>(callback: (index: number) => T, count: number): T[]
 ```
+Executa uma função callback um número específico de vezes, retornando um array com os resultados.
 
-Uma função que não faz nada, usada como um placeholder.
-
-### [once](./once.md)
-
+[when](./when.md)
 ```typescript
-function once<T>(callback: (...args: any[]) => T): (...args: any[]) => T;
+when<T extends (...args: any) => any>(
+  predicate: (...args: any) => boolean,
+  action: T
+): (...args: Parameters<T>) => ReturnType<T> | undefined
 ```
-
-Executa uma função apenas uma vez, independentemente de quantas vezes for chamada.
-
-### [parallel](./parallel.md)
-
-```typescript
-function parallel(...callbacks: (() => Promise<any>)[]): Promise<any[]>;
-```
-
-Executa várias funções assíncronas em paralelo e aguarda todas as promessas serem resolvidas.
-
-### [partialLeft](./partialLeft.md)
-
-```typescript
-function partialLeft<T>(callback: (...args: any[]) => T, ...partial: any[]): (...args: any[]) => T;
-```
-
-Cria uma versão da função fornecida com os argumentos iniciais pré-definidos.
-
-### [partialRight](./partialRight.md)
-
-```typescript
-function partialRight<T>(callback: (...args: any[]) => T, ...partial: any[]): (...args: any[]) => T;
-```
-
-Cria uma versão da função fornecida com os argumentos finais pré-definidos.
-
-### [pipe](./pipe.md)
-
-```typescript
-function pipe<T>(...callbacks: ((value: T) => T)[]): (value: T) => T;
-```
-
-Componente para compor funções, aplicando-as da esquerda para a direita em um valor.
-
-### [rate](./rate.md)
-
-```typescript
-function rate(callback: (...args: any[]) => void, limit: number, interval: number): (...args: any[]) => boolean;
-```
-
-Limita a quantidade de vezes que uma função pode ser executada em um intervalo de tempo.
-
-### [sleep](./sleep.md)
-
-```typescript
-function sleep(timeout: number): Promise<void>;
-```
-
-Pausa a execução de uma função por um tempo específico, útil em funções assíncronas.
-
-### [throttle](./throttle.md)
-
-```typescript
-function throttle(callback: (...args: any[]) => void, wait: number = 300): (...args: any[]) => void;
-```
-
-Limita a frequência com que uma função pode ser chamada, permitindo que seja executada no máximo uma vez a cada `wait` milissegundos.
+Cria uma função que executa uma ação somente se o predicado for verdadeiro.

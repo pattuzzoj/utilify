@@ -1,84 +1,40 @@
-# isWeekday  
-Checks if the provided date represents a weekday (Monday through Friday). The function returns `undefined` if the provided date is invalid.
+# isWeekday
+
+The `isWeekday` function checks if a date corresponds to a weekday (Monday to Friday).
 
 ## Syntax
+
 ```typescript
-isWeekday(date: Date): boolean | undefined
+isWeekday(date: Date): boolean;
 ```
 
 ### Parameters
 
-| Parameter | Type    | Description                                                |
-|-----------|---------|------------------------------------------------------------|
-| `date`    | `Date`  | The `Date` object to be checked.                            |
+| Name     | Type      | Description         |
+| -------- | --------- | ------------------ |
+| `date`   | `Date`    | Date to check      |
 
-### Return
+### Returns
 
-| Type        | Description                                                |
-|-------------|------------------------------------------------------------|
-| `boolean`   | Returns `true` if the date is a weekday (Monday through Friday), otherwise returns `false`. |
-| `undefined` | Returns `undefined` if the provided date is invalid.       |
+| Type       | Description                              |
+| ---------- | ---------------------------------------- |
+| `boolean`  | True if the date is a weekday            |
 
 ## Examples
 
-### Example 1: Date on a weekday
 ```typescript
-const weekdayDate = new Date("2025-01-06"); // Monday
-console.log(isWeekday(weekdayDate)); // true
-```
+isWeekday(new Date("2024-06-10")); // Monday
+// => true
 
-### Example 2: Date on the weekend
-```typescript
-const weekendDate = new Date("2025-01-04"); // Saturday
-console.log(isWeekday(weekendDate)); // false
-```
-
-### Example 3: Invalid date
-```typescript
-const invalidDate = new Date("invalid date");
-console.log(isWeekday(invalidDate)); // undefined
+isWeekday(new Date("2024-06-09")); // Sunday
+// => false
 ```
 
 ## Notes
-- The function uses `isValidDate` to ensure that the provided date is valid before checking if it's a weekday.
-- It checks if the day of the week is between `1` (Monday) and `5` (Friday) using the `getDay()` method of the `Date` object.
 
-## Dependencies
-[isValidDate](./isValidDate.md): Function used to validate the provided date.
-
-## Source Code
-::: code-group
-
-```typescript
-import isValidDate from "./isValidDate";
-
-function isWeekday(date: Date): boolean | undefined {
-  if (!isValidDate(date)) {
-    console.error("Invalid date");
-    return;
-  };
-  
-  const day = date.getDay();
-
-  return 0 < day && day < 6;
-}
-```
-
-```javascript
-import isValidDate from "./isValidDate";
-
-function isWeekday(date) {
-  if (!isValidDate(date)) {
-    console.error("Invalid date");
-    return;
-  };
-  
-  const day = date.getDay();
-
-  return 0 < day && day < 6;
-}
-```
-:::
+* Throws an error if the date is invalid.
+* Useful for calendar validations and business rules.
 
 ## References
-- [MDN: `Date.prototype.getDay`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDay)
+
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date

@@ -1,70 +1,33 @@
 # compose
 
-The `compose` function takes a sequence of functions and returns a new function that applies the provided functions cumulatively from right to left.
+Creates a composed function that executes a sequence of functions from right to left.
 
 ## Syntax
-
 ```typescript
-function compose<T>(...callbacks: ((value: T) => T)[]): (value: T) => T;
+compose<T>(...callbacks: ((value: T) => T)[]): (value: T) => T
 ```
 
-### Parameters
+## Parameters
+| Name           | Type                        | Description                                      |
+| -------------- | --------------------------- | ------------------------------------------------ |
+| `...callbacks` | `((value: T) => T)[]`       | Functions to be composed, executed from last to first. |
 
-| Name        | Type                      | Description                                 |
-|-------------|---------------------------|---------------------------------------------|
-| `callbacks` | `((value: T) => T)[]`      | An array of functions to be composed.       |
+## Returns
+| Type              | Description                                                      |
+| ----------------- | --------------------------------------------------------------- |
+| `(value: T) => T` | A function that applies all provided functions in sequence to the initial value. |
 
-### Return
-
-| Type         | Description                                     |
-|--------------|-------------------------------------------------|
-| `(value: T) => T` | A function that applies the given functions from right to left. |
-
-## Examples
-
-### Example 1: Composing simple functions
-
+## Example
 ```typescript
-const add1 = (x: number): number => x + 1;
-const multiply2 = (x: number): number => x * 2;
-
-const add1ThenMultiply2 = compose(multiply2, add1);
-
-console.log(add1ThenMultiply2(5)); // Output: 12 (5 + 1 = 6, 6 * 2 = 12)
-```
-
-### Example 2: Composing multiple functions
-
-```typescript
-const subtract3 = (x: number): number => x - 3;
-const divideBy2 = (x: number): number => x / 2;
-
-const result = compose(divideBy2, subtract3, add1)(10);
-console.log(result); // Output: 3.5 (10 + 1 = 11, 11 - 3 = 8, 8 / 2 = 3.5)
+const add1 = (x: number) => x + 1;
+const double = (x: number) => x * 2;
+const composed = compose(add1, double);
+composed(3); // 7 (double(3) = 6, add1(6) = 7)
 ```
 
 ## Notes
-
-- Function composition is a functional programming pattern.
-- The function on the right is applied first, and the one on the left is the last to be applied.
-- `compose` is useful for chaining data transformations in a declarative and clear manner.
-
-## Code
-
-::: code-group
-```typescript
-function compose<T>(...callbacks: ((value: T) => T)[]): (value: T) => T {
-  return (value: T): T => callbacks.reduceRight((currentValue, callback) => callback(currentValue), value);
-}
-```
-
-```javascript
-function compose(...callbacks) {
-  return (value) => callbacks.reduceRight((currentValue, callback) => callback(currentValue), value);
-}
-```
-:::
+- Throws a `TypeError` if any argument is not a function.
+- Useful for functional composition and data transformation pipelines.
 
 ## References
-
-- [Array.prototype.reduceRight](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight)
+- [MDN: composition](https://developer.mozilla.org/en-US/docs/Glossary/Function_composition)

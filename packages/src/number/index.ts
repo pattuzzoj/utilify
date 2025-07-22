@@ -1,0 +1,14 @@
+export { default as divisors } from './divisors';
+export { default as inRange } from './inRange';
+export { default as isEven } from './isEven';
+export { default as isFinite } from './isFinite';
+export { default as isFloat } from './isFloat';
+export { default as isInfinity } from './isInfinity';
+export { default as isInteger } from './isInteger';
+export { default as isNaN } from './isNaN';
+export { default as isNegative } from './isNegative';
+export { default as isOdd } from './isOdd';
+export { default as isPositive } from './isPositive';
+export { default as isPrime } from './isPrime';
+export { default as range } from './range';
+export { default as sumOfDigits } from './sumOfDigits';

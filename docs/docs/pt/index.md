@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Utilify"
   text: "Utilitários Essenciais"
-  tagline: "Impulsione seu desenvolvimento com funções utilitárias confiáveis, seguras por tipo e eficientes para JavaScript e TypeScript"
+  tagline: "Funções tipadas, seguras e leves para acelerar seu desenvolvimento em JavaScript e TypeScript."
   actions:
     - theme: brand
       text: Começar
@@ -16,36 +16,35 @@ hero:
 
 features:
   - icon: 🔒
-    title: Seguro por Tipo por Padrão
-    details: Cada função é escrita em TypeScript, oferecendo segurança completa de tipos e autocompletar para garantir confiabilidade durante o desenvolvimento.
+    title: Tipagem Estática
+    details: Escrito em TypeScript moderno com inferência robusta e segurança em tempo de desenvolvimento.
 
-  - icon: 🎯
-    title: Minimalista por Design
-    details: Funções utilitárias criadas para resolver problemas cotidianos de forma clara, eficiente e sem complexidade desnecessária.
+  - icon: 🛡️
+    title: Uso Seguro
+    details: Verificações internas evitam falhas silenciosas mesmo em uso puro com JavaScript.
 
-  - icon: 🌲
-    title: Amigável ao Tree-Shaking
-    details: O código é otimizado para tree-shaking, garantindo que apenas as funções que você importa sejam incluídas no pacote final, mantendo-o pequeno e eficiente.
-
-  - icon: ⚡
-    title: Modular e Leve
-    details: Importe apenas o que você precisa, mantendo seu projeto rápido e leve, sem dependências desnecessárias.
-
-  - icon: 🛠️
-    title: Totalmente Testado e Confiável
-    details: Cada função passa por testes automatizados rigorosos para garantir estabilidade, tratamento de casos extremos e confiabilidade no mundo real.
-
-  - icon: 📦
-    title: Fácil de Instalar
-    details: Adicione rapidamente o Utilis ao seu projeto com npm, yarn ou pnpm e comece a usá-lo imediatamente.
+  - icon: ⚙️
+    title: API Intuitiva
+    details: Comportamento previsível, sem sobrecargas e com nomes consistentes e descritivos.
 
   - icon: 📚
-    title: Bem Documentado
-    details: Documentação abrangente com exemplos para cada função para ajudá-lo a começar rapidamente.
+    title: Documentação Clara
+    details: Exemplos diretos, linguagem objetiva e escopos bem definidos para cada utilitário.
+
+  - icon: 🧪
+    title: Testes Abrangentes
+    details: Cada função é coberta por testes automatizados que garantem robustez no uso real.
 
   - icon: 🌐
-    title: Suporte Multiplataforma
-    details: Funções projetadas para funcionar perfeitamente no Node.js, navegador e outros ambientes JavaScript.
+    title: Suporte Total
+    details: Compatível com Node.js, Deno (via JSR), Bun e navegadores modernos sem ajustes.
+
+  - icon: 📦
+    title: Instalação Simples
+    details: Pode ser adicionado com npm, yarn, pnpm ou JSR sem dependências extras.
+
+  - icon: 🌲
+    title: Tree-Shaking Nativo
+    details: Apenas as funções importadas entram no bundle, mantendo seu projeto enxuto.
 
 ---
-

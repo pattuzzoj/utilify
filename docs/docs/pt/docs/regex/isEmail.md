@@ -1,57 +1,42 @@
-# isEmail
+## isEmail
 
-A função `isEmail` verifica se uma string é um endereço de e-mail válido.
+A função `isEmail` verifica se uma string corresponde ao formato de um endereço de e-mail válido.
 
-## Sintaxe
+### Sintaxe
 
-```typescript
-function isEmail(value: string): boolean
+```javascript
+isEmail(value)
 ```
 
 ### Parâmetros
 
-| Nome | Tipo     | Descrição                                 |
-|------|----------|-------------------------------------------|
-| value  | `string` | A string a ser validada como um e-mail.   |
+| Nome    | Tipo      | Descrição                  |
+|---------|-----------|----------------------------|
+| `value` | `string`  | A string a ser verificada. |
 
 ### Retorno
 
-| Tipo     | Descrição                                  |
-|----------|--------------------------------------------|
-| `boolean` | Retorna `true` se a string for um e-mail válido, caso contrário retorna `false`. |
+| Tipo       | Descrição                                                                |
+|------------|--------------------------------------------------------------------------|
+| `boolean`  | `true` se a string corresponder ao formato de um e-mail válido, caso contrário, `false`. |
 
-## Exemplos
-
-```typescript
-console.log(isEmail("user@example.com"));       // Saída: true
-console.log(isEmail("user.name@domain.co"));     // Saída: true
-console.log(isEmail("user@subdomain.example.com")); // Saída: true
-console.log(isEmail("email-invalido"));         // Saída: false
-console.log(isEmail("user@dominio"));           // Saída: false
-```
-
-## Notas
-
-- A função utiliza uma expressão regular para validar a evalueutura básica de um endereço de e-mail.
-- Verifica se o e-mail segue o padrão geral `local-part@dominio`.
-
-## Código Fonte
-
-::: code-group
-```typescript
-function isEmail(value: string): boolean {
-  return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value);
-}
-```
+### Exemplos
 
 ```javascript
-function isEmail(value) {
-  return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value);
-}
+isEmail('usuario@dominio.com');      // true
+isEmail('usuario.nome@dominio.com'); // true
+isEmail('usuario@dominio');          // false
+isEmail('usuario@.com');             // false
+isEmail('usuario@dominio.c');        // false
+isEmail('');                         // false
 ```
-:::
 
-## Referências
+### Notas
 
-- [Expressões Regulares](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions)
-- [string.prototype.test()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test)
+- Lança um `TypeError` se o valor fornecido não for uma string.
+- Apenas valida o formato básico do e-mail; não verifica se o domínio existe ou está ativo.
+
+### Referências
+
+- [MDN: String.prototype.test()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test)
+- [RFC 5322: Internet Message Format](https://datatracker.ietf.org/doc/html/rfc5322)

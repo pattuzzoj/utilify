@@ -1,99 +1,73 @@
-# Regex <Badge type="tip" text="1.0.2" />
+# Regex
 
-As funções utilitárias de regex fornecem métodos para validação de padrões comuns, como endereços de email, URLs, UUIDs, entre outros.
+O módulo Regex fornece um conjunto de funções para validação de strings usando expressões regulares. Estas funções retornam um valor booleano (true/false) indicando se a string corresponde ao padrão especificado.
 
-## **Instalação**
+Todas as funções são otimizadas para performance e seguem as melhores práticas de validação para cada caso específico.
 
-Para instalar o pacote de utilitários regex, utilize o comando apropriado:
-
-::: code-group
-
-```bash [npm]
-npm install @utilify/regex
-```
-
-```bash [yarn]
-yarn add @utilify/regex
-```
-
-```bash [pnpm]
-pnpm add @utilify/regex
-```
-
-:::
-
-Importe as funções no seu projeto:
-
-::: code-group
-
-```typescript [esm]
-import { isAlpha, isAlphanumeric, isEmail, isURL } from '@utilify/regex';
-```
-
-```javascript [cjs]
-const { isAlpha, isAlphanumeric, isEmail, isURL } = require('@utilify/regex');
-```
-
-:::
-
-## **Funções Disponíveis**
+## Visão Geral
 
 ### [isAlpha](./isAlpha.md)
 ```typescript
-function isAlpha(value: string): boolean;
+isAlpha(value: string): boolean;
 ```
-Verifica se a string contém apenas letras (a-z e A-Z).
+Verifica se a string contém apenas caracteres alfabéticos (letras), incluindo acentuação.
 
 ### [isAlphanumeric](./isAlphanumeric.md)
 ```typescript
-function isAlphanumeric(value: string): boolean;
+isAlphanumeric(value: string): boolean;
 ```
-Verifica se a string contém apenas letras e números (a-z, A-Z, 0-9).
-
-### [isBase64](./isBase64.md)
-```typescript
-function isBase64(value: string): boolean;
-```
-Verifica se a string está codificada no formato Base64.
-
-### [isCreditCard](./isCreditCard.md)
-```typescript
-function isCreditCard(value: string): boolean;
-```
-Verifica se a string segue o padrão de um número de cartão de crédito válido.
+Verifica se a string contém apenas letras e números, sem símbolos ou espaços.
 
 ### [isEmail](./isEmail.md)
 ```typescript
-function isEmail(value: string): boolean;
+isEmail(value: string): boolean;
 ```
-Verifica se a string é um endereço de email válido.
-
-### [isIPV4](./isIPV4.md)
-```typescript
-function isIPV4(value: string): boolean;
-```
-Verifica se a string é um endereço IP no formato IPv4.
-
-### [isIPV6](./isIPV6.md)
-```typescript
-function isIPV6(value: string): boolean;
-```
-Verifica se a string é um endereço IP no formato IPv6.
-
-### [isSlug](./isSlug.md)
-```typescript
-function isSlug(value: string): boolean;
-```
-Verifica se a string está no formato de um slug amigável para URLs.
+Verifica se a string corresponde ao formato de um e-mail válido.
 
 ### [isURL](./isURL.md)
 ```typescript
-function isURL(value: string): boolean;
+isURL(value: string): boolean;
 ```
-Verifica se a string é uma URL válida.
+Verifica se a string corresponde ao formato de uma URL válida (http/https).
 
-### [isUUID](./isUUID.md)
+### [isCreditCard](./isCreditCard.md)
 ```typescript
-function isUUID(value: string): boolean;
+isCreditCard(value: string): boolean;
 ```
-Verifica se a string segue o formato de um UUID válido.
+Verifica se a string corresponde ao formato de um número de cartão de crédito válido.
+
+### [isSlug](./isSlug.md)
+```typescript
+isSlug(value: string): boolean;
+```
+Verifica se a string está no formato de slug (letras minúsculas, números e hifens).
+
+### [isIPV4](./isIPV4.md)
+```typescript
+isIPV4(value: string): boolean;
+```
+Verifica se a string corresponde ao formato de um endereço IPv4 válido, com ou sem porta.
+
+### [isIPV6](./isIPV6.md)
+```typescript
+isIPV6(value: string): boolean;
+```
+Verifica se a string corresponde ao formato de um endereço IPv6 válido, com ou sem porta.
+
+### [isBase64URL](./isBase64URL.md)
+```typescript
+isBase64URL(value: string): boolean;
+```
+Verifica se a string está no formato Base64URL.
+
+### [isJWT](./isJWT.md)
+```typescript
+isJWT(value: string): boolean;
+```
+Verifica se a string corresponde ao formato de um JSON Web Token (JWT).
+
+### [isFileExtension](./isFileExtension.md)
+```typescript
+isFileExtension(value: string): boolean;
+```
+Verifica se a string corresponde ao formato de uma extensão de arquivo.

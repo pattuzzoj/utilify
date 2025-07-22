@@ -4,9 +4,9 @@
     "link": "/introduction",
     "collapsed": false,
     "items": [
-      { "text": "Why Utilify?", "link": "/introduction/why-utilify" },
       { "text": "Installation", "link": "/introduction/installation" },
-      { "text": "Overview", "link": "/introduction/overview" }
+      { "text": "Overview", "link": "/introduction/overview" },
+      { "text": "Contribution", "link": "/introduction/contribution" }
     ]
   },
   {
@@ -14,21 +14,36 @@
     "link": "/docs/array",
     "collapsed": true,
     "items": [
+      { "text": "adjust", "link": "/docs/array/adjust" },
       { "text": "after", "link": "/docs/array/after" },
+      { "text": "aperture", "link": "/docs/array/aperture" },
+      { "text": "append", "link": "/docs/array/append" },
+      { "text": "arrayToObject", "link": "/docs/array/arrayToObject" },
       { "text": "before", "link": "/docs/array/before" },
       { "text": "chunk", "link": "/docs/array/chunk" },
+      { "text": "collectBy", "link": "/docs/array/collectBy" },
+      { "text": "compact", "link": "/docs/array/compact" },
+      { "text": "count", "link": "/docs/array/count" },
+      { "text": "cycle", "link": "/docs/array/cycle" },
       { "text": "difference", "link": "/docs/array/difference" },
       { "text": "first", "link": "/docs/array/first" },
-      { "text": "flattenArr", "link": "/docs/array/flattenArr" },
+      { "text": "flatMap", "link": "/docs/array/flatMap" },
+      { "text": "flat", "link": "/docs/array/flat" },
+      { "text": "groupBy", "link": "/docs/array/groupBy" },
+      { "text": "includes", "link": "/docs/array/includes" },
       { "text": "isIterable", "link": "/docs/array/isIterable" },
       { "text": "last", "link": "/docs/array/last" },
+      { "text": "range", "link": "/docs/array/range" },
+      { "text": "reject", "link": "/docs/array/reject" },
+      { "text": "repeat", "link": "/docs/array/repeat" },
       { "text": "rotate", "link": "/docs/array/rotate" },
       { "text": "sample", "link": "/docs/array/sample" },
-      { "text": "sanitizeArr", "link": "/docs/array/sanitizeArr" },
       { "text": "shuffle", "link": "/docs/array/shuffle" },
       { "text": "swap", "link": "/docs/array/swap" },
       { "text": "union", "link": "/docs/array/union" },
-      { "text": "unique", "link": "/docs/array/unique" }
+      { "text": "unique", "link": "/docs/array/unique" },
+      { "text": "unzip", "link": "/docs/array/unzip" },
+      { "text": "zip", "link": "/docs/array/zip" }
     ]
   },
   {
@@ -36,13 +51,23 @@
     "link": "/docs/browser",
     "collapsed": true,
     "items": [
+      { "text": "exitFullscreen", "link": "/docs/browser/exitFullscreen" },
       { "text": "getLanguage", "link": "/docs/browser/getLanguage" },
       { "text": "getTheme", "link": "/docs/browser/getTheme" },
       { "text": "isCookieEnabled", "link": "/docs/browser/isCookieEnabled" },
       { "text": "isFullscreenEnabled", "link": "/docs/browser/isFullscreenEnabled" },
       { "text": "isOnline", "link": "/docs/browser/isOnline" },
+      { "text": "isShareable", "link": "/docs/browser/isShareable" },
+      { "text": "isTabActive", "link": "/docs/browser/isTabActive" },
       { "text": "isTouchDevice", "link": "/docs/browser/isTouchDevice" },
-      { "text": "toggleFullscreen", "link": "/docs/browser/toggleFullscreen" }
+      { "text": "on", "link": "/docs/browser/on" },
+      { "text": "onOffline", "link": "/docs/browser/onOffline" },
+      { "text": "onOnline", "link": "/docs/browser/onOnline" },
+      { "text": "onVisibilityChange", "link": "/docs/browser/onVisibilityChange" },
+      { "text": "requestFullscreen", "link": "/docs/browser/requestFullscreen" },
+      { "text": "scrollToElement", "link": "/docs/browser/scrollToElement" },
+      { "text": "scrollToTop", "link": "/docs/browser/scrollToTop" },
+      { "text": "share", "link": "/docs/browser/share" }
     ]
   },
   {
@@ -50,15 +75,17 @@
     "link": "/docs/colors",
     "collapsed": true,
     "items": [
+      { "text": "parseColor", "link": "/docs/colors/parseColor" },
       { "text": "hexToHsl", "link": "/docs/colors/hexToHsl" },
       { "text": "hexToRgb", "link": "/docs/colors/hexToRgb" },
       { "text": "hslToHex", "link": "/docs/colors/hslToHex" },
       { "text": "hslToRgb", "link": "/docs/colors/hslToRgb" },
-      { "text": "isHex", "link": "/docs/colors/isHex" },
-      { "text": "isHsl", "link": "/docs/colors/isHsl" },
-      { "text": "isRgb", "link": "/docs/colors/isRgb" },
+      { "text": "isHexColor", "link": "/docs/colors/isHexColor" },
+      { "text": "isHslColor", "link": "/docs/colors/isHslColor" },
+      { "text": "isRgbColor", "link": "/docs/colors/isRgbColor" },
       { "text": "rgbToHex", "link": "/docs/colors/rgbToHex" },
-      { "text": "rgbToHsl", "link": "/docs/colors/rgbToHsl" }
+      { "text": "rgbToHsl", "link": "/docs/colors/rgbToHsl" },
+      { "text": "randomColor", "link": "/docs/colors/randomColor" }
     ]
   },
   {
@@ -66,9 +93,22 @@
     "link": "/docs/crypto",
     "collapsed": true,
     "items": [
-      { "text": "hash", "link": "/docs/crypto/hash" },
-      { "text": "randomUUID", "link": "/docs/crypto/randomUUID" },
-      { "text": "djb2", "link": "/docs/crypto/djb2" }
+      { "text": "base64Decode", "link": "/docs/crypto/base64Decode" },
+      { "text": "base64Encode", "link": "/docs/crypto/base64Encode" },
+      { "text": "djb2", "link": "/docs/crypto/djb2" },
+      { "text": "generateNonce", "link": "/docs/crypto/generateNonce" },
+      { "text": "generateUUID", "link": "/docs/crypto/generateUUID" },
+      { "text": "hexDecode", "link": "/docs/crypto/hexDecode" },
+      { "text": "hexEncode", "link": "/docs/crypto/hexEncode" },
+      { "text": "isArrayBuffer", "link": "/docs/crypto/isArrayBuffer" },
+      { "text": "isBase64", "link": "/docs/crypto/isBase64" },
+      { "text": "isBase64URL", "link": "/docs/crypto/isBase64URL" },
+      { "text": "isHash", "link": "/docs/crypto/isHash" },
+      { "text": "isHex", "link": "/docs/crypto/isHex" },
+      { "text": "isUint8Array", "link": "/docs/crypto/isUint8Array" },
+      { "text": "isUUID", "link": "/docs/crypto/isUUID" },
+      { "text": "utf8Decode", "link": "/docs/crypto/utf8Decode" },
+      { "text": "utf8Encode", "link": "/docs/crypto/utf8Encode" }
     ]
   },
   {
@@ -78,35 +118,68 @@
     "items": [
       { "text": "adjustDate", "link": "/docs/date/adjustDate" },
       { "text": "adjustTimezone", "link": "/docs/date/adjustTimezone" },
-      { "text": "convertTimeUnit", "link": "/docs/date/convertTimeUnit" },
       { "text": "convertDateTo", "link": "/docs/date/convertDateTo" },
+      { "text": "convertTimeUnit", "link": "/docs/date/convertTimeUnit" },
+      { "text": "elapsedTime", "link": "/docs/date/elapsedTime" },
       { "text": "formatDate", "link": "/docs/date/formatDate" },
       { "text": "formatDuration", "link": "/docs/date/formatDuration" },
       { "text": "formatTime", "link": "/docs/date/formatTime" },
+      { "text": "isBetween", "link": "/docs/date/isBetween" },
       { "text": "isLeapYear", "link": "/docs/date/isLeapYear" },
+      { "text": "isSameDay", "link": "/docs/date/isSameDay" },
+      { "text": "isToday", "link": "/docs/date/isToday" },
+      { "text": "isTomorrow", "link": "/docs/date/isTomorrow" },
       { "text": "isValidDate", "link": "/docs/date/isValidDate" },
       { "text": "isValidDateString", "link": "/docs/date/isValidDateString" },
       { "text": "isWeekday", "link": "/docs/date/isWeekday" },
       { "text": "isWeekend", "link": "/docs/date/isWeekend" },
-      { "text": "parseDate", "link": "/docs/date/parseDate" }
+      { "text": "isYesterday", "link": "/docs/date/isYesterday" },
+      { "text": "parseDate", "link": "/docs/date/parseDate" },
+      { "text": "stripTime", "link": "/docs/date/stripTime" },
+      { "text": "toDate", "link": "/docs/date/toDate" }
     ]
   },
   {
-    "text": "Environment",
-    "link": "/docs/environment",
+    "text": "Env",
+    "link": "/docs/env",
     "collapsed": true,
     "items": [
-      { "text": "getOS", "link": "/docs/environment/getOS" },
-      { "text": "isBrowser", "link": "/docs/environment/isBrowser" },
-      { "text": "isBun", "link": "/docs/environment/isBun" },
-      { "text": "isDedicatedWorker", "link": "/docs/environment/isDedicatedWorker" },
-      { "text": "isDeno", "link": "/docs/environment/isDeno" },
-      { "text": "isMobile", "link": "/docs/environment/isMobile" },
-      { "text": "isNode", "link": "/docs/environment/isNode" },
-      { "text": "isServer", "link": "/docs/environment/isServer" },
-      { "text": "isServiceWorker", "link": "/docs/environment/isServiceWorker" },
-      { "text": "isSharedWorker", "link": "/docs/environment/isSharedWorker" },
-      { "text": "isWebWorker", "link": "/docs/environment/isWebWorker" }
+      { "text": "equalsEnv", "link": "/docs/env/equalsEnv" },
+      { "text": "getEnv", "link": "/docs/env/getEnv" },
+      { "text": "getOS", "link": "/docs/env/getOS" },
+      { "text": "getRuntime", "link": "/docs/env/getRuntime" },
+      { "text": "hasEnv", "link": "/docs/env/hasEnv" },
+      { "text": "isBrowser", "link": "/docs/env/isBrowser" },
+      { "text": "isBun", "link": "/docs/env/isBun" },
+      { "text": "isDedicatedWorker", "link": "/docs/env/isDedicatedWorker" },
+      { "text": "isDeno", "link": "/docs/env/isDeno" },
+      { "text": "isDev", "link": "/docs/env/isDev" },
+      { "text": "isMobile", "link": "/docs/env/isMobile" },
+      { "text": "isNode", "link": "/docs/env/isNode" },
+      { "text": "isProd", "link": "/docs/env/isProd" },
+      { "text": "isServer", "link": "/docs/env/isServer" },
+      { "text": "isServiceWorker", "link": "/docs/env/isServiceWorker" },
+      { "text": "isSharedWorker", "link": "/docs/env/isSharedWorker" },
+      { "text": "isTest", "link": "/docs/env/isTest" },
+      { "text": "isWebWorker", "link": "/docs/env/isWebWorker" },
+      { "text": "requireEnv", "link": "/docs/env/requireEnv" }
+    ]
+  },
+    {
+    "text": "Error",
+    "link": "/docs/error",
+    "collapsed": true,
+    "items": [
+      { "text": "customError", "link": "/docs/error/customError" },
+      { "text": "isAggregateError", "link": "/docs/error/isAggregateError" },
+      { "text": "isDOMException", "link": "/docs/error/isDOMException" },
+      { "text": "isError", "link": "/docs/error/isError" },
+      { "text": "isEvalError", "link": "/docs/error/isEvalError" },
+      { "text": "isRangeError", "link": "/pt/docs/error/isRangeError" },
+      { "text": "isReferenceError", "link": "/pt/docs/error/isReferenceError" },
+      { "text": "isSyntaxError", "link": "/pt/docs/error/isSyntaxError" },
+      { "text": "isTypeError", "link": "/pt/docs/error/isTypeError" },
+      { "text": "isURIError", "link": "/pt/docs/error/isURIError" }
     ]
   },
   {
@@ -114,24 +187,17 @@
     "link": "/docs/function",
     "collapsed": true,
     "items": [
-      { "text": "benchmark", "link": "/docs/function/benchmark" },
       { "text": "compose", "link": "/docs/function/compose" },
-      { "text": "debounce", "link": "/docs/function/debounce" },
-      { "text": "defer", "link": "/docs/function/defer" },
-      { "text": "fallback", "link": "/docs/function/fallback" },
-      { "text": "guard", "link": "/docs/function/guard" },
       { "text": "identity", "link": "/docs/function/identity" },
-      { "text": "lock", "link": "/docs/function/lock" },
       { "text": "memo", "link": "/docs/function/memo" },
       { "text": "noop", "link": "/docs/function/noop" },
+      { "text": "not", "link": "/docs/function/not" },
       { "text": "once", "link": "/docs/function/once" },
-      { "text": "parallel", "link": "/docs/function/parallel" },
       { "text": "partialLeft", "link": "/docs/function/partialLeft" },
       { "text": "partialRight", "link": "/docs/function/partialRight" },
       { "text": "pipe", "link": "/docs/function/pipe" },
-      { "text": "rate", "link": "/docs/function/rate" },
-      { "text": "sleep", "link": "/docs/function/sleep" },
-      { "text": "throttle", "link": "/docs/function/throttle" }
+      { "text": "times", "link": "/docs/function/times" },
+      { "text": "when", "link": "/docs/function/when" }
     ]
   },
   {
@@ -139,21 +205,44 @@
     "link": "/docs/math",
     "collapsed": true,
     "items": [
-      { "text": "average", "link": "/docs/math/average" },
+      { "text": "add", "link": "/docs/math/add" },
       { "text": "clamp", "link": "/docs/math/clamp" },
-      { "text": "divisors", "link": "/docs/math/divisors" },
+      { "text": "divide", "link": "/docs/math/divide" },
       { "text": "factorial", "link": "/docs/math/factorial" },
       { "text": "fibonacci", "link": "/docs/math/fibonacci" },
       { "text": "frequency", "link": "/docs/math/frequency" },
-      { "text": "isBetween", "link": "/docs/math/isBetween" },
-      { "text": "isEven", "link": "/docs/math/isEven" },
-      { "text": "isInteger", "link": "/docs/math/isInteger" },
-      { "text": "isOdd", "link": "/docs/math/isOdd" },
-      { "text": "isPrime", "link": "/docs/math/isPrime" },
+      { "text": "lerp", "link": "/docs/math/lerp" },
+      { "text": "mean", "link": "/docs/math/mean" },
+      { "text": "median", "link": "/docs/math/median" },
+      { "text": "mod", "link": "/docs/math/mod" },
+      { "text": "mode", "link": "/docs/math/mode" },
+      { "text": "multiply", "link": "/docs/math/multiply" },
+      { "text": "pow", "link": "/docs/math/pow" },
       { "text": "random", "link": "/docs/math/random" },
-      { "text": "round", "link": "/docs/math/round" },
-      { "text": "sum", "link": "/docs/math/sum" },
-      { "text": "sumOfDigits", "link": "/docs/math/sumOfDigits" }
+      { "text": "roundTo", "link": "/docs/math/roundTo" },
+      { "text": "std", "link": "/docs/math/std" },
+      { "text": "subtract", "link": "/docs/math/subtract" },
+      { "text": "variance", "link": "/docs/math/variance" }
+    ]
+  },
+  {
+    "text": "Number",
+    "link": "/docs/number",
+    "collapsed": true,
+    "items": [
+      { "text": "divisors", "link": "/docs/number/divisors" },
+      { "text": "inRange", "link": "/docs/number/inRange" },
+      { "text": "isEven", "link": "/docs/number/isEven" },
+      { "text": "isFinite", "link": "/docs/number/isFinite" },
+      { "text": "isFloat", "link": "/docs/number/isFloat" },
+      { "text": "isInfinity", "link": "/docs/number/isInfinity" },
+      { "text": "isInteger", "link": "/docs/number/isInteger" },
+      { "text": "isNaN", "link": "/docs/number/isNaN" },
+      { "text": "isNegative", "link": "/docs/number/isNegative" },
+      { "text": "isOdd", "link": "/docs/number/isOdd" },
+      { "text": "isPositive", "link": "/docs/number/isPositive" },
+      { "text": "isPrime", "link": "/docs/number/isPrime" },
+      { "text": "sumOfDigits", "link": "/docs/number/sumOfDigits" }
     ]
   },
   {
@@ -162,19 +251,38 @@
     "collapsed": true,
     "items": [
       { "text": "clone", "link": "/docs/object/clone" },
-      { "text": "deepClone", "link": "/docs/object/deepClone" },
-      { "text": "deepFreeze", "link": "/docs/object/deepFreeze" },
-      { "text": "deepMerge", "link": "/docs/object/deepMerge" },
       { "text": "flattenObj", "link": "/docs/object/flattenObj" },
       { "text": "freeze", "link": "/docs/object/freeze" },
-      { "text": "interpolate", "link": "/docs/object/interpolate" },
-      { "text": "isDeepEqual", "link": "/docs/object/isDeepEqual" },
+      { "text": "get", "link": "/docs/object/get" },
+      { "text": "has", "link": "/docs/object/has" },
       { "text": "isEqual", "link": "/docs/object/isEqual" },
+      { "text": "isFrozen", "link": "/docs/object/isFrozen" },
+      { "text": "isNotNullObject", "link": "/docs/object/isNotNullObject" },
+      { "text": "isPlainObject", "link": "/docs/object/isPlainObject" },
+      { "text": "isSealed", "link": "/docs/object/isSealed" },
       { "text": "merge", "link": "/docs/object/merge" },
       { "text": "omit", "link": "/docs/object/omit" },
       { "text": "pick", "link": "/docs/object/pick" },
-      { "text": "sanitizeObj", "link": "/docs/object/sanitizeObj" },
+      { "text": "seal", "link": "/docs/object/seal" },
+      { "text": "set", "link": "/docs/object/set" },
       { "text": "unflattenObj", "link": "/docs/object/unflattenObj" }
+    ]
+  },
+  {
+    "text": "Promise",
+    "link": "/docs/promise",
+    "collapsed": true,
+    "items": [
+      { "text": "backoff", "link": "/docs/promise/backoff" },
+      { "text": "benchmark", "link": "/docs/promise/benchmark" },
+      { "text": "debounce", "link": "/docs/promise/debounce" },
+      { "text": "defer", "link": "/docs/promise/defer" },
+      { "text": "lock", "link": "/docs/promise/lock" },
+      { "text": "parallel", "link": "/docs/promise/parallel" },
+      { "text": "rateLimit", "link": "/docs/promise/rateLimit" },
+      { "text": "retry", "link": "/docs/promise/retry" },
+      { "text": "sleep", "link": "/docs/promise/sleep" },
+      { "text": "throttle", "link": "/docs/promise/throttle" }
     ]
   },
   {
@@ -184,14 +292,13 @@
     "items": [
       { "text": "isAlpha", "link": "/docs/regex/isAlpha" },
       { "text": "isAlphanumeric", "link": "/docs/regex/isAlphanumeric" },
-      { "text": "isBase64", "link": "/docs/regex/isBase64" },
       { "text": "isCreditCard", "link": "/docs/regex/isCreditCard" },
       { "text": "isEmail", "link": "/docs/regex/isEmail" },
       { "text": "isIPV4", "link": "/docs/regex/isIPV4" },
       { "text": "isIPV6", "link": "/docs/regex/isIPV6" },
+      { "text": "isJWT", "link": "/docs/regex/isJWT" },
       { "text": "isSlug", "link": "/docs/regex/isSlug" },
-      { "text": "isURL", "link": "/docs/regex/isURL" },
-      { "text": "isUUID", "link": "/docs/regex/isUUID" }
+      { "text": "isURL", "link": "/docs/regex/isURL" }
     ]
   },
   {
@@ -200,12 +307,17 @@
     "collapsed": true,
     "items": [
       { "text": "capitalize", "link": "/docs/string/capitalize" },
+      { "text": "charCount", "link": "/docs/string/charCount" },
+      { "text": "escapeHtml", "link": "/docs/string/escapeHtml" },
+      { "text": "interpolate", "link": "/docs/string/interpolate" },
       { "text": "invertCase", "link": "/docs/string/invertCase" },
       { "text": "isLowerCase", "link": "/docs/string/isLowerCase" },
       { "text": "isUpperCase", "link": "/docs/string/isUpperCase" },
       { "text": "maskString", "link": "/docs/string/maskString" },
       { "text": "removeAccents", "link": "/docs/string/removeAccents" },
       { "text": "slugify", "link": "/docs/string/slugify" },
+      { "text": "stripHTML", "link": "/docs/string/stripHTML" },
+      { "text": "template", "link": "/docs/string/template" },
       { "text": "toCamelCase", "link": "/docs/string/toCamelCase" },
       { "text": "toKebabCase", "link": "/docs/string/toKebabCase" },
       { "text": "toPascalCase", "link": "/docs/string/toPascalCase" },
@@ -222,27 +334,29 @@
       { "text": "getInstanceType", "link": "/docs/types/getInstanceType" },
       { "text": "getType", "link": "/docs/types/getType" },
       { "text": "isArray", "link": "/docs/types/isArray" },
-      { "text": "isAsync", "link": "/docs/types/isAsync" },
+      { "text": "isAsyncFunction", "link": "/docs/types/isAsyncFunction" },
+      { "text": "isAsyncGeneratorFunction", "link": "/docs/types/isAsyncGeneratorFunction" },
       { "text": "isBigint", "link": "/docs/types/isBigint" },
       { "text": "isBoolean", "link": "/docs/types/isBoolean" },
       { "text": "isDate", "link": "/docs/types/isDate" },
-      { "text": "isEqualType", "link": "/docs/types/isEqualType" },
       { "text": "isFalsy", "link": "/docs/types/isFalsy" },
       { "text": "isFunction", "link": "/docs/types/isFunction" },
-      { "text": "isJSON", "link": "/docs/types/isJSON" },
+      { "text": "isGeneratorFunction", "link": "/docs/types/isGeneratorFunction" },
       { "text": "isMap", "link": "/docs/types/isMap" },
+      { "text": "isNil", "link": "/docs/types/isNil" },
       { "text": "isNull", "link": "/docs/types/isNull" },
       { "text": "isNumber", "link": "/docs/types/isNumber" },
       { "text": "isObject", "link": "/docs/types/isObject" },
-      { "text": "isPlainObject", "link": "/pt/docs/types/isPlainObject" },
       { "text": "isPrimitive", "link": "/docs/types/isPrimitive" },
       { "text": "isPromise", "link": "/docs/types/isPromise" },
       { "text": "isRegExp", "link": "/docs/types/isRegExp" },
       { "text": "isSet", "link": "/docs/types/isSet" },
       { "text": "isString", "link": "/docs/types/isString" },
       { "text": "isSymbol", "link": "/docs/types/isSymbol" },
-      { "text": "isTruthy", "link": "/docs/types/isTruthy" },
-      { "text": "isUndefined", "link": "/docs/types/isUndefined" }
+      { "text": "isUndefined", "link": "/docs/types/isUndefined" },
+      { "text": "isWeakMap", "link": "/docs/types/isWeakMap" },
+      { "text": "isWeakSet", "link": "/docs/types/isWeakSet" },
+      { "text": "isWeakRef", "link": "/docs/types/isWeakRef" }
     ]
   }
 ]

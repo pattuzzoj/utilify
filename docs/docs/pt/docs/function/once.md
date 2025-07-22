@@ -1,97 +1,35 @@
 # once
 
-A função `once` garante que uma função seja chamada apenas uma vez, independentemente de quantas vezes for invocada. Ela retorna uma nova função que, na primeira chamada, executa o callback fornecido e armazena o resultado. Nas chamadas subsequentes, ela retorna o mesmo resultado da primeira execução.
+Cria uma função que só pode ser executada uma vez; chamadas subsequentes retornam o resultado da primeira execução.
 
 ## Sintaxe
-
 ```typescript
-function once<T>(callback: (...args: any[]) => T): (...args: any[]) => T;
+once<T extends (...args: any[]) => any>(callback: T): (...args: Parameters<T>) => ReturnType<T>
 ```
 
-### Parâmetros
+## Parâmetros
 
-| Nome        | Tipo                                    | Descrição                                                       |
-|-------------|-----------------------------------------|-------------------------------------------------------------------|
-| `callback`  | `(...args: any[]) => T`                 | A função que será executada apenas uma vez.                      |
+| Nome      | Tipo   | Descrição                                 |
+|-----------|--------|-------------------------------------------|
+| `callback`| `T`    | Função a ser executada apenas uma vez.    |
 
-### Retorno
+## Retorno
 
-| Tipo               | Descrição                                             |
-|--------------------|-------------------------------------------------------|
-| `(...args: any[]) => T` | Uma função que, na primeira chamada, executa `callback`, mas nas chamadas subsequentes, retorna o resultado da primeira execução. |
+| Tipo                                 | Descrição                                                |
+|--------------------------------------|----------------------------------------------------------|
+| `(...args: Parameters<T>) => ReturnType<T>` | Função que executa `callback` apenas na primeira chamada. |
 
-## Exemplos
-
-### Exemplo 1: Executando uma função uma única vez
-
+## Exemplo
 ```typescript
 let count = 0;
-const incrementOnce = once(() => count++);
-
-console.log(incrementOnce()); // 1
-console.log(incrementOnce()); // 1
-console.log(incrementOnce()); // 1
+const incrementOnce = once(() => ++count);
+incrementOnce(); // 1
+incrementOnce(); // 1
 ```
-
-- A função `incrementOnce` só executa o incremento na primeira chamada.
-- Nas chamadas subsequentes, ela retorna o mesmo valor de `count`, sem executar o callback.
-
-### Exemplo 2: Chamando uma função assíncrona uma única vez
-
-```typescript
-const fetchData = once(async () => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
-  return response.json();
-});
-
-fetchData().then(data => console.log(data)); // Executa o fetch e retorna os dados
-fetchData().then(data => console.log(data)); // Retorna os dados do primeiro fetch sem fazer nova requisição
-```
-
-- A função `fetchData` executa a requisição HTTP apenas uma vez.
-- Nas chamadas subsequentes, o mesmo resultado da primeira execução é retornado.
 
 ## Notas
-
-- O resultado da primeira execução é memorizado e retornado nas chamadas subsequentes.
-- `once` é útil em situações onde uma operação precisa ser realizada apenas uma vez, como em inicializações ou carregamento de dados.
-
-## Código Fonte
-
-::: code-group
-```typescript
-function once<T>(callback: (...args: any[]) => T): (...args: any[]) => T {
-  let called = false;
-  let result: T;
-
-  return (...args: any[]): T => {
-    if (!called) {
-      called = true;
-      result = callback(...args);
-    }
-
-    return result;
-  }
-}
-```
-
-```javascript
-function once(callback) {
-  let called = false;
-  let result;
-
-  return (...args) => {
-    if (!called) {
-      called = true;
-      result = callback(...args);
-    }
-
-    return result;
-  };
-}
-```
-:::
+- Lança um `TypeError` se o argumento não for função.
+- Útil para inicializações, eventos únicos ou operações idempotentes.
 
 ## Referências
-
-- [Function.prototype](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Function)
+- [MDN: Idempotence](https://developer.mozilla.org/pt-BR/docs/Glossary/Idempotence)

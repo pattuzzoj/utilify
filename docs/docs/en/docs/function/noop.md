@@ -1,56 +1,29 @@
 # noop
 
-The `noop` (No Operation) function is a placeholder function that does nothing when called. It is often used as a default function or as a stub in situations where a function is required, but no action is needed.
+A function that does nothing (no operation).
 
 ## Syntax
-
 ```typescript
-function noop(): void;
+noop(): void
 ```
 
-### Parameters
+## Parameters
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| –    | –    | None.       |
 
-- None
+## Returns
+| Type   | Description    |
+| ------ | -------------- |
+| `void` | Returns nothing. |
 
-### Return
-
-| Type   | Description              |
-|--------|--------------------------|
-| `void` | This function does not return anything. |
-
-## Examples
-
-### Example 1: Using `noop` as a default function
-
+## Example
 ```typescript
-const callback = noop;
-callback(); // Does nothing
-```
-
-### Example 2: Passing `noop` in event listeners where no action is required
-
-```typescript
-const button = document.getElementById("button");
-button.addEventListener("click", noop); // No action will be taken when the button is clicked
+noop(); // undefined
 ```
 
 ## Notes
-
-- `noop` is useful in situations where a function is required syntactically, but no actual functionality needs to be implemented.
-- It's typically used to improve performance by avoiding unnecessary function definitions or to provide a fallback for optional callback parameters.
-
-## Source Code
-
-::: code-group
-```typescript
-function noop(): void {}
-```
-
-```javascript
-function noop() {}
-```
-:::
+- Useful as a default function, placeholder, or callback.
 
 ## References
-
-- [Function.prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)
+- [MDN: No-op](https://developer.mozilla.org/en-US/docs/Glossary/No-op)

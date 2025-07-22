@@ -1,167 +1,114 @@
-# Object <Badge type="tip" text="1.0.2" />
+# Object
 
-A categoria de **funções utilitárias para objetos** inclui diversas ferramentas práticas para manipulação, comparação e transformação de objetos. Essas funções simplificam muitas operações comuns no desenvolvimento com JavaScript/TypeScript ao lidar com objetos e estruturas de dados.
+O módulo `object` fornece um conjunto abrangente de funções utilitárias para manipulação de objetos em JavaScript/TypeScript. Estas funções facilitam operações comuns como clonagem profunda, acesso a propriedades aninhadas, mesclagem de objetos, transformações de estrutura e verificações de estado.
 
-## Instalação
-
-Para utilizar as funções desta categoria, instale o pacote **`@utilify/object`** usando o gerenciador de pacotes de sua preferência:
-
-
-::: code-group
-```bash [npm]
-npm install @utilify/object
-```
-
-```bash [yarn]
-yarn add @utilify/object
-```
-
-```bash [pnpm]
-pnpm add @utilify/object
-```
-:::
-
-## Uso
-
-Você pode importar funções específicas conforme necessário:
-
-::: code-group
-```typescript [esm]
-import { clone, deepClone, deepMerge } from '@utilify/object';
-```
-
-```javascript [cjs]
-const { clone, deepClone, deepMerge } = require('@utilify/object');
-```
-:::
+Principais recursos:
+- Manipulação segura de objetos aninhados
+- Transformações de estrutura (flatten/unflatten)
+- Operações de imutabilidade (freeze/seal)
+- Utilitários de verificação e comparação
+- Funções de seleção e omissão de propriedades
 
 ## Visão Geral
 
-### [clone](./clone.md)
-
+[clone](./clone.md)
 ```typescript
-function clone<T extends Record<string, any>>(value: T): T;
-function clone<T extends unknown[]>(value: T): T;
+clone<T>(value: T): T
 ```
+Realiza uma cópia profunda de qualquer valor, incluindo objetos, arrays e tipos primitivos.
 
-Cria uma cópia rasa de um objeto ou array, copiando suas propriedades diretamente.
-
-
-### [deepClone](./deepClone.md)
-
+[flattenObj](./flattenObj.md)
 ```typescript
-function deepClone<T extends Record<string, any>>(value: T): T;
-function deepClone<T extends unknown[]>(value: T): T;
+flattenObj(obj): Record<string, any>
 ```
+Transforma um objeto aninhado em um objeto plano, com caminhos completos como chaves.
 
-Cria uma cópia profunda de um objeto ou array, incluindo todas as suas propriedades aninhadas.
-
-
-### [deepFreeze](./deepFreeze.md)
-
+[freeze](./freeze.md)
 ```typescript
-function deepFreeze(obj: Record<string, any>): Record<string, any>;
+freeze(obj: Record<PropertyKey, any>): Record<PropertyKey, any>
 ```
+Congela recursivamente um objeto e todos os seus objetos internos, tornando-os imutáveis.
 
-Congela profundamente um objeto, tornando suas propriedades e suas subpropriedades imutáveis.
-
-
-### [deepMerge](./deepMerge.md)
-
+[get](./get.md)
 ```typescript
-function deepMerge(...values: Record<string, any>[]): Record<string, any>;
+get<T>(obj: T, path: string | string[], defaultValue?: any): any
 ```
+Acessa o valor de uma propriedade aninhada em um objeto, com suporte a valor padrão.
 
-Realiza uma mesclagem profunda de múltiplos objetos, combinando suas propriedades e subpropriedades recursivamente.
-
-
-### [flattenObj](./flattenObj.md)
-
+[has](./has.md)
 ```typescript
-function flattenObj(obj: Record<string, any>, separator: string = "."): Record<string, any>;
+has<T>(obj: T, path: string | string[]): boolean
 ```
+Verifica se um objeto possui uma propriedade (aninhada) especificada por um caminho.
 
-Achata um objeto aninhado em um formato de chave única, onde as chaves representam os caminhos das propriedades.
-
-
-### [freeze](./freeze.md)
-
+[isEmpty](./isEmpty.md)
 ```typescript
-function freeze<T>(obj: T): T;
+isEmpty(value): boolean
 ```
+Verifica se um valor (objeto, array, string, Map ou Set) está vazio.
 
-Congela um objeto, tornando suas propriedades imutáveis, mas não congela suas subpropriedades.
-
-
-### [interpolate](./interpolate.md)
-
+[isEqual](./isEqual.md)
 ```typescript
-function interpolate(str: string, values: Record<string, any>): string;
+isEqual(value1, value2): boolean
 ```
+Compara dois valores para determinar se são equivalentes em estrutura e conteúdo.
 
-Substitui placeholders em uma string por valores fornecidos em um objeto.
-
-
-### [isDeepEqual](./isDeepEqual.md)
-
+[isFrozen](./isFrozen.md)
 ```typescript
-function isDeepEqual(value1: Record<string, any>, value2: Record<string, any>): boolean;
-function isDeepEqual(value1: unknown[], value2: unknown[]): boolean;
+isFrozen(obj): boolean
 ```
+Verifica se um objeto está congelado (imutável).
 
-Compara dois objetos ou arrays profundamente para verificar se são estrutural e semanticamente iguais.
-
-
-### [isEqual](./isEqual.md)
-
+[isNotNullObject](./isNotNullObject.md)
 ```typescript
-function isEqual(value1: any, value2: any): boolean;
+isNotNullObject(value): boolean
 ```
+Verifica se um valor é um objeto não nulo.
 
-Compara dois valores primitivos ou referências para verificar se são estritamente iguais usando `Object.is`.
-
-
-### [merge](./merge.md)
-
+[isPlainObject](./isPlainObject.md)
 ```typescript
-function merge(...values: Record<string, any>[]): Record<string, any>;
-function merge(...values: unknown[][]): unknown[];
+isPlainObject(value): boolean
 ```
+Verifica se um valor é um objeto simples, criado por literal ou por Object.
 
-Realiza uma mesclagem rasa de múltiplos objetos ou arrays, combinando suas propriedades ou elementos em um novo objeto ou array.
-
-
-### [omit](./omit.md)
-
+[isSealed](./isSealed.md)
 ```typescript
-function omit<T extends Record<string, any>, K extends keyof T>(obj: T, keys: K[]): Omit<T, K>;
+isSealed(obj): boolean
 ```
+Verifica se um objeto está selado (não pode adicionar/remover propriedades).
 
-Cria um novo objeto a partir de um objeto fornecido, excluindo as chaves especificadas.
-
-
-### [pick](./pick.md)
-
+[merge](./merge.md)
 ```typescript
-function pick<T extends Record<string, any>, K extends keyof T>(obj: T, keys: K[]): Pick<T, K>;
+merge(target, ...sources): object
 ```
+Combina dois ou mais objetos em um novo objeto, realizando mesclagem profunda.
 
-Cria um novo objeto contendo apenas as chaves selecionadas de um objeto original.
-
-
-### [sanitizeObj](./sanitizeObj.md)
-
+[omit](./omit.md)
 ```typescript
-function sanitizeObj(obj: Record<string, any>, values: any[], replace?: any): Record<string, any>;
+omit(obj, keys): object
 ```
+Cria uma cópia de um objeto, excluindo as propriedades especificadas.
 
-Sanitiza um objeto, substituindo valores específicos por um valor de substituição opcional.
-
-
-### [unflattenObj](./unflattenObj.md)
-
+[pick](./pick.md)
 ```typescript
-function unflattenObj(obj: Record<string, any>, separator: string = "."): Record<string, any>;
+pick(obj, keys): object
 ```
+Cria um novo objeto contendo apenas as propriedades especificadas do original.
 
-Transforma um objeto achatado de volta em sua estrutura aninhada original, utilizando um separador para identificar os níveis de hierarquia nas chaves.
+[seal](./seal.md)
+```typescript
+seal(obj): object
+```
+Sela recursivamente um objeto, impedindo adição ou remoção de propriedades.
+
+[set](./set.md)
+```typescript
+set(obj, path, value): object
+```
+Define o valor de uma propriedade em um objeto, suportando caminhos aninhados.
+
+[unflattenObj](./unflattenObj.md)
+```typescript
+unflattenObj(obj): object
+```
+Reconstrói objetos aninhados a partir de um objeto com chaves planas.

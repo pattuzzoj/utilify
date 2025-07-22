@@ -1,56 +1,36 @@
 # isCookieEnabled
 
-The `isCookieEnabled` function checks if cookies are enabled in the browser.
+The `isCookieEnabled` function checks if cookies are enabled in the user's browser.
 
 ## Syntax
 
 ```typescript
-function isCookieEnabled(): boolean | undefined;
+isCookieEnabled(): boolean;
 ```
 
-### Return
+### Parameters
 
-| Type              | Description                                                     |
-|-------------------|---------------------------------------------------------------|
-| `boolean`         | `true` if cookies are enabled, `false` otherwise.               |
-| `undefined`       | If the function is executed on the server, it will return `undefined`. |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+|  –   | –    | This function does not take any parameters |
+
+### Returns
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+|  –   | `boolean` | `true` if cookies are enabled |
 
 ## Examples
 
 ```typescript
-console.log(isCookieEnabled()); // true or false
+isCookieEnabled();
+// => true
 ```
 
 ## Notes
 
-- If executed on the server, the function will return `undefined`.
-
-## Dependencies
-
-- [`isServer`](../environment/isServer.md): The `isServer` function is used to check if the code is running on the server.
-
-## Source Code
-
-::: code-group
-```typescript
-import { isServer } from '@utilify/environment';
-
-function isCookieEnabled(): boolean | undefined {
-  if (isServer()) return undefined;
-
-  return navigator.cookieEnabled;
-}
-```
-
-```javascript
-function isCookieEnabled() {
-  if (isServer()) return undefined;
-
-  return navigator.cookieEnabled;
-}
-```
-:::
+* Useful for checking if it is possible to store data via cookies.
 
 ## References
 
-- [Navigator.cookieEnabled - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/cookieEnabled)
+* https://developer.mozilla.org/en-US/docs/Web/API/navigator/cookieEnabled

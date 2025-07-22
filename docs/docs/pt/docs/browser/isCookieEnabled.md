@@ -1,56 +1,34 @@
 # isCookieEnabled
 
-A função `isCookieEnabled` verifica se os cookies estão habilitados no navegador.
+A função `isCookieEnabled` verifica se os cookies estão habilitados no navegador do usuário.
 
 ## Sintaxe
 
 ```typescript
-function isCookieEnabled(): boolean | undefined;
+isCookieEnabled(): boolean;
 ```
+
+### Parâmetros
+
+Esta função não recebe parâmetros.
 
 ### Retorno
 
-| Tipo              | Descrição                                                      |
-|-------------------|----------------------------------------------------------------|
-| `boolean`         | `true` se os cookies estão habilitados, `false` caso contrário. |
-| `undefined`       | Se a função for executada no servidor, retornará `undefined`.   |
+| Tipo      | Descrição                                 |
+| --------- | ----------------------------------------- |
+| `boolean` | Verdadeiro se os cookies estiverem ativos  |
 
 ## Exemplos
 
 ```typescript
-console.log(isCookieEnabled()); // true ou false
+isCookieEnabled();
+// => true
 ```
 
 ## Notas
 
-- Se executado no servidor, a função retornará `undefined`.
-
-## Dependências
-
-- [`isServer`](../environment/isServer.md): A função `isServer` é usada para verificar se o código está sendo executado no servidor.
-
-## Código Fonte
-
-::: code-group
-```typescript
-import { isServer } from '@utilify/environment';
-
-function isCookieEnabled(): boolean | undefined {
-  if (isServer()) return undefined;
-
-  return navigator.cookieEnabled;
-}
-```
-
-```javascript
-function isCookieEnabled() {
-  if (isServer()) return undefined;
-
-  return navigator.cookieEnabled;
-}
-```
-:::
+* Útil para verificar suporte a cookies antes de operações de armazenamento.
 
 ## Referências
 
-- [Navigator.cookieEnabled - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/cookieEnabled)
+* https://developer.mozilla.org/pt-BR/docs/Web/API/Navigator/cookieEnabled

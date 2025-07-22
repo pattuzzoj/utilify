@@ -1,17 +1,25 @@
 ---
 next:
-  text: 'Why Utilify?'
-  link: '/introduction/why-utilify'
+  text: 'Installation'
+  link: '/introduction/installation'
 ---
 
-# Introduction
+# Welcome to Utilify
 
-Welcome to **Utilify** — a set of essential utilities designed to simplify and accelerate your development in JavaScript and TypeScript.
+**Utilify** was born out of my real need for a utility function library that is modern, strongly typed, and safe for the JavaScript ecosystem.
 
-**Utilify** provides simple yet powerful functions to solve everyday problems like array manipulation, environment detection, string handling, and more. Created with a minimalist design, **Utilify** is fully type-safe, ensuring autocomplete and security during development. It's also optimized for tree-shaking, keeping your project lightweight and efficient.
+Amidst countless fragmented options, I found a gap for tools that deliver:
 
-With the flexibility to import only what you need, you can choose to install the full package **@utilify/core** or opt for individual packages based on the functionalities you require. All utilities are rigorously tested to ensure stability and reliability, making **Utilify** a solid choice for any project.
+- **Ease of use**, with clear and straightforward APIs;
+- **Clear and accessible documentation**, so learning and consulting are quick and uncomplicated;
+- **Robust typing**, ensuring safety and autocomplete in TypeScript;
+- **Lightweight**, so as not to compromise performance or bloat bundles;
+- **Reliability**, avoiding unexpected behaviors common in generic utilities.
 
-Comprehensive documentation, usage examples, and details for each function are available to help you integrate **Utilify** quickly and efficiently into your workflow.
+We offer a wide range of utilities, organized into well-defined scopes, making navigation and quick access in the documentation easier.
 
-Explore, install, and start leveraging utilities that can simplify your code and boost your productivity!
+That's why Utilify is not just another collection of helpers: it's a solution designed for developers who demand precision, consistency, and agility in daily development, without sacrificing simplicity.
+
+Here, the priority is to deliver exactly what you need—nothing more—in a single, modern package ready to integrate with any JavaScript or TypeScript project.
+
+Explore the features and discover how Utilify can elevate the quality and productivity of your code.

@@ -1,71 +1,42 @@
-# isEqual
-The `isEqual` function compares two values to determine if they are equal using `Object.is`.
+## isEqual
 
-## Syntax
+The `isEqual` function compares two values to determine if they are equivalent in structure and content, including objects, arrays, and primitive types.
+
+### Syntax
 
 ```typescript
-isEqual(value1: any, value2: any): boolean;
+isEqual(value1, value2): boolean
 ```
 
 ### Parameters
 
-| Parameter  | Type     | Description                                                        |
-|------------|----------|--------------------------------------------------------------------|
-| `value1`   | `any`    | The first value to compare.                                        |
-| `value2`   | `any`    | The second value to compare.                                       |
+| Name      | Type   | Description           |
+| :-------- | :----- | :-------------------- |
+| `value1`  | `any`  | First value to compare. |
+| `value2`  | `any`  | Second value to compare. |
 
 ### Return
 
-| Type     | Description                                                        |
-|----------|--------------------------------------------------------------------|
-| `boolean`| `true` if the values are equal, otherwise `false`.                 |
+| Type      | Description                                                      |
+| :-------- | :--------------------------------------------------------------- |
+| `boolean` | Returns `true` if the values are equivalent, otherwise `false`. |
 
-## Examples
-
-### Example 1: Comparing primitive values
-```typescript
-console.log(isEqual(10, 10));  // true
-console.log(isEqual(10, 20));  // false
-```
-
-### Example 2: Comparing objects (same references)
-```typescript
-const obj1 = { name: 'Alice' };
-const obj2 = obj1;
-
-console.log(isEqual(obj1, obj2));  // true
-```
-
-### Example 3: Comparing objects (different references)
-```typescript
-const obj1 = { name: 'Alice' };
-const obj2 = { name: 'Alice' };
-
-console.log(isEqual(obj1, obj2));  // false
-```
-
-## Notes
-- This function uses `Object.is`, which is more reliable than using `===` for strict comparison, as it accounts for special cases like `NaN` and `-0` vs `+0`.
-- `Object.is` returns `true` only when both values are strictly equal, considering even differences in sign (e.g., `-0` vs `+0`).
-
-## Dependencies
-- Nenhuma.
-
-## Source Code
-::: code-group
+### Examples
 
 ```typescript
-function isEqual(value1: any, value2: any): boolean {
-	return Object.is(value1, value2);
-}
+isEqual({ a: 1 }, { a: 1 }); // true
+isEqual([1, 2], [1, 2]); // true
+isEqual({ a: 1 }, { a: 2 }); // false
+isEqual([1, 2], [2, 1]); // false
+isEqual(5, 5); // true
+isEqual('abc', 'abc'); // true
 ```
 
-```javascript
-function isEqual(value1, value2) {
-  return Object.is(value1, value2);
-}
-```
-:::
+### Notes
 
-## References
-- [Object.is](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)
+- Performs deep equality comparison for objects and arrays.
+- May not work correctly with objects that have non-enumerable properties or symbols.
+
+### References
+- [MDN: Object.is()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)
+- [MDN: JSON.stringify()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)

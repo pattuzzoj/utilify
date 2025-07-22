@@ -1,59 +1,34 @@
 # fibonacci
 
-A função `fibonacci` calcula o número de Fibonacci em uma posição específica da sequência de Fibonacci utilizando recursão. A sequência de Fibonacci é definida como:  
-
-- \( F(0) = 0 \)  
-- \( F(1) = 1 \)  
-- \( F(n) = F(n-1) + F(n-2) \) para \( n > 1 \).
+Calcula o n-ésimo número da sequência de Fibonacci.
 
 ## Sintaxe
-
 ```typescript
-function fibonacci(num: number): number
+fibonacci(num: number): number
 ```
 
-### Parâmetros
+## Parâmetros
 
-| Nome | Tipo     | Descrição                                |
-|------|----------|------------------------------------------|
-| num  | `number` | A posição na sequência de Fibonacci a ser calculada. |
+| Nome   | Tipo      | Descrição                                 |
+|--------|-----------|-------------------------------------------|
+| `num`  | `number`  | Índice (inteiro não negativo) na sequência de Fibonacci. |
 
-### Retorno
+## Retorno
 
-| Tipo    | Descrição                                       |
-|---------|-------------------------------------------------|
-| `number`| O número de Fibonacci na posição especificada.  |
+| Tipo      | Descrição                          |
+|-----------|------------------------------------|
+| `number`  | O n-ésimo número de Fibonacci.     |
 
-## Exemplos
-
+## Exemplo
 ```typescript
-console.log(fibonacci(0));  // Saída: 0
-console.log(fibonacci(1));  // Saída: 1
-console.log(fibonacci(6));  // Saída: 8 (F(6) = 8, calculado como F(5) + F(4))
+fibonacci(0); // 0
+fibonacci(1); // 1
+fibonacci(6); // 8
 ```
 
 ## Notas
-
-- Esta implementação utiliza recursão e não é otimizada para entradas grandes devido à complexidade de tempo exponencial (\( O(2^n) \)).
-- Para melhor desempenho com entradas grandes, considere usar uma abordagem iterativa ou memoização.
-
-## Código Fonte
-
-::: code-group
-```typescript
-function fibonacci(num: number): number {
-  return num <= 1 ? num : fibonacci(num - 1) + fibonacci(num - 2);
-}
-```
-
-```javascript
-function fibonacci(num) {
-  return num <= 1 ? num : fibonacci(num - 1) + fibonacci(num - 2);
-}
-```
-::: 
+- Lança `TypeError` se o argumento não for inteiro não negativo.
+- Implementação recursiva; para valores grandes, considere abordagem iterativa.
 
 ## Referências
-
-- [Recursão](https://developer.mozilla.org/pt-BR/docs/Glossary/Recursion)  
-- [Sequência de Fibonacci](https://pt.wikipedia.org/wiki/N%C3%BAmero_de_Fibonacci)  
+- [MDN: Fibonacci](https://developer.mozilla.org/pt-BR/docs/Glossary/Fibonacci_number)

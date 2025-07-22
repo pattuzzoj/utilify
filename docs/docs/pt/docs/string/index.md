@@ -1,119 +1,123 @@
-# **Utilitários de String** <Badge type="tip" text="1.0.2" />
+# String
 
-As funções utilitárias de string fornecem uma variedade de métodos para manipulação de texto, como transformação, contagem de palavras, sanitização e formatação.
+O módulo String fornece um conjunto abrangente de funções utilitárias para manipulação e transformação de strings. Desde operações básicas como capitalização e contagem de caracteres até transformações mais complexas como conversão para diferentes formatos de caso (camelCase, kebab-case, etc.), este módulo oferece ferramentas essenciais para o processamento eficiente de texto em suas aplicações.
 
-## **Instalação**
+Principais recursos:
+- Manipulação de caso (maiúsculas/minúsculas)
+- Contagem de caracteres e palavras
+- Remoção de acentos e caracteres especiais
+- Mascaramento de strings
+- Conversão para diferentes formatos (camelCase, kebab-case, PascalCase, snake_case)
+- Processamento de templates
+- Manipulação de HTML
+- Geração de slugs para URLs
 
-Para instalar o pacote de utilitários de string, use um dos seguintes comandos, dependendo do seu gerenciador de pacotes:
-
-::: code-group
-
-```bash [npm]
-npm install @utilify/string
-```
-
-```bash [yarn]
-yarn add @utilify/string
-```
-
-```bash [pnpm]
-pnpm add @utilify/string
-```
-
-:::
-
-Após a instalação, você pode importar as funções no seu projeto, utilizando ESM ou CJS.
-
-::: code-group
-
-```typescript [esm]
-import { capitalize, invertCase, maskString, isUpperCase, isLowerCase } from '@utilify/string';
-```
-
-```javascript [cjs]
-const { capitalize, invertCase, maskString, isUpperCase, isLowerCase } = require('@utilify/string');
-```
-
-:::
-
-## **Visão Geral**
-
-Aqui está uma visão geral das funções disponíveis no pacote de utilitários de string:
+## Visão Geral
 
 ### [capitalize](./capitalize.md)
 ```typescript
-function capitalize(str: string): string
+capitalize(str: string): string
 ```
-Capitaliza a primeira letra de uma string.
+Coloca a primeira letra da string em maiúsculo e o restante em minúsculo.
+
+### [charCount](./charCount.md)
+```typescript
+charCount(str: string, char: string): number
+```
+Conta quantas vezes um caractere específico aparece em uma string.
+
+### [escapeHtml](./escapeHtml.md)
+```typescript
+escapeHtml(str: string): string
+```
+Escapa caracteres especiais de HTML em uma string para suas respectivas entidades HTML.
+
+### [interpolate](./interpolate.md)
+```typescript
+interpolate(str: string, data: Record<PropertyKey, any>, pattern?: RegExp): string
+```
+Substitui placeholders em uma string por valores de um objeto de dados.
 
 ### [invertCase](./invertCase.md)
 ```typescript
-function invertCase(str: string): string
+invertCase(str: string): string
 ```
-Inverte o caso de cada caractere em uma string.
+Inverte o caso de cada caractere da string (maiúsculas viram minúsculas e vice-versa).
 
 ### [isLowerCase](./isLowerCase.md)
 ```typescript
-function isLowerCase(str: string): boolean
+isLowerCase(str: string): boolean
 ```
-Verifica se a string está em minúsculas.
+Retorna true se todos os caracteres alfabéticos da string estiverem em minúsculo.
 
 ### [isUpperCase](./isUpperCase.md)
 ```typescript
-function isUpperCase(str: string): boolean
+isUpperCase(str: string): boolean
 ```
-Verifica se a string está em maiúsculas.
+Retorna true se todos os caracteres alfabéticos da string estiverem em maiúsculo.
 
 ### [maskString](./maskString.md)
 ```typescript
-function maskString(str: string, maskStart: number, maskEnd: number, mask: string = '*'): string
+maskString(str: string, mask: string, maskStart: number, maskLength: number): string
 ```
-Substitui uma parte da string por um caractere de máscara.
+Mascara parte da string substituindo caracteres por um caractere definido.
 
 ### [removeAccents](./removeAccents.md)
 ```typescript
-function removeAccents(str: string): string
+removeAccents(str: string): string
 ```
-Remove os acentos de uma string.
+Remove acentos e diacríticos de caracteres na string.
 
 ### [slugify](./slugify.md)
 ```typescript
-function slugify(str: string): string
+slugify(str: string): string
 ```
-Transforma uma string em um formato de URL amigável (slug).
+Converte a string em um slug amigável para URLs, removendo caracteres especiais e espaços.
+
+### [stripHTML](./stripHTML.md)
+```typescript
+stripHTML(html: string): string
+```
+Remove todas as tags HTML da string.
+
+### [template](./template.md)
+```typescript
+template(str: string, options?: TemplateOptions): (data: Record<string, any>) => string
+```
+Cria uma função de template para interpolação de strings com opções personalizadas.
 
 ### [toCamelCase](./toCamelCase.md)
 ```typescript
-function toCamelCase(str: string): string
+toCamelCase(str: string): string
 ```
-Transforma uma string em formato camelCase.
+Converte a string para o formato camelCase.
 
 ### [toKebabCase](./toKebabCase.md)
 ```typescript
-function toKebabCase(str: string): string
+toKebabCase(str: string): string
 ```
-Transforma uma string em formato kebab-case.
+Converte a string para o formato kebab-case.
 
 ### [toPascalCase](./toPascalCase.md)
 ```typescript
-function toPascalCase(str: string): string
+toPascalCase(str: string): string
 ```
-Transforma uma string em formato PascalCase.
+Converte a string para o formato PascalCase.
 
 ### [toSnakeCase](./toSnakeCase.md)
 ```typescript
-function toSnakeCase(str: string): string
+toSnakeCase(str: string): string
 ```
-Transforma uma string em formato snake_case.
+Converte a string para o formato snake_case.
 
 ### [truncate](./truncate.md)
 ```typescript
-function truncate(text: string, size: number): string
+truncate(text: string, size: number): string
 ```
-Trunca uma string até um tamanho específico e adiciona "..." no final.
+Trunca a string para um comprimento máximo e adiciona sufixo se necessário.
 
 ### [wordCount](./wordCount.md)
 ```typescript
-function wordCount(str: string): number
+wordCount(str: string): number
 ```
 Conta o número de palavras em uma string.

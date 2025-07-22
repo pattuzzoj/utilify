@@ -1,64 +1,40 @@
 # last
 
-The `last` function returns the last `count` elements from an array or characters from a string.
+The `last` function returns the last element(s) of an array or character(s) of a string.
 
 ## Syntax
 
 ```typescript
-function last(str: string, count?: number): string;
-function last<T>(arr: T[], count?: number): T[];
+last(string: string, count?: number): string;
+last<T>(array: T[], count?: number): T[];
 ```
 
 ### Parameters
 
-| Name    | Type                  | Description                                                      |
-|---------|----------------------|------------------------------------------------------------------|
-| `str`   | `string`            | The input string from which characters will be extracted.         |
-| `arr`   | `T[]`               | The input array from which elements will be extracted.            |
-| `count` | `number` (optional) | The number of elements to return from the end. Default is 1.      |
+| Name     | Type               | Description                    |
+|----------|--------------------|--------------------------------|
+| `array`  | `T[]` \| `string`   | Source array or string         |
+| `count`  | `number`           | Number of elements/characters to return (optional, default 1) |
 
-### Return
+### Returns
 
-| Type     | Description                                                      |
-|----------|------------------------------------------------------------------|
-| `string` | For strings: The last `count` characters.                         |
-| `T[]`    | For arrays: A new array with the last `count` elements.          |
+| Type                        | Description                                               |
+|-----------------------------|-----------------------------------------------------------|
+| `T` \| `string` \| `undefined` | Last element or character, or undefined if empty         |
 
 ## Examples
 
 ```typescript
-// Array examples
-console.log(last([1, 2, 3, 4, 5], 2)); // [4, 5]
-console.log(last([1, 2, 3, 4, 5]));    // [5]
-
-// String examples
-console.log(last("hello", 2));         // "lo"
-console.log(last("hello"));            // "o"
+last([1, 2, 3, 4], 2); // => [3, 4]
+last('abcdef', 3); // => 'def'
+last([1, 2, 3]); // => [3]
 ```
 
 ## Notes
 
-- If `count` is greater than the length of the input, all elements will be returned.
-- If `count` is not provided, returns just the last element.
-
-## Source Code
-
-::: code-group
-```typescript
-function last(str: string, count?: number): string;
-function last<T>(arr: T[], count?: number): T[];
-function last(arr: any, count: number = 1): any {
-  return arr.slice(-count);
-}
-```
-
-```javascript
-function last(arr, count = 1) {
-  return arr.slice(-count);
-}
-```
-:::
+* If `count` is greater than the length of the array/string, returns all elements.
+* Returns an empty array or string if the array/string is empty.
 
 ## References
 
-- [Array.prototype.slice() - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
+* https://lodash.com/docs/4.17.15#last

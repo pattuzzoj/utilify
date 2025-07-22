@@ -1,130 +1,137 @@
-# Date <Badge type="tip" text="1.0.1" />
+# Date
 
-The `@utilify/date` package offers essential utilities for working with dates and times in JavaScript and TypeScript. These functions are designed to be intuitive, efficient, and type-safe.
+The Date module provides a comprehensive set of functions for manipulating, formatting, and validating dates in JavaScript. With these functions, you can easily perform common date operations such as timezone adjustments, elapsed time calculations, special date checks, and much more.
 
-## Installation
-
-To install the **Date** package, use one of the following commands:
-
-::: code-group
-
-```bash [npm]
-npm install @utilify/date
-```
-
-```bash [yarn]
-yarn add @utilify/date
-```
-
-```bash [pnpm]
-pnpm add @utilify/date
-```
-
-:::
-
-Import the functions into your project:
-
-::: code-group
-
-```typescript [esm]
-import { formatDate, isLeapYear } from '@utilify/date';
-```
-
-```javascript [cjs]
-const { formatDate, isLeapYear } = require('@utilify/date');
-```
-
-:::
+- Date and time manipulation
+- Date formatting and validation
+- Elapsed time calculations
+- Special date checks
+- Timezone adjustments
 
 ## Overview
 
-### [adjustDate](./adjustDate.md)
-
+[adjustDate](./adjustDate.md)
 ```typescript
-function adjustDate(date: Date, amount: number, unit: TimeUnit): Date
+adjustDate(date: Date, adjustment: Partial<{ years: number; months: number; days: number; hours: number; minutes: number; seconds: number; milliseconds: number; }>): Date
 ```
-Adjusts a date by adding or subtracting a time interval.
+Adjusts a date by adding or subtracting years, months, days, hours, minutes, seconds, or milliseconds.
 
-### [adjustTimezone](./adjustTimezone.md)
-
+[adjustTimezone](./adjustTimezone.md)
 ```typescript
-function adjustTimezone(date: Date, timezoneOffset: number): Date
+adjustTimezone(date: Date, targetTimezone: number): Date
 ```
-Converts a date to a different timezone.
+Adjusts a date to a target timezone, returning a new Date instance.
 
-### [convertTimeUnit](./convertTimeUnit.md)
-
+[convertDateTo](./convertDateTo.md)
 ```typescript
-function convertTimeUnit(time: number, from: TimeUnit, to: TimeUnit): number
+convertDateTo<T extends 'string' | 'number' | 'date'>(date: Date, type: T): string | number | Date
 ```
-Converts time units, such as milliseconds to minutes.
+Converts a date to a specific output type: string, number, or Date object.
 
-### [convertDateTo](./convertDateTo.md)
-
+[convertTimeUnit](./convertTimeUnit.md)
 ```typescript
-function convertDateTo(date: Date, format: DateFormat): string | undefined
+convertTimeUnit(value: number, from: string, to: string): number
 ```
-Converts a date to another format or representation.
+Converts values between different time units.
 
-### [formatDate](./formatDate.md)
-
+[elapsedTime](./elapsedTime.md)
 ```typescript
-function formatDate(date: Date, format: DateFormat = "DMY", separator: string = "/"): string | undefined
+elapsedTime(start: Date, end: Date, unit?: string): number
 ```
-Formats a date into a user-friendly string.
+Calculates the elapsed time between two dates and returns the result in the desired unit.
 
-### [formatDuration](./formatDuration.md)
-
+[formatDate](./formatDate.md)
 ```typescript
-function formatDuration(ms: number, format: string = "hh:mm:ss", autoHour: boolean = true): string
+formatDate(date: Date, pattern?: string): string
 ```
-Formats a duration of time into a readable string.
+Formats a date according to a specified string pattern.
 
-### [formatTime](./formatTime.md)
-
+[formatDuration](./formatDuration.md)
 ```typescript
-function formatTime(date: Date, format: string = "hh:mm:ss"): string | undefined
+formatDuration(ms: number, options?: { compact?: boolean }): string
 ```
-Formats the time component of a date.
+Converts a duration in milliseconds to a human-readable string.
 
-### [isLeapYear](./isLeapYear.md)
-
+[formatTime](./formatTime.md)
 ```typescript
-function isLeapYear(year: number): boolean
+formatTime(date: Date, pattern?: string): string
 ```
-Checks if a year is a leap year.
+Formats a time (Date) to a string in the specified format.
 
-### [isValidDate](./isValidDate.md)
-
+[isBetween](./isBetween.md)
 ```typescript
-function isValidDate(date: Date): boolean
+isBetween(date: Date, start: Date, end: Date, inclusive?: boolean): boolean
 ```
-Validates whether an object or string represents a valid date.
+Checks if a date is between two other dates.
 
-### [isValidDateString](./isValidDateString.md)
-
+[isLeapYear](./isLeapYear.md)
 ```typescript
-function isValidDateString(date: string): boolean
+isLeapYear(yearOrDate: number | Date): boolean
 ```
-Validates whether a string follows a recognized date format.
+Checks if a year or date corresponds to a leap year.
 
-### [isWeekday](./isWeekday.md)
-
+[isSameDay](./isSameDay.md)
 ```typescript
-function isWeekday(date: Date): boolean | undefined
+isSameDay(date1: Date, date2: Date): boolean
+```
+Checks if two dates represent the same day.
+
+[isToday](./isToday.md)
+```typescript
+isToday(date: Date): boolean
+```
+Checks if a date corresponds to today.
+
+[isTomorrow](./isTomorrow.md)
+```typescript
+isTomorrow(date: Date): boolean
+```
+Checks if a date corresponds to tomorrow.
+
+[isValidDate](./isValidDate.md)
+```typescript
+isValidDate(value: any): boolean
+```
+Checks if a value is a valid JavaScript date.
+
+[isValidDateString](./isValidDateString.md)
+```typescript
+isValidDateString(value: string): boolean
+```
+Checks if a string represents a valid date.
+
+[isWeekday](./isWeekday.md)
+```typescript
+isWeekday(date: Date): boolean
 ```
 Checks if a date is a weekday (Monday to Friday).
 
-### [isWeekend](./isWeekend.md)
-
+[isWeekend](./isWeekend.md)
 ```typescript
-function isWeekend(date: Date): boolean | undefined
+isWeekend(date: Date): boolean
 ```
-Checks if a date is a weekend (Saturday or Sunday).
+Checks if a date is a weekend.
 
-### [parseDate](./parseDate.md)
-
+[isYesterday](./isYesterday.md)
 ```typescript
-function parseDate(date: string): Date | undefined
+isYesterday(date: Date): boolean
 ```
-Converts a string or number to a `Date` object.
+Checks if a date corresponds to the day before today.
+
+[parseDate](./parseDate.md)
+```typescript
+parseDate(date: Date | string | number): Date
+```
+Converts a value into a valid Date instance.
+
+[stripTime](./stripTime.md)
+```typescript
+stripTime(date: Date): Date
+```
+Removes the time information from a date, returning only the year, month, and day.
+
+[toDate](./toDate.md)
+```typescript
+toDate(value: Date | string | number): Date
+```
+Converts a value into a Date instance.

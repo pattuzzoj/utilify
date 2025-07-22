@@ -1,74 +1,38 @@
-# freeze
-The `freeze` function freezes an object, preventing modifications to its properties.
+## freeze
 
-## Syntax
+The `freeze` function recursively freezes an object, making it and all its internal objects immutable.
+
+### Syntax
 
 ```typescript
-freeze(obj: Record<string, any>): Record<string, any>;
+freeze(obj: Record<PropertyKey, any>): Record<PropertyKey, any>
 ```
 
 ### Parameters
 
-| Parameter | Type                          | Description                                                   |
-|-----------|-------------------------------|-------------------------------------------------------------|
-| `obj`     | `Record<string, any>`          | The object to be frozen.                                      |
+| Name    | Type                     | Description            |
+| :------ | :----------------------- | :--------------------- |
+| `obj`   | `Record<PropertyKey, any>` | Object to be frozen.   |
 
 ### Return
 
-| Type                          | Description                                                   |
-|-------------------------------|-------------------------------------------------------------|
-| `Record<string, any>`          | The frozen object, where its properties cannot be modified.  |
+| Type                     | Description                                      |
+| :----------------------- | :----------------------------------------------- |
+| `Record<PropertyKey, any>` | Returns the frozen object, with all properties and internal objects immutable. |
 
-## Examples
-
-### Example 1: Freezing an Object
-```typescript
-const obj = { name: "Alice", age: 30 };
-const frozenObj = freeze(obj);
-
-console.log(frozenObj);
-// { name: "Alice", age: 30 }
-
-frozenObj.age = 31;  // Modification will not be allowed
-console.log(frozenObj.age);
-// 30
-```
-
-### Example 2: Freezing an Object with Nested Properties
-```typescript
-const obj = { name: "Alice", address: { city: "Wonderland" } };
-const frozenObj = freeze(obj);
-
-console.log(frozenObj);
-// { name: "Alice", address: { city: "Wonderland" } }
-
-frozenObj.address.city = "Fictionland";  // Modification will not be allowed
-console.log(frozenObj.address.city);
-// "Wonderland"
-```
-
-## Notes
-- `Object.freeze()` only freezes the object at the shallow level, meaning that properties of the object cannot be modified, but nested objects are not frozen recursively.
-- To deeply freeze an object, a function like `deepFreeze` should be used.
-
-## Dependencies
-No external dependencies.
-
-## Source Code
-::: code-group
+### Examples
 
 ```typescript
-function freeze(obj: Record<string, any>): Record<string, any> {
-  return Object.freeze(obj);
-}
+const obj = { a: 1, b: { c: 2 } };
+const frozen = freeze(obj);
+frozen.a = 10; // No effect
+frozen.b.c = 20; // No effect
 ```
 
-```javascript
-function freeze(obj) {
-  return Object.freeze(obj);
-}
-```
-:::
+### Notes
 
-## References
-- [Object.freeze()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze)
+- Uses `Object.freeze` recursively to ensure deep immutability.
+- Useful to prevent accidental mutations in data structures.
+
+### References
+- [MDN: Object.freeze()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze)

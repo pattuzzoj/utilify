@@ -1,59 +1,38 @@
 # swap
 
-The `swap` function swaps two elements in an array at the specified indices.
+The `swap` function exchanges the elements at two positions in an array.
 
 ## Syntax
 
 ```typescript
-function swap<T>(arr: T[], fromIndex: number, toIndex: number): T[];
+swap<T>(array: T[], indexA: number, indexB: number): T[];
 ```
 
 ### Parameters
 
-| Name        | Type     | Description                                               |
-|-------------|----------|---------------------------------------------------------|
-| `arr`       | `T[]`    | The array containing elements to swap.                    |
-| `fromIndex` | `number` | The index of the first element to swap.                  |
-| `toIndex`   | `number` | The index of the second element to swap.                 |
+| Name     | Type      | Description                    |
+|----------|-----------|--------------------------------|
+| `array`  | `T[]`     | Source array                   |
+| `indexA` | `number`  | Index of the first element     |
+| `indexB` | `number`  | Index of the second element    |
 
-### Return
+### Returns
 
-| Type   | Description                                                  |
-|--------|------------------------------------------------------------|
-| `T[]`  | The modified array with the elements swapped.               |
+| Type    | Description                               |
+|---------|-------------------------------------------|
+| `T[]`   | New array with swapped elements           |
 
 ## Examples
 
 ```typescript
-const arr = [1, 2, 3, 4];
-console.log(swap(arr, 0, 3));  // [4, 2, 3, 1]
-console.log(swap(arr, 1, 2));  // [4, 3, 2, 1]
+swap([1, 2, 3, 4], 0, 2); // => [3, 2, 1, 4]
 ```
 
 ## Notes
 
-- Modifies the input array in place
-- Returns the modified array for chaining
-- Be careful with index bounds - no validation is performed
-
-## Source Code
-
-::: code-group
-```typescript
-function swap<T>(arr: T[], fromIndex: number, toIndex: number): T[] {
-  [arr[fromIndex], arr[toIndex]] = [arr[toIndex] as T, arr[fromIndex] as T];
-  return arr;
-}
-```
-
-```javascript
-function swap(arr, fromIndex, toIndex) {
-  [arr[fromIndex], arr[toIndex]] = [arr[toIndex], arr[fromIndex]];
-  return arr;
-}
-```
-:::
+* Does not modify the original array.
+* If the indices are the same, returns the array unchanged.
 
 ## References
 
-- [Destructuring assignment - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+* https://lodash.com/docs/4.17.15#swap

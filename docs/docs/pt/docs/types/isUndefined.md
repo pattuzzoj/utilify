@@ -1,59 +1,37 @@
-# isUndefined  
-Verifica se o valor fornecido é `undefined`. A função retorna `true` se o valor for do tipo `undefined`, e `false` caso contrário.
+# isUndefined
+
+A função `isUndefined` verifica se o valor fornecido é undefined.
 
 ## Sintaxe
+
 ```typescript
-function isUndefined(value: any): boolean
+isUndefined(value: any): value is undefined;
 ```
 
 ### Parâmetros
 
-| Parâmetro | Tipo      | Descrição                               |
-|-----------|-----------|-----------------------------------------|
-| `value`   | `any`     | O valor a ser verificado. Pode ser de qualquer tipo. |
+| Nome    | Tipo    | Descrição                |
+|---------|---------|--------------------------|
+| `value` | `any`   | Valor a ser verificado   |
 
 ### Retorno
 
-| Tipo     | Descrição                                  |
-|----------|--------------------------------------------|
-| `boolean`| Retorna `true` se o valor for `undefined`, caso contrário, retorna `false`. |
+| Tipo      | Descrição                                 |
+|-----------|-------------------------------------------|
+| `boolean` | Verdadeiro se for undefined               |
 
 ## Exemplos
 
-### Exemplo 1: Verificando `undefined`
 ```typescript
-isUndefined(undefined); // true
-```
-
-### Exemplo 2: Verificando outros tipos de valor
-```typescript
-isUndefined(null); // false
-isUndefined(42); // false
-isUndefined("Hello"); // false
-isUndefined({}); // false
+isUndefined(undefined); // => true
+isUndefined(null); // => false
+isUndefined(0); // => false
 ```
 
 ## Notas
-- A função utiliza o operador `typeof`, que é uma forma segura de verificar o tipo de uma variável em JavaScript, garantindo que o valor seja estritamente `undefined`.
 
-## Dependências
-Nenhuma.
-
-## Código Fonte
-::: code-group
-
-```typescript
-function isUndefined(value: any): boolean {
-  return typeof value === "undefined";
-}
-```
-
-```javascript
-function isUndefined(value) {
-  return typeof value === "undefined";
-}
-```
-:::
+* Útil para validação de variáveis não inicializadas.
 
 ## Referências
-- [MDN: `typeof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
+
+* https://developer.mozilla.org/pt-BR/docs/Glossary/undefined

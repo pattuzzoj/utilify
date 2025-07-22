@@ -1,186 +1,170 @@
-# Types <Badge type="tip" text="1.0.3" />
+# Types
 
-**Types utility functions** provide methods to check, compare, and manipulate data types. They help identify if a value is of a specific type, such as checking if a value is a number, string, function, or a primitive value, as well as other useful checks.
+The types module provides a comprehensive set of functions for type checking and identification in JavaScript/TypeScript. These functions are designed to offer a safe and reliable way to check data types, including primitive types, objects, special functions, and native JavaScript data structures.
 
-## Installation
+Key features:
+- Accurate checking of primitive types (string, number, boolean, etc.)
+- Support for special types like Promise, Generator, and async functions
+- Identification of data structures (Map, Set, WeakMap, etc.)
+- Detection of null/undefined values and falsy checks
+- TypeScript typing for greater safety and autocompletion
 
-To install the types utility functions, use one of the following commands, depending on your package manager:
-
-::: code-group
-```bash [npm]
-npm install @utilify/types
-```
-
-```bash [yarn]
-yarn add @utilify/types
-```
-
-```bash [pnpm]
-pnpm add @utilify/types
-```
-:::
-
-Once installed, you can import the functions into your project, using either ESM or CJS.
-
-## Usage
-
-This library supports both the ESM and CJS module systems.
-
-::: code-group
-
-```typescript [esm]
-import { isString } from '@utilify/types'; 
-```
-
-```javascript [cjs]
-const { isString } = require('@utilify/types');  
-```
-:::
+All functions are optimized for performance and follow best practices for type checking in JavaScript.
 
 ## Overview
 
-Here is an overview of the functions available in the **type utilities** category:
+### [getInstanceType](./getInstanceType.md)
+```typescript
+getInstanceType(value: any): string | null;
+```
+Returns the constructor (class) name of an instance, or `null` if not applicable.
 
-### [getInstanceType](./getInstanceType.md)  
-```typescript  
-function getInstanceType(value: object): string | undefined 
-```  
-Returns the instance type of the value.
+### [getType](./getType.md)
+```typescript
+getType(value: any): string;
+```
+Returns a string representing the value's type, including special cases like "nan", "infinity", "null", and "array".
 
-### [getType](./getType.md)  
-```typescript  
-function getType(value: any): string 
-```  
-Returns the primitive type or the type of the object (such as `"string"`, `"object"`, `"function"`, etc.).
-
-### [isAsync](./isAsync.md)  
-```typescript  
-function isAsync(callback: Function): boolean
-```  
-Checks if the function is asynchronous.
-
-### [isArray](./isArray.md)  
-```typescript  
-function isArray(value: any): boolean
-```  
+### [isArray](./isArray.md)
+```typescript
+isArray(value: any): value is any[];
+```
 Checks if the value is an array.
 
-### [isBigint](./isBigint.md)  
-```typescript  
-function isBigint(value: any): boolean  
-```  
-Checks if the value is a BigInt.
+### [isAsyncFunction](./isAsyncFunction.md)
+```typescript
+isAsyncFunction(value: any): value is (...args: any[]) => Promise<any>;
+```
+Checks if the value is an async function.
 
-### [isBoolean](./isBoolean.md)  
-```typescript  
-function isBoolean(value: any): boolean  
-```  
-Checks if the value is a boolean.
+### [isAsyncGeneratorFunction](./isAsyncGeneratorFunction.md)
+```typescript
+isAsyncGeneratorFunction(value: any): value is AsyncGeneratorFunction;
+```
+Checks if the value is an async generator function.
 
-### [isDate](./isDate.md)  
-```typescript  
-function isDate(value: any): boolean  
-```  
-Checks if the value is an instance of `Date`.
+### [isBigint](./isBigint.md)
+```typescript
+isBigint(value: any): value is bigint;
+```
+Checks if the value is of type bigint.
 
-### [isEqualType](./isEqualType.md)  
-```typescript  
-function isEqualType(value1: any, value2: any): boolean  
-```  
-Compares the types of two values and returns if they are the same.
+### [isBoolean](./isBoolean.md)
+```typescript
+isBoolean(value: any): value is boolean;
+```
+Checks if the value is of type boolean.
 
-### [isFalsy](./isFalsy.md)  
-```typescript  
-function isFalsy(value: any): boolean  
-```  
-Checks if the value is "falsy" (such as `false`, `0`, `null`, `undefined`, `NaN`, or an empty string).
+### [isDate](./isDate.md)
+```typescript
+isDate(value: any): value is Date;
+```
+Checks if the value is an instance of Date.
 
-### [isFunction](./isFunction.md)  
-```typescript  
-function isFunction(value: any): boolean  
-```  
+### [isFalsy](./isFalsy.md)
+```typescript
+isFalsy(value: any): boolean;
+```
+Checks if the value is considered falsy in JavaScript.
+
+### [isFunction](./isFunction.md)
+```typescript
+isFunction(value: any): value is Function;
+```
 Checks if the value is a function.
 
-### [isMap](./isMap.md)  
-```typescript  
-function isMap(value: any): boolean  
-```  
-Checks if the value is an instance of `Map`.
+### [isGeneratorFunction](./isGeneratorFunction.md)
+```typescript
+isGeneratorFunction(value: any): value is GeneratorFunction;
+```
+Checks if the value is a generator function.
 
-### [isNull](./isNull.md)  
-```typescript  
-function isNull(value: any): boolean  
-```  
-Checks if the value is `null`.
+### [isMap](./isMap.md)
+```typescript
+isMap(value: any): value is Map<any, any>;
+```
+Checks if the value is an instance of Map.
 
-### [isNumber](./isNumber.md)  
-```typescript  
-function isNumber(value: any): boolean  
-```  
-Checks if the value is a number.
+### [isNil](./isNil.md)
+```typescript
+isNil(value: any): value is null | undefined;
+```
+Checks if the value is null or undefined.
 
-### [isObject](./isObject.md)  
-```typescript  
-function isObject(value: any): boolean  
-```  
-Checks if the provided value is a plain object or an object created from a non-native class.
+### [isNull](./isNull.md)
+```typescript
+isNull(value: any): value is null;
+```
+Checks if the value is exactly null.
 
-### [isPlainObject](./isPlainObject.md)  
-```typescript  
-function isPlainObject(value: any): boolean  
-```  
-Checks if the value is a plain object (not an instance of `Map`, `Set`, or other objects).
+### [isNumber](./isNumber.md)
+```typescript
+isNumber(value: any): value is number;
+```
+Checks if the value is of type number.
 
-### [isPromise](./isPromise.md)  
-```typescript  
-function isPromise(value: object): boolean  
-```  
-Checks if the value is a `Promise`.
+### [isObject](./isObject.md)
+```typescript
+isObject(value: any): value is object;
+```
+Checks if the value is an object (excluding null).
 
-### [isRegExp](./isRegExp.md)  
-```typescript  
-function isRegExp(value: any): boolean  
-```  
-Checks if the value is a regular expression.
+### [isPrimitive](./isPrimitive.md)
+```typescript
+isPrimitive(value: any): value is (string | number | boolean | symbol | bigint | null | undefined);
+```
+Checks if the value is a primitive type: string, number, boolean, symbol, bigint, null, or undefined.
 
-### [isSet](./isSet.md)  
-```typescript  
-function isSet(value: any): boolean  
-```  
-Checks if the value is an instance of `Set`.
+### [isPromise](./isPromise.md)
+```typescript
+isPromise<T = any>(value: any): value is Promise<T>;
+```
+Checks if the value is a Promise.
 
-### [isString](./isString.md)  
-```typescript  
-function isString(value: any): boolean  
-```  
-Checks if the value is a string.
+### [isRegExp](./isRegExp.md)
+```typescript
+isRegExp(value: any): value is RegExp;
+```
+Checks if the value is a regular expression (RegExp).
 
-### [isSymbol](./isSymbol.md)  
-```typescript  
-function isSymbol(value: any): boolean  
-```  
-Checks if the value is a `Symbol`.
+### [isSet](./isSet.md)
+```typescript
+isSet(value: any): value is Set<any>;
+```
+Checks if the value is an instance of Set.
 
-### [isTruthy](./isTruthy.md)  
-```typescript  
-function isTruthy(value: any): boolean  
-```  
-Checks if the value is "truthy" (any value that is not `false`, `0`, `null`, `undefined`, `NaN`, or an empty string).
+### [isString](./isString.md)
+```typescript
+isString(value: any): value is string;
+```
+Checks if the value is of type string.
 
-### [isUndefined](./isUndefined.md)  
-```typescript  
-function isUndefined(value: any): boolean  
-```  
-Checks if the value is `undefined`.
+### [isSymbol](./isSymbol.md)
+```typescript
+isSymbol(value: any): value is symbol;
+```
+Checks if the value is of type symbol.
 
-### [isJSON](./isJSON.md)  
-```typescript  
-function isJSON(value: any): boolean  
-```  
-Checks if the value is a valid JSON object.
+### [isUndefined](./isUndefined.md)
+```typescript
+isUndefined(value: any): value is undefined;
+```
+Checks if the value is undefined.
 
-### [isPrimitive](./isPrimitive.md)  
-```typescript  
-function isPrimitive(value: any): boolean  
-```  
-Checks if the value is a primitive type (string, number, bigint, boolean, symbol, undefined, null).
+### [isWeakMap](./isWeakMap.md)
+```typescript
+isWeakMap(value: any): value is WeakMap<object, any>;
+```
+Checks if the value is an instance of WeakMap.
+
+### [isWeakRef](./isWeakRef.md)
+```typescript
+isWeakRef(value: any): value is WeakRef<any>;
+```
+Checks if the value is an instance of WeakRef.
+
+### [isWeakSet](./isWeakSet.md)
+```typescript
+isWeakSet(value: any): value is WeakSet<object>;
+```
+Checks if the value is an instance of WeakSet.

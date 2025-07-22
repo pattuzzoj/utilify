@@ -1,78 +1,55 @@
-# Visão Geral  
+# Visão Geral
 
-A biblioteca **Utilify** é projetada para ser modular e flexível. Você pode instalar a biblioteca completa com **[@utilify/core](./docs/core/)** ou selecionar pacotes específicos conforme suas necessidades. Abaixo está a lista de todos os pacotes disponíveis:
+Organizamos nossa documentação por categorias funcionais para facilitar sua navegação e acesso rápido às funcionalidades que oferecemos. Cada escopo agrupa utilitários relacionados a um domínio específico, garantindo uma experiência intuitiva e coerente para você, desenvolvedor.
 
-- **@utilify/core**  
-  A biblioteca completa, reunindo todas as utilidades em um único pacote.  
-  ```bash
-  npm install @utilify/core
-  ```  
+## Escopos
 
-- **[@utilify/array](../docs/array/)**  
-  Utilitários para manipulação de arrays, como filtragem única, particionamento e achatamento de arrays.  
-  ```bash
-  npm install @utilify/array
-  ```  
+* [**Array**](/docs/array)
+  Funções para manipulação de arrays, como filtragem, divisão em chunks, achatamento e outras operações essenciais.
 
-- **[@utilify/browser](../docs/browser/)**  
-  Funções relacionadas ao navegador, como detectar o idioma do usuário, tema, status de conexão, disponibilidade de cookies e outras condições específicas do navegador.
-  ```bash
-  npm install @utilify/browser
-  ```  
+* [**Browser**](/docs/browser)
+  Funções relacionadas a tarefas específicas do ambiente navegador, incluindo detecção de idioma, tema ativo, status de conexão e condições específicas do browser.
 
-- **[@utilify/colors](../docs/colors/)**  
-  Ferramentas para trabalhar com cores, incluindo conversões (por exemplo, de HEX para RGB) e validações de cores.  
-  ```bash
-  npm install @utilify/colors
-  ```  
+* [**Colors**](/docs/colors)
+  Ferramentas para conversão entre formatos de cor (HEX, RGB, HSL) e validação de cores.
 
-- **[@utilify/date](../docs/date/)**  
-  Utilitários para data e hora, incluindo formatação, parsing e cálculos de datas.  
-  ```bash
-  npm install @utilify/date
-  ```  
+* [**Crypto**](/docs/crypto)
+  Utilitários para codificação, decodificação, hashing, geração de UUID e verificações criptográficas.
 
-- **[@utilify/environment](../docs/environment/)**  
-  Utilitários para detectar o ambiente de execução, como identificar se o código está rodando no navegador ou no Node.js, e recuperar variáveis relacionadas ao ambiente.
-  ```bash
-  npm install @utilify/environment
-  ```  
+* [**Date**](/docs/date)
+  Funções para manipulação de datas e horas, incluindo formatação, parsing, cálculos e validação.
 
-- **[@utilify/function](../docs/function/)**  
-  Auxiliares de funções, incluindo debounce, throttle e memoização.  
-  ```bash
-  npm install @utilify/function
-  ```  
+* [**Env**](/docs/env)
+  Helpers para detectar o ambiente de execução, identificando browser, Node.js, runtime e variáveis de ambiente.
 
-- **[@utilify/math](../docs/math/)**  
-  Utilitários matemáticos para cálculos, geração de números aleatórios e mais.  
-  ```bash
-  npm install @utilify/math
-  ```  
+* [**Function**](/docs/function)
+  Funções auxiliares para composição, memoização, aplicação parcial e controle de fluxo.
 
-- **[@utilify/object](../docs/object/)**  
-  Ferramentas para clonagem profunda, mesclagem e acesso seguro a propriedades de objetos.  
-  ```bash
-  npm install @utilify/object
-  ```  
+* [**Promise**](/docs/promise)
+  Utilitários para trabalhar com Promises, concorrência, throttling, debouncing e controle assíncrono.
 
-- **[@utilify/regex](../docs/regex/)**  
-  Expressões regulares comuns e utilitários para correspondência de padrões e validação.  
-  ```bash
-  npm install @utilify/regex
-  ```  
+* [**Math**](/docs/math)
+  Ferramentas matemáticas para cálculos, estatísticas, geração de números aleatórios e outras operações.
 
-- **[@utilify/string](../docs/string/)**  
-  Ferramentas para manipulação de strings, como capitalização, remoção de espaços e geração de slugs.  
-  ```bash
-  npm install @utilify/string
-  ```  
+* [**Number**](/docs/number)
+  Helpers focados em validação numérica, checagem de intervalos e operações específicas com números.
 
-- **[@utilify/types](../docs/types/)**  
-  Utilitários para verificação de tipos, validando e refinando tipos JavaScript/TypeScript.  
-  ```bash
-  npm install @utilify/types
-  ```  
+* [**Object**](/docs/object)
+  Funções para clonagem profunda, mesclagem, acesso a propriedades e manipulação de objetos.
+
+* [**Regex**](/docs/regex)
+  Expressões regulares comuns e funções auxiliares para validação de padrões.
+
+* [**String**](/docs/string)
+  Utilitários para manipulação de strings, como capitalização, remoção de espaços, geração de slugs e outras transformações.
+
+* [**Types**](/docs/types)
+  Funções para verificação e refinamento de tipos em JavaScript/TypeScript, aumentando a segurança e robustez do seu código.
+
 ---
 
-Escolha **@utilify/core** para obter a suíte completa de ferramentas ou instale pacotes individuais para manter seu projeto mais leve e focado.
+Nossa estrutura modular permite que você encontre rapidamente o conjunto de utilitários ideal para cada necessidade, mantendo a documentação leve e direta.
+
+Explore os escopos e acesse exemplos práticos e detalhes técnicos em cada seção.
+
+---

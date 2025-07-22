@@ -1,56 +1,34 @@
 # isOnline
 
-A função `isOnline` verifica se o navegador está online.
+A função `isOnline` verifica se o navegador está atualmente conectado à internet.
 
-## Assinatura
+## Sintaxe
 
 ```typescript
-function isOnline(): boolean | undefined;
+isOnline(): boolean;
 ```
+
+### Parâmetros
+
+Esta função não recebe parâmetros.
 
 ### Retorno
 
-| Tipo              | Descrição                                                       |
-|-------------------|---------------------------------------------------------------|
-| `boolean`         | `true` se o navegador estiver online, `false` caso contrário.  |
-| `undefined`       | Se executado no servidor, a função retornará `undefined`.      |
+| Tipo      | Descrição                      |
+| --------- | ------------------------------ |
+| `boolean` | Verdadeiro se estiver online   |
 
 ## Exemplos
 
 ```typescript
-console.log(isOnline()); // true ou false
+isOnline();
+// => true
 ```
 
 ## Notas
 
-- Se executado no servidor, a função retornará `undefined`.
-
-## Dependências
-
-- [`isServer`](../environment/isServer.md): A função `isServer` é usada para verificar se o código está sendo executado no servidor.
-
-## Código Fonte
-
-::: code-group
-```typescript
-import { isServer } from '@utilify/environment';
-
-function isOnline(): boolean | undefined {
-  if (isServer()) return;
-
-  return navigator.onLine;
-}
-```
-
-```javascript
-function isOnline() {
-  if (isServer()) return;
-
-  return navigator.onLine;
-}
-```
-:::
+* Útil para adaptar funcionalidades conforme a conectividade.
 
 ## Referências
 
-- [Navigator.onLine - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/onLine)
+* https://developer.mozilla.org/pt-BR/docs/Web/API/Navigator/onLine

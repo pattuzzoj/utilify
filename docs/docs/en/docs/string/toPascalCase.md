@@ -1,63 +1,33 @@
 # toPascalCase
 
-The `toPascalCase` function converts a string to PascalCase format, where each word starts with an uppercase letter, and all spaces between words are removed.
+Converts a string to PascalCase format (first letter of each word in uppercase, no spaces).
 
 ## Syntax
-
 ```typescript
-function toPascalCase(str: string): string
+toPascalCase(str: string): string
 ```
 
-### Parameters
+## Parameters
+| Parameter | Type     | Description                                 |
+| :-------- | :------- | :------------------------------------------ |
+| `str`     | `string` | The input string.                           |
 
-| Name  | Type     | Description                                          |
-|-------|----------|----------------------------------------------------|
-| str   | `string` | The string to be converted to PascalCase.          |
+## Returns
+| Type      | Description                                 |
+| :-------- | :------------------------------------------ |
+| `string`  | The string converted to PascalCase.          |
 
-### Returns
-
-| Type    | Description                                      |
-|---------|------------------------------------------------|
-| `string` | The string converted to PascalCase.             |
-
-## Examples
-
+## Example
 ```typescript
-console.log(toPascalCase("hello world"));         // Output: "HelloWorld"
-console.log(toPascalCase("java script is fun"));  // Output: "JavaScriptIsFun"
-console.log(toPascalCase("singleword"));          // Output: "Singleword"
-console.log(toPascalCase("  extra spaces here ")); // Output: "ExtraSpacesHere"
+toPascalCase("exemplo de string"); // "ExemploDeString"
+toPascalCase("  teste pascal case  "); // "TestePascalCase"
+toPascalCase(""); // ""
 ```
 
 ## Notes
-
-- The function uses `trim()` to remove spaces from the beginning and end of the string.
-- It splits the string into words using `split(" ")`, capitalizes the first letter of each word using `toUpperCase()`, and joins them back together.
-- Finally, it removes any remaining spaces using `replace(/\s+/g, "")`.
-
-## Source Code
-
-::: code-group
-```typescript
-function toPascalCase(str: string): string {
-  return str.trim().split(" ").map((str) => {
-    return str[0].toUpperCase().concat(str.slice(1));
-  }).join(" ").replace(/\s+/g, "");
-}
-```
-
-```javascript
-function toPascalCase(str) {
-  return str.trim().split(" ").map((str) => {
-    return str[0].toUpperCase().concat(str.slice(1));
-  }).join(" ").replace(/\s+/g, "");
-}
-```
-::: 
+- Throws `TypeError` if the argument is not a string.
+- Extra spaces are removed before conversion.
 
 ## References
-
-- [String.prototype.trim()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim)
-- [String.prototype.split()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split)
-- [String.prototype.toUpperCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase)
-- [String.prototype.replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
+- [MDN: String.prototype.toUpperCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase)
+- [MDN: String.prototype.split()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split)

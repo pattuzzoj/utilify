@@ -1,0 +1,11 @@
+export { default as compose } from './compose';
+export { default as identity } from './identity';
+export { default as memo } from './memo';
+export { default as noop } from './noop';
+export { default as not } from './not';
+export { default as once } from './once';
+export { default as partialLeft } from './partialLeft';
+export { default as partialRight } from './partialRight';
+export { default as pipe } from './pipe';
+export { default as times } from './times';
+export { default as when } from './when';

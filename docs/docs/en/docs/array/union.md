@@ -1,59 +1,36 @@
 # union
 
-The `union` function combines multiple arrays and returns a new array with unique elements.
+The `union` function returns a new array containing all unique elements from two or more arrays.
 
 ## Syntax
 
 ```typescript
-function union<T>(...arrs: T[][]): T[];
+union<T>(...arrays: T[][]): T[];
 ```
 
 ### Parameters
 
-| Name   | Type     | Description                                              |
-|--------|----------|--------------------------------------------------------|
-| `arrs` | `T[][]`  | Two or more arrays to combine.                          |
+| Name      | Type     | Description                                  |
+|-----------|----------|----------------------------------------------|
+| `arrays`  | `T[][]`  | Two or more source arrays                    |
 
-### Return
+### Returns
 
-| Type   | Description                                              |
-|--------|--------------------------------------------------------|
-| `T[]`  | A new array containing unique elements from all input arrays. |
+| Type    | Description                                 |
+|---------|---------------------------------------------|
+| `T[]`   | New array with unique elements              |
 
 ## Examples
 
 ```typescript
-console.log(union([1, 2], [2, 3]));             // [1, 2, 3]
-console.log(union([1, 2], [3, 4], [4, 5]));     // [1, 2, 3, 4, 5]
-console.log(union(['a', 'b'], ['b', 'c']));     // ['a', 'b', 'c']
+union([1, 2], [2, 3], [3, 4]); // => [1, 2, 3, 4]
 ```
 
 ## Notes
 
-- Duplicates are removed from the final result
-- The order of elements is preserved based on first appearance
-- Uses the `unique` function internally to remove duplicates
-- Returns a new array; does not modify input arrays
-
-## Source Code
-
-::: code-group
-```typescript
-import unique from './unique';
-
-function union<T>(...arrs: T[][]): T[] {
-  return unique(arrs.reduce((unionArr, arr) => [...unionArr, ...arr], []));
-}
-```
-
-```javascript
-function union(...arrs) {
-  return unique(arrs.reduce((unionArr, arr) => [...unionArr, ...arr], []));
-}
-```
-:::
+* The order of elements is preserved according to the first occurrence.
+* Does not modify the original arrays.
 
 ## References
 
-- [Array.prototype.reduce() - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
-- [Spread syntax - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+* https://lodash.com/docs/4.17.15#union
