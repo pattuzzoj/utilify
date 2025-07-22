@@ -12,9 +12,9 @@ interpolate(str: string, data: Record<PropertyKey, any>, pattern?: RegExp): stri
 
 | Name      | Type                        | Description                                                        |
 | :-------- | :-------------------------- | :----------------------------------------------------------------- |
-| `str`     | `string`                    | String containing placeholders in the format `{{key}}`.            |
+| `str`     | `string`                    | String containing placeholders in the format `\{\{key\}\}`.            |
 | `data`    | `Record<PropertyKey, any>`  | Data dictionary for interpolation.                                 |
-| `pattern` | `RegExp` (optional)         | Custom pattern for placeholders (default: `/{{(.*?)}}/g`).         |
+| `pattern` | `RegExp` (optional)         | Custom pattern for placeholders (default: `/\{\{(.*?)\}\}/g`).         |
 
 ### Return
 
@@ -25,15 +25,16 @@ interpolate(str: string, data: Record<PropertyKey, any>, pattern?: RegExp): stri
 ### Example
 
 ```typescript
-const template = "Hello, {{name}}!";
+const template = "Hello, \{\{name\}\}!";
 const data = { name: "Maria" };
 interpolate(template, data); // "Hello, Maria!"
 ```
 
 ### Notes
 
-- Placeholders must be in the format `{{key}}` by default.
+- Placeholders must be in the format `\{\{key\}\}` by default.
 - If the value does not exist in `data`, the placeholder is kept.
+- The backslashes (\) before the curly braces ( \{\{ and \}\} ) are escape characters used only to prevent conflicts with the documentation compiler. When using the function in practice, use simple braces without escaping.
 
 ### References
 - [MDN: String.prototype.replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)

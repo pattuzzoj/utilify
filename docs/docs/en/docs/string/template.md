@@ -10,13 +10,13 @@ template(str: string, options?: TemplateOptions): (data: Record<string, any>) =>
 ### TemplateOptions
 | Property  | Type                                   | Description                                                                 |
 |-----------|----------------------------------------|-----------------------------------------------------------------------------|
-| `pattern` | `RegExp` (optional)                    | Custom pattern for placeholders (default: `/{{(.*?)}}/g`).                  |
+| `pattern` | `RegExp` (optional)                    | Custom pattern for placeholders (default: `/\{\{(.*?)\}\}/g`).                  |
 | `escape`  | `(value: string, key: string) => string` (optional) | Function to escape values before interpolation.                             |
 
 ## Parameters
 | Parameter | Type                  | Description                                 |
 |-----------|-----------------------|---------------------------------------------|
-| `str`     | `string`              | The string with placeholders in the format `{{key}}`. |
+| `str`     | `string`              | The string with placeholders in the format `\{\{key\}\}`. |
 | `options` | `TemplateOptions` (optional) | Options for custom pattern and escaping.    |
 
 ## Returns
@@ -26,13 +26,14 @@ template(str: string, options?: TemplateOptions): (data: Record<string, any>) =>
 
 ## Example
 ```typescript
-const fn = template("Hello, {{name}}!", { escape: (v) => v.toUpperCase() });
+const fn = template("Hello, \{\{name\}\}!", { escape: (v) => v.toUpperCase() });
 fn({ name: "Maria" }); // "Hello, MARIA!"
 ```
 
 ## Notes
 - Throws `TypeError` if `str` is not a string, `pattern` is not a RegExp, or `escape` is not a function.
 - Placeholders without a corresponding value remain unchanged.
+- The backslashes (\) before the curly braces ( \{\{ and \}\} ) are escape characters used only to prevent conflicts with the documentation compiler. When using the function in practice, use simple braces without escaping.
 
 ## References
 - [MDN: String.prototype.replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
