@@ -4,7 +4,7 @@ import rgbToHsl from "./rgbToHsl";
 
 type Format = "hex" | "rgb" | "hsl";
 
-export default function randomColor(format: Format = "rgb", alpha: boolean) {
+export default function randomColor(format: Format = "rgb", alpha: boolean): string {
   if (typeof format !== 'string' || !["hex", "rgb", "hsl"].includes(format)) {
     throw new Error(`Expected "hex", "rgb", or "hsl" for 'format'`);
   }

@@ -1,4 +1,4 @@
-export default function maskString(str: string, mask: string, maskStart: number, maskLength: number) {
+export default function maskString(str: string, mask: string, maskStart: number, maskLength: number): string {
   if (typeof str !== 'string') {
     throw new TypeError(`Expected a string for 'str'`);
   }
