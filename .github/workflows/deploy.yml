@@ -32,9 +32,6 @@ jobs:
         run: npm run docs:build
         working-directory: ./docs
 
-      - name: Add CNAME
-        run: echo 'utilify.js.org' > docs/.vitepress/dist/CNAME
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
