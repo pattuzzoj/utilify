@@ -10,8 +10,7 @@
 
 Utilify offers a wide range of utilities, organized into well-defined scopes, making navigation and quick access in the documentation easier. It is compatible with **Browser**, **Node.js**, **Deno**, and **Bun**.
 
-[![npm version](https://img.shields.io/npm/v/@utilify/core.svg?style=flat)](https://npmjs.com/package/@utilify/core)
-[![Documentation](https://img.shields.io/badge/docs-available-brightgreen)](https://utilify-docs.vercel.app/)
+[![npm version](https://img.shields.io/npm/v/@utilify/core.svg?style=flat)](https://npmjs.com/package/@utilify/core) [![npm version](https://img.shields.io/jsr/v/@utilify/core.svg?style=flat)](https://jsr.io/@utilify/core) [![Documentation](https://img.shields.io/badge/docs-available-brightgreen)](https://utilify.js.org/)
 
 ---
 
@@ -91,18 +90,18 @@ Our modular structure allows you to quickly find the ideal set of utilities for 
 
 ## 📚 Documentation
 
-Explore the full documentation at: **[Utilify](https://utilify-docs.vercel.app/)**
+Explore the full documentation at: **[Utilify](https://utilify.js.org/)**
 
 ---
 
 ## License
 
 MIT © [Your Name / Organization]  
-See [LICENSE](https://utilify-docs.vercel.app/license) for details.
+See [LICENSE](https://utilify.js.org/license) for details.
 
 ---
 
-[Documentation](https://utilify-docs.vercel.app/) | 
+[Documentation](https://utilify.js.org/) | 
 [Report Issue](https://github.com/pattuzzoj/utilify/issues) | 
 [View on npm](https://www.npmjs.com/package/@utilify/core)
 [View on jsr](https://jsr.io/@utilify/core)

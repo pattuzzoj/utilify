@@ -32,7 +32,7 @@
 		"modular utilities"
 	],
 	"author": "Júlio Pattuzzo <pattuzzo@protonmail.com>",
-	"homepage": "https://utilify-docs.vercel.app",
+	"homepage": "https://utilify.js.org/",
 	"license": "MIT",
 	"type": "module",
 	"main": "dist/index.cjs",

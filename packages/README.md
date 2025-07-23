@@ -88,4 +88,4 @@ Our modular structure allows you to quickly find the ideal set of utilities for 
 
 ## License
 
-[MIT](https://utilify-docs.vercel.app/license)
+[MIT](https://utilify.js.org/license)
