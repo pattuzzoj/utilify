@@ -1,6 +1,6 @@
 {
 	"name": "@utilify/core",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Modern, strongly typed, and safe utility function library for JavaScript and TypeScript. Includes type checking, manipulation of arrays, objects, strings, dates, colors, numbers, regular expressions, and more. Compatible with Browser, Node.js, Deno, and Bun.",
 	"keywords": [
 		"utilify",
