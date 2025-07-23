@@ -3,7 +3,7 @@ import { pt } from './pt';
 import { en } from './en';
 
 export default defineConfig({
-  base: './', 
+  base: '/utilify/',
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['link', { rel: 'shortcut icon', href: '/favicon.ico', type: 'image/x-icon' }],
