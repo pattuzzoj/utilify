@@ -38,7 +38,7 @@
     "noEmitOnError": false,
     "outDir": "./dist",
     "preserveConstEnums": true,
-    "removeComments": true,
+    "removeComments": false,
     "sourceMap": false,
     
     // Language and Environment
@@ -71,7 +71,7 @@
     "skipLibCheck": true,
   },
   "include": [
-    "./src/**/*.ts"
-, "src/index.ts", "tests/array.test.ts", "tests/browser.test.ts", "tests/colors.test.ts", "tests/types.test.ts", "tests/string.test.ts", "tests/regex.test.ts", "tests/object.test.ts", "tests/math.test.ts", "tests/function.test.ts", "tests/env.test.ts", "tests/date.test.ts", "tests/crypto.test.ts", "src/function/when.ts", "draw/isFileExtension.ts", "src/array/adjust.ts"  ],
-  "exclude": ["src/**/tests", "node_modules", "dist"]
+    "./src/**/*.ts",
+  ],
+  "exclude": ["tests", "node_modules", "dist", "draw"]
 }

@@ -1,4 +1,4 @@
-import { test, describe, beforeAll, afterAll, vi, beforeEach } from 'vitest';
+import { test, describe, afterEach, vi, beforeEach } from 'vitest';
 import {
 	adjustDate,
 	adjustTimezone,
@@ -30,7 +30,7 @@ describe('Date', () => {
 		vi.setSystemTime(new Date('2023-01-01T00:00:00.000Z'));
 	});
 
-	afterAll(() => {
+	afterEach(() => {
 		vi.restoreAllMocks();
 	});
 

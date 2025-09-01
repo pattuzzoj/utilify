@@ -8,4 +8,3 @@ export { default as isIPV4 } from "./isIPV4";
 export { default as isIPV6 } from "./isIPV6";
 export { default as isBase64URL } from "../crypto/isBase64URL";
 export { default as isJWT } from "./isJWT";
-export { default as isFileExtension } from "../../draw/isFileExtension";
