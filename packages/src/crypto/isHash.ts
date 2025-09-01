@@ -1,5 +1,12 @@
 type HashAlgorithm = 'SHA-1' | 'SHA-256' | 'SHA-384' | 'SHA-512';
 
+/**
+ * Checks if a string is a valid hash for the given algorithm.
+ * @param {string} hash - The hash string to check.
+ * @param {HashAlgorithm} [algorithm='SHA-256'] - The hash algorithm.
+ * @returns {boolean} True if valid hash, false otherwise.
+ * @throws {TypeError|Error} If hash is not a string or algorithm is invalid.
+ */
 export default function isHash(hash: string, algorithm: HashAlgorithm = 'SHA-256'): boolean {
   if (typeof hash !== 'string') {
     throw new TypeError(`Expected a string for 'hash'`);

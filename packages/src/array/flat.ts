@@ -1,5 +1,13 @@
 import { isArray } from "../types";
 
+/**
+ * Flattens an array up to a specified depth.
+ * @template T
+ * @param {T[]} array - The array to flatten.
+ * @param {number} [depth=Infinity] - The depth to flatten.
+ * @returns {FlatArray<T[], number>[]} The flattened array.
+ * @throws {TypeError} If array is not an array or depth is invalid.
+ */
 export default function flat<T>(array: T[], depth: number = Infinity): FlatArray<T[], number>[] {
   if (!isArray(array)) {
     throw new TypeError(`Expected an array for 'array'`);

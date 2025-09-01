@@ -1,5 +1,11 @@
 import isHslColor from "./isHslColor";
 
+/**
+ * Converts an HSL(A) color string to an RGB(A) color string.
+ * @param {string} hsl - The HSL(A) color string.
+ * @returns {string} The RGB(A) color string.
+ * @throws {Error} If hsl is not a valid HSL color.
+ */
 export default function hslToRgb(hsl: string): string {
   if (!isHslColor(hsl)) {
     throw new Error('Expected a valid hsl color');

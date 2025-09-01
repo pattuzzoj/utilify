@@ -1,3 +1,23 @@
+/**
+ * @callback MemoCallback
+ * @param {...any} args
+ * @returns {any}
+ */
+
+/**
+ * @callback MemoSerializer
+ * @param {any[]} args
+ * @returns {string}
+ */
+
+/**
+ * Memoizes a function, caching results by arguments.
+ * @template T
+ * @param {MemoCallback} callback - The function to memoize.
+ * @param {{cacheTimeout?: number, serializer?: MemoSerializer}} [options={serializer: JSON.stringify}] - Memoization options.
+ * @returns {(...args: Parameters<T>) => ReturnType<T>} The memoized function.
+ * @throws {TypeError} If callback or serializer is not a function, or cacheTimeout is not a number.
+ */
 export default function memo<T extends (...args: any[]) => any>(
   callback: T,
   {cacheTimeout, serializer}: { cacheTimeout?: number, serializer?: (args: Parameters<T>) => string } = { serializer: JSON.stringify }

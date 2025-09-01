@@ -10,6 +10,37 @@ interface ThrottledFunction<T extends (...args: any[]) => void> {
   flush(): void;
 }
 
+/**
+ * @callback ThrottleCallback
+ * @template T
+ * @param {...any} args - Arguments to pass to the throttled function.
+ * @returns {void}
+ */
+
+/**
+ * @typedef {Object} ThrottleOptions
+ * @property {boolean} [leading]
+ * @property {boolean} [trailing]
+ * @property {number} [maxWait]
+ */
+
+/**
+ * @template T
+ * @typedef {Object} ThrottledFunction
+ * @property {function(...args: Parameters<T>): void} [call]
+ * @property {function(): void} cancel
+ * @property {function(): void} flush
+ */
+
+/**
+ * Creates a throttled version of a function.
+ * @template T
+ * @param {ThrottleCallback} callback - The function to throttle.
+ * @param {number} wait - The wait time in milliseconds.
+ * @param {ThrottleOptions} [options] - Throttle configuration.
+ * @returns {ThrottledFunction<T>} The throttled function.
+ * @throws {TypeError} If callback is not a function.
+ */
 export default function throttle<T extends (...args: any[]) => void>(
   callback: T,
   wait: number,

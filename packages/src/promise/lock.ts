@@ -1,3 +1,23 @@
+/**
+ * @callback LockCallback
+ * @returns {Promise<any>} The async function to lock.
+ */
+
+/**
+ * Options for lock.
+ * @typedef {Object} LockOptions
+ * @property {boolean} [queue]
+ * @property {() => void|Promise<void>} [onLocked]
+ * @property {(error: unknown) => void|Promise<void>} [onError]
+ */
+
+/**
+ * Ensures only one async function runs at a time, with optional queueing.
+ * @template T
+ * @param {LockCallback} callback - The async function to lock.
+ * @param {LockOptions} [options] - Lock configuration.
+ * @returns {(...args: Parameters<T>) => Promise<ReturnType<T> | void>} The locked function.
+ */
 export default function lock<T extends (...args: any[]) => Promise<any>>(
   callback: T,
   options: { 

@@ -1,3 +1,11 @@
+/**
+ * Formats a duration in milliseconds as a time string.
+ * @param {number} ms - The duration in milliseconds.
+ * @param {string} [format="hh:mm:ss"] - The format string.
+ * @param {boolean} [autoHour=true] - Whether to omit hours if zero.
+ * @returns {string} The formatted duration string.
+ * @throws {TypeError} If ms or format is invalid.
+ */
 export default function formatDuration(ms: number, format: string = "hh:mm:ss", autoHour: boolean = true): string {
   if (typeof ms !== 'number') {
     throw new TypeError(`Expected a number for 'ms'`);

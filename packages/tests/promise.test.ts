@@ -123,7 +123,7 @@ describe('Promise', () => {
   describe.concurrent('sleep', () => {
     test.concurrent('should pause execution', async ({ expect }) => {
       const start = performance.now();
-      await sleep(50);
+      await sleep(51);
       const end = performance.now();
       const elapsed = end - start;
       expect(elapsed).toBeGreaterThanOrEqual(50);

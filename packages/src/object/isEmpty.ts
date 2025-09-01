@@ -1,5 +1,11 @@
 import { isMap, isSet } from "../types";
 
+/**
+ * Checks if a value (object, array, string, map, set) is empty.
+ * @template T
+ * @param {T} value - The value to check.
+ * @returns {boolean} True if the value is empty, false otherwise.
+ */
 export default function isEmpty<T extends Record<PropertyKey, any>>(value: T): boolean;
 export default function isEmpty<T extends any[]>(value: T): boolean;
 export default function isEmpty<T>(value: T): boolean {

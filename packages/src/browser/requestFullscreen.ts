@@ -1,6 +1,12 @@
 import { isServer } from '../env';
 import isFullscreenEnabled from './isFullscreenEnabled';
 
+/**
+ * Requests fullscreen mode for a given element.
+ * @param {Element} element - The element to make fullscreen.
+ * @returns {Promise<void>} Resolves when fullscreen is entered.
+ * @throws {Error} If fullscreen API is not supported.
+ */
 export default async function requestFullscreen(element: Element): Promise<void> {
   // @ts-ignore
   if (isServer()) return;

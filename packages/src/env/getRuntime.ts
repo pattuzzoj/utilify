@@ -3,6 +3,10 @@ import isBun from "./isBun";
 import isDeno from "./isDeno";
 import isNode from "./isNode";
 
+/**
+ * Gets the current runtime environment.
+ * @returns {'Browser' | 'Node' | 'Deno' | 'Bun' | 'Unknown'} The runtime name.
+ */
 export default function getRuntime(): 'Browser' | 'Node' | 'Deno' | 'Bun' | 'Unknown' {
   if (isBrowser()) return 'Browser';
   else if (isDeno()) return 'Deno';

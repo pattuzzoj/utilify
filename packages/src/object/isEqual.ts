@@ -2,6 +2,12 @@ import { isArray, isDate, isMap, isRegExp, isSet } from "../types";
 import isNotNullObject from "./isNotNullObject";
 import isPlainObject from "./isPlainObject";
 
+/**
+ * Deeply checks if two values are equal (supports arrays, objects, maps, sets, buffers, etc).
+ * @param {any} value1 - The first value.
+ * @param {any} value2 - The second value.
+ * @returns {boolean} True if the values are deeply equal, false otherwise.
+ */
 export default function isEqual(value1: any, value2: any): boolean {
   function isEqualArray(value1: any[], value2: any[], visited: WeakMap<any, boolean>): boolean {
     const keys1 = Object.keys(value1);

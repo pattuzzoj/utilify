@@ -1,6 +1,13 @@
 import isBase64 from "./isBase64";
 import isBase64URL from "./isBase64URL";
 
+/**
+ * Decodes a base64 or base64url string into a Uint8Array.
+ * @param {string} input - The string to decode.
+ * @param {boolean} [urlSafe=false] - Whether the input is base64url.
+ * @returns {Uint8Array} The decoded bytes.
+ * @throws {Error} If input is not valid base64/base64url or no decoder is available.
+ */
 export default function base64Decode(input: string, urlSafe = false): Uint8Array {
   if (urlSafe) {
     if (!isBase64URL(input)) {

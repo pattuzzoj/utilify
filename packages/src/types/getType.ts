@@ -2,6 +2,11 @@ import { isNaN, isInfinity } from "../number";
 import isArray from "./isArray";
 import isNull from "./isNull";
 
+/**
+* Get the type of a value.
+* @param {any} value - The value to check.
+* @returns {string} The type of the value.
+*/
 export default function getType(value: any): string {
   const type = typeof value;
 

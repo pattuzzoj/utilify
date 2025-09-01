@@ -4,6 +4,13 @@ import rgbToHsl from "./rgbToHsl";
 
 type Format = "hex" | "rgb" | "hsl";
 
+/**
+ * Generates a random color string in the specified format.
+ * @param {Format} [format="rgb"] - The color format ("hex", "rgb", "hsl").
+ * @param {boolean} alpha - Whether to include alpha channel.
+ * @returns {string} The random color string.
+ * @throws {Error} If format is invalid.
+ */
 export default function randomColor(format: Format = "rgb", alpha: boolean): string {
   if (typeof format !== 'string' || !["hex", "rgb", "hsl"].includes(format)) {
     throw new Error(`Expected "hex", "rgb", or "hsl" for 'format'`);

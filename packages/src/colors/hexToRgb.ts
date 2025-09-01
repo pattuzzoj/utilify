@@ -1,6 +1,12 @@
 import { chunk } from '../array';
 import isHexColor from './isHexColor';
 
+/**
+ * Converts a hex color string to an RGB(A) color string.
+ * @param {string} hex - The hex color string.
+ * @returns {string} The RGB(A) color string.
+ * @throws {Error} If hex is not a valid hex color.
+ */
 export default function hexToRgb(hex: string): string {
 	if (!isHexColor(hex)) {
 		throw new Error(`Expected a valid hex color string`);

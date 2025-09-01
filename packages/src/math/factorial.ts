@@ -1,3 +1,9 @@
+/**
+ * Returns the factorial of a non-negative integer.
+ * @param {number} value - The non-negative integer.
+ * @returns {number} The factorial value.
+ * @throws {TypeError} If value is not a non-negative integer.
+ */
 export default function factorial(value: number): number {
   if (typeof value !== 'number' || !Number.isInteger(value) || value < 0) {
     throw new TypeError(`Expected a non-negative integer for 'value'`);

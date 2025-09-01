@@ -1,6 +1,12 @@
 import { isArray } from "../types";
 import isPlainObject from "./isPlainObject";
 
+/**
+ * Deep merges two objects or arrays.
+ * @param {any} target - The target object or array.
+ * @param {any} source - The source object or array.
+ * @returns {any} The merged result.
+ */
 export default function merge(target: any, source: any): any {
   if (typeof target !== 'object' || target === null) return source;
 

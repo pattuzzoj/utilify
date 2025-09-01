@@ -1,3 +1,12 @@
+/**
+ * Masks part of a string with a given mask character.
+ * @param {string} str - The string to mask.
+ * @param {string} mask - The mask character/string.
+ * @param {number} maskStart - The start index for masking.
+ * @param {number} maskLength - The number of characters to mask.
+ * @returns {string} The masked string.
+ * @throws {TypeError|RangeError} If arguments are invalid.
+ */
 export default function maskString(str: string, mask: string, maskStart: number, maskLength: number): string {
   if (typeof str !== 'string') {
     throw new TypeError(`Expected a string for 'str'`);

@@ -1,5 +1,11 @@
 import isUint8Array from "./isUint8Array";
 
+/**
+ * Decodes a Uint8Array or ArrayBuffer as a UTF-8 string.
+ * @param {ArrayBuffer|Uint8Array} data - The data to decode.
+ * @returns {string} The decoded string.
+ * @throws {Error} If no decoder is available.
+ */
 export default function utf8Decode(data: ArrayBuffer | Uint8Array): string {
   const bytes = isUint8Array(data) ? data : new Uint8Array(data);
 

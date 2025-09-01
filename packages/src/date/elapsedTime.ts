@@ -2,6 +2,14 @@ import isValidDate from './isValidDate';
 
 type TimeUnit = "milliseconds" | "seconds" | "minutes" | "hours" | "days" | "years";
 
+/**
+ * Calculates the elapsed time between two dates in the specified unit.
+ * @param {Date} from - The start date.
+ * @param {Date} [to=new Date()] - The end date.
+ * @param {TimeUnit} [unit] - The unit to return.
+ * @returns {number} The elapsed time in the specified unit.
+ * @throws {TypeError} If dates or unit are invalid.
+ */
 export default function elapsedTime(from: Date, to: Date = new Date(), unit?: TimeUnit): number {
   if (!isValidDate(from)) {
     throw new TypeError(`Expected a valid Date for 'from'`);

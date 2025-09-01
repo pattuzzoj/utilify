@@ -1,3 +1,9 @@
+/**
+ * Returns the median of an array of numbers.
+ * @param {number[]} arr - The array of numbers.
+ * @returns {number} The median value.
+ * @throws {TypeError|Error} If arr is not a valid array or is empty.
+ */
 export default function median(arr: number[]): number {
   if (!Array.isArray(arr) || !arr.every(value => typeof value === 'number')) {
     throw new TypeError(`Expected an array of numbers for 'arr'`);

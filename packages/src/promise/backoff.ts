@@ -13,22 +13,45 @@ interface BackoffOptions {
   onRetry?: (attempt: number, currentDelay: number) => void;
 }
 
-const DEFAULT_OPTIONS: Required<Omit<BackoffOptions, 'onRetry'>> = {
-  backoffMode: 'exponential',
-  initialDelay: 500,
-  jitterMode: 'full',
-  maxAttempts: 5,
-  maxDelay: 60000
-};
+/**
+ * @callback BackoffAction
+ * @returns {Promise<any>} The promise to execute.
+ */
 
+/**
+ * @callback BackoffOnRetry
+ * @param {number} attempt - The current attempt number.
+ * @param {number} currentDelay - The current delay before retry.
+ * @returns {void}
+ */
+
+/**
+ * Options for backoff.
+ * @typedef {Object} BackoffOptions
+ * @property {'fixed'|'linear'|'exponential'} [backoffMode="exponential"]
+ * @property {number} [initialDelay=500]
+ * @property {'none'|'full'|'equal'|'decorrelated'} [jitterMode="full"]
+ * @property {number} [maxDelay=60000]
+ * @property {number} [maxAttempts=5]
+ * @property {BackoffOnRetry} [onRetry]
+ */
+
+/**
+ * Executes an async action with retry and backoff strategies.
+ * @template T
+ * @param {BackoffAction} action - The async function to execute.
+ * @param {BackoffOptions} [options] - Backoff configuration.
+ * @returns {Promise<T>} The result of the action.
+ * @throws {Error} If parameters are invalid or retries exhausted.
+ */
 export default async function backoff<T>(
   action: () => Promise<T>,
   {
-    initialDelay = DEFAULT_OPTIONS.initialDelay,
-    backoffMode = DEFAULT_OPTIONS.backoffMode,
-    jitterMode = DEFAULT_OPTIONS.jitterMode,
-    maxAttempts = DEFAULT_OPTIONS.maxAttempts,
-    maxDelay = DEFAULT_OPTIONS.maxDelay,
+    initialDelay = 500,
+    backoffMode = 'exponential',
+    jitterMode = 'full',
+    maxAttempts = 5,
+    maxDelay = 60000,
     onRetry,
   }: BackoffOptions = {}
 ): Promise<T>  {

@@ -1,5 +1,11 @@
 import isDeno from "./isDeno";
 
+/**
+ * Gets an environment variable value or throws if not set.
+ * @param {string} key - The environment variable key.
+ * @returns {string} The environment variable value.
+ * @throws {Error} If the variable is not set.
+ */
 export default function requireEnv(key: string): string {
   let value: string | undefined;
   

@@ -2,6 +2,14 @@ import isValidDate from "./isValidDate";
 
 type DateFormat = "DMY" | "MDY" | "YMD";
 
+/**
+ * Formats a Date object as a date string in the specified format.
+ * @param {Date} date - The date to format.
+ * @param {DateFormat} format - The format ("DMY", "MDY", "YMD").
+ * @param {string} [separator='/'] - The separator character.
+ * @returns {string} The formatted date string.
+ * @throws {TypeError} If date or format is invalid.
+ */
 export default function formatDate(date: Date, format: DateFormat, separator: string = '/'): string {
   if (!isValidDate(date)) {
     throw new TypeError(`Expected a valid Date for 'date'`);

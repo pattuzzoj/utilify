@@ -1,6 +1,11 @@
 import { isServer } from '../env';
 import isFullscreenEnabled from './isFullscreenEnabled';
 
+/**
+ * Exits fullscreen mode in the browser.
+ * @returns {Promise<void>} Resolves when fullscreen is exited.
+ * @throws {Error} If fullscreen API is not supported.
+ */
 export default async function exitFullscreen(): Promise<void> {
   // @ts-ignore
   if (isServer()) return;

@@ -1,6 +1,21 @@
 import { isArray, isString } from "../types";
 
-export default function chunk(string: string, size: number): string;
+/**
+ * Splits a string into chunks of a given size.
+ * @param {string} string - The string to chunk.
+ * @param {number} size - The chunk size.
+ * @returns {string[]} Array of string chunks.
+ * @throws {TypeError} If input is not array-like or size is invalid.
+ */
+export default function chunk(string: string, size: number): string[];
+/**
+ * Splits an array into chunks of a given size.
+ * @template T
+ * @param {T[]} array - The array to chunk.
+ * @param {number} size - The chunk size.
+ * @returns {T[][]} Array of array chunks.
+ * @throws {TypeError} If input is not array-like or size is invalid.
+ */
 export default function chunk<T>(array: T[], size: number): T[][];
 export default function chunk(array: any, size: number = 1): any {
   if (!isArray(array) && !isString(array)) {

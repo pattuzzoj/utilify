@@ -1,3 +1,9 @@
+/**
+ * Calculates the sample variance of an array of numbers.
+ * @param {number[]} arr - The array of numbers.
+ * @returns {number} The sample variance.
+ * @throws {TypeError|Error} If input is not a valid array or has less than two numeric values.
+ */
 export default function variance(arr: number[]): number {
   if (!Array.isArray(arr)) {
     throw new TypeError(`Expect an array for 'arr'`);

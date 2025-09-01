@@ -1,5 +1,12 @@
 import isValidDate from "./isValidDate";
 
+/**
+ * Formats a Date object as a time string.
+ * @param {Date} date - The date to format.
+ * @param {string} [format="hh:mm"] - The format string.
+ * @returns {string} The formatted time string.
+ * @throws {TypeError} If date is not valid.
+ */
 export default function formatTime(date: Date, format: string = "hh:mm"): string {
   if (!isValidDate(date)) {
     throw new TypeError(`Expected a valid Date for 'date'`);

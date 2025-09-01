@@ -1,5 +1,11 @@
 import isRgbColor from "./isRgbColor";
 
+/**
+ * Converts an RGB(A) color string to a hex color string.
+ * @param {string} rgb - The RGB(A) color string.
+ * @returns {string} The hex color string.
+ * @throws {Error} If rgb is not a valid RGB color.
+ */
 export default function rgbToHex(rgb: string): string {
   if (!isRgbColor(rgb)) {
     throw new Error(`Expected a valid rgb color string`);

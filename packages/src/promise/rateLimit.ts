@@ -1,3 +1,18 @@
+/**
+ * @callback RateLimitCallback
+ * @param {...any} args
+ * @returns {any}
+ */
+
+/**
+ * Creates a rate-limited function.
+ * @template T
+ * @param {RateLimitCallback} callback - The function to rate limit.
+ * @param {number} limit - Maximum calls per interval.
+ * @param {number} interval - Interval in milliseconds.
+ * @returns {(...args: Parameters<T>) => boolean} The rate-limited function.
+ * @throws {TypeError} If parameters are invalid.
+ */
 export default function rate<T extends (...args: any[]) => any>(callback: T, limit: number, interval: number): (...args: Parameters<T>) => boolean {
   if (typeof callback !== 'function') {
     throw new TypeError(`Expected a function for 'callback'`);

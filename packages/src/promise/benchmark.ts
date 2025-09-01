@@ -1,5 +1,17 @@
 import { mean } from '../math';
 
+/**
+ * @callback BenchmarkCallback
+ * @returns {void|Promise<void>}
+ */
+
+/**
+ * Benchmarks a synchronous or asynchronous function over multiple iterations.
+ * @param {BenchmarkCallback} callback - The function to benchmark.
+ * @param {number} iterations - Number of iterations.
+ * @returns {Promise<number>} The average execution time in milliseconds.
+ * @throws {TypeError} If callback is not a function or iterations is invalid.
+ */
 export default async function benchmark(callback: () => void, iterations: number): Promise<number>;
 export default async function benchmark(callback: () => Promise<void>, iterations: number): Promise<number>;
 export default async function benchmark(callback: () => any, iterations: number = 1): Promise<number> {

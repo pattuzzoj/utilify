@@ -1,5 +1,9 @@
 import isServer from './isServer';
 
+/**
+ * Gets the operating system name from the user agent.
+ * @returns {string|undefined} The OS name or undefined if server.
+ */
 export default function getOS(): string | undefined {
 	if (!isServer()) return;
 

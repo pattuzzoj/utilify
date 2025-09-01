@@ -1,3 +1,9 @@
+/**
+ * Calculates the sample standard deviation of an array of numbers.
+ * @param {number[]} arr - The array of numbers.
+ * @returns {number} The sample standard deviation.
+ * @throws {TypeError|Error} If input is not a valid array or has less than two numeric values.
+ */
 export default function std(arr: number[]): number {
   if (!Array.isArray(arr)) {
     throw new TypeError(`Expect an array for 'arr'`);

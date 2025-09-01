@@ -1,31 +1,31 @@
-import { test, describe, beforeAll, afterAll, vi } from 'vitest';
+import { test, describe, beforeAll, afterAll, vi, beforeEach } from 'vitest';
 import {
 	adjustDate,
-  adjustTimezone,
-  convertDateTo,
-  convertTimeUnit,
-  elapsedTime,
-  formatDate,
-  formatDuration,
-  formatTime,
-  isBetween,
-  isLeapYear,
-  isSameDay,
-  isToday,
-  isTomorrow,
-  isValidDate,
-  isValidDateString,
-  isWeekday,
-  isWeekend,
-  isYesterday,
-  parseDate,
-  stripTime,
-  toDate
+	adjustTimezone,
+	convertDateTo,
+	convertTimeUnit,
+	elapsedTime,
+	formatDate,
+	formatDuration,
+	formatTime,
+	isBetween,
+	isLeapYear,
+	isSameDay,
+	isToday,
+	isTomorrow,
+	isValidDate,
+	isValidDateString,
+	isWeekday,
+	isWeekend,
+	isYesterday,
+	parseDate,
+	stripTime,
+	toDate
 } from '../src/date';
 
 describe('Date', () => {
-	beforeAll(() => {
-		vi.spyOn(console, 'error').mockImplementation(() => {});
+	beforeEach(() => {
+		vi.spyOn(console, 'error').mockImplementation(() => { });
 		vi.useFakeTimers();
 		vi.setSystemTime(new Date('2023-01-01T00:00:00.000Z'));
 	});
@@ -42,7 +42,7 @@ describe('Date', () => {
 				expected: '2023-01-01T00:00:00.500Z'
 			},
 			{
-				name: 'adjusts seconds', 
+				name: 'adjusts seconds',
 				adjustment: { seconds: 30 },
 				expected: '2023-01-01T00:00:30.000Z'
 			},
@@ -101,11 +101,16 @@ describe('Date', () => {
 		test.concurrent.for([
 			{
 				name: 'adjusts timezone to +2UTC',
-				date: new Date('2023-01-01T00:00:00.000Z'),
 				timezone: +2,
 				expected: '2023-01-01T02:00:00.000Z'
+			},
+			{
+				name: 'adjusts timezone to -3UTC',
+				timezone: -3,
+				expected: '2022-12-31T21:00:00.000Z'
 			}
-		])('$name', ({ date, timezone, expected }, { expect }) => {
+		])('$name', ({ timezone, expected }, { expect }) => {
+			const date = new Date('2023-01-01T00:00:00.000Z');
 			expect(adjustTimezone(date, timezone).toISOString()).toBe(expected);
 		});
 	});
@@ -120,7 +125,7 @@ describe('Date', () => {
 				expected: 24
 			},
 			{
-				name: 'converts 1 hour to minutes', 
+				name: 'converts 1 hour to minutes',
 				value: 1,
 				fromUnit: 'hours' as const,
 				toUnit: 'minutes' as const,
@@ -376,7 +381,7 @@ describe('Date', () => {
 		});
 	});
 
-	describe.concurrent('isLeapYear', () => { 
+	describe.concurrent('isLeapYear', () => {
 		test.concurrent.for([
 			{
 				name: 'is a leap year',
@@ -413,7 +418,7 @@ describe('Date', () => {
 		});
 	});
 
-	describe.concurrent('isValidDate', () => { 
+	describe.concurrent('isValidDate', () => {
 		test.concurrent.for([
 			{
 				name: 'is a valid date',
@@ -447,7 +452,7 @@ describe('Date', () => {
 		});
 	});
 
-	describe.concurrent('isValidDateString', () => { 
+	describe.concurrent('isValidDateString', () => {
 		test.concurrent.for([
 			{
 				name: 'is a valid date string',
@@ -481,7 +486,7 @@ describe('Date', () => {
 		});
 	});
 
-	describe.concurrent('isWeekday', () => { 
+	describe.concurrent('isWeekday', () => {
 		test.concurrent.for([
 			{
 				name: 'is a weekend (Sunday)',
@@ -515,7 +520,7 @@ describe('Date', () => {
 		});
 	});
 
-	describe.concurrent('isWeekend', () => { 
+	describe.concurrent('isWeekend', () => {
 		test.concurrent.for([
 			{
 				name: 'is a weekend (Sunday)',
@@ -536,10 +541,10 @@ describe('Date', () => {
 		test.concurrent.for([
 			{
 				name: 'strips time from date',
-				date: new Date('2023-01-01T05:00:00.000Z'),
 				expected: '2023-01-01T00:00:00.000Z'
 			}
-		])('$name', ({ date, expected }, { expect }) => {
+		])('$name', ({ expected }, { expect }) => {
+			const date = new Date('2023-01-01T05:00:00.000Z');
 			expect(stripTime(date).toISOString()).toBe(expected);
 		});
 	});

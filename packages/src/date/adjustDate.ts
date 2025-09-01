@@ -4,6 +4,13 @@ function lastDayOfMonth(year: number, month: number): number {
   return new Date(year, month + 1, 0).getDate();
 }
 
+/**
+ * Adjusts a date by adding or subtracting years, months, days, hours, minutes, seconds, or milliseconds.
+ * @param {Date} date - The date to adjust.
+ * @param {Partial<{years: number, months: number, days: number, hours: number, minutes: number, seconds: number, milliseconds: number}>} adjustment - The adjustment object.
+ * @returns {Date} The adjusted date.
+ * @throws {TypeError} If date is not valid.
+ */
 export default function adjustDate(
   date: Date,
   adjustment: Partial<{

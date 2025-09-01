@@ -1,5 +1,13 @@
 import { isArray } from "../types";
 
+/**
+ * Returns all subarrays of a given size (window) from an array.
+ * @template T
+ * @param {T[]} array - The array to window.
+ * @param {number} [size=1] - The window size.
+ * @returns {T[][]} Array of windows.
+ * @throws {TypeError} If array is not an array or size is invalid.
+ */
 export default function aperture<T>(array: T[], size: number = 1): T[][] {
   if (!isArray(array)) {
     throw new TypeError(`Expected an array for 'array'`);

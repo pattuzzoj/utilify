@@ -1,5 +1,10 @@
 import isPlainObject from "./isPlainObject";
 
+/**
+ * Converts a flat object with path-like keys into a nested object/array.
+ * @param {Record<string, any>} obj - The flat object to unflatten.
+ * @returns {any} The nested object/array.
+ */
 function parsePath(path: string): string[] {
   const segments: string[] = [];
   let buffer = '';

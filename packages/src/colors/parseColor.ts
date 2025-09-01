@@ -7,6 +7,12 @@ export type ParsedColor = {
   alpha?: number;
 } | null;
 
+/**
+ * Parses a color string (hex, rgb, rgba, hsl, hsla) into its components.
+ * @param {string} color - The color string to parse.
+ * @returns {ParsedColor} The parsed color object or null if invalid.
+ * @throws {TypeError} If color is not a string.
+ */
 export default function parseColor(color: string): ParsedColor {
   if (typeof color !== 'string') {
     throw new TypeError(`Expected a string for 'color'`);

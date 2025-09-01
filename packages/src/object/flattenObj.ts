@@ -1,6 +1,11 @@
 import { isArray } from '../types';
 import isPlainObject from './isPlainObject';
 
+/**
+ * Converts a nested object/array into a flat object with path-like keys.
+ * @param {any} obj - The object or array to flatten.
+ * @returns {Record<string, any>} The flattened object.
+ */
 export default function flattenObj(obj: any): Record<string, any> {
   const result: Record<string, any> = {};
 

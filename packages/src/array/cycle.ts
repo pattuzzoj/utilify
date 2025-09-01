@@ -1,5 +1,12 @@
 import { isArray } from "../types";
 
+/**
+ * Returns a function that cycles through array elements.
+ * @template T
+ * @param {T[]} array - The array to cycle through.
+ * @returns {() => T | undefined} Function that returns the next element.
+ * @throws {TypeError} If array is not an array.
+ */
 export default function cycle<T>(array: T[]): () => T | undefined {
   if (!isArray(array)) {
     throw new TypeError(`Expected an array for 'array'`);

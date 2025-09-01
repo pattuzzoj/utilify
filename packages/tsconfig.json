@@ -72,6 +72,6 @@
   },
   "include": [
     "./src/**/*.ts"
-, "src/index.ts", "tests/array.test.ts", "tests/browser.test.ts", "tests/colors.test.ts", "tests/types.test.ts", "tests/string.test.ts", "tests/regex.test.ts", "tests/object.test.ts", "tests/math.test.ts", "tests/function.test.ts", "tests/env.test.ts", "tests/date.test.ts", "tests/crypto.test.ts", "src/function/when.ts", "draw/isFileExtension.ts"  ],
+, "src/index.ts", "tests/array.test.ts", "tests/browser.test.ts", "tests/colors.test.ts", "tests/types.test.ts", "tests/string.test.ts", "tests/regex.test.ts", "tests/object.test.ts", "tests/math.test.ts", "tests/function.test.ts", "tests/env.test.ts", "tests/date.test.ts", "tests/crypto.test.ts", "src/function/when.ts", "draw/isFileExtension.ts", "src/array/adjust.ts"  ],
   "exclude": ["src/**/tests", "node_modules", "dist"]
 }
