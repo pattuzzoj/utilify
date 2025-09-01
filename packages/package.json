@@ -51,6 +51,7 @@
 	},
 	"scripts": {
 		"test": "vitest watch && vitest run --coverage",
+		"prebuild": "vitest run",
 		"build": "tsc && rollup -c"
 	},
 	"devDependencies": {
